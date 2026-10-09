@@ -4,6 +4,8 @@ import { ArrowRight, BookCheck, BookOpen, Clock3, GraduationCap, Sparkles, Users
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import StudentDashboard from '@/pages/platform/student-dashboard';
+import type { CourseCard } from '@/types/platform';
 
 type TeacherSummary = { totalStudents: number; activeStudents: number; averageProgress: number; awaitingReview: number; completedActivities: number; needsRevision: number };
 type StudentSummary = { progress: number; completed: number; remaining: number; caseStudies: number; level: string; lastActivity: string };
@@ -14,15 +16,16 @@ type Props = { mode: 'teacher' | 'student'; summary: TeacherSummary | StudentSum
 
 const statClass = 'border-0 bg-white shadow-sm ring-1 ring-slate-200/70';
 
-export default function Dashboard({ mode, summary, students = [], nextLesson, recentActivity = [], teacherReviews = [] }: Props) {
+export default function Dashboard({ mode, summary, students = [], nextLesson, recentActivity = [], teacherReviews = [], courses = [], program }: Props & { courses?: CourseCard[]; program?: string }) {
     const { auth } = usePage().props;
-    usePoll(15000, { only: ['teacherReviews', 'summary', 'nextLesson', 'recentActivity'] }, { autoStart: mode === 'student' });
+    usePoll(15000, { only: ['courses', 'teacherReviews', 'summary', 'nextLesson', 'recentActivity'] }, { autoStart: mode === 'student' });
     useEffect(() => {
         if (mode !== 'student') return;
-        const refresh = () => router.reload({ only: ['teacherReviews', 'summary', 'nextLesson', 'recentActivity'] });
+        const refresh = () => router.reload({ only: ['courses', 'teacherReviews', 'summary', 'nextLesson', 'recentActivity'] });
         window.addEventListener('focus', refresh);
         return () => window.removeEventListener('focus', refresh);
     }, [mode]);
+    if (mode === 'student') return <StudentDashboard courses={courses} program={program} reviews={teacherReviews} />;
     if (mode === 'teacher') {
         const s = summary as TeacherSummary;
         const stats = [

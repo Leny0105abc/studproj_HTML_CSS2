@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Middleware\HandleInertiaRequests;
 use App\Models\Lesson;
 use App\Models\StudentLessonProgress;
 use App\Models\Submission;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Inertia\Testing\AssertableInertia as Assert;
 
 function makeLesson(int $number): Lesson
@@ -131,7 +133,7 @@ test('student remarks refresh through partial requests and remain private', func
     $this->actingAs($teacher)->post('/submissions/'.$submission->id.'/review', ['status' => 'needs_revision', 'comment' => 'Please add a paragraph.'])->assertRedirect();
     $this->actingAs($student)->get('/code-lab/'.$lesson->id, [
         'X-Inertia' => 'true', 'X-Inertia-Partial-Component' => 'code-lab/show',
-        'X-Inertia-Version' => app(\App\Http\Middleware\HandleInertiaRequests::class)->version(\Illuminate\Http\Request::create('/')),
+        'X-Inertia-Version' => app(HandleInertiaRequests::class)->version(Request::create('/')),
         'X-Inertia-Partial-Data' => 'feedback,workspace,nextLesson',
     ])->assertJsonPath('props.feedback.feedback.0.comment', 'Please add a paragraph.')
         ->assertJsonPath('props.feedback.feedback.0.teacher.name', $teacher->name)

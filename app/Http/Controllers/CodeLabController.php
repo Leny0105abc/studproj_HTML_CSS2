@@ -6,6 +6,10 @@ use App\Models\ActivityLog;
 use App\Models\Lesson;
 use App\Models\StudentLessonProgress;
 use App\Models\Submission;
+use App\Models\User;
+use App\Services\CourseAccess;
+use App\Services\CourseProgress;
+use App\Services\LessonAccess;
 use App\Services\LessonCodeValidator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,11 +35,11 @@ class CodeLabController extends Controller
 
     private function ensureUnlocked(Request $request, Lesson $lesson): void
     {
-        $progress = StudentLessonProgress::where('user_id', $request->user()->id)->where('lesson_id', $lesson->id)->first();
-        $previous = Lesson::where('position', '<', $lesson->position)->where('is_published', true)->orderByDesc('position')->first();
-        $previousComplete = ! $previous || StudentLessonProgress::where('user_id', $request->user()->id)
-            ->where('lesson_id', $previous->id)->where('status', 'completed')->exists();
-        abort_unless($previousComplete || $progress?->is_manually_unlocked, 403, 'Complete the previous lesson first.');
+        app(LessonAccess::class)->authorize($request->user(), $lesson);
+        abort_unless($lesson->usesLegacyLab(), 404);
+        if ($lesson->course) {
+            app(CourseAccess::class)->enroll($request->user(), $lesson->course);
+        }
     }
 
     public function show(Request $request, Lesson $lesson, LessonCodeValidator $validator): Response
@@ -56,8 +60,10 @@ class CodeLabController extends Controller
             'question' => $question['question'], 'choices' => $question['choices'],
         ])->all();
         $previousLesson = Lesson::where('position', '<', $lesson->position)
+            ->where('course_id', $lesson->course_id)
             ->where('is_published', true)->orderByDesc('position')->first();
         $nextLesson = Lesson::where('position', '>', $lesson->position)
+            ->where('course_id', $lesson->course_id)
             ->where('is_published', true)->orderBy('position')->first();
         $nextProgress = $nextLesson ? StudentLessonProgress::where('user_id', $request->user()->id)
             ->where('lesson_id', $nextLesson->id)->first() : null;
@@ -65,6 +71,7 @@ class CodeLabController extends Controller
         $workspace = $progress->only('html_code', 'css_code', 'js_code', 'extra_files', 'status', 'version', 'last_saved_at', 'quiz_score', 'quiz_answers', 'quiz_passed_at', 'activity_passed_at');
         $workspace['html_code'] = $validator->normalizeLegacyHtml($lesson, $workspace['html_code'] ?? '');
         $workspace['is_read_only'] = $this->teacherCompleted($request->user()->id, $lesson->id);
+        $progress->update(['last_accessed_at' => now()]);
 
         return Inertia::render('code-lab/show', [
             'lesson' => $lessonData,
@@ -240,6 +247,9 @@ class CodeLabController extends Controller
 
     private function log(int $userId, string $event, Lesson $lesson, array $metadata = []): void
     {
+        if ($lesson->course) {
+            app(CourseProgress::class)->sync(User::findOrFail($userId), $lesson->course);
+        }
         ActivityLog::create(['user_id' => $userId, 'event' => $event, 'subject_type' => Lesson::class, 'subject_id' => $lesson->id, 'metadata' => $metadata, 'occurred_at' => now()]);
     }
 }

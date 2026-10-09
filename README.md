@@ -1,6 +1,8 @@
-# CodeLab Academy
+# CodeLab
 
-CodeLab Academy is a responsive HTML and CSS learning platform for teachers and students. Students follow a locked learning path, write code in a live workspace, preview it in a sandboxed iframe, save drafts, submit activities, and receive feedback. Teachers create accounts, monitor progress, review versioned submissions, unlock lessons, and export reports.
+CodeLab is a multi-course learning platform for High School and College students, expanded from the existing HTML/CSS application. Students follow a locked learning path, write code in a live workspace, preview it in a sandboxed iframe, save drafts, submit activities, and receive feedback. Teachers create accounts, monitor progress, review versioned submissions, unlock lessons, and export reports.
+
+See the [implementation report](docs/CODELAB-IMPLEMENTATION.md) and [installation / upgrade guide](docs/CODELAB-UPGRADE.md). New courses, modules, enrollments and assessments are managed through `/admin`; only the existing HTML/CSS course is initially published.
 
 ## Features
 
@@ -84,16 +86,16 @@ To update an existing installation without recreating accounts or student work, 
 
 ```bash
 php artisan migrate --force
-php artisan db:seed --class=CurriculumSeeder --force
+php artisan codelab:admin EXISTING_TEACHER_USERNAME
 npm run build
 ```
 
-The curriculum seeder updates lesson numbers 1–15 in place. It does not seed users or delete progress, saved code, or submissions. Previously completed lessons remain completed. Students with older in-progress code can use Reset in the editor to start from the new lesson's starter page.
+The platform migration associates existing HTML/CSS content with its course and preserves student records. Do not run development seeders on an existing school database. See [CodeLab upgrade instructions](docs/CODELAB-UPGRADE.md) for backups, administrator setup and release checks.
 
 ## Environment variables
 
 ```env
-APP_NAME="CodeLab Academy"
+APP_NAME="CodeLab"
 APP_URL=http://studproj_html_css.test
 DEV_TEACHER_PASSWORD=teacher123
 OPENAI_API_KEY=
@@ -127,7 +129,7 @@ Laravel requires a persistent PHP runtime. For Vercel, deploy through a supporte
 
 - Student HTML is rendered only inside an iframe without script permissions.
 - Every student save and submission query is scoped to the authenticated user.
-- Teacher routes require the teacher role; student code routes require the student role.
+- Management routes require admin or assigned teacher access; student code routes require the student role and course access.
 - CSRF protection, validation, login throttling, hashed passwords, secure random temporary passwords, transactions, and stale-save rejection are enabled.
 - AI keys and database credentials remain server-side.
 

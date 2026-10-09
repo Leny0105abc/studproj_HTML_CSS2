@@ -8,6 +8,7 @@ use App\Models\Lesson;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -16,9 +17,13 @@ class CaseStudyLabController extends Controller
 {
     private function ensureUnlocked(Request $request, CaseStudy $caseStudy): void
     {
-        $lessonCount = Lesson::where('is_published', true)->count();
-        abort_unless($request->user()->lessonProgress()->where('status', 'completed')->count() >= $lessonCount, 403, 'Complete all lessons first.');
-        $previous = CaseStudy::where('number', '<', $caseStudy->number)->where('is_published', true)->orderByDesc('number')->first();
+        abort_unless($caseStudy->is_published, 404);
+        if ($caseStudy->course) {
+            Gate::authorize('view', $caseStudy->course);
+        }
+        $lessonIds = Lesson::where('course_id', $caseStudy->course_id)->where('is_published', true)->pluck('id');
+        abort_unless($request->user()->lessonProgress()->whereIn('lesson_id', $lessonIds)->where('status', 'completed')->count() >= $lessonIds->count(), 403, 'Complete all course lessons first.');
+        $previous = CaseStudy::where('course_id', $caseStudy->course_id)->where('number', '<', $caseStudy->number)->where('is_published', true)->orderByDesc('number')->first();
         if ($previous) {
             abort_unless(DB::table('case_study_progress')->where('user_id', $request->user()->id)->where('case_study_id', $previous->id)->where('status', 'completed')->exists(), 403, 'Complete the previous case study first.');
         }
@@ -39,7 +44,7 @@ class CaseStudyLabController extends Controller
         $this->log($request->user()->id, 'case_study_started', $caseStudy);
 
         return Inertia::render('case-studies/show', [
-            'caseStudy' => $caseStudy, 'workspace' => $progress,
+            'caseStudy' => $caseStudy->load('course'), 'workspace' => $progress,
             'feedback' => Submission::where('user_id', $request->user()->id)->where('case_study_id', $caseStudy->id)->with('feedback')->latest('version')->first(),
         ]);
     }

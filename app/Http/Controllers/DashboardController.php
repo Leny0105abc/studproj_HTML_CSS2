@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson;
 use App\Models\Submission;
-use App\Models\User;
+use App\Services\CourseAccess;
+use App\Services\CourseProgress;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -14,24 +15,32 @@ class DashboardController extends Controller
     public function __invoke(Request $request): Response
     {
         $user = $request->user();
+        if ($user->role === 'admin') {
+            return app(PlatformDashboardController::class)($request, app(CourseProgress::class));
+        }
 
         if ($user->role === 'teacher') {
-            $students = User::query()->where('role', 'student')->withCount([
-                'lessonProgress as lessons_completed_count' => fn ($q) => $q->where('status', 'completed'),
-                'submissions as awaiting_review_count' => fn ($q) => $q->where('status', 'submitted'),
-            ])->with('lessonProgress:id,user_id,lesson_id,status,quiz_score')->latest('last_login_at')->take(8)->get();
-            $courseLessons = Lesson::where('is_published', true)->orderBy('position')->get(['id', 'number', 'title', 'level']);
+            $studentQuery = app(CourseAccess::class)->students($user);
+            $courseIds = app(CourseAccess::class)->visible($user)->pluck('id');
+            $courseLessons = Lesson::whereIn('course_id', $courseIds)->whereHas('course', fn ($q) => $q->where('slug', 'html-css'))->where('is_published', true)->orderBy('position')->get(['id', 'number', 'title', 'level']);
+            $lessonIds = $courseLessons->pluck('id');
+            $submissionQuery = Submission::where(fn ($q) => $q->whereHas('lesson', fn ($l) => $l->whereIn('course_id', $courseIds))
+                ->orWhereHas('caseStudy', fn ($c) => $c->whereIn('course_id', $courseIds)));
+            $students = (clone $studentQuery)->withCount([
+                'lessonProgress as lessons_completed_count' => fn ($q) => $q->whereIn('lesson_id', $lessonIds)->where('status', 'completed'),
+                'submissions as awaiting_review_count' => fn ($q) => $q->whereIn('lesson_id', $lessonIds)->where('status', 'submitted'),
+            ])->with(['lessonProgress' => fn ($q) => $q->whereIn('lesson_id', $lessonIds)->select('id', 'user_id', 'lesson_id', 'status', 'quiz_score')])->latest('last_login_at')->take(8)->get();
             $lessonCount = max($courseLessons->count(), 1);
 
             return Inertia::render('dashboard', [
                 'mode' => 'teacher',
                 'summary' => [
-                    'totalStudents' => User::where('role', 'student')->count(),
-                    'activeStudents' => User::where('role', 'student')->where('status', 'active')->count(),
+                    'totalStudents' => (clone $studentQuery)->count(),
+                    'activeStudents' => (clone $studentQuery)->where('status', 'active')->count(),
                     'averageProgress' => round($students->avg(fn ($student) => ($student->lessons_completed_count / $lessonCount) * 100) ?? 0),
-                    'awaitingReview' => Submission::where('status', 'submitted')->count(),
-                    'completedActivities' => Submission::where('status', 'completed')->count(),
-                    'needsRevision' => Submission::where('status', 'needs_revision')->count(),
+                    'awaitingReview' => (clone $submissionQuery)->where('status', 'submitted')->count(),
+                    'completedActivities' => (clone $submissionQuery)->where('status', 'completed')->count(),
+                    'needsRevision' => (clone $submissionQuery)->where('status', 'needs_revision')->count(),
                 ],
                 'students' => $students->map(function ($student) use ($courseLessons, $lessonCount) {
                     $progress = $student->lessonProgress->keyBy('lesson_id');
@@ -65,6 +74,8 @@ class DashboardController extends Controller
 
         return Inertia::render('dashboard', [
             'mode' => 'student',
+            'courses' => app(CourseProgress::class)->cards($user),
+            'program' => $user->educationLevel?->name ?? 'High School',
             'summary' => [
                 'progress' => $lessons->count() ? round(($completed / $lessons->count()) * 100) : 0,
                 'completed' => $completed,

@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\EducationLevel;
 use App\Models\Lesson;
 use App\Models\StudentLessonProgress;
 use App\Models\Submission;
 use App\Models\User;
+use App\Services\CourseAccess;
+use App\Services\LessonAccess;
 use App\Services\StudentAccountService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -18,7 +23,7 @@ class StudentController extends Controller
 {
     public function index(Request $request): Response
     {
-        $query = User::where('role', 'student')->withCount([
+        $query = app(CourseAccess::class)->students($request->user())->withCount([
             'lessonProgress as completed_count' => fn ($q) => $q->where('status', 'completed'),
             'submissions as awaiting_review_count' => fn ($q) => $q->where('status', 'submitted'),
         ]);
@@ -49,34 +54,45 @@ class StudentController extends Controller
     {
         $data = $request->validate([
             'first_name' => 'required|string|max:80', 'middle_name' => 'nullable|string|max:80',
-            'last_name' => 'required|string|max:80', 'grade_level' => 'required|string|max:30',
-            'section' => 'required|string|max:50', 'lrn' => 'nullable|string|max:30|unique:users,lrn',
+            'last_name' => 'required|string|max:80', 'grade_level' => 'nullable|string|max:30',
+            'section' => 'nullable|string|max:50', 'lrn' => 'nullable|string|max:30|unique:users,lrn',
+            'education_level_id' => 'nullable|integer|exists:education_levels,id',
+            'school' => 'nullable|string|max:150', 'academic_program' => 'nullable|string|max:150',
         ]);
         $username = $accounts->username($data['first_name'], $data['last_name']);
         $password = $accounts->temporaryPassword();
         $name = collect([$data['first_name'], $data['middle_name'] ?? null, $data['last_name']])->filter()->join(' ');
 
-        User::create($data + [
+        $student = User::create($data + [
+            'education_level_id' => $data['education_level_id'] ?? EducationLevel::where('slug', 'high-school')->value('id'),
             'name' => $name, 'username' => $username, 'email' => $username.'@student.local',
             'password' => Hash::make($password), 'role' => 'student', 'status' => 'active',
             'must_change_password' => true, 'email_verified_at' => now(),
         ]);
+        if ($course = Course::where('slug', 'html-css')->first()) {
+            if (app(CourseAccess::class)->canAccess($student, $course)) {
+                app(CourseAccess::class)->enroll($student, $course);
+            }
+        }
 
         return back()->with('credentials', ['name' => $name, 'username' => $username, 'password' => $password]);
     }
 
     public function show(User $student): Response
     {
+        Gate::authorize('manage-student', $student);
         abort_unless($student->role === 'student', 404);
-        $progress = $student->lessonProgress()->get()->keyBy('lesson_id');
+        $courseIds = app(CourseAccess::class)->visible(request()->user())->pluck('id');
+        $progress = $student->lessonProgress()->whereHas('lesson', fn ($q) => $q->where(fn ($l) => $l->whereIn('course_id', $courseIds)->orWhereNull('course_id')))->get()->keyBy('lesson_id');
         $latestSubmissions = Submission::where('user_id', $student->id)->whereNotNull('lesson_id')
+            ->whereHas('lesson', fn ($q) => $q->where(fn ($l) => $l->whereIn('course_id', $courseIds)->orWhereNull('course_id')))
             ->orderByDesc('version')->get()->unique('lesson_id')->keyBy('lesson_id');
         $completedPrevious = true;
-        $lessons = Lesson::where('is_published', true)->orderBy('position')->get()
-            ->map(function (Lesson $lesson) use ($progress, $latestSubmissions, &$completedPrevious) {
+        $lessons = Lesson::where(fn ($q) => $q->whereIn('course_id', $courseIds)->orWhereNull('course_id'))->where('is_published', true)->with('course', 'courseLevel')->orderBy('position')->get()
+            ->map(function (Lesson $lesson) use ($student, $progress, $latestSubmissions, &$completedPrevious) {
                 $item = $progress->get($lesson->id);
                 $status = $item?->status ?? 'not_started';
-                $unlocked = $completedPrevious || (bool) $item?->is_manually_unlocked;
+                $unlocked = app(LessonAccess::class)->available($student, $lesson);
                 $completedPrevious = $status === 'completed';
 
                 return [
@@ -102,13 +118,16 @@ class StudentController extends Controller
                 'quizAverage' => $lessons->pluck('quiz_score')->filter(fn ($score) => $score !== null)->avg(),
                 'finalProjectStatus' => $lessons->first(fn ($row) => $row['lesson']['number'] === 15)['status'] ?? 'not_started',
             ],
-            'submissions' => $student->submissions()->with(['lesson:id,title,level', 'feedback'])->latest('submitted_at')->get(),
+            'submissions' => $student->submissions()->where(fn ($q) => $q->whereHas('lesson', fn ($l) => $l->where(fn ($c) => $c->whereIn('course_id', $courseIds)->orWhereNull('course_id')))
+                ->orWhereHas('caseStudy', fn ($c) => $c->where(fn ($s) => $s->whereIn('course_id', $courseIds)->orWhereNull('course_id'))))->with(['lesson:id,title,level', 'feedback'])->latest('submitted_at')->get(),
             'activity' => $student->activityLogs()->latest('occurred_at')->take(30)->get(),
         ]);
     }
 
     public function update(Request $request, User $student)
     {
+        Gate::authorize('manage-student', $student);
+        abort_unless($student->role === 'student', 404);
         $student->update($request->validate(['status' => 'required|in:active,disabled,archived']));
 
         return back()->with('success', 'Student status updated.');
@@ -117,6 +136,7 @@ class StudentController extends Controller
     public function resetPassword(User $student, StudentAccountService $accounts)
     {
         abort_unless($student->role === 'student', 404);
+        Gate::authorize('manage-student', $student);
         $password = $accounts->temporaryPassword();
         DB::transaction(function () use ($student, $password) {
             $student->update([
@@ -135,6 +155,7 @@ class StudentController extends Controller
     public function destroy(Request $request, User $student)
     {
         abort_unless($student->role === 'student', 404);
+        Gate::authorize('manage-student', $student);
         $request->validate(['confirmed' => 'required|accepted']);
         $name = $student->name;
 
@@ -153,6 +174,11 @@ class StudentController extends Controller
 
     public function unlock(Request $request, User $student, Lesson $lesson)
     {
+        Gate::authorize('manage-student', $student);
+        if ($lesson->course) {
+            Gate::authorize('update', $lesson->course);
+            abort_unless(app(CourseAccess::class)->canAccess($student, $lesson->course), 403, 'Assign course access before unlocking its lesson.');
+        }
         $progress = StudentLessonProgress::firstOrNew(['user_id' => $student->id, 'lesson_id' => $lesson->id]);
         if (! $progress->exists) {
             $progress->status = 'not_started';

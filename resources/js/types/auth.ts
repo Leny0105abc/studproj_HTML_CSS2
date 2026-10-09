@@ -3,7 +3,7 @@ export type User = {
     name: string;
     email: string;
     username: string;
-    role: 'teacher' | 'student';
+    role: 'admin' | 'teacher' | 'student';
     status: string;
     avatar?: string;
     email_verified_at: string | null;

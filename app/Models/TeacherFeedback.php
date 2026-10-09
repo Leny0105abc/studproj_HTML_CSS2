@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TeacherFeedback extends Model
 {
@@ -10,7 +11,7 @@ class TeacherFeedback extends Model
 
     protected $guarded = [];
 
-    public function teacher(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function teacher(): BelongsTo
     {
         return $this->belongsTo(User::class, 'teacher_id');
     }
