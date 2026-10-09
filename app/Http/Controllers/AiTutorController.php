@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
+use App\Services\LessonAccess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -10,6 +11,9 @@ class AiTutorController extends Controller
 {
     public function __invoke(Request $request, Lesson $lesson)
     {
+        if ($lesson->exists) {
+            app(LessonAccess::class)->authorize($request->user(), $lesson);
+        }
         $data = $request->validate(['question' => 'required|string|max:2000', 'html' => 'nullable|string|max:50000', 'css' => 'nullable|string|max:50000']);
         if (! config('services.openai.key')) {
             return response()->json(['message' => 'AI tutoring is not configured yet. Ask your teacher to add an AI API key.'], 503);

@@ -4,12 +4,13 @@ use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\Settings\SecurityController;
 use Illuminate\Auth\Middleware\RequirePassword;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('change-temporary-password', function () {
-        abort_unless(request()->user()->role === 'student', 403);
+        abort_unless(request()->user()->role === 'student' || request()->user()->must_change_password, 403);
 
-        return \Inertia\Inertia::render('auth/change-temporary-password');
+        return Inertia::render('auth/change-temporary-password');
     })->name('student-password.edit');
     Route::redirect('settings', '/settings/profile');
 

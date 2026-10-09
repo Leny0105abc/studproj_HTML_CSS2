@@ -2,9 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 /**
@@ -16,6 +18,16 @@ class UserFactory extends Factory
      * The current password being used by the factory.
      */
     protected static ?string $password;
+
+    public function configure(): static
+    {
+        return $this->afterCreating(function (User $user) {
+            // A factory teacher represents the existing HTML/CSS classroom.
+            if ($user->role === 'teacher' && Schema::hasTable('courses') && ($course = Course::where('slug', 'html-css')->first())) {
+                $user->taughtCourses()->syncWithoutDetaching([$course->id]);
+            }
+        });
+    }
 
     /**
      * Define the model's default state.

@@ -2,9 +2,14 @@
 
 namespace App\Providers;
 
+use App\Models\Course;
+use App\Models\User;
+use App\Policies\CoursePolicy;
+use App\Services\CourseAccess;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 
@@ -24,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+        Gate::policy(Course::class, CoursePolicy::class);
+        Gate::define('platform-admin', fn (User $user) => $user->role === 'admin' && $user->status === 'active');
+        Gate::define('manage-student', fn (User $user, User $student) => $user->status === 'active' && in_array($user->role, ['admin', 'teacher']) &&
+            app(CourseAccess::class)->students($user)->whereKey($student->id)->exists());
     }
 
     /**

@@ -18,11 +18,15 @@ import type { NavItem } from '@/types';
 
 export function AppSidebar() {
     const { auth } = usePage().props;
-    const isTeacher = auth.user.role === 'teacher';
+    const isTeacher = auth.user.role !== 'student';
     const mainNavItems: NavItem[] = isTeacher
         ? [
               { title: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
               { title: 'Students', href: '/students', icon: Users },
+              { title: 'Courses', href: '/admin/courses', icon: BookOpen },
+              { title: 'Modules & Lessons', href: '/admin/lessons', icon: BookOpen },
+              { title: 'Activities', href: '/activities', icon: ClipboardCheck },
+              { title: 'Course progress', href: '/admin/progress', icon: BarChart3 },
               { title: 'Lessons', href: '/lessons', icon: BookOpen },
               { title: 'Submissions', href: '/submissions', icon: ClipboardCheck },
               { title: 'Case Studies', href: '/case-studies', icon: FlaskConical },
@@ -30,8 +34,10 @@ export function AppSidebar() {
           ]
         : [
               { title: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-              { title: 'Lessons', href: '/lessons', icon: BookOpen },
-              { title: 'Case Studies', href: '/case-studies', icon: FlaskConical },
+              { title: 'My courses', href: '/my-courses', icon: BookOpen },
+              { title: 'Activities', href: '/activities', icon: ClipboardCheck },
+              { title: 'Projects', href: '/case-studies', icon: FlaskConical },
+              { title: 'Learning profile', href: '/learning-profile', icon: Users },
           ];
     return (
         <Sidebar collapsible="icon" variant="inset">

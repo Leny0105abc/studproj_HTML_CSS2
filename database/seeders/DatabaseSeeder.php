@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\CaseStudy;
+use App\Models\Course;
+use App\Models\EducationLevel;
 use App\Models\User;
 use App\Services\StudentAccountService;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -30,10 +32,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Mia Student', 'first_name' => 'Mia', 'last_name' => 'Student',
             'email' => 'mia.student@student.local', 'password' => Hash::make($studentPassword),
             'role' => 'student', 'grade_level' => '10', 'section' => 'Ruby',
+            'education_level_id' => EducationLevel::where('slug', 'high-school')->value('id'),
             'status' => 'active', 'must_change_password' => true, 'email_verified_at' => now(),
         ]);
 
         $this->call(CurriculumSeeder::class);
+        $teacher = User::where('username', 'teacher')->firstOrFail();
+        $teacher->taughtCourses()->syncWithoutDetaching([Course::where('slug', 'html-css')->value('id')]);
 
         $cases = [
             ['Personal Profile Page', 'A student needs a polished one-page profile to introduce their interests and goals.', ['Semantic profile content', 'Accessible image', 'Contact link']],
@@ -45,6 +50,7 @@ class DatabaseSeeder extends Seeder
         foreach ($cases as $index => [$title, $scenario, $requirements]) {
             CaseStudy::updateOrCreate(['number' => $index + 1], [
                 'title' => $title, 'slug' => Str::slug($title), 'scenario' => $scenario,
+                'course_id' => Course::where('slug', 'html-css')->value('id'),
                 'objectives' => ['Plan a page from a realistic brief', 'Apply HTML and CSS independently', 'Review and improve the result'],
                 'requirements' => $requirements, 'instructions' => 'Plan the content, build the semantic HTML, add responsive styling, test the result, then save and submit.',
                 'concepts' => ['Semantic HTML', 'CSS layout', 'Accessibility', 'Responsive design'],

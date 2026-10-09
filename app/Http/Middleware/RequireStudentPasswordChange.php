@@ -11,7 +11,7 @@ class RequireStudentPasswordChange
     public function handle(Request $request, Closure $next): Response
     {
         $user = $request->user();
-        if ($user?->role === 'student' && $user->must_change_password
+        if ($user && $user->must_change_password
             && ! $request->routeIs('student-password.edit', 'user-password.update', 'logout')) {
             return redirect()->route('student-password.edit');
         }

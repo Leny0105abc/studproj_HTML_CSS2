@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -11,6 +12,7 @@ class CurriculumSeeder extends Seeder
     public function run(): void
     {
         $curriculum = require config_path('curriculum.php');
+        $course = Course::where('slug', 'html-css')->first();
 
         foreach ($curriculum as $number => $content) {
             $isHtmlOnly = $number <= 10;
@@ -21,6 +23,8 @@ class CurriculumSeeder extends Seeder
             $exampleHtml = $content['example_html'];
 
             Lesson::updateOrCreate(['number' => $number], [
+                'course_id' => $course?->id,
+                'course_level_id' => $course?->levels()->where('name', $content['level'])->value('id'),
                 'position' => $number,
                 'title' => $title,
                 'slug' => 'lesson-'.$number.'-'.Str::slug($title),
