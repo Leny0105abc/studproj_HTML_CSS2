@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CaseStudy;
+use App\Models\EducationLevel;
 use App\Models\User;
 use App\Services\StudentAccountService;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(EducationLevelSeeder::class);
         User::updateOrCreate(['username' => 'teacher'], [
             'name' => 'CodeLab Teacher', 'email' => 'teacher@codelab.local',
             'password' => Hash::make(env('DEV_TEACHER_PASSWORD', 'teacher123')),
@@ -26,10 +28,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $studentPassword = app(StudentAccountService::class)->temporaryPassword();
-        User::updateOrCreate(['username' => 'mia.student'], [
+        $student = User::firstOrCreate(['username' => 'mia.student'], [
             'name' => 'Mia Student', 'first_name' => 'Mia', 'last_name' => 'Student',
             'email' => 'mia.student@student.local', 'password' => Hash::make($studentPassword),
             'role' => 'student', 'grade_level' => '10', 'section' => 'Ruby',
+            'education_level_id' => EducationLevel::where('slug', 'high-school')->value('id'),
             'status' => 'active', 'must_change_password' => true, 'email_verified_at' => now(),
         ]);
 
@@ -56,6 +59,6 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->command?->info('Development teacher: teacher / '.env('DEV_TEACHER_PASSWORD', 'teacher123'));
-        $this->command?->info('Development student: mia.student / '.$studentPassword);
+        $this->command?->info($student->wasRecentlyCreated ? 'Development student: mia.student / '.$studentPassword : 'Existing mia.student account and credentials preserved.');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson;
 use App\Models\User;
+use App\Services\CourseAccess;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -20,7 +21,7 @@ class ReportController extends Controller
             'submissions as submissions_count',
         ])->orderBy('last_name')->get()->map(fn ($s) => [
             'name' => $s->name, 'username' => $s->username, 'grade' => $s->grade_level, 'section' => $s->section,
-            'completed' => $s->completed, 'total' => $total, 'progress' => round($s->completed / $total * 100),
+            'completed' => $s->lessonProgress()->whereIn('lesson_id', CourseAccess::lessons($s)->pluck('id'))->where('status', 'completed')->count(), 'total' => CourseAccess::lessons($s)->count(), 'progress' => round($s->lessonProgress()->whereIn('lesson_id', CourseAccess::lessons($s)->pluck('id'))->where('status', 'completed')->count() / max(CourseAccess::lessons($s)->count(), 1) * 100),
             'submissions' => $s->submissions_count, 'status' => $s->status,
         ]);
     }

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Python runner verification</title>
+    </head>
+    <body>
+        <h1>CodeLab Python runner verification</h1>
+        <iframe
+            id="runtime"
+            sandbox="allow-scripts"
+            src="/python-sandbox.html"
+            hidden
+        ></iframe>
+        <label for="code">Python code</label
+        ><textarea id="code" rows="12" cols="85">print("Hello World")</textarea
+        ><br />
+        <label for="input">Program Input</label
+        ><textarea id="input" rows="3"></textarea><br />
+        <label for="rules">Validation rules JSON</label
+        ><textarea id="rules">{}</textarea><br />
+        <button id="run" disabled>Run</button><button id="stop">Stop</button>
+        <button id="examples">Run all 30 curriculum examples</button>
+        <h2>OUTPUT</h2>
+        <pre id="output">Connecting…</pre>
+        <script>
+            let port;
+            document.getElementById('runtime').onload = () => {
+                const channel = new MessageChannel();
+                port = channel.port1;
+                port.onmessage = ({ data }) => {
+                    if (data.type === 'ready') {
+                        document.getElementById('run').disabled = false;
+                        document.getElementById('output').textContent = 'Ready';
+                    } else if (data.type === 'running')
+                        document.getElementById('output').textContent =
+                            'Running…';
+                    else
+                        document.getElementById('output').textContent =
+                            JSON.stringify(data, null, 2);
+                };
+                document
+                    .getElementById('runtime')
+                    .contentWindow.postMessage('codelab-python-connect', '*', [
+                        channel.port2,
+                    ]);
+            };
+            document.getElementById('run').onclick = () => {
+                document.getElementById('output').textContent = 'Loading…';
+                port.postMessage({
+                    type: 'run',
+                    code: document.getElementById('code').value,
+                    input: document.getElementById('input').value,
+                    rules: JSON.parse(document.getElementById('rules').value),
+                });
+            };
+            document.getElementById('stop').onclick = () =>
+                port.postMessage({ type: 'stop' });
+            document.getElementById('examples').onclick = async () => {
+                const lessons = await (await fetch('/examples.json')).json();
+                const source = `import json, io, contextlib, builtins\n_lessons = json.loads(${JSON.stringify(JSON.stringify(lessons))})\n_original_input = builtins.input\nfor _index, _lesson in enumerate(_lessons):\n    _inputs = iter(["Juan", "18"] if _index == 3 else ["2"])\n    builtins.input = lambda prompt="": next(_inputs)\n    try:\n        with contextlib.redirect_stdout(io.StringIO()):\n            exec(compile(_lesson["example_python"], _lesson["title"], "exec"), {})\n        print("PASS:", _lesson["title"])\n    except Exception as error:\n        print("FAIL:", _lesson["title"], type(error).__name__, str(error))\n    finally:\n        builtins.input = _original_input\nprint("Finished 30 examples")`;
+                document.getElementById('code').value = source;
+                document.getElementById('rules').value = '{}';
+                document.getElementById('run').click();
+            };
+        </script>
+    </body>
+</html>

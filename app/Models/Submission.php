@@ -12,7 +12,7 @@ class Submission extends Model
 
     protected function casts(): array
     {
-        return ['submitted_at' => 'datetime', 'reviewed_at' => 'datetime', 'extra_files' => 'array'];
+        return ['programming_workspace' => 'array', 'submitted_at' => 'datetime', 'reviewed_at' => 'datetime', 'wordpress_evidence' => 'array', 'extra_files' => 'array', 'rubric_scores' => 'array'];
     }
 
     public function user(): BelongsTo

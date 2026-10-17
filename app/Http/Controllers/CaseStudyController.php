@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CaseStudy;
+use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,10 +14,11 @@ class CaseStudyController extends Controller
 {
     public function index(Request $request): Response
     {
-        $lessonsComplete = $request->user()->role === 'teacher' || $request->user()->lessonProgress()->where('status', 'completed')->count() >= Lesson::where('is_published', true)->count();
+        $allowed = $request->user()->role === 'teacher' || Course::where('slug', 'html-css')->first()?->accessibleTo($request->user());
+        $lessonsComplete = $allowed && ($request->user()->role === 'teacher' || $request->user()->lessonProgress()->where('status', 'completed')->count() >= Lesson::where('is_published', true)->count());
         $progress = DB::table('case_study_progress')->where('user_id', $request->user()->id)->get()->keyBy('case_study_id');
         $previousComplete = $lessonsComplete;
-        $items = CaseStudy::where('is_published', true)->orderBy('number')->get()->map(function ($case) use ($request, $progress, &$previousComplete) {
+        $items = CaseStudy::where('is_published', true)->when(! $allowed, fn ($q) => $q->whereRaw('1 = 0'))->orderBy('number')->get()->map(function ($case) use ($request, $progress, &$previousComplete) {
             $p = $progress->get($case->id);
             $unlocked = $request->user()->role === 'teacher' || $previousComplete;
             $status = $p->status ?? ($unlocked ? 'not_started' : 'locked');

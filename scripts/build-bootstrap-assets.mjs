@@ -1,0 +1,10 @@
+import {readFile,writeFile,mkdir,copyFile} from 'node:fs/promises';
+const config=JSON.parse(await readFile('resources/bootstrap/config.json','utf8'));
+const pkg=JSON.parse(await readFile('node_modules/bootstrap/package.json','utf8'));
+if(config.version!==pkg.version)throw Error('Bootstrap config/dependency versions differ.');
+await mkdir('public/bootstrap-assets',{recursive:true});
+await copyFile('node_modules/bootstrap/dist/css/bootstrap.min.css','public/bootstrap-assets/'+config.css);
+await copyFile('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js','public/bootstrap-assets/'+config.bundle);
+await copyFile('node_modules/bootstrap/LICENSE','public/bootstrap-assets/LICENSE.txt');
+await writeFile('public/bootstrap-assets/version.json',JSON.stringify(config)+'\n');
+console.log('Bootstrap '+config.version+' CSS, bundle with Popper, and MIT license copied locally.');

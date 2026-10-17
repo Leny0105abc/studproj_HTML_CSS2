@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\EducationLevel;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -35,6 +36,8 @@ class UserFactory extends Factory
             'two_factor_recovery_codes' => null,
             'two_factor_confirmed_at' => null,
             'role' => 'student',
+            // Explicit High School fixture; production account creation requires selection.
+            'education_level_id' => fn () => EducationLevel::where('slug', 'high-school')->value('id'),
             'status' => 'active',
         ];
     }

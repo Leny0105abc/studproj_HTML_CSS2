@@ -1,7 +1,13 @@
 import { Link } from '@inertiajs/react';
-import { BarChart3, BookOpen, ClipboardCheck, FlaskConical, LayoutDashboard, Users } from 'lucide-react';
+import {
+    BarChart3,
+    BookOpen,
+    ClipboardCheck,
+    FlaskConical,
+    LayoutDashboard,
+    Users,
+} from 'lucide-react';
 import AppLogo from '@/components/app-logo';
-import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import {
@@ -23,15 +29,29 @@ export function AppSidebar() {
         ? [
               { title: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
               { title: 'Students', href: '/students', icon: Users },
+              { title: 'Courses', href: '/courses', icon: BookOpen },
               { title: 'Lessons', href: '/lessons', icon: BookOpen },
-              { title: 'Submissions', href: '/submissions', icon: ClipboardCheck },
-              { title: 'Case Studies', href: '/case-studies', icon: FlaskConical },
+              {
+                  title: 'Submissions',
+                  href: '/submissions',
+                  icon: ClipboardCheck,
+              },
+              {
+                  title: 'Case Studies',
+                  href: '/case-studies',
+                  icon: FlaskConical,
+              },
               { title: 'Reports', href: '/reports', icon: BarChart3 },
           ]
         : [
               { title: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+              { title: 'Courses', href: '/courses', icon: BookOpen },
               { title: 'Lessons', href: '/lessons', icon: BookOpen },
-              { title: 'Case Studies', href: '/case-studies', icon: FlaskConical },
+              {
+                  title: 'Case Studies',
+                  href: '/case-studies',
+                  icon: FlaskConical,
+              },
           ];
     return (
         <Sidebar collapsible="icon" variant="inset">

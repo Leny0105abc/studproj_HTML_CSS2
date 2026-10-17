@@ -1,0 +1,2361 @@
+[
+    {
+        "title": "Introduction to Python",
+        "level": "Basic",
+        "position": 1,
+        "objectives": [
+            "Identify common uses and syntax characteristics of Python.",
+            "Create a first program using print() and comments.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Introduction to Python through practical student-information examples and exercises.",
+        "explanation": "Key concepts: What Python is; uses and characteristics; syntax; print(); comments; running code.\n\nPython is a readable, general-purpose programming language used for automation, data analysis, web services, and applications. Statements normally occupy separate lines. Indentation groups statements. Text literals need quotation marks; # starts a comment. Run code in this browser lab and read output or error messages.",
+        "syntax": "# My first program\nprint(\"Hello World\")\nprint(\"Python is useful for automation\")",
+        "example_python": "# My first program\nprint(\"Hello World\")\nprint(\"Python is useful for automation\")",
+        "starter_python": "print(\"Student:\")\n# Add course, year level, and school.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Display your name, course, year level, and school on separate labelled lines.",
+        "expected_result": "A labelled report demonstrating introduction to python and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Missing quotes around text or misspelling print causes errors; # comments are not program output. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Python is a readable, general-purpose programming language used for automation, data analysis, web services, and applications. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which function displays text?",
+                "choices": ["print", "input", "type", "len"],
+                "answer": 0,
+                "explanation": "Correct: print. Review the key concepts and example in Introduction to Python."
+            },
+            {
+                "question": "What begins a single-line comment?",
+                "choices": ["//", "#", "<!--", "/*"],
+                "answer": 1,
+                "explanation": "Correct: #. Review the key concepts and example in Introduction to Python."
+            },
+            {
+                "question": "What is printed by print(\"Hello World\")?",
+                "choices": [
+                    "\"Hello World\"",
+                    "print",
+                    "Hello World",
+                    "Nothing"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Hello World. Review the key concepts and example in Introduction to Python."
+            },
+            {
+                "question": "What groups statements in Python?",
+                "choices": ["Braces", "Semicolons", "HTML tags", "Indentation"],
+                "answer": 3,
+                "explanation": "Correct: Indentation. Review the key concepts and example in Introduction to Python."
+            },
+            {
+                "question": "Which is a common Python use?",
+                "choices": [
+                    "Automation",
+                    "Only page styling",
+                    "Only images",
+                    "Only hardware assembly"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Automation. Review the key concepts and example in Introduction to Python."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Variables",
+        "level": "Basic",
+        "position": 2,
+        "objectives": [
+            "Create, assign, and reassign Python variables.",
+            "Apply valid naming rules, multiple assignment, and constant conventions.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Variables through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Creating variables; naming rules; assignment and reassignment; multiple assignment; constants.\n\nA variable is a name bound to a value. Use = to assign, and assign again to change the binding. Names start with a letter or underscore, contain letters, digits, or underscores, and cannot be reserved keywords. Names are case-sensitive. Multiple assignment binds several names at once. UPPER_CASE names signal constants by convention; Python does not enforce immutability.",
+        "syntax": "name = \"Maria\"\nage = 18\nscore = 95\nscore = 96\nyear, section = 1, \"A\"",
+        "example_python": "name = \"Maria\"\nage = 18\nscore = 95\nscore = 96\nyear, section = 1, \"A\"\nSCHOOL = \"CodeLab College\"\nprint(name, age, score)",
+        "starter_python": "name = \"\"\nage = 0\nscore = 0\n# Assign your student details and display them.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create and display variables for a student. Reassign a grade, use multiple assignment, and include a school constant.",
+        "expected_result": "A labelled report demonstrating variables and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Using == instead of = compares rather than assigns. A name starting with a digit is invalid. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A variable is a name bound to a value. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which assigns 18 to age?",
+                "choices": ["age == 18", "age = 18", "18 = age", "let age:18"],
+                "answer": 1,
+                "explanation": "Correct: age = 18. Review the key concepts and example in Variables."
+            },
+            {
+                "question": "Which variable name is valid?",
+                "choices": [
+                    "2student",
+                    "student-name",
+                    "student_name",
+                    "class"
+                ],
+                "answer": 2,
+                "explanation": "Correct: student_name. Review the key concepts and example in Variables."
+            },
+            {
+                "question": "What is score after score = 95 then score = 96?",
+                "choices": ["95", "191", "None", "96"],
+                "answer": 3,
+                "explanation": "Correct: 96. Review the key concepts and example in Variables."
+            },
+            {
+                "question": "What does SCHOOL conventionally represent?",
+                "choices": [
+                    "A constant",
+                    "A keyword",
+                    "A function",
+                    "A compulsory immutable value"
+                ],
+                "answer": 0,
+                "explanation": "Correct: A constant. Review the key concepts and example in Variables."
+            },
+            {
+                "question": "What does x, y = 1, 2 assign to y?",
+                "choices": ["1", "2", "3", "A tuple of both"],
+                "answer": 1,
+                "explanation": "Correct: 2. Review the key concepts and example in Variables."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Data Types",
+        "level": "Basic",
+        "position": 3,
+        "objectives": [
+            "Differentiate strings, integers, floats, and Booleans.",
+            "Inspect and convert values using type(), int(), float(), and str().",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Data Types through practical student-information examples and exercises.",
+        "explanation": "Key concepts: str; int; float; bool; type(); type conversion.\n\nA type describes how a value behaves. str stores text, int whole numbers, float decimal numbers, and bool True or False. type(value) reports the type. int(), float(), and str() convert suitable values; converting nonnumeric text to a number raises ValueError. True and False use capital initials.",
+        "syntax": "name = \"Juan\"\nage = 19\nheight = 1.67\nis_student = True\nprint(type(name), type(age), type(height), type(is_student))",
+        "example_python": "name = \"Juan\"\nage = 19\nheight = 1.67\nis_student = True\nprint(type(name), type(age), type(height), type(is_student))\nprint(int(\"20\") + 1)",
+        "starter_python": "name = \"Juan\"\n# Add int, float, and bool examples, then print their types.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create one example of each of the four types. Display their types and convert a numeric string into a number.",
+        "expected_result": "A labelled report demonstrating data types and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "\"19\" is text, not an integer. int(\"nineteen\") raises ValueError; True is case-sensitive. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A type describes how a value behaves. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What is the type of \"19\"?",
+                "choices": ["int", "float", "str", "bool"],
+                "answer": 2,
+                "explanation": "Correct: str. Review the key concepts and example in Data Types."
+            },
+            {
+                "question": "What is the type of 1.67?",
+                "choices": ["str", "int", "bool", "float"],
+                "answer": 3,
+                "explanation": "Correct: float. Review the key concepts and example in Data Types."
+            },
+            {
+                "question": "Which checks a value type?",
+                "choices": [
+                    "type(value)",
+                    "kind(value)",
+                    "value.type",
+                    "check(value)"
+                ],
+                "answer": 0,
+                "explanation": "Correct: type(value). Review the key concepts and example in Data Types."
+            },
+            {
+                "question": "What is int(\"20\") + 1?",
+                "choices": ["201", "21", "20", "An empty string"],
+                "answer": 1,
+                "explanation": "Correct: 21. Review the key concepts and example in Data Types."
+            },
+            {
+                "question": "Which is a Boolean literal?",
+                "choices": ["true", "\"True\"", "True", "1.5"],
+                "answer": 2,
+                "explanation": "Correct: True. Review the key concepts and example in Data Types."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Input and Output",
+        "level": "Basic",
+        "position": 4,
+        "objectives": [
+            "Collect user input and convert numeric values.",
+            "Display student information with print() and f-strings.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Input and Output through practical student-information examples and exercises.",
+        "explanation": "Key concepts: input(); print(); storing input; f-strings; numeric conversion.\n\ninput(prompt) displays a prompt and returns text. Store its result in a variable. Convert numeric input with int() or float() before arithmetic. An f-string starts with f before its quote and evaluates expressions in braces. Supply one line per input call in Program Input; running out of lines raises EOFError.",
+        "syntax": "name = input(\"Enter your name: \")\nage = int(input(\"Enter your age: \"))\nprint(f\"Welcome, {name}!\")\nprint(f\"Next year you will be {age + 1}.\")",
+        "example_python": "name = input(\"Enter your name: \")\nage = int(input(\"Enter your age: \"))\nprint(f\"Welcome, {name}!\")\nprint(f\"Next year you will be {age + 1}.\")",
+        "starter_python": "name = input(\"Name: \")\n# Read age, course, and year. Display a formatted report.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Provide Juan and 18 on separate input lines.",
+        "activity": "Ask for a student name, age, course, and year level. Display a formatted student-information summary.",
+        "expected_result": "A labelled report demonstrating input and output and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Adding text input to a number raises TypeError. Convert it first and provide enough input lines. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: input(prompt) displays a prompt and returns text. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What does input() return?",
+                "choices": [
+                    "Always an integer",
+                    "A Boolean",
+                    "A file",
+                    "A string"
+                ],
+                "answer": 3,
+                "explanation": "Correct: A string. Review the key concepts and example in Input and Output."
+            },
+            {
+                "question": "Which converts input to an integer?",
+                "choices": [
+                    "int(input())",
+                    "input(int)",
+                    "str(input())",
+                    "input() + 0"
+                ],
+                "answer": 0,
+                "explanation": "Correct: int(input()). Review the key concepts and example in Input and Output."
+            },
+            {
+                "question": "What prefix creates an f-string?",
+                "choices": ["s", "f", "i", "p"],
+                "answer": 1,
+                "explanation": "Correct: f. Review the key concepts and example in Input and Output."
+            },
+            {
+                "question": "How many lines are needed for two input calls?",
+                "choices": ["Zero", "Always one", "Two", "Ten"],
+                "answer": 2,
+                "explanation": "Correct: Two. Review the key concepts and example in Input and Output."
+            },
+            {
+                "question": "What does f\"Hi {name}\" do?",
+                "choices": [
+                    "Prints literal braces",
+                    "Deletes name",
+                    "Reads a file",
+                    "Inserts the value of name"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Inserts the value of name. Review the key concepts and example in Input and Output."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Operators",
+        "level": "Basic",
+        "position": 5,
+        "objectives": [
+            "Apply arithmetic, comparison, assignment, and logical operators.",
+            "Calculate results using precedence and parentheses.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Operators through practical student-information examples and exercises.",
+        "explanation": "Key concepts: +; -; *; /; %; **; //; assignment; comparisons; logical operators; precedence.\n\nArithmetic operators calculate values. / produces true division, // floor division, % a remainder, and ** a power. += updates a variable using its old value. == compares values while = assigns. Comparisons produce Booleans; and, or, and not combine or negate conditions. Parentheses make precedence explicit.",
+        "syntax": "a, b = 7, 2\nprint(a + b, a - b, a * b, a / b)\nprint(a // b, a % b, a ** b)\na += 1\nprint(a > b and b != 0)",
+        "example_python": "a, b = 7, 2\nprint(a + b, a - b, a * b, a / b)\nprint(a // b, a % b, a ** b)\na += 1\nprint(a > b and b != 0)\nprint((2 + 3) * 4)",
+        "starter_python": "a = float(input(\"First number: \"))\nb = float(input(\"Second number: \"))\n# Calculate results and guard against a zero divisor.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Read two numbers and display a calculator report with addition, subtraction, multiplication, division, floor division, remainder, and powers. Reject a zero divisor.",
+        "expected_result": "A labelled report demonstrating operators and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Division by zero raises ZeroDivisionError. // floors negative results; it does not simply discard decimals. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Arithmetic operators calculate values. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What is 7 // 2?",
+                "choices": ["3", "3.5", "1", "14"],
+                "answer": 0,
+                "explanation": "Correct: 3. Review the key concepts and example in Operators."
+            },
+            {
+                "question": "What is 7 % 2?",
+                "choices": ["3", "1", "3.5", "14"],
+                "answer": 1,
+                "explanation": "Correct: 1. Review the key concepts and example in Operators."
+            },
+            {
+                "question": "What is 2 ** 3?",
+                "choices": ["6", "5", "8", "9"],
+                "answer": 2,
+                "explanation": "Correct: 8. Review the key concepts and example in Operators."
+            },
+            {
+                "question": "Which compares equality?",
+                "choices": ["=", "+=", ":= only", "=="],
+                "answer": 3,
+                "explanation": "Correct: ==. Review the key concepts and example in Operators."
+            },
+            {
+                "question": "What is (2 + 3) * 4?",
+                "choices": ["20", "14", "9", "24"],
+                "answer": 0,
+                "explanation": "Correct: 20. Review the key concepts and example in Operators."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Conditional Statements",
+        "level": "Basic",
+        "position": 6,
+        "objectives": [
+            "Create decisions using if, elif, else, and nested conditions.",
+            "Validate and classify grades using comparison and logical conditions.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Conditional Statements through practical student-information examples and exercises.",
+        "explanation": "Key concepts: if; else; elif; comparisons; logical conditions; nested conditions.\n\nAn if block runs when its condition is true. elif checks another condition only when earlier ones were false; else handles the remaining cases. Put a colon after each header and indent its body consistently. Test the highest grade boundary first. Validate the range before classifying a grade. Nested conditions place one decision inside another.",
+        "syntax": "grade = 85\nif grade < 0 or grade > 100:\n    print(\"Invalid grade\")\nelif grade >= 90:\n    print(\"Excellent\")",
+        "example_python": "grade = 85\nif grade < 0 or grade > 100:\n    print(\"Invalid grade\")\nelif grade >= 90:\n    print(\"Excellent\")\nelif grade >= 80:\n    print(\"Very Good\")\nelif grade >= 75:\n    print(\"Passed\")\nelse:\n    print(\"Failed\")",
+        "starter_python": "grade = float(input(\"Grade: \"))\n# Validate the grade and classify it with if/elif/else.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create a grading program: 90–100 Excellent, 80–89 Very Good, 75–79 Passed, below 75 Failed. Reject grades outside 0–100.",
+        "expected_result": "A labelled report demonstrating conditional statements and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Check grade range before thresholds. Testing grade >= 75 before >= 90 misclassifies excellent grades. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: An if block runs when its condition is true. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which handles an alternative condition?",
+                "choices": ["repeat", "elif", "switch", "elseif"],
+                "answer": 1,
+                "explanation": "Correct: elif. Review the key concepts and example in Conditional Statements."
+            },
+            {
+                "question": "Which grade is Passed in this lesson?",
+                "choices": ["74", "90", "75", "101"],
+                "answer": 2,
+                "explanation": "Correct: 75. Review the key concepts and example in Conditional Statements."
+            },
+            {
+                "question": "What ends an if header?",
+                "choices": ["A period", "A comma", "A quote", "A colon"],
+                "answer": 3,
+                "explanation": "Correct: A colon. Review the key concepts and example in Conditional Statements."
+            },
+            {
+                "question": "When does else run?",
+                "choices": [
+                    "When earlier conditions are false",
+                    "Always first",
+                    "Only when true",
+                    "Never"
+                ],
+                "answer": 0,
+                "explanation": "Correct: When earlier conditions are false. Review the key concepts and example in Conditional Statements."
+            },
+            {
+                "question": "What does grade < 0 or grade > 100 detect?",
+                "choices": [
+                    "A passing grade",
+                    "An invalid grade",
+                    "An integer type",
+                    "A student name"
+                ],
+                "answer": 1,
+                "explanation": "Correct: An invalid grade. Review the key concepts and example in Conditional Statements."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Loops",
+        "level": "Basic",
+        "position": 7,
+        "objectives": [
+            "Create for and while loops with correct stopping conditions.",
+            "Apply range(), break, continue, and nested iteration.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Loops through practical student-information examples and exercises.",
+        "explanation": "Key concepts: for; while; range(); break; continue; nested loops.\n\nfor visits items in an iterable; range(start, stop) generates integers excluding stop. while repeats while a condition is true and needs a change that allows termination. break exits the nearest loop; continue skips the rest of the current iteration. A nested loop completes its inner repetitions for each outer value.",
+        "syntax": "total = 0\nfor number in range(1, 11):\n    total += number\nprint(total)\ncount = 1",
+        "example_python": "total = 0\nfor number in range(1, 11):\n    total += number\nprint(total)\ncount = 1\nwhile count <= 3:\n    print(count)\n    count += 1\nfor row in range(1, 3):\n    for col in range(1, 4):\n        if col == 2:\n            continue\n        print(row * col)",
+        "starter_python": "total = 0\n# Loop over 1–10, display values, and accumulate total.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Display 1–10, generate a multiplication table, and calculate a sum. Add a while loop with a terminating condition and demonstrate break or continue.",
+        "expected_result": "A labelled report demonstrating loops and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "range excludes its stop value. Forgetting to update a while condition can cause an infinite loop. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: for visits items in an iterable; range(start, stop) generates integers excluding stop. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Does range(1, 6) include 6?",
+                "choices": ["Yes", "Only in while", "No", "Only when printed"],
+                "answer": 2,
+                "explanation": "Correct: No. Review the key concepts and example in Loops."
+            },
+            {
+                "question": "Which exits the nearest loop?",
+                "choices": ["continue", "pass", "elif", "break"],
+                "answer": 3,
+                "explanation": "Correct: break. Review the key concepts and example in Loops."
+            },
+            {
+                "question": "Which skips the rest of an iteration?",
+                "choices": ["continue", "break", "stop", "return only"],
+                "answer": 0,
+                "explanation": "Correct: continue. Review the key concepts and example in Loops."
+            },
+            {
+                "question": "What helps prevent an infinite while loop?",
+                "choices": [
+                    "Removing indentation",
+                    "Updating its condition state",
+                    "Adding comments",
+                    "Printing a string"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Updating its condition state. Review the key concepts and example in Loops."
+            },
+            {
+                "question": "How many inner iterations do 2 outer and 3 inner iterations produce?",
+                "choices": ["5", "2", "6", "3"],
+                "answer": 2,
+                "explanation": "Correct: 6. Review the key concepts and example in Loops."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Lists",
+        "level": "Basic",
+        "position": 8,
+        "objectives": [
+            "Create and modify lists using indices and list methods.",
+            "Calculate grade count, extremes, and averages safely.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Lists through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Creating lists; indexing; modifying; adding and removing; len(); iteration; methods.\n\nA list is an ordered, mutable collection. Indexing starts at 0; negative indices count from the end. append adds to the end, insert adds at an index, remove deletes a matching value, and pop removes and returns an indexed item (the last by default). sort changes the list in place. len counts items. Avoid indexing beyond the list length.",
+        "syntax": "grades = [88, 75, 92]\ngrades[0] = 89\ngrades.append(81)\ngrades.insert(1, 90)\ngrades.remove(75)",
+        "example_python": "grades = [88, 75, 92]\ngrades[0] = 89\ngrades.append(81)\ngrades.insert(1, 90)\ngrades.remove(75)\nlast = grades.pop()\ngrades.sort()\nfor grade in grades:\n    print(grade)\nprint(\"Average:\", sum(grades) / len(grades))",
+        "starter_python": "grades = [88, 75, 92]\n# Update the list using its methods and calculate results.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Maintain a student-grade list using the five list methods. Show count, lowest, highest, and average; handle an empty list.",
+        "expected_result": "A labelled report demonstrating lists and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "An out-of-range index raises IndexError; remove of an absent value raises ValueError; sort returns None. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A list is an ordered, mutable collection. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What is the first list index?",
+                "choices": ["1", "-2", "The length", "0"],
+                "answer": 3,
+                "explanation": "Correct: 0. Review the key concepts and example in Lists."
+            },
+            {
+                "question": "Which adds at the end?",
+                "choices": ["append()", "remove()", "pop()", "sort()"],
+                "answer": 0,
+                "explanation": "Correct: append(). Review the key concepts and example in Lists."
+            },
+            {
+                "question": "Which removes by value?",
+                "choices": ["insert()", "remove()", "append()", "len()"],
+                "answer": 1,
+                "explanation": "Correct: remove(). Review the key concepts and example in Lists."
+            },
+            {
+                "question": "What does pop() return?",
+                "choices": [
+                    "Always None",
+                    "The length",
+                    "The removed item",
+                    "A sorted list"
+                ],
+                "answer": 2,
+                "explanation": "Correct: The removed item. Review the key concepts and example in Lists."
+            },
+            {
+                "question": "Does sort() modify the original list?",
+                "choices": ["No", "Only tuples", "Only strings", "Yes"],
+                "answer": 3,
+                "explanation": "Correct: Yes. Review the key concepts and example in Lists."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Functions",
+        "level": "Basic",
+        "position": 9,
+        "objectives": [
+            "Define and call functions with parameters and default arguments.",
+            "Return reusable calculation results and explain local scope.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Functions through practical student-information examples and exercises.",
+        "explanation": "Key concepts: def; calls; parameters; arguments; return; defaults; local scope.\n\nA function names a reusable block. def declares it; a call runs it. Parameters are names in the definition, and arguments are supplied values. return sends a result to the caller; print merely displays text. Default arguments provide a value when omitted. Variables assigned inside a function are normally local to that call.",
+        "syntax": "def greet(name=\"Student\"):\n    return f\"Hello, {name}\"\n\ndef calculate_average(grades):\n    if not grades:",
+        "example_python": "def greet(name=\"Student\"):\n    return f\"Hello, {name}\"\n\ndef calculate_average(grades):\n    if not grades:\n        return 0\n    return sum(grades) / len(grades)\n\nprint(greet(\"Maria\"))\nprint(calculate_average([80, 90]))",
+        "starter_python": "def add(a, b):\n    # Return the sum.\n    pass\n# Add subtract, multiply, and divide functions.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Build reusable add, subtract, multiply, and divide functions for a calculator. Return results and handle division by zero.",
+        "expected_result": "A labelled report demonstrating functions and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Printing a result does not return it. Calling a function before its definition executes can fail. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A function names a reusable block. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which declares a function?",
+                "choices": ["def", "function", "fn", "class"],
+                "answer": 0,
+                "explanation": "Correct: def. Review the key concepts and example in Functions."
+            },
+            {
+                "question": "Which sends a result to the caller?",
+                "choices": ["print only", "return", "input", "continue"],
+                "answer": 1,
+                "explanation": "Correct: return. Review the key concepts and example in Functions."
+            },
+            {
+                "question": "What is name in def greet(name)?",
+                "choices": [
+                    "An argument value",
+                    "A module",
+                    "A parameter",
+                    "A keyword"
+                ],
+                "answer": 2,
+                "explanation": "Correct: A parameter. Review the key concepts and example in Functions."
+            },
+            {
+                "question": "What does greet() use when name=\"Student\" is the default?",
+                "choices": [
+                    "None",
+                    "An empty list",
+                    "An error always",
+                    "Student"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Student. Review the key concepts and example in Functions."
+            },
+            {
+                "question": "Where is a variable assigned inside a function normally available?",
+                "choices": [
+                    "Inside that function",
+                    "Every module",
+                    "Every class",
+                    "Only HTML"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Inside that function. Review the key concepts and example in Functions."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Basic Project",
+        "level": "Basic",
+        "position": 10,
+        "objectives": [
+            "Develop a validated student grade calculator.",
+            "Integrate input/output, lists, functions, and pass/fail decisions.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Basic Project through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Student Grade Calculator; input; lists; functions; grading; validation.\n\nDevelop a student grade calculator in milestones: collect a name and three grades; validate grades; calculate an average in calculate_average; determine academic status; format the report. Keep calculation separate from input and output. Test a passing student, a failing student, boundary 75, and invalid input. Review your code before submitting it for teacher assessment.",
+        "syntax": "def calculate_average(grades):\n    return sum(grades) / len(grades) if grades else 0\n\nprint(f\"Example average: {calculate_average([80, 90]):.1f}\")",
+        "example_python": "def calculate_average(grades):\n    return sum(grades) / len(grades) if grades else 0\n\nprint(f\"Example average: {calculate_average([80, 90]):.1f}\")",
+        "starter_python": "def calculate_average(grades):\n    # Return the average and handle an empty list.\n    pass\n# Collect a name and grades; validate and report status.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Student Grade Calculator: accept a name and several grades, validate 0–100, store grades in a list, calculate their average using a function, determine pass/fail at 75, and display a labelled report. Submit your source using Submit activity, then complete the quiz. Milestones: input → validation → calculation → report → tests.",
+        "expected_result": "Student: Maria\nAverage: 89.5\nStatus: PASSED",
+        "important_notes": "An empty grade list cannot be averaged by division. Test exactly 75 and reject grades above 100. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Develop a student grade calculator in milestones: collect a name and three grades; validate grades; calculate an average in calculate_average; determine academic status; format the report. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": true,
+        "rubric": {
+            "Program Functionality": 40,
+            "Correct Use of Python Concepts": 25,
+            "Code Organization": 15,
+            "Error Handling": 10,
+            "Readability / Documentation": 10
+        },
+        "quiz": [
+            {
+                "question": "Which collection fits several grades?",
+                "choices": [
+                    "A single Boolean",
+                    "A list",
+                    "A comment",
+                    "A constant name alone"
+                ],
+                "answer": 1,
+                "explanation": "Correct: A list. Review the key concepts and example in Basic Project."
+            },
+            {
+                "question": "Which average formula is correct for nonempty grades?",
+                "choices": [
+                    "sum(grades) * len(grades)",
+                    "max(grades)",
+                    "sum(grades) / len(grades)",
+                    "len(grades) / sum(grades)"
+                ],
+                "answer": 2,
+                "explanation": "Correct: sum(grades) / len(grades). Review the key concepts and example in Basic Project."
+            },
+            {
+                "question": "What must be checked before dividing by len(grades)?",
+                "choices": [
+                    "The name has capitals",
+                    "The output is blue",
+                    "The file is HTML",
+                    "The list is nonempty"
+                ],
+                "answer": 3,
+                "explanation": "Correct: The list is nonempty. Review the key concepts and example in Basic Project."
+            },
+            {
+                "question": "What status should average 75 receive?",
+                "choices": ["PASSED", "FAILED", "Excellent only", "Invalid"],
+                "answer": 0,
+                "explanation": "Correct: PASSED. Review the key concepts and example in Basic Project."
+            },
+            {
+                "question": "Why separate calculation into a function?",
+                "choices": [
+                    "To hide the result",
+                    "To reuse and test it",
+                    "To prevent input",
+                    "To remove variables"
+                ],
+                "answer": 1,
+                "explanation": "Correct: To reuse and test it. Review the key concepts and example in Basic Project."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": ["calculate_average"],
+                "test_cases": [
+                    {
+                        "function": "calculate_average",
+                        "arguments": [[80, 90]],
+                        "expected": 85
+                    },
+                    {
+                        "function": "calculate_average",
+                        "arguments": [[75, 75]],
+                        "expected": 75
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "title": "Dictionaries",
+        "level": "Moderate",
+        "position": 11,
+        "objectives": [
+            "Create, access, update, and remove dictionary entries.",
+            "Iterate key/value pairs and access nested student records.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Dictionaries through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Keys and values; creation; access; add/update; removal; iteration; nesting.\n\nA dictionary maps unique, hashable keys to values. Bracket access requires a present key; get can return a default. Assigning an existing key updates its value; a new key adds it. pop removes a key and returns its value. items yields key/value pairs for iteration. Values may be nested dictionaries or lists.",
+        "syntax": "student = {\"name\": \"Maria\", \"age\": 18}\nstudent[\"grade\"] = 90\nstudent[\"age\"] = 19\nprint(student.get(\"course\", \"Unassigned\"))\nfor key, value in student.items():",
+        "example_python": "student = {\"name\": \"Maria\", \"age\": 18}\nstudent[\"grade\"] = 90\nstudent[\"age\"] = 19\nprint(student.get(\"course\", \"Unassigned\"))\nfor key, value in student.items():\n    print(key, value)\nstudent[\"subjects\"] = {\"Python\": 90}\nprint(student[\"subjects\"][\"Python\"])\nstudent.pop(\"age\")",
+        "starter_python": "student = {\"name\": \"\", \"grades\": []}\n# Add, update, read, and remove record fields.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create, update, display, and remove fields in a student-record dictionary. Include a nested subject record and safe missing-key access.",
+        "expected_result": "A labelled report demonstrating dictionaries and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Bracket access on a missing key raises KeyError. Iterating a dictionary directly yields keys. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A dictionary maps unique, hashable keys to values. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What does a dictionary associate?",
+                "choices": [
+                    "Only indices with characters",
+                    "Only numbers",
+                    "Keys with values",
+                    "Only functions"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Keys with values. Review the key concepts and example in Dictionaries."
+            },
+            {
+                "question": "Which accesses a missing key safely with a default?",
+                "choices": [
+                    "record[\"missing\"]",
+                    "record.pop()",
+                    "record.append()",
+                    "record.get(\"name\", \"Unknown\")"
+                ],
+                "answer": 3,
+                "explanation": "Correct: record.get(\"name\", \"Unknown\"). Review the key concepts and example in Dictionaries."
+            },
+            {
+                "question": "What does items() produce?",
+                "choices": [
+                    "Key/value pairs",
+                    "Only keys",
+                    "Only values",
+                    "A sorted string"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Key/value pairs. Review the key concepts and example in Dictionaries."
+            },
+            {
+                "question": "What does record[\"age\"] = 20 do when age exists?",
+                "choices": [
+                    "Duplicates the key",
+                    "Updates it",
+                    "Deletes all data",
+                    "Raises a syntax error"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Updates it. Review the key concepts and example in Dictionaries."
+            },
+            {
+                "question": "Can a dictionary value be a list?",
+                "choices": ["No", "Only an empty list", "Yes", "Only a tuple"],
+                "answer": 2,
+                "explanation": "Correct: Yes. Review the key concepts and example in Dictionaries."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Tuples",
+        "level": "Moderate",
+        "position": 12,
+        "objectives": [
+            "Differentiate immutable tuple bindings from mutable lists.",
+            "Create, index, and unpack fixed student-information tuples.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Tuples through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Creation; indexing; immutability; unpacking; fixed records.\n\nA tuple is an ordered sequence whose item bindings cannot be changed. Use parentheses and commas; a one-item tuple needs a trailing comma. Indexing works like lists. Unpacking assigns items to matching names. Tuples suit fixed records or coordinates, but mutable objects inside a tuple can still change.",
+        "syntax": "student_info = (\"Juan\", \"BSCS\", 1)\nname, course, year = student_info\nprint(student_info[0])\nprint(name, course, year)\none_item = (\"Juan\",)",
+        "example_python": "student_info = (\"Juan\", \"BSCS\", 1)\nname, course, year = student_info\nprint(student_info[0])\nprint(name, course, year)\none_item = (\"Juan\",)\nprint(type(one_item))",
+        "starter_python": "student_info = (\"Juan\", \"BSCS\", 1)\n# Unpack the tuple and display each fixed value.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Store a fixed student name, course, and year in a tuple. Access by index and unpack it into separate variables.",
+        "expected_result": "A labelled report demonstrating tuples and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "A one-item tuple requires a comma. Unpacking into the wrong number of names raises ValueError. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A tuple is an ordered sequence whose item bindings cannot be changed. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which creates a one-item tuple?",
+                "choices": ["(1)", "[1]", "{1}", "(1,)"],
+                "answer": 3,
+                "explanation": "Correct: (1,). Review the key concepts and example in Tuples."
+            },
+            {
+                "question": "Can you assign a new value to tuple[0]?",
+                "choices": ["No", "Yes", "Only numbers", "Only strings"],
+                "answer": 0,
+                "explanation": "Correct: No. Review the key concepts and example in Tuples."
+            },
+            {
+                "question": "What does a, b = (1, 2) assign to b?",
+                "choices": ["1", "2", "A list", "None"],
+                "answer": 1,
+                "explanation": "Correct: 2. Review the key concepts and example in Tuples."
+            },
+            {
+                "question": "Are tuples ordered?",
+                "choices": [
+                    "No",
+                    "Only after sorting",
+                    "Yes",
+                    "Only if numeric"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Yes. Review the key concepts and example in Tuples."
+            },
+            {
+                "question": "When is a tuple suitable?",
+                "choices": [
+                    "A frequently edited shopping list",
+                    "A key/value map",
+                    "An unordered unique collection",
+                    "A fixed coordinate pair"
+                ],
+                "answer": 3,
+                "explanation": "Correct: A fixed coordinate pair. Review the key concepts and example in Tuples."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Sets",
+        "level": "Moderate",
+        "position": 13,
+        "objectives": [
+            "Create sets containing unique values.",
+            "Compare class enrollment using union, intersection, and difference.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Sets through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Unique values; creation; add/remove; union; intersection; difference; membership.\n\nA set stores unique, hashable values without a dependable display order. Use set() for an empty set; {} creates a dictionary. add inserts, remove raises KeyError if absent, and discard safely ignores absent items. Union | combines values, intersection & finds shared values, and difference - finds values only in the left set. Use in for membership.",
+        "syntax": "python_class = {\"Ana\", \"Juan\", \"Ana\"}\nmath_class = {\"Juan\", \"Maria\"}\npython_class.add(\"Luis\")\npython_class.discard(\"Absent\")\nprint(sorted(python_class | math_class))",
+        "example_python": "python_class = {\"Ana\", \"Juan\", \"Ana\"}\nmath_class = {\"Juan\", \"Maria\"}\npython_class.add(\"Luis\")\npython_class.discard(\"Absent\")\nprint(sorted(python_class | math_class))\nprint(sorted(python_class & math_class))\nprint(sorted(python_class - math_class))\nprint(\"Juan\" in python_class)",
+        "starter_python": "python_class = {\"Ana\", \"Juan\"}\nmath_class = {\"Juan\", \"Maria\"}\n# Display union, intersection, and difference.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Compare enrollment in two classes. Show students in either class, both classes, and Python only; sort the displayed results.",
+        "expected_result": "A labelled report demonstrating sets and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "{} creates a dictionary. Set output order is not stable; sort results before comparing displayed output. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A set stores unique, hashable values without a dependable display order. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which creates an empty set?",
+                "choices": ["set()", "{}", "[]", "()"],
+                "answer": 0,
+                "explanation": "Correct: set(). Review the key concepts and example in Sets."
+            },
+            {
+                "question": "Which operator finds shared values?",
+                "choices": ["Union", "&", "+", "/"],
+                "answer": 1,
+                "explanation": "Correct: &. Review the key concepts and example in Sets."
+            },
+            {
+                "question": "Does a set keep duplicates?",
+                "choices": ["Yes", "Only strings", "No", "Only integers"],
+                "answer": 2,
+                "explanation": "Correct: No. Review the key concepts and example in Sets."
+            },
+            {
+                "question": "Which removal avoids an error for absent values?",
+                "choices": ["remove()", "pop(0)", "delete()", "discard()"],
+                "answer": 3,
+                "explanation": "Correct: discard(). Review the key concepts and example in Sets."
+            },
+            {
+                "question": "What does A - B contain?",
+                "choices": [
+                    "Values in A but not B",
+                    "Every value in B",
+                    "All shared values",
+                    "A numeric count"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Values in A but not B. Review the key concepts and example in Sets."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "File Handling",
+        "level": "Moderate",
+        "position": 14,
+        "objectives": [
+            "Read, write, and append text using with open().",
+            "Demonstrate file handling in the browser virtual filesystem.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore File Handling through practical student-information examples and exercises.",
+        "explanation": "Key concepts: open(); r/w/a modes; read/write; closing; with; text files.\n\nopen connects to a file in a chosen mode: r reads an existing file, w creates or truncates, and a appends. Use with open(...) so closing happens even on exceptions. read returns text; write stores text and does not add a newline automatically. The lab uses a temporary browser virtual filesystem, never the Laravel server filesystem; files disappear when the run ends.",
+        "syntax": "with open(\"students.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"Maria,90\\n\")\nwith open(\"students.txt\", \"a\", encoding=\"utf-8\") as file:\n    file.write(\"Juan,85\\n\")\nwith open(\"students.txt\", \"r\", encoding=\"utf-8\") as file:",
+        "example_python": "with open(\"students.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"Maria,90\\n\")\nwith open(\"students.txt\", \"a\", encoding=\"utf-8\") as file:\n    file.write(\"Juan,85\\n\")\nwith open(\"students.txt\", \"r\", encoding=\"utf-8\") as file:\n    print(file.read())",
+        "starter_python": "filename = \"students.txt\"\n# Write a record, append another, and read them in one run.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Write a student record to students.txt, append another, and read the contents in the same run. Explain why w can erase existing contents.",
+        "expected_result": "A labelled report demonstrating file handling and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "w truncates an existing file. Reading a nonexistent file raises FileNotFoundError; write needs text. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: open connects to a file in a chosen mode: r reads an existing file, w creates or truncates, and a appends. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which mode appends?",
+                "choices": ["w", "a", "r", "x only"],
+                "answer": 1,
+                "explanation": "Correct: a. Review the key concepts and example in File Handling."
+            },
+            {
+                "question": "What does w do to existing contents?",
+                "choices": [
+                    "Preserves them",
+                    "Reads them",
+                    "Truncates them",
+                    "Sorts them"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Truncates them. Review the key concepts and example in File Handling."
+            },
+            {
+                "question": "Why use with open()?",
+                "choices": [
+                    "It creates a production database",
+                    "It always appends",
+                    "It removes errors",
+                    "It closes the file automatically"
+                ],
+                "answer": 3,
+                "explanation": "Correct: It closes the file automatically. Review the key concepts and example in File Handling."
+            },
+            {
+                "question": "What does read() return for a text file?",
+                "choices": [
+                    "A string",
+                    "A dictionary always",
+                    "A Boolean",
+                    "An HTML page always"
+                ],
+                "answer": 0,
+                "explanation": "Correct: A string. Review the key concepts and example in File Handling."
+            },
+            {
+                "question": "Where does this lab store exercise files?",
+                "choices": [
+                    "Laravel server files",
+                    "Browser virtual filesystem",
+                    "Production SQL tables",
+                    "The teacher account"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Browser virtual filesystem. Review the key concepts and example in File Handling."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Error Handling",
+        "level": "Moderate",
+        "position": 15,
+        "objectives": [
+            "Differentiate syntax, runtime, and logical errors.",
+            "Handle invalid input using try, except, else, and finally.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Error Handling through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Syntax/runtime/logical errors; try/except/else/finally; invalid input.\n\nA syntax error prevents parsing, a runtime exception interrupts execution, and a logical error gives an unintended result. try holds operations that may fail; except handles a specified exception. else runs after a successful try; finally runs whether success or failure. Catch expected exceptions rather than silently ignoring all problems.",
+        "syntax": "try:\n    number = float(input(\"Number: \"))\n    result = 10 / number\nexcept ValueError:\n    print(\"Enter a number\")",
+        "example_python": "try:\n    number = float(input(\"Number: \"))\n    result = 10 / number\nexcept ValueError:\n    print(\"Enter a number\")\nexcept ZeroDivisionError:\n    print(\"Number must not be zero\")\nelse:\n    print(result)\nfinally:\n    print(\"Attempt finished\")",
+        "starter_python": "try:\n    number = float(input(\"Number: \"))\n    # Add the calculation.\nexcept ValueError:\n    print(\"Enter a valid number\")\n# Handle zero division and add else/finally.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Try input lines 2, 0, and abc in separate runs.",
+        "activity": "Improve a calculator to handle invalid numeric input and division by zero. Test both failures and a valid calculation.",
+        "expected_result": "A labelled report demonstrating error handling and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "except cannot repair code that fails to parse. Avoid a bare except that hides unexpected bugs. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A syntax error prevents parsing, a runtime exception interrupts execution, and a logical error gives an unintended result. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which handles a thrown exception?",
+                "choices": ["else only", "iferror", "except", "return only"],
+                "answer": 2,
+                "explanation": "Correct: except. Review the key concepts and example in Error Handling."
+            },
+            {
+                "question": "Which always runs after try handling?",
+                "choices": ["else", "elif", "break", "finally"],
+                "answer": 3,
+                "explanation": "Correct: finally. Review the key concepts and example in Error Handling."
+            },
+            {
+                "question": "Which exception can float(\"abc\") raise?",
+                "choices": [
+                    "ValueError",
+                    "KeyError",
+                    "IndexError",
+                    "ZeroDivisionError"
+                ],
+                "answer": 0,
+                "explanation": "Correct: ValueError. Review the key concepts and example in Error Handling."
+            },
+            {
+                "question": "When does the try else block run?",
+                "choices": [
+                    "Whenever except runs",
+                    "When try succeeds",
+                    "Before try",
+                    "Only after syntax errors"
+                ],
+                "answer": 1,
+                "explanation": "Correct: When try succeeds. Review the key concepts and example in Error Handling."
+            },
+            {
+                "question": "What is a logical error?",
+                "choices": [
+                    "Only missing punctuation",
+                    "Only a file error",
+                    "A wrong result from valid code",
+                    "Always a stopped program"
+                ],
+                "answer": 2,
+                "explanation": "Correct: A wrong result from valid code. Review the key concepts and example in Error Handling."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "String Manipulation",
+        "level": "Moderate",
+        "position": 16,
+        "objectives": [
+            "Apply string indexing, slicing, and transformation methods.",
+            "Develop a text analyzer using search, split, and join.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore String Manipulation through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Indexing; slicing; methods; search; replace; split; join; formatting.\n\nStrings are immutable sequences. Indexing selects a character; slicing selects a range with an exclusive stop. Methods return transformed strings, leaving the original unchanged. strip removes surrounding whitespace, upper/lower change case, replace substitutes text, split makes a list, and separator.join combines strings. find returns the first index or -1 when absent.",
+        "syntax": "text = \"  Python makes coding fun  \"\nclean = text.strip()\nprint(clean.upper(), clean.lower())\nprint(clean[:6])\nprint(clean.replace(\"fun\", \"practical\"))",
+        "example_python": "text = \"  Python makes coding fun  \"\nclean = text.strip()\nprint(clean.upper(), clean.lower())\nprint(clean[:6])\nprint(clean.replace(\"fun\", \"practical\"))\nwords = clean.split()\nprint(\"-\".join(words))\nprint(clean.find(\"coding\"))",
+        "starter_python": "text = input(\"Text: \")\n# Analyze the text using string methods and slicing.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Build a text analyzer reporting character count, word count, uppercase/lowercase text, a replaced phrase, and search results.",
+        "expected_result": "A labelled report demonstrating string manipulation and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "String methods return a new string. find may return -1, and slice stops are exclusive. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Strings are immutable sequences. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What does strip() remove?",
+                "choices": [
+                    "Every space",
+                    "Every vowel",
+                    "All characters",
+                    "Surrounding whitespace"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Surrounding whitespace. Review the key concepts and example in String Manipulation."
+            },
+            {
+                "question": "What does split() usually return?",
+                "choices": [
+                    "A list of strings",
+                    "An integer",
+                    "A set always",
+                    "None"
+                ],
+                "answer": 0,
+                "explanation": "Correct: A list of strings. Review the key concepts and example in String Manipulation."
+            },
+            {
+                "question": "What does find() return when absent?",
+                "choices": ["0", "-1", "None always", "True"],
+                "answer": 1,
+                "explanation": "Correct: -1. Review the key concepts and example in String Manipulation."
+            },
+            {
+                "question": "What does \"Python\"[:2] return?",
+                "choices": ["Pyt", "th", "Py", "on"],
+                "answer": 2,
+                "explanation": "Correct: Py. Review the key concepts and example in String Manipulation."
+            },
+            {
+                "question": "Do string methods modify the original string?",
+                "choices": ["Yes", "Only upper()", "Only strip()", "No"],
+                "answer": 3,
+                "explanation": "Correct: No. Review the key concepts and example in String Manipulation."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "List Comprehensions",
+        "level": "Moderate",
+        "position": 17,
+        "objectives": [
+            "Create list comprehensions that transform and filter values.",
+            "Differentiate filtering conditions from conditional expressions.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore List Comprehensions through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Transforming; filtering; conditions; readable comprehensions.\n\nA comprehension builds a new list from an iterable. [expression for item in iterable] transforms each item; a trailing if filters items first. Keep complex logic in named functions so code stays readable. A conditional expression before for chooses between values rather than filtering.",
+        "syntax": "squares = [n ** 2 for n in range(1, 6)]\nevens = [n for n in range(1, 11) if n % 2 == 0]\ngrades = [70, 80, 95]\npassing = [g for g in grades if g >= 75]\nlabels = [\"Pass\" if g >= 75 else \"Fail\" for g in grades]",
+        "example_python": "squares = [n ** 2 for n in range(1, 6)]\nevens = [n for n in range(1, 11) if n % 2 == 0]\ngrades = [70, 80, 95]\npassing = [g for g in grades if g >= 75]\nlabels = [\"Pass\" if g >= 75 else \"Fail\" for g in grades]\nprint(squares, evens, passing, labels)",
+        "starter_python": "numbers = list(range(1, 11))\ngrades = [70, 80, 95]\n# Build comprehensions for squares, evens, and passing grades.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Use comprehensions to generate even numbers, squares, passing grades, and pass/fail labels.",
+        "expected_result": "A labelled report demonstrating list comprehensions and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "A trailing if filters; an if/else expression before for transforms. Keep comprehensions readable. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A comprehension builds a new list from an iterable. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What is [n*n for n in [1, 2]]?",
+                "choices": ["[1, 4]", "[1, 2]", "[2, 4]", "[1, 2, 4]"],
+                "answer": 0,
+                "explanation": "Correct: [1, 4]. Review the key concepts and example in List Comprehensions."
+            },
+            {
+                "question": "Where does a filter condition go?",
+                "choices": [
+                    "Only before the list",
+                    "After the for clause",
+                    "Inside a comment",
+                    "In a separate class"
+                ],
+                "answer": 1,
+                "explanation": "Correct: After the for clause. Review the key concepts and example in List Comprehensions."
+            },
+            {
+                "question": "Does a comprehension create a new list?",
+                "choices": [
+                    "No",
+                    "Only with strings",
+                    "Yes",
+                    "Only when sorted"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Yes. Review the key concepts and example in List Comprehensions."
+            },
+            {
+                "question": "Which expression checks even numbers?",
+                "choices": [
+                    "n / 2 == 0",
+                    "n + 2 == 0",
+                    "n ** 2 == 0",
+                    "n % 2 == 0"
+                ],
+                "answer": 3,
+                "explanation": "Correct: n % 2 == 0. Review the key concepts and example in List Comprehensions."
+            },
+            {
+                "question": "Which grade survives g >= 75 from [70, 80]?",
+                "choices": ["80", "70", "Both", "Neither"],
+                "answer": 0,
+                "explanation": "Correct: 80. Review the key concepts and example in List Comprehensions."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Nested Data Structures",
+        "level": "Moderate",
+        "position": 18,
+        "objectives": [
+            "Represent students with nested lists and dictionaries.",
+            "Access and summarize subject and grade records safely.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Nested Data Structures through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Lists in dictionaries; dictionaries in lists; nested access.\n\nCombine lists and dictionaries to represent related records. A list of student dictionaries preserves record order; each student can have a list of grades. Follow each level of indexing separately and verify keys exist. Use descriptive names and helper functions rather than deeply nested expressions everywhere.",
+        "syntax": "students = [{\"name\": \"Maria\", \"grades\": [90, 80]}, {\"name\": \"Juan\", \"grades\": [75, 85]}]\nprint(students[0][\"grades\"][1])\nfor student in students:\n    average = sum(student[\"grades\"]) / len(student[\"grades\"])\n    print(student[\"name\"], average)",
+        "example_python": "students = [{\"name\": \"Maria\", \"grades\": [90, 80]}, {\"name\": \"Juan\", \"grades\": [75, 85]}]\nprint(students[0][\"grades\"][1])\nfor student in students:\n    average = sum(student[\"grades\"]) / len(student[\"grades\"])\n    print(student[\"name\"], average)",
+        "starter_python": "students = []\n# Add dictionaries containing student subjects and grades.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create several student records containing subjects and grades. Display each student and subject average with safe handling of empty grade lists.",
+        "expected_result": "A labelled report demonstrating nested data structures and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Confusing a list index with a dictionary key causes errors. Validate empty grade lists at each record. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Combine lists and dictionaries to represent related records. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What does students[0] select?",
+                "choices": [
+                    "The first key",
+                    "The first record",
+                    "Every grade",
+                    "The last subject"
+                ],
+                "answer": 1,
+                "explanation": "Correct: The first record. Review the key concepts and example in Nested Data Structures."
+            },
+            {
+                "question": "How do you select a record name?",
+                "choices": [
+                    "record.name always",
+                    "record(0)",
+                    "record[\"name\"]",
+                    "record.append(\"name\")"
+                ],
+                "answer": 2,
+                "explanation": "Correct: record[\"name\"]. Review the key concepts and example in Nested Data Structures."
+            },
+            {
+                "question": "Can a dictionary contain a list of grades?",
+                "choices": [
+                    "No",
+                    "Only one grade",
+                    "Only text keys as values",
+                    "Yes"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Yes. Review the key concepts and example in Nested Data Structures."
+            },
+            {
+                "question": "What follows students[0][\"grades\"] to select its first grade?",
+                "choices": ["[0]", "[1]", ".first", "()"],
+                "answer": 0,
+                "explanation": "Correct: [0]. Review the key concepts and example in Nested Data Structures."
+            },
+            {
+                "question": "What improves readability of nested processing?",
+                "choices": [
+                    "One enormous expression",
+                    "Helper functions and clear names",
+                    "Removing all keys",
+                    "Avoiding loops entirely"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Helper functions and clear names. Review the key concepts and example in Nested Data Structures."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Introduction to Algorithms",
+        "level": "Moderate",
+        "position": 19,
+        "objectives": [
+            "Explain sequence, selection, and iteration in an algorithm.",
+            "Develop pseudocode and Python solutions for search and highest-grade problems.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Introduction to Algorithms through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Sequence; selection; iteration; search; sorting; decomposition; pseudocode.\n\nAn algorithm is a finite sequence of steps to solve a problem. Sequence orders actions, selection chooses a path, and iteration repeats work. Linear search examines items in order. Sorting arranges items by a criterion. Decompose large problems into smaller steps. Write pseudocode before implementation and test edge cases such as an empty list.",
+        "syntax": "grades = [80, 95, 75]\nhighest = None\nfor grade in grades:\n    if highest is None or grade > highest:\n        highest = grade",
+        "example_python": "grades = [80, 95, 75]\nhighest = None\nfor grade in grades:\n    if highest is None or grade > highest:\n        highest = grade\nprint(\"Highest:\", highest)\ntarget = 95\nfound = False\nfor grade in grades:\n    if grade == target:\n        found = True\n        break\nprint(\"Found:\", found)\nprint(sorted(grades))",
+        "starter_python": "grades = [80, 95, 75]\nhighest = None\n# Find the highest grade with a loop; write pseudocode in comments.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Write pseudocode and a loop-based algorithm for finding the highest grade. Add linear search and show a sorted copy; test an empty list.",
+        "expected_result": "A labelled report demonstrating introduction to algorithms and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Initializing highest to 0 gives wrong results for all-negative data. Handle an empty input explicitly. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: An algorithm is a finite sequence of steps to solve a problem. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What is an algorithm?",
+                "choices": [
+                    "Only Python code",
+                    "A database table",
+                    "Ordered steps solving a problem",
+                    "A syntax error"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Ordered steps solving a problem. Review the key concepts and example in Introduction to Algorithms."
+            },
+            {
+                "question": "What does linear search do?",
+                "choices": [
+                    "Always checks only one item",
+                    "Sorts every list",
+                    "Deletes matches",
+                    "Examines items in order"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Examines items in order. Review the key concepts and example in Introduction to Algorithms."
+            },
+            {
+                "question": "What does selection mean?",
+                "choices": [
+                    "Choosing a path by a condition",
+                    "Repeating forever",
+                    "Printing only",
+                    "Importing a module"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Choosing a path by a condition. Review the key concepts and example in Introduction to Algorithms."
+            },
+            {
+                "question": "What does sorted(grades) return?",
+                "choices": [
+                    "Always None",
+                    "A sorted copy",
+                    "An updated tuple",
+                    "Only the largest grade"
+                ],
+                "answer": 1,
+                "explanation": "Correct: A sorted copy. Review the key concepts and example in Introduction to Algorithms."
+            },
+            {
+                "question": "Why test an empty list?",
+                "choices": [
+                    "To guarantee 100 grades",
+                    "To skip validation",
+                    "To handle a boundary case",
+                    "To create a syntax error"
+                ],
+                "answer": 2,
+                "explanation": "Correct: To handle a boundary case. Review the key concepts and example in Introduction to Algorithms."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Moderate Project",
+        "level": "Moderate",
+        "position": 20,
+        "objectives": [
+            "Develop menu-driven student record CRUD functions.",
+            "Apply grade calculations, file storage, validation, and exception handling.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Moderate Project through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Student Record Management System; CRUD; grades; text persistence; errors.\n\nBuild a menu-driven record manager. Start with records as dictionaries inside a list. Write small functions for add, view, search, update, delete, and average. Validate identifiers and grade ranges. Serialize records safely to a browser-local text file and read them back during the same run. Use a loop with an Exit option and catch expected input and file errors.",
+        "syntax": "records = []\ndef find_student(student_id):\n    return next((record for record in records if record[\"id\"] == student_id), None)\n\nrecords.append({\"id\": \"S001\", \"name\": \"Maria\", \"grades\": [90, 80]})",
+        "example_python": "records = []\ndef find_student(student_id):\n    return next((record for record in records if record[\"id\"] == student_id), None)\n\nrecords.append({\"id\": \"S001\", \"name\": \"Maria\", \"grades\": [90, 80]})\nprint(find_student(\"S001\"))",
+        "starter_python": "records = []\ndef find_student(student_id):\n    # Search records by ID.\n    pass\n# Add CRUD, grading, menu, validation, and file functions.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Student Record Management System: add, view, search, update, delete students, store grades, calculate averages, save/load records using a text file, and handle invalid input. Milestones: data model → CRUD functions → menu → safe file persistence → tests. Submit source with a brief test report in comments. Use Program Input to provide menu selections, ending with Exit.",
+        "expected_result": "Added S001: Maria\nSearch S001: Maria | Average: 85.0\nSaved 1 record\nGoodbye",
+        "important_notes": "Reject duplicate IDs and report missing records. End the menu with an Exit option and sufficient input lines. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Build a menu-driven record manager. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": true,
+        "rubric": {
+            "Program Functionality": 40,
+            "Correct Use of Python Concepts": 25,
+            "Code Organization": 15,
+            "Error Handling": 10,
+            "Readability / Documentation": 10
+        },
+        "quiz": [
+            {
+                "question": "Which operation changes an existing record?",
+                "choices": [
+                    "Create only",
+                    "Read only",
+                    "Delete only",
+                    "Update"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Update. Review the key concepts and example in Moderate Project."
+            },
+            {
+                "question": "What should a unique student ID prevent?",
+                "choices": [
+                    "Duplicate records",
+                    "Every dictionary",
+                    "Any search",
+                    "Input conversion"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Duplicate records. Review the key concepts and example in Moderate Project."
+            },
+            {
+                "question": "What should the menu provide to terminate?",
+                "choices": [
+                    "Only Add",
+                    "Exit option",
+                    "A permanent while True without exit",
+                    "No input"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Exit option. Review the key concepts and example in Moderate Project."
+            },
+            {
+                "question": "Why catch numeric conversion errors?",
+                "choices": [
+                    "To award grades",
+                    "To remove all records",
+                    "To report invalid input safely",
+                    "To bypass the menu"
+                ],
+                "answer": 2,
+                "explanation": "Correct: To report invalid input safely. Review the key concepts and example in Moderate Project."
+            },
+            {
+                "question": "What should a missing search return?",
+                "choices": [
+                    "A random student",
+                    "A production query",
+                    "A duplicate record",
+                    "A clear not-found result"
+                ],
+                "answer": 3,
+                "explanation": "Correct: A clear not-found result. Review the key concepts and example in Moderate Project."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Introduction to Object-Oriented Programming",
+        "level": "Advanced",
+        "position": 21,
+        "objectives": [
+            "Differentiate procedural and object-oriented organization.",
+            "Identify classes, objects, attributes, and methods in a program.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Introduction to Object-Oriented Programming through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Procedural vs OOP; classes; objects; attributes; methods; advantages.\n\nProcedural code organizes actions into functions. Object-oriented programming groups state and related behavior in objects. A class defines a kind of object; an object is an instance. Attributes hold state and methods define behavior. OOP can help organize larger programs, but simple functions remain useful and often sufficient.",
+        "syntax": "class Course:\n    name = \"Python Programming\"\n    def describe(self):\n        return f\"Course: {self.name}\"\n",
+        "example_python": "class Course:\n    name = \"Python Programming\"\n    def describe(self):\n        return f\"Course: {self.name}\"\n\ncourse = Course()\nprint(course.describe())",
+        "starter_python": "class Course:\n    # Add attributes and behavior.\n    pass\n# Create an instance and call a method.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Describe a student object with three attributes and two behaviors. Create a small class and compare it with a function-based version.",
+        "expected_result": "A labelled report demonstrating introduction to object-oriented programming and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "A class definition is not an instance. Call methods with parentheses and keep state with related behavior. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Procedural code organizes actions into functions. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What is a class?",
+                "choices": [
+                    "A definition for a kind of object",
+                    "Only a variable value",
+                    "A loop",
+                    "A text file"
+                ],
+                "answer": 0,
+                "explanation": "Correct: A definition for a kind of object. Review the key concepts and example in Introduction to Object-Oriented Programming."
+            },
+            {
+                "question": "What is an object?",
+                "choices": [
+                    "Only a keyword",
+                    "An instance of a class",
+                    "A comment",
+                    "A SQL table always"
+                ],
+                "answer": 1,
+                "explanation": "Correct: An instance of a class. Review the key concepts and example in Introduction to Object-Oriented Programming."
+            },
+            {
+                "question": "What holds object state?",
+                "choices": [
+                    "Imports only",
+                    "Exceptions only",
+                    "Attributes",
+                    "Indentation only"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Attributes. Review the key concepts and example in Introduction to Object-Oriented Programming."
+            },
+            {
+                "question": "What is a method?",
+                "choices": [
+                    "A list item",
+                    "A constant always",
+                    "A file mode",
+                    "A function associated with a class"
+                ],
+                "answer": 3,
+                "explanation": "Correct: A function associated with a class. Review the key concepts and example in Introduction to Object-Oriented Programming."
+            },
+            {
+                "question": "What can OOP help with?",
+                "choices": [
+                    "Grouping related state and behavior",
+                    "Eliminating all functions",
+                    "Automatically fixing every bug",
+                    "Avoiding validation"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Grouping related state and behavior. Review the key concepts and example in Introduction to Object-Oriented Programming."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Classes and Objects",
+        "level": "Advanced",
+        "position": 22,
+        "objectives": [
+            "Create independent Student instances using __init__() and self.",
+            "Develop instance methods for averages and academic status.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Classes and Objects through practical student-information examples and exercises.",
+        "explanation": "Key concepts: class; object creation; __init__(); self; instance attributes and methods.\n\nDefine a class with class Name:. Calling Name(...) creates an instance and invokes __init__ to initialize it. self refers to the current instance and is the first parameter of ordinary instance methods. self.name assigns an instance attribute. Each instance keeps its own attributes; methods use them to calculate results.",
+        "syntax": "class Student:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade\n    def status(self):",
+        "example_python": "class Student:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade\n    def status(self):\n        return \"PASSED\" if self.grade >= 75 else \"FAILED\"\n\nstudent = Student(\"Maria\", 90)\nprint(student.name, student.status())",
+        "starter_python": "class Student:\n    def __init__(self, name, grades):\n        self.name = name\n        self.grades = grades\n    # Add average() and status().\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create a Student class storing a name and a grade list. Add average() and status() methods and demonstrate two independent instances.",
+        "expected_result": "A labelled report demonstrating classes and objects and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Missing self or misspelling __init__ breaks instance methods. Use self.name to store an instance attribute. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Define a class with class Name:. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which initializes a new instance?",
+                "choices": ["__main__", "__init__", "start", "new only"],
+                "answer": 1,
+                "explanation": "Correct: __init__. Review the key concepts and example in Classes and Objects."
+            },
+            {
+                "question": "What does self refer to?",
+                "choices": [
+                    "Always the class name",
+                    "The teacher",
+                    "The current instance",
+                    "A module"
+                ],
+                "answer": 2,
+                "explanation": "Correct: The current instance. Review the key concepts and example in Classes and Objects."
+            },
+            {
+                "question": "Which creates a Student instance?",
+                "choices": [
+                    "class Student",
+                    "Student = class",
+                    "new Student only",
+                    "Student(\"Maria\", 90)"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Student(\"Maria\", 90). Review the key concepts and example in Classes and Objects."
+            },
+            {
+                "question": "Where does self.name store data?",
+                "choices": [
+                    "On the instance",
+                    "Only in a global variable",
+                    "In the server database",
+                    "In a comment"
+                ],
+                "answer": 0,
+                "explanation": "Correct: On the instance. Review the key concepts and example in Classes and Objects."
+            },
+            {
+                "question": "How do you call an instance method?",
+                "choices": [
+                    "student.status only",
+                    "student.status()",
+                    "status.student",
+                    "self = status"
+                ],
+                "answer": 1,
+                "explanation": "Correct: student.status(). Review the key concepts and example in Classes and Objects."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Inheritance",
+        "level": "Advanced",
+        "position": 23,
+        "objectives": [
+            "Create parent and child classes with inherited behavior.",
+            "Apply super() and method overriding in student and teacher classes.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Inheritance through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Parent/child classes; reuse; overriding; super().\n\nInheritance derives a child class from a parent. The child can reuse methods and add specialized state. A method with the same name overrides inherited behavior. super() calls a parent implementation using Python method resolution. Use inheritance when the child is a specialized kind of the parent, rather than only to avoid typing.",
+        "syntax": "class Person:\n    def __init__(self, name):\n        self.name = name\n    def describe(self):\n        return self.name",
+        "example_python": "class Person:\n    def __init__(self, name):\n        self.name = name\n    def describe(self):\n        return self.name\n\nclass Student(Person):\n    def __init__(self, name, course):\n        super().__init__(name)\n        self.course = course\n    def describe(self):\n        return f\"{self.name}: {self.course}\"\n\nprint(Student(\"Juan\", \"BSCS\").describe())",
+        "starter_python": "class Person:\n    def __init__(self, name):\n        self.name = name\n# Derive Student and Teacher using super().\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create Person, Student, and Teacher classes. Reuse parent initialization with super() and override a description method in each child.",
+        "expected_result": "A labelled report demonstrating inheritance and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Forgetting super().__init__ can leave parent attributes absent. Use inheritance for an is-a relationship. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Inheritance derives a child class from a parent. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which declares Student inheriting Person?",
+                "choices": [
+                    "class Person(Student):",
+                    "Student extends Person",
+                    "class Student(Person):",
+                    "inherit Student"
+                ],
+                "answer": 2,
+                "explanation": "Correct: class Student(Person):. Review the key concepts and example in Inheritance."
+            },
+            {
+                "question": "What does super() support?",
+                "choices": [
+                    "Deleting an object",
+                    "Sorting grades",
+                    "Creating SQL tables",
+                    "Calling a parent implementation"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Calling a parent implementation. Review the key concepts and example in Inheritance."
+            },
+            {
+                "question": "What is method overriding?",
+                "choices": [
+                    "Replacing inherited behavior with a child method",
+                    "Changing indentation",
+                    "Renaming every class",
+                    "Removing parameters"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Replacing inherited behavior with a child method. Review the key concepts and example in Inheritance."
+            },
+            {
+                "question": "Which relationship suits inheritance?",
+                "choices": [
+                    "Student has a grade list",
+                    "Student is a Person",
+                    "A filename is a grade",
+                    "A loop contains an if"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Student is a Person. Review the key concepts and example in Inheritance."
+            },
+            {
+                "question": "Can a child add attributes?",
+                "choices": ["No", "Only globals", "Yes", "Only tuples"],
+                "answer": 2,
+                "explanation": "Correct: Yes. Review the key concepts and example in Inheritance."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Encapsulation and Polymorphism",
+        "level": "Advanced",
+        "position": 24,
+        "objectives": [
+            "Apply properties to validate internal object state.",
+            "Demonstrate polymorphism through a shared method interface.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Encapsulation and Polymorphism through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Public/internal attributes; properties; validation; overriding; common interfaces.\n\nEncapsulation keeps state and its management together. An underscore marks internal-use attributes by convention, not as a security boundary. Properties provide attribute-style access with validation. Polymorphism lets different objects respond to the same method name; callers focus on behavior rather than exact type. Avoid treating naming conventions as access protection.",
+        "syntax": "class Student:\n    def __init__(self, grade):\n        self.grade = grade\n    @property\n    def grade(self):",
+        "example_python": "class Student:\n    def __init__(self, grade):\n        self.grade = grade\n    @property\n    def grade(self):\n        return self._grade\n    @grade.setter\n    def grade(self, value):\n        if not 0 <= value <= 100:\n            raise ValueError(\"Grade must be 0–100\")\n        self._grade = value\n\nprint(Student(90).grade)",
+        "starter_python": "class Student:\n    # Add a validating grade property.\n    pass\n# Demonstrate a common describe() method on two record types.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Validate a grade through a property. Create two record types with describe() and call that method through the same loop.",
+        "expected_result": "A labelled report demonstrating encapsulation and polymorphism and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "_grade is a convention, not enforced privacy. A setter assigning self.grade recursively calls itself. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Encapsulation keeps state and its management together. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What does a leading underscore signal?",
+                "choices": [
+                    "Guaranteed private security",
+                    "A required database field",
+                    "A syntax error",
+                    "Internal use by convention"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Internal use by convention. Review the key concepts and example in Encapsulation and Polymorphism."
+            },
+            {
+                "question": "What can a property setter do?",
+                "choices": [
+                    "Validate assignment",
+                    "Prevent all reads",
+                    "Run SQL automatically",
+                    "Convert every object to a tuple"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Validate assignment. Review the key concepts and example in Encapsulation and Polymorphism."
+            },
+            {
+                "question": "What is polymorphism?",
+                "choices": [
+                    "Only multiple inheritance",
+                    "Different objects supporting a common behavior",
+                    "Only private attributes",
+                    "Always identical classes"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Different objects supporting a common behavior. Review the key concepts and example in Encapsulation and Polymorphism."
+            },
+            {
+                "question": "Which decorator makes a getter property?",
+                "choices": ["@private", "@class", "@property", "@input"],
+                "answer": 2,
+                "explanation": "Correct: @property. Review the key concepts and example in Encapsulation and Polymorphism."
+            },
+            {
+                "question": "What should an invalid grade assignment do?",
+                "choices": [
+                    "Silently store 200",
+                    "Delete all students",
+                    "Ignore every exception",
+                    "Reject it clearly"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Reject it clearly. Review the key concepts and example in Encapsulation and Polymorphism."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Modules and Packages",
+        "level": "Advanced",
+        "position": 25,
+        "objectives": [
+            "Import standard-library modules and selected functions.",
+            "Create and import a custom utility module and explain package organization.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Modules and Packages through practical student-information examples and exercises.",
+        "explanation": "Key concepts: import; from import; custom modules; standard library; packages.\n\nA module is Python code in a file; a package organizes modules. import math binds the module, while from math import sqrt binds a selected name. The standard library supplies many utilities, including math, random, and datetime. Create a utility module as a virtual file in this single-editor lab, then import it. Do not put passwords or API keys into modules.",
+        "syntax": "import math\nimport random\nfrom datetime import date\nprint(math.sqrt(81))\nprint(random.randint(1, 6))",
+        "example_python": "import math\nimport random\nfrom datetime import date\nprint(math.sqrt(81))\nprint(random.randint(1, 6))\nprint(date(2026, 1, 1))\nwith open(\"student_utils.py\", \"w\") as file:\n    file.write(\"def average(grades):\\n    return sum(grades) / len(grades) if grades else 0\\n\")\nfrom student_utils import average\nprint(average([80, 90]))",
+        "starter_python": "# Create student_utils.py with open(...), then import its average function.\nimport math\nprint(math.sqrt(81))\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create a student_utils.py virtual module containing an average function and import it. Demonstrate math and datetime; explain what a package organizes.",
+        "expected_result": "A labelled report demonstrating modules and packages and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Do not name a custom file math.py or json.py. This shadows standard modules and confuses imports. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A module is Python code in a file; a package organizes modules. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What does import math bind?",
+                "choices": [
+                    "The math module",
+                    "Only sqrt",
+                    "Every random function",
+                    "A student instance"
+                ],
+                "answer": 0,
+                "explanation": "Correct: The math module. Review the key concepts and example in Modules and Packages."
+            },
+            {
+                "question": "Which imports sqrt directly?",
+                "choices": [
+                    "import sqrt from math",
+                    "from math import sqrt",
+                    "using math.sqrt",
+                    "module sqrt"
+                ],
+                "answer": 1,
+                "explanation": "Correct: from math import sqrt. Review the key concepts and example in Modules and Packages."
+            },
+            {
+                "question": "What is a module normally stored as?",
+                "choices": [
+                    "Only a database row",
+                    "An HTML tag",
+                    "A Python file",
+                    "A Boolean"
+                ],
+                "answer": 2,
+                "explanation": "Correct: A Python file. Review the key concepts and example in Modules and Packages."
+            },
+            {
+                "question": "What does a package organize?",
+                "choices": [
+                    "Only grades",
+                    "Only images",
+                    "Only constants",
+                    "Modules"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Modules. Review the key concepts and example in Modules and Packages."
+            },
+            {
+                "question": "What does random.randint(1, 6) return?",
+                "choices": [
+                    "An integer from 1 through 6",
+                    "Always 6",
+                    "Always a float",
+                    "An integer excluding 6"
+                ],
+                "answer": 0,
+                "explanation": "Correct: An integer from 1 through 6. Review the key concepts and example in Modules and Packages."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Working with JSON",
+        "level": "Advanced",
+        "position": 26,
+        "objectives": [
+            "Serialize and parse student records using JSON.",
+            "Read and write JSON safely in browser-local files.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Working with JSON through practical student-information examples and exercises.",
+        "explanation": "Key concepts: JSON format; dictionaries; loads(); dumps(); reading/writing.\n\nJSON is a text format for objects, arrays, strings, numbers, Booleans, and null. Python dictionaries and lists can often be serialized with json.dumps; json.loads parses JSON text. JSON uses double-quoted strings, true/false, and null, unlike Python literals. json.dump/load work with file objects. Never use eval to parse data.",
+        "syntax": "import json\nstudent = {\"name\": \"Maria\", \"grades\": [80, 90]}\ntext = json.dumps(student, indent=2)\nprint(text)\nrestored = json.loads(text)",
+        "example_python": "import json\nstudent = {\"name\": \"Maria\", \"grades\": [80, 90]}\ntext = json.dumps(student, indent=2)\nprint(text)\nrestored = json.loads(text)\nwith open(\"students.json\", \"w\") as file:\n    json.dump([restored], file)\nwith open(\"students.json\") as file:\n    print(json.load(file)[0][\"name\"])",
+        "starter_python": "import json\nstudent = {\"name\": \"Maria\", \"grades\": [80, 90]}\n# Serialize, write, read, and verify this record.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Serialize student data to JSON, write it to a virtual file, read it back, and verify the restored grades.",
+        "expected_result": "A labelled report demonstrating working with json and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Python single quotes and None are not JSON syntax. Parse untrusted JSON with json.loads, never eval. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: JSON is a text format for objects, arrays, strings, numbers, Booleans, and null. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which parses JSON text?",
+                "choices": [
+                    "json.dumps()",
+                    "json.loads()",
+                    "eval() recommended",
+                    "str()"
+                ],
+                "answer": 1,
+                "explanation": "Correct: json.loads(). Review the key concepts and example in Working with JSON."
+            },
+            {
+                "question": "Which produces JSON text?",
+                "choices": [
+                    "json.loads()",
+                    "json.read()",
+                    "json.dumps()",
+                    "input only"
+                ],
+                "answer": 2,
+                "explanation": "Correct: json.dumps(). Review the key concepts and example in Working with JSON."
+            },
+            {
+                "question": "Which is JSON null in Python after parsing?",
+                "choices": ["False always", "\"null\"", "0 always", "None"],
+                "answer": 3,
+                "explanation": "Correct: None. Review the key concepts and example in Working with JSON."
+            },
+            {
+                "question": "Which quotation marks does JSON require for strings?",
+                "choices": [
+                    "Double quotes",
+                    "Single quotes only",
+                    "Backticks",
+                    "No quotes"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Double quotes. Review the key concepts and example in Working with JSON."
+            },
+            {
+                "question": "Which reads JSON from a file object?",
+                "choices": [
+                    "json.loads(file)",
+                    "json.load(file)",
+                    "json.dumps(file)",
+                    "file.parse()"
+                ],
+                "answer": 1,
+                "explanation": "Correct: json.load(file). Review the key concepts and example in Working with JSON."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Introduction to APIs",
+        "level": "Advanced",
+        "position": 27,
+        "objectives": [
+            "Explain HTTP requests, responses, status codes, and GET.",
+            "Process a simulated JSON API response and handle missing or invalid data.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Introduction to APIs through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Request/response; HTTP; GET; JSON API results; simulated responses.\n\nAn API defines how programs request information or actions. HTTP requests include a method and resource URL; responses include a status and body. GET commonly retrieves data. JSON is a common response format, but clients must check status and validate fields. This lab uses a simulated public response so no keys, network permissions, or production services are needed.",
+        "syntax": "import json\nstatus_code = 200\nresponse_body = '{\"students\": [{\"id\": 1, \"name\": \"Maria\"}]}'\nif status_code == 200:\n    data = json.loads(response_body)",
+        "example_python": "import json\nstatus_code = 200\nresponse_body = '{\"students\": [{\"id\": 1, \"name\": \"Maria\"}]}'\nif status_code == 200:\n    data = json.loads(response_body)\n    for student in data.get(\"students\", []):\n        print(student[\"name\"])\nelse:\n    print(\"Request failed:\", status_code)",
+        "starter_python": "import json\nstatus_code = 200\nresponse_body = '{\"students\": [{\"id\": 1, \"name\": \"Maria\"}]}'\n# Check status, parse safely, and display student results.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Process a simulated GET response containing student records. Handle status 404, missing fields, and invalid JSON gracefully.",
+        "expected_result": "A labelled report demonstrating introduction to apis and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "A successful HTTP status does not guarantee expected fields. Handle malformed JSON and missing records. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: An API defines how programs request information or actions. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which HTTP method commonly retrieves data?",
+                "choices": ["DELETE", "POST only", "GET", "DROP"],
+                "answer": 2,
+                "explanation": "Correct: GET. Review the key concepts and example in Introduction to APIs."
+            },
+            {
+                "question": "What does a response status communicate?",
+                "choices": [
+                    "The Python variable type",
+                    "The student password",
+                    "The CSS color",
+                    "Request outcome"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Request outcome. Review the key concepts and example in Introduction to APIs."
+            },
+            {
+                "question": "What does HTTP 404 usually mean?",
+                "choices": [
+                    "Resource not found",
+                    "Success",
+                    "Always invalid JSON",
+                    "A new database"
+                ],
+                "answer": 0,
+                "explanation": "Correct: Resource not found. Review the key concepts and example in Introduction to APIs."
+            },
+            {
+                "question": "Why check response fields?",
+                "choices": [
+                    "Every response is trusted",
+                    "Responses may omit expected data",
+                    "JSON always has grades",
+                    "To reveal API keys"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Responses may omit expected data. Review the key concepts and example in Introduction to APIs."
+            },
+            {
+                "question": "Where should API keys appear in this exercise?",
+                "choices": [
+                    "Inside submitted source",
+                    "In the course card",
+                    "Nowhere; use simulated public data",
+                    "In printed output"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Nowhere; use simulated public data. Review the key concepts and example in Introduction to APIs."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Database Programming with Python",
+        "level": "Advanced",
+        "position": 28,
+        "objectives": [
+            "Create a safe educational SQLite database.",
+            "Apply parameterized INSERT, SELECT, UPDATE, and DELETE operations.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Database Programming with Python through practical student-information examples and exercises.",
+        "explanation": "Key concepts: SQLite; connections; tables; parameterized CRUD; commit; local storage.\n\nA database stores structured records in tables. SQLite uses a local database connection; :memory: creates a temporary database. SQL CREATE TABLE defines structure, INSERT adds, SELECT reads, UPDATE changes, and DELETE removes rows. Use ? placeholders with separate parameters for user values, never string concatenation. Commit changes and close the connection.",
+        "syntax": "import sqlite3\nconnection = sqlite3.connect(\":memory:\")\nconnection.execute(\"CREATE TABLE students (id INTEGER PRIMARY KEY, name TEXT, grade REAL)\")\nconnection.execute(\"INSERT INTO students (name, grade) VALUES (?, ?)\", (\"Maria\", 90))\nconnection.execute(\"UPDATE students SET grade = ? WHERE id = ?\", (95, 1))",
+        "example_python": "import sqlite3\nconnection = sqlite3.connect(\":memory:\")\nconnection.execute(\"CREATE TABLE students (id INTEGER PRIMARY KEY, name TEXT, grade REAL)\")\nconnection.execute(\"INSERT INTO students (name, grade) VALUES (?, ?)\", (\"Maria\", 90))\nconnection.execute(\"UPDATE students SET grade = ? WHERE id = ?\", (95, 1))\nprint(connection.execute(\"SELECT name, grade FROM students\").fetchall())\nconnection.execute(\"DELETE FROM students WHERE id = ?\", (1,))\nconnection.commit()\nconnection.close()",
+        "starter_python": "import sqlite3\nconnection = sqlite3.connect(\":memory:\")\n# Create a table and implement parameterized CRUD.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Create an educational SQLite student database and demonstrate all four CRUD operations using parameters. Use only an in-memory or browser virtual file database.",
+        "expected_result": "A labelled report demonstrating database programming with python and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Concatenating raw input into SQL risks injection. Include WHERE when targeting an update or deletion. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: A database stores structured records in tables. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "Which SQL reads rows?",
+                "choices": ["INSERT", "UPDATE", "DELETE", "SELECT"],
+                "answer": 3,
+                "explanation": "Correct: SELECT. Review the key concepts and example in Database Programming with Python."
+            },
+            {
+                "question": "Which placeholders safely bind user values in sqlite3?",
+                "choices": [
+                    "? with separate parameters",
+                    "String concatenation",
+                    "f-strings with raw input",
+                    "HTML escaping only"
+                ],
+                "answer": 0,
+                "explanation": "Correct: ? with separate parameters. Review the key concepts and example in Database Programming with Python."
+            },
+            {
+                "question": "What does :memory: create?",
+                "choices": [
+                    "A production Laravel connection",
+                    "A temporary local database",
+                    "A remote API",
+                    "A text editor"
+                ],
+                "answer": 1,
+                "explanation": "Correct: A temporary local database. Review the key concepts and example in Database Programming with Python."
+            },
+            {
+                "question": "Which operation saves a transaction?",
+                "choices": [
+                    "print()",
+                    "input()",
+                    "commit()",
+                    "fetchone() only"
+                ],
+                "answer": 2,
+                "explanation": "Correct: commit(). Review the key concepts and example in Database Programming with Python."
+            },
+            {
+                "question": "Why use WHERE in UPDATE or DELETE?",
+                "choices": [
+                    "To select the database driver",
+                    "To encrypt data",
+                    "To import a class",
+                    "To target intended rows"
+                ],
+                "answer": 3,
+                "explanation": "Correct: To target intended rows. Review the key concepts and example in Database Programming with Python."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Advanced Functions",
+        "level": "Advanced",
+        "position": 29,
+        "objectives": [
+            "Apply lambda, map(), filter(), *args, and **kwargs.",
+            "Create recursive functions with validated inputs and terminating base cases.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Advanced Functions through practical student-information examples and exercises.",
+        "explanation": "Key concepts: lambda; map(); filter(); recursion; base cases; *args; **kwargs.\n\nlambda creates a small anonymous function with one expression. map transforms each input and filter keeps inputs where a predicate is true; both return iterators. Recursion solves a problem by calling the function on a smaller case and requires a stopping base case. *args collects positional arguments into a tuple, and **kwargs collects named arguments into a dictionary.",
+        "syntax": "double = lambda n: n * 2\nprint(list(map(double, [1, 2, 3])))\nprint(list(filter(lambda g: g >= 75, [70, 80, 90])))\ndef factorial(n):\n    if n <= 1:",
+        "example_python": "double = lambda n: n * 2\nprint(list(map(double, [1, 2, 3])))\nprint(list(filter(lambda g: g >= 75, [70, 80, 90])))\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\ndef total(*args, **kwargs):\n    return sum(args) + kwargs.get(\"bonus\", 0)\nprint(factorial(4))\nprint(total(2, 3, bonus=1))",
+        "starter_python": "grades = [70, 80, 90]\n# Transform and filter; add a recursive factorial and flexible total.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Transform and filter grades with map/filter, write a recursive factorial with input validation, and create a function using *args and **kwargs.",
+        "expected_result": "A labelled report demonstrating advanced functions and meeting each activity requirement. Compare results for normal and boundary inputs.",
+        "important_notes": "Recursion needs a base case and validated input. map/filter return iterators, not ready-made lists. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: lambda creates a small anonymous function with one expression. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": false,
+        "rubric": null,
+        "quiz": [
+            {
+                "question": "What does lambda contain?",
+                "choices": [
+                    "One expression",
+                    "Any number of statements",
+                    "Only a class",
+                    "An import block"
+                ],
+                "answer": 0,
+                "explanation": "Correct: One expression. Review the key concepts and example in Advanced Functions."
+            },
+            {
+                "question": "What does map() do?",
+                "choices": [
+                    "Only removes items",
+                    "Transforms items",
+                    "Sorts in place",
+                    "Writes files"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Transforms items. Review the key concepts and example in Advanced Functions."
+            },
+            {
+                "question": "What must recursion include?",
+                "choices": [
+                    "An API key",
+                    "An infinite loop",
+                    "A terminating base case",
+                    "A global list"
+                ],
+                "answer": 2,
+                "explanation": "Correct: A terminating base case. Review the key concepts and example in Advanced Functions."
+            },
+            {
+                "question": "What type holds *args?",
+                "choices": ["Dictionary", "String", "Boolean", "Tuple"],
+                "answer": 3,
+                "explanation": "Correct: Tuple. Review the key concepts and example in Advanced Functions."
+            },
+            {
+                "question": "What type holds **kwargs?",
+                "choices": ["Dictionary", "Tuple", "Set", "Float"],
+                "answer": 0,
+                "explanation": "Correct: Dictionary. Review the key concepts and example in Advanced Functions."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    },
+    {
+        "title": "Advanced Project",
+        "level": "Advanced",
+        "position": 30,
+        "objectives": [
+            "Develop a student information system using classes and SQLite.",
+            "Integrate parameterized CRUD, grade reporting, modules, validation, and exceptions.",
+            "Debug and test a solution to the lesson activity."
+        ],
+        "introduction": "Explore Advanced Project through practical student-information examples and exercises.",
+        "explanation": "Key concepts: Python Student Information System; OOP; SQLite; CRUD; validation; modules.\n\nDevelop a student information system with Student objects and a repository responsible for SQLite operations. Milestones: define the model and schema; implement parameterized CRUD; add grade calculation and status; validate input and catch expected exceptions; organize helpers into modules; run scenario tests. The browser database is temporary; demonstrate save/read within a run and submit source for review.",
+        "syntax": "import sqlite3\nclass Student:\n    def __init__(self, name, grades):\n        self.name = name\n        self.grades = grades",
+        "example_python": "import sqlite3\nclass Student:\n    def __init__(self, name, grades):\n        self.name = name\n        self.grades = grades\n    def average(self):\n        return sum(self.grades) / len(self.grades) if self.grades else 0\n\nstudent = Student(\"Maria\", [85, 94])\nprint(student.name, student.average())\n# Add your repository, menu, validation, and tests.",
+        "starter_python": "import sqlite3\nclass Student:\n    # Add initialization, average, and academic status.\n    pass\n# Add a repository, parameterized CRUD, menu, and tests.\n",
+        "guided_practice": "Run the example, explain each line, then change one value and predict the result. Test at least two cases and one boundary or invalid case.",
+        "activity": "Python Student Information System: implement registration, add/edit/delete/search/list students, store grades, calculate average and academic status, and save/retrieve records in educational SQLite. Apply classes, functions/modules, validation, and exceptions. Submit source and a commented test report for teacher review. Milestones: model → schema → CRUD → grades → validation → menu → tests.",
+        "expected_result": "Registered S001: Maria\nAverage: 89.5 | Status: PASSED\nSaved to SQLite\nSearch: S001 Maria",
+        "important_notes": "Separate database work from menu logic. Validate duplicate IDs, missing records, grade ranges, and empty grades. Read the traceback from its last line. Browser files and databases are temporary and reset after each run.",
+        "challenge": "Summary: Develop a student information system with Student objects and a repository responsible for SQLite operations. Extend your activity with another realistic test case and explain the result in comments.",
+        "completion_requirements": "Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.",
+        "is_project": true,
+        "rubric": {
+            "Program Functionality": 40,
+            "Correct Use of Python Concepts": 25,
+            "Code Organization": 15,
+            "Error Handling": 10,
+            "Readability / Documentation": 10
+        },
+        "quiz": [
+            {
+                "question": "Which component should handle database operations?",
+                "choices": [
+                    "Every print statement",
+                    "A repository or dedicated helper",
+                    "An HTML iframe",
+                    "Only a comment"
+                ],
+                "answer": 1,
+                "explanation": "Correct: A repository or dedicated helper. Review the key concepts and example in Advanced Project."
+            },
+            {
+                "question": "Which storage is safe for this lab?",
+                "choices": [
+                    "Production Laravel credentials",
+                    "Unrestricted server shell",
+                    "Browser-local SQLite",
+                    "A shared production database"
+                ],
+                "answer": 2,
+                "explanation": "Correct: Browser-local SQLite. Review the key concepts and example in Advanced Project."
+            },
+            {
+                "question": "Which protects SQL from raw input injection?",
+                "choices": [
+                    "f-string SQL",
+                    "Concatenating a name",
+                    "Removing comments",
+                    "Parameterized queries"
+                ],
+                "answer": 3,
+                "explanation": "Correct: Parameterized queries. Review the key concepts and example in Advanced Project."
+            },
+            {
+                "question": "What should the test report cover?",
+                "choices": [
+                    "CRUD, grades, invalid input, and persistence",
+                    "Only a welcome print",
+                    "Only source length",
+                    "Only variable colors"
+                ],
+                "answer": 0,
+                "explanation": "Correct: CRUD, grades, invalid input, and persistence. Review the key concepts and example in Advanced Project."
+            },
+            {
+                "question": "How should a large program be organized?",
+                "choices": [
+                    "One unstructured statement",
+                    "Related classes, functions, and modules",
+                    "Only global variables",
+                    "Repeated code everywhere"
+                ],
+                "answer": 1,
+                "explanation": "Correct: Related classes, functions, and modules. Review the key concepts and example in Advanced Project."
+            }
+        ],
+        "validation_rules": {
+            "python": {
+                "syntax": true,
+                "required_functions": [],
+                "test_cases": []
+            }
+        }
+    }
+]

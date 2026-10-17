@@ -1,0 +1,3315 @@
+[
+  {
+    "title": "Introduction to Scratch",
+    "level": "Beginner",
+    "position": 1,
+    "is_project": false,
+    "objectives": [
+      "Identify the main parts of the Scratch interface.",
+      "Explain the purpose of sprites, stage, blocks, and scripts.",
+      "Create a Scratch script that introduces a sprite when the green flag is clicked."
+    ],
+    "introduction": "Build your computational thinking through stage, sprites, blocks, scripts, categories, interface, starting projects. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Stage, sprites, blocks, scripts, categories, interface, starting projects.\n\nThe stage is the area where a project is performed. A sprite is an actor with its own scripts, costumes, and sounds. Drag blocks from the palette and snap them together in the scripts area. An event hat starts a script; connected blocks run from top to bottom. Choose a sprite before building its script.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Looks",
+            "text": "say Hello! I am the Scratch Cat for 2 seconds"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Hello! I am the Scratch Cat appears for two seconds. Explain each block before changing it.",
+    "activity": "Make the Cat introduce its name and describe what your project will do.",
+    "expected_result": "Hello! I am the Scratch Cat appears for two seconds.\nSuccess criteria: Make the Cat introduce its name and describe what your project will do.\nClick the green flag twice and confirm the introduction restarts.",
+    "important_notes": "Blocks that are not connected to an event do not start when the flag is clicked.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: The stage is the area where a project is performed. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Which part performs a sprite’s instructions?",
+        "choices": [
+          "A script",
+          "A backdrop",
+          "The browser address bar",
+          "The sprite name alone"
+        ],
+        "answer": 0,
+        "explanation": "The stage is the area where a project is performed. A sprite is an actor with its own scripts, costumes, and sounds. Drag blocks from the palette and snap them together in the scripts area. An event hat starts a script; connected blocks run from top to bottom. Choose a sprite before building its script."
+      },
+      {
+        "question": "Predict the sample for Introduction to Scratch: which description matches its behavior?",
+        "choices": [
+          "The script only changes the project title.",
+          "Hello! I am the Scratch Cat appears for two seconds.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online."
+        ],
+        "answer": 1,
+        "explanation": "Trace the event and connected blocks in order. Hello! I am the Scratch Cat appears for two seconds."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Blocks that are not connected to an event do not start when the flag is clicked.",
+          "Scratch requires Python indentation."
+        ],
+        "answer": 2,
+        "explanation": "Blocks that are not connected to an event do not start when the flag is clicked."
+      },
+      {
+        "question": "Which category contains “say Hello! I am the Scratch Cat for 2 seconds”?",
+        "choices": [
+          "Motion",
+          "Sound",
+          "Events",
+          "Looks"
+        ],
+        "answer": 3,
+        "explanation": "Looks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Click the green flag twice and confirm the introduction restarts.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works."
+        ],
+        "answer": 0,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Click the green flag twice and confirm the introduction restarts."
+      }
+    ]
+  },
+  {
+    "title": "Sprites and Backdrops",
+    "level": "Beginner",
+    "position": 2,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for sprites and backdrops.",
+      "Create a Scratch project to build a scene with at least two sprites and two backdrops. Give each sprite a different appearance.",
+      "Debug the project by applying this test: Confirm both sprites remain visible after each backdrop change."
+    ],
+    "introduction": "Build your computational thinking through choosing and uploading sprites, costumes, properties, adding and switching backdrops. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Choosing and uploading sprites, costumes, properties, adding and switching backdrops.\n\nSprites can be selected from the library or uploaded using the sprite menu. A costume changes a sprite’s appearance; a backdrop changes the stage scene. Each sprite has position, direction, size, and visibility properties. Select the stage to edit backdrops. Use images you have permission to use and avoid personal photos.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Looks",
+            "text": "switch backdrop to Classroom"
+          },
+          {
+            "category": "Looks",
+            "text": "switch costume to costume1"
+          },
+          {
+            "category": "Control",
+            "text": "wait 2 seconds"
+          },
+          {
+            "category": "Looks",
+            "text": "switch backdrop to Playground"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The stage changes from Classroom to Playground after two seconds. Explain each block before changing it.",
+    "activity": "Build a scene with at least two sprites and two backdrops. Give each sprite a different appearance.",
+    "expected_result": "The stage changes from Classroom to Playground after two seconds.\nSuccess criteria: Build a scene with at least two sprites and two backdrops. Give each sprite a different appearance.\nConfirm both sprites remain visible after each backdrop change.",
+    "important_notes": "Editing the selected sprite’s costume does not change the stage backdrop.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Sprites can be selected from the library or uploaded using the sprite menu. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What changes the stage scene?",
+        "choices": [
+          "A sound volume block",
+          "A backdrop",
+          "A sprite variable",
+          "A sprite costume only"
+        ],
+        "answer": 1,
+        "explanation": "Sprites can be selected from the library or uploaded using the sprite menu. A costume changes a sprite’s appearance; a backdrop changes the stage scene. Each sprite has position, direction, size, and visibility properties. Select the stage to edit backdrops. Use images you have permission to use and avoid personal photos."
+      },
+      {
+        "question": "Predict the sample for Sprites and Backdrops: which description matches its behavior?",
+        "choices": [
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The stage changes from Classroom to Playground after two seconds.",
+          "Every block runs in a random order."
+        ],
+        "answer": 2,
+        "explanation": "Trace the event and connected blocks in order. The stage changes from Classroom to Playground after two seconds."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Editing the selected sprite’s costume does not change the stage backdrop."
+        ],
+        "answer": 3,
+        "explanation": "Editing the selected sprite’s costume does not change the stage backdrop."
+      },
+      {
+        "question": "Which category contains “switch backdrop to Classroom”?",
+        "choices": [
+          "Looks",
+          "Motion",
+          "Sound",
+          "Events"
+        ],
+        "answer": 0,
+        "explanation": "Looks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Assume the first run proves every case works.",
+          "Confirm both sprites remain visible after each backdrop change.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing."
+        ],
+        "answer": 1,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Confirm both sprites remain visible after each backdrop change."
+      }
+    ]
+  },
+  {
+    "title": "Motion Blocks",
+    "level": "Beginner",
+    "position": 3,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for motion blocks.",
+      "Create a Scratch project to make four arrow-key scripts to move a sprite around the stage. Compare go to with glide and turning.",
+      "Debug the project by applying this test: Test all four keys from the center and near stage edges."
+    ],
+    "introduction": "Build your computational thinking through move, clockwise/counterclockwise turns, go to, glide, direction, change x/y, coordinates. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Move, clockwise/counterclockwise turns, go to, glide, direction, change x/y, coordinates.\n\nThe stage center is (0,0). Increasing x moves right; increasing y moves up. The stage extends approximately x=-240 to 240 and y=-180 to 180. Move steps follows the sprite’s direction. Go to jumps immediately; glide takes time. Arrow-key event scripts can change coordinates without changing direction.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when right arrow key pressed"
+          },
+          {
+            "category": "Motion",
+            "text": "change x by 10"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Each right-arrow press moves the sprite ten units right. Explain each block before changing it.",
+    "activity": "Make four arrow-key scripts to move a sprite around the stage. Compare go to with glide and turning.",
+    "expected_result": "Each right-arrow press moves the sprite ten units right.\nSuccess criteria: Make four arrow-key scripts to move a sprite around the stage. Compare go to with glide and turning.\nTest all four keys from the center and near stage edges.",
+    "important_notes": "A change in y moves vertically; confusing x and y swaps controls.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: The stage center is (0,0). Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Which coordinate change moves a sprite right?",
+        "choices": [
+          "Increase volume",
+          "Decrease size",
+          "Increase x",
+          "Decrease x"
+        ],
+        "answer": 2,
+        "explanation": "The stage center is (0,0). Increasing x moves right; increasing y moves up. The stage extends approximately x=-240 to 240 and y=-180 to 180. Move steps follows the sprite’s direction. Go to jumps immediately; glide takes time. Arrow-key event scripts can change coordinates without changing direction."
+      },
+      {
+        "question": "Predict the sample for Motion Blocks: which description matches its behavior?",
+        "choices": [
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "Each right-arrow press moves the sprite ten units right."
+        ],
+        "answer": 3,
+        "explanation": "Trace the event and connected blocks in order. Each right-arrow press moves the sprite ten units right."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "A change in y moves vertically; confusing x and y swaps controls.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable."
+        ],
+        "answer": 0,
+        "explanation": "A change in y moves vertically; confusing x and y swaps controls."
+      },
+      {
+        "question": "Which category contains “change x by 10”?",
+        "choices": [
+          "Events",
+          "Motion",
+          "Looks",
+          "Sound"
+        ],
+        "answer": 1,
+        "explanation": "Motion contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Test all four keys from the center and near stage edges.",
+          "Rename the project without running it."
+        ],
+        "answer": 2,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test all four keys from the center and near stage edges."
+      }
+    ]
+  },
+  {
+    "title": "Looks and Sound",
+    "level": "Beginner",
+    "position": 4,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for looks and sound.",
+      "Create a Scratch project to animate a talking character with two costumes, a sound, size changes, and a show/hide moment.",
+      "Debug the project by applying this test: Check the sound finishes before the costume switches and restore visibility on restart."
+    ],
+    "introduction": "Build your computational thinking through say, think, show/hide, costumes, size, play/start/stop sound, volume. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Say, think, show/hide, costumes, size, play/start/stop sound, volume.\n\nLooks blocks change appearance or speech without moving the sprite. Say and think display bubbles. Show and hide affect visibility. Start sound continues to the next block immediately; play sound until done waits for the sound to finish. Sound blocks control volume, while costume changes can create animation.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Looks",
+            "text": "say Welcome! for 2 seconds"
+          },
+          {
+            "category": "Sound",
+            "text": "play sound Meow until done"
+          },
+          {
+            "category": "Looks",
+            "text": "next costume"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The character speaks, finishes Meow, then changes costume. Explain each block before changing it.",
+    "activity": "Animate a talking character with two costumes, a sound, size changes, and a show/hide moment.",
+    "expected_result": "The character speaks, finishes Meow, then changes costume.\nSuccess criteria: Animate a talking character with two costumes, a sound, size changes, and a show/hide moment.\nCheck the sound finishes before the costume switches and restore visibility on restart.",
+    "important_notes": "Hidden sprites cannot be seen; initialize show and size when the flag is clicked.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Looks blocks change appearance or speech without moving the sprite. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Which sound block waits before continuing?",
+        "choices": [
+          "Start sound",
+          "Change size",
+          "Show",
+          "Play sound until done"
+        ],
+        "answer": 3,
+        "explanation": "Looks blocks change appearance or speech without moving the sprite. Say and think display bubbles. Show and hide affect visibility. Start sound continues to the next block immediately; play sound until done waits for the sound to finish. Sound blocks control volume, while costume changes can create animation."
+      },
+      {
+        "question": "Predict the sample for Looks and Sound: which description matches its behavior?",
+        "choices": [
+          "The character speaks, finishes Meow, then changes costume.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title."
+        ],
+        "answer": 0,
+        "explanation": "Trace the event and connected blocks in order. The character speaks, finishes Meow, then changes costume."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "All projects require a cloud variable.",
+          "Hidden sprites cannot be seen; initialize show and size when the flag is clicked.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name."
+        ],
+        "answer": 1,
+        "explanation": "Hidden sprites cannot be seen; initialize show and size when the flag is clicked."
+      },
+      {
+        "question": "Which category contains “say Welcome! for 2 seconds”?",
+        "choices": [
+          "Sound",
+          "Events",
+          "Looks",
+          "Motion"
+        ],
+        "answer": 2,
+        "explanation": "Looks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Check the sound finishes before the costume switches and restore visibility on restart."
+        ],
+        "answer": 3,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Check the sound finishes before the costume switches and restore visibility on restart."
+      }
+    ]
+  },
+  {
+    "title": "Events",
+    "level": "Beginner",
+    "position": 5,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for events.",
+      "Create a Scratch project to create a scene where two clicked sprites perform different actions and one sprite responds to a greeting message.",
+      "Debug the project by applying this test: Click each sprite separately and confirm the intended receiver reacts once."
+    ],
+    "introduction": "Build your computational thinking through green flag, sprite click, key press, backdrop switch, broadcast, receive. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Green flag, sprite click, key press, backdrop switch, broadcast, receive.\n\nEvents describe when a script should begin. Sprite clicks and keys can start different actions. Broadcast sends a named message to every matching receiver in the project; it does not physically move another sprite. Use clear message names and attach a receiver on the sprite that should react.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when this sprite clicked"
+          },
+          {
+            "category": "Looks",
+            "text": "say Follow me! for 1 second"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast greeting"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Clicking this sprite shows a greeting and sends the greeting message. Explain each block before changing it.",
+    "activity": "Create a scene where two clicked sprites perform different actions and one sprite responds to a greeting message.",
+    "expected_result": "Clicking this sprite shows a greeting and sends the greeting message.\nSuccess criteria: Create a scene where two clicked sprites perform different actions and one sprite responds to a greeting message.\nClick each sprite separately and confirm the intended receiver reacts once.",
+    "important_notes": "Broadcast and receiver message names must match exactly.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Events describe when a script should begin. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What starts scripts with a matching receive event?",
+        "choices": [
+          "Broadcasting their message",
+          "Changing a variable name",
+          "Moving a block to the palette",
+          "Deleting the stage"
+        ],
+        "answer": 0,
+        "explanation": "Events describe when a script should begin. Sprite clicks and keys can start different actions. Broadcast sends a named message to every matching receiver in the project; it does not physically move another sprite. Use clear message names and attach a receiver on the sprite that should react."
+      },
+      {
+        "question": "Predict the sample for Events: which description matches its behavior?",
+        "choices": [
+          "The script only changes the project title.",
+          "Clicking this sprite shows a greeting and sends the greeting message.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online."
+        ],
+        "answer": 1,
+        "explanation": "Trace the event and connected blocks in order. Clicking this sprite shows a greeting and sends the greeting message."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Broadcast and receiver message names must match exactly.",
+          "Scratch requires Python indentation."
+        ],
+        "answer": 2,
+        "explanation": "Broadcast and receiver message names must match exactly."
+      },
+      {
+        "question": "Which category contains “say Follow me! for 1 second”?",
+        "choices": [
+          "Motion",
+          "Sound",
+          "Events",
+          "Looks"
+        ],
+        "answer": 3,
+        "explanation": "Looks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Click each sprite separately and confirm the intended receiver reacts once.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works."
+        ],
+        "answer": 0,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Click each sprite separately and confirm the intended receiver reacts once."
+      }
+    ]
+  },
+  {
+    "title": "Control Blocks",
+    "level": "Beginner",
+    "position": 6,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for control blocks.",
+      "Create a Scratch project to create a moving animation, then replace the repeat loop with forever and add edge bouncing.",
+      "Debug the project by applying this test: Compare repeat 4 with forever and use the stop button to stop continuous movement."
+    ],
+    "introduction": "Build your computational thinking through wait, repeat, forever, stop, loops. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Wait, repeat, forever, stop, loops.\n\nRepeat runs a stack a fixed number of times. Forever continues until the project or script stops. Wait pauses that script and gives an animation visible timing. Stop this script ends one stack; stop all ends the project. Replace copied instructions with a loop when the same action should repeat.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Control",
+            "text": "repeat 4 ["
+          },
+          {
+            "category": "Motion",
+            "text": "move 10 steps"
+          },
+          {
+            "category": "Looks",
+            "text": "next costume"
+          },
+          {
+            "category": "Control",
+            "text": "wait 0.2 seconds"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The sprite moves forty steps overall and changes costume four times. Explain each block before changing it.",
+    "activity": "Create a moving animation, then replace the repeat loop with forever and add edge bouncing.",
+    "expected_result": "The sprite moves forty steps overall and changes costume four times.\nSuccess criteria: Create a moving animation, then replace the repeat loop with forever and add edge bouncing.\nCompare repeat 4 with forever and use the stop button to stop continuous movement.",
+    "important_notes": "A loop without a small wait can make costume changes too fast to observe.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Repeat runs a stack a fixed number of times. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "How many times does repeat 4 execute its body?",
+        "choices": [
+          "Until the project is deleted",
+          "Four",
+          "One",
+          "Ten"
+        ],
+        "answer": 1,
+        "explanation": "Repeat runs a stack a fixed number of times. Forever continues until the project or script stops. Wait pauses that script and gives an animation visible timing. Stop this script ends one stack; stop all ends the project. Replace copied instructions with a loop when the same action should repeat."
+      },
+      {
+        "question": "Predict the sample for Control Blocks: which description matches its behavior?",
+        "choices": [
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The sprite moves forty steps overall and changes costume four times.",
+          "Every block runs in a random order."
+        ],
+        "answer": 2,
+        "explanation": "Trace the event and connected blocks in order. The sprite moves forty steps overall and changes costume four times."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "A loop without a small wait can make costume changes too fast to observe."
+        ],
+        "answer": 3,
+        "explanation": "A loop without a small wait can make costume changes too fast to observe."
+      },
+      {
+        "question": "Which category contains “move 10 steps”?",
+        "choices": [
+          "Motion",
+          "Looks",
+          "Sound",
+          "Events"
+        ],
+        "answer": 0,
+        "explanation": "Motion contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Assume the first run proves every case works.",
+          "Compare repeat 4 with forever and use the stop button to stop continuous movement.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing."
+        ],
+        "answer": 1,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Compare repeat 4 with forever and use the stop button to stop continuous movement."
+      }
+    ]
+  },
+  {
+    "title": "Sensing",
+    "level": "Beginner",
+    "position": 7,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for sensing.",
+      "Create a Scratch project to ask for a player name, then make the sprite react to touching an object or pressing space.",
+      "Debug the project by applying this test: Try two different names and test the touching and key conditions separately."
+    ],
+    "introduction": "Build your computational thinking through touching sprite/color, distance, ask/answer, mouse x/y, mouse down, key pressed. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Touching sprite/color, distance, ask/answer, mouse x/y, mouse down, key pressed.\n\nSensing reporters supply observations. Touching and key pressed return true or false and can be placed inside conditions. Ask and wait stores typed input in the answer reporter. Mouse x and y report pointer coordinates. Distance to estimates separation from a target sprite; sensing does not automatically trigger an action without a controlling script.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Sensing",
+            "text": "ask What is your name? and wait"
+          },
+          {
+            "category": "Looks",
+            "text": "say (answer) for 2 seconds"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The sprite displays the name entered by the player. Explain each block before changing it.",
+    "activity": "Ask for a player name, then make the sprite react to touching an object or pressing space.",
+    "expected_result": "The sprite displays the name entered by the player.\nSuccess criteria: Ask for a player name, then make the sprite react to touching an object or pressing space.\nTry two different names and test the touching and key conditions separately.",
+    "important_notes": "Reading answer before ask finishes uses an older response.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Sensing reporters supply observations. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Where is the latest response to ask stored?",
+        "choices": [
+          "The score automatically",
+          "The costumes tab",
+          "The answer reporter",
+          "The backdrop name"
+        ],
+        "answer": 2,
+        "explanation": "Sensing reporters supply observations. Touching and key pressed return true or false and can be placed inside conditions. Ask and wait stores typed input in the answer reporter. Mouse x and y report pointer coordinates. Distance to estimates separation from a target sprite; sensing does not automatically trigger an action without a controlling script."
+      },
+      {
+        "question": "Predict the sample for Sensing: which description matches its behavior?",
+        "choices": [
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The sprite displays the name entered by the player."
+        ],
+        "answer": 3,
+        "explanation": "Trace the event and connected blocks in order. The sprite displays the name entered by the player."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Reading answer before ask finishes uses an older response.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable."
+        ],
+        "answer": 0,
+        "explanation": "Reading answer before ask finishes uses an older response."
+      },
+      {
+        "question": "Which category contains “ask What is your name? and wait”?",
+        "choices": [
+          "Sound",
+          "Sensing",
+          "Motion",
+          "Looks"
+        ],
+        "answer": 1,
+        "explanation": "Sensing contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Try two different names and test the touching and key conditions separately.",
+          "Rename the project without running it."
+        ],
+        "answer": 2,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Try two different names and test the touching and key conditions separately."
+      }
+    ]
+  },
+  {
+    "title": "Variables",
+    "level": "Beginner",
+    "position": 8,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for variables.",
+      "Create a Scratch project to create a score counter and adapt it so touching a collectible increases Score once per catch.",
+      "Debug the project by applying this test: Click three times, expect Score=3, then restart and expect zero."
+    ],
+    "introduction": "Build your computational thinking through creating, set/change, show/hide, score, counters. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Creating, set/change, show/hide, score, counters.\n\nA variable stores a value that can change during a project. Set replaces a value; change adds to the current value. Create Score for all sprites when several actors need it. Initialize Score at the flag event. Show and hide change the monitor, not the stored value. Avoid counting repeatedly while one collision remains true.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Variables",
+            "text": "set Score to 0"
+          },
+          {
+            "category": "Events",
+            "text": "when this sprite clicked"
+          },
+          {
+            "category": "Variables",
+            "text": "change Score by 1"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Score starts at zero and increases once each time the sprite is clicked. Explain each block before changing it.",
+    "activity": "Create a score counter and adapt it so touching a collectible increases Score once per catch.",
+    "expected_result": "Score starts at zero and increases once each time the sprite is clicked.\nSuccess criteria: Create a score counter and adapt it so touching a collectible increases Score once per catch.\nClick three times, expect Score=3, then restart and expect zero.",
+    "important_notes": "Setting Score to 1 on every catch prevents the total from accumulating.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: A variable stores a value that can change during a project. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Which block increases an existing score by one?",
+        "choices": [
+          "Set Score to 1 repeatedly",
+          "Hide Score",
+          "Rename Score",
+          "Change Score by 1"
+        ],
+        "answer": 3,
+        "explanation": "A variable stores a value that can change during a project. Set replaces a value; change adds to the current value. Create Score for all sprites when several actors need it. Initialize Score at the flag event. Show and hide change the monitor, not the stored value. Avoid counting repeatedly while one collision remains true."
+      },
+      {
+        "question": "Predict the sample for Variables: which description matches its behavior?",
+        "choices": [
+          "Score starts at zero and increases once each time the sprite is clicked.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title."
+        ],
+        "answer": 0,
+        "explanation": "Trace the event and connected blocks in order. Score starts at zero and increases once each time the sprite is clicked."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "All projects require a cloud variable.",
+          "Setting Score to 1 on every catch prevents the total from accumulating.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name."
+        ],
+        "answer": 1,
+        "explanation": "Setting Score to 1 on every catch prevents the total from accumulating."
+      },
+      {
+        "question": "Which category contains “set Score to 0”?",
+        "choices": [
+          "Looks",
+          "Sound",
+          "Variables",
+          "Motion"
+        ],
+        "answer": 2,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Click three times, expect Score=3, then restart and expect zero."
+        ],
+        "answer": 3,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Click three times, expect Score=3, then restart and expect zero."
+      }
+    ]
+  },
+  {
+    "title": "Simple Conditions",
+    "level": "Beginner",
+    "position": 9,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for simple conditions.",
+      "Create a Scratch project to if touching a collectible, add one point; otherwise move. Prevent repeat scoring for the same catch.",
+      "Debug the project by applying this test: Test both contact and no-contact, then hold contact to check duplicate scoring."
+    ],
+    "introduction": "Build your computational thinking through if, if-else, boolean conditions, sensing, decisions. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: If, if-else, Boolean conditions, sensing, decisions.\n\nAn if block runs its body only when its condition is true. An if-else chooses one of two branches. Put touching inside the condition slot to decide what happens on contact. A forever loop can check repeatedly. Move a collected object or wait until no longer touching to avoid awarding many points for one contact.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Control",
+            "text": "if touching Collectible then ["
+          },
+          {
+            "category": "Variables",
+            "text": "change Score by 1"
+          },
+          {
+            "category": "Looks",
+            "text": "say Caught! for 1 second"
+          },
+          {
+            "category": "Control",
+            "text": "else ["
+          },
+          {
+            "category": "Motion",
+            "text": "move 10 steps"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Contact awards a point; no contact makes the sprite move. Explain each block before changing it.",
+    "activity": "If touching a collectible, add one point; otherwise move. Prevent repeat scoring for the same catch.",
+    "expected_result": "Contact awards a point; no contact makes the sprite move.\nSuccess criteria: If touching a collectible, add one point; otherwise move. Prevent repeat scoring for the same catch.\nTest both contact and no-contact, then hold contact to check duplicate scoring.",
+    "important_notes": "An if checks once; use a loop when the condition must be checked continuously.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: An if block runs its body only when its condition is true. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "When does the else branch run?",
+        "choices": [
+          "When the condition is false",
+          "When both branches have run",
+          "Only after stop all",
+          "When the sprite is deleted"
+        ],
+        "answer": 0,
+        "explanation": "An if block runs its body only when its condition is true. An if-else chooses one of two branches. Put touching inside the condition slot to decide what happens on contact. A forever loop can check repeatedly. Move a collected object or wait until no longer touching to avoid awarding many points for one contact."
+      },
+      {
+        "question": "Predict the sample for Simple Conditions: which description matches its behavior?",
+        "choices": [
+          "The script only changes the project title.",
+          "Contact awards a point; no contact makes the sprite move.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online."
+        ],
+        "answer": 1,
+        "explanation": "Trace the event and connected blocks in order. Contact awards a point; no contact makes the sprite move."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "An if checks once; use a loop when the condition must be checked continuously.",
+          "Scratch requires Python indentation."
+        ],
+        "answer": 2,
+        "explanation": "An if checks once; use a loop when the condition must be checked continuously."
+      },
+      {
+        "question": "Which category contains “change Score by 1”?",
+        "choices": [
+          "Motion",
+          "Looks",
+          "Sound",
+          "Variables"
+        ],
+        "answer": 3,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Test both contact and no-contact, then hold contact to check duplicate scoring.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works."
+        ],
+        "answer": 0,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test both contact and no-contact, then hold contact to check duplicate scoring."
+      }
+    ]
+  },
+  {
+    "title": "Beginner Project — Catching Game",
+    "level": "Beginner",
+    "position": 10,
+    "is_project": true,
+    "objectives": [
+      "Identify the blocks and data needed for beginner project — catching game.",
+      "Create a Scratch project to build the Catching Game with player movement, random falls, catch scoring, miss handling, game over, and restart.",
+      "Debug the project by applying this test: Catch, miss, lose all lives, then restart and verify the original score and lives."
+    ],
+    "introduction": "Build your computational thinking through player control, falling object, randomness, score, collision, game over, restart. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Player control, falling object, randomness, score, collision, game over, restart.\n\nPlan a player at the bottom and an object falling from the top. Reset score and lives on the flag. Move the player with keys. Reset the object to a random x when caught or missed. Award one point per catch and reduce a life per miss. End the game when lives reaches zero; restart must restore all initial values.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Main game actor",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Variables",
+            "text": "set Score to 0"
+          },
+          {
+            "category": "Variables",
+            "text": "set Lives to 3"
+          },
+          {
+            "category": "Motion",
+            "text": "go to x (pick random -200 to 200) y 170"
+          },
+          {
+            "category": "Control",
+            "text": "repeat until Lives = 0 ["
+          },
+          {
+            "category": "Motion",
+            "text": "change y by -5"
+          },
+          {
+            "category": "Control",
+            "text": "if touching Player then ["
+          },
+          {
+            "category": "Variables",
+            "text": "change Score by 1"
+          },
+          {
+            "category": "Motion",
+            "text": "go to x (pick random -200 to 200) y 170"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. A caught object adds one point and returns to the top; three misses end the game. Explain each block before changing it.",
+    "activity": "Build the Catching Game with player movement, random falls, catch scoring, miss handling, game over, and restart.\nPlanning worksheet: write your game goal, player controls, sprite roles, state diagram, variable/list names, broadcasts, and a sketch of each screen.\nMilestones: 1. Plan and sketch. 2. Build and test player controls. 3. Implement the main interaction. 4. Add score, state transitions, and required mechanics. 5. Add scenes/audio and refactor repeated blocks. 6. Run the testing checklist and submit.\nTesting checklist: Catch, miss, lose all lives, then restart and verify the original score and lives. Record expected and actual outcomes, fixes, and one remaining improvement.",
+    "expected_result": "A caught object adds one point and returns to the top; three misses end the game.\nSuccess criteria: Build the Catching Game with player movement, random falls, catch scoring, miss handling, game over, and restart.\nCatch, miss, lose all lives, then restart and verify the original score and lives.",
+    "important_notes": "The sample catch loop needs a separate below-stage miss branch; completing that branch is part of the activity.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Plan a player at the bottom and an object falling from the top. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": {
+      "Program Functionality": 30,
+      "Correct Use of Scratch Concepts": 25,
+      "Creativity and Design": 15,
+      "Logic and Problem Solving": 15,
+      "Code Organization": 10,
+      "Testing / Debugging": 5
+    },
+    "quiz": [
+      {
+        "question": "Why reset the falling object immediately after a catch?",
+        "choices": [
+          "To make all backdrops identical",
+          "To prevent counting the same catch repeatedly",
+          "To delete the score permanently",
+          "To stop keyboard events forever"
+        ],
+        "answer": 1,
+        "explanation": "Plan a player at the bottom and an object falling from the top. Reset score and lives on the flag. Move the player with keys. Reset the object to a random x when caught or missed. Award one point per catch and reduce a life per miss. End the game when lives reaches zero; restart must restore all initial values."
+      },
+      {
+        "question": "Predict the sample for Beginner Project — Catching Game: which description matches its behavior?",
+        "choices": [
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "A caught object adds one point and returns to the top; three misses end the game.",
+          "Every block runs in a random order."
+        ],
+        "answer": 2,
+        "explanation": "Trace the event and connected blocks in order. A caught object adds one point and returns to the top; three misses end the game."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "The sample catch loop needs a separate below-stage miss branch; completing that branch is part of the activity."
+        ],
+        "answer": 3,
+        "explanation": "The sample catch loop needs a separate below-stage miss branch; completing that branch is part of the activity."
+      },
+      {
+        "question": "Which category contains “set Score to 0”?",
+        "choices": [
+          "Variables",
+          "Motion",
+          "Looks",
+          "Sound"
+        ],
+        "answer": 0,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Assume the first run proves every case works.",
+          "Catch, miss, lose all lives, then restart and verify the original score and lives.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing."
+        ],
+        "answer": 1,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Catch, miss, lose all lives, then restart and verify the original score and lives."
+      }
+    ]
+  },
+  {
+    "title": "Advanced Events and Broadcasts",
+    "level": "Intermediate",
+    "position": 11,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for advanced events and broadcasts.",
+      "Create a Scratch project to create an interactive story in which two actors coordinate dialogue using messages and change scenes in order.",
+      "Debug the project by applying this test: Add a delay to a scene1 receiver and check Scene2 still waits."
+    ],
+    "introduction": "Build your computational thinking through broadcast, broadcast and wait, receive, synchronization, scene changes. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Broadcast, broadcast and wait, receive, synchronization, scene changes.\n\nBroadcast starts receiver scripts and the sender continues. Broadcast and wait pauses the sender until the matching receiver scripts finish. Use it when a scene must finish before changing a backdrop. Simultaneous actors can receive one message. A forever receiver cannot finish, so a sender waiting for that receiver may wait indefinitely.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast scene1 and wait"
+          },
+          {
+            "category": "Looks",
+            "text": "switch backdrop to Scene2"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast scene2"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Scene2 begins after all scene1 receiver scripts finish. Explain each block before changing it.",
+    "activity": "Create an interactive story in which two actors coordinate dialogue using messages and change scenes in order.",
+    "expected_result": "Scene2 begins after all scene1 receiver scripts finish.\nSuccess criteria: Create an interactive story in which two actors coordinate dialogue using messages and change scenes in order.\nAdd a delay to a scene1 receiver and check Scene2 still waits.",
+    "important_notes": "Avoid forever loops inside receivers used by broadcast and wait.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Broadcast starts receiver scripts and the sender continues. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Which block waits for receiver scripts to finish?",
+        "choices": [
+          "When sprite clicked",
+          "Change volume",
+          "Broadcast and wait",
+          "Broadcast only"
+        ],
+        "answer": 2,
+        "explanation": "Broadcast starts receiver scripts and the sender continues. Broadcast and wait pauses the sender until the matching receiver scripts finish. Use it when a scene must finish before changing a backdrop. Simultaneous actors can receive one message. A forever receiver cannot finish, so a sender waiting for that receiver may wait indefinitely."
+      },
+      {
+        "question": "Predict the sample for Advanced Events and Broadcasts: which description matches its behavior?",
+        "choices": [
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "Scene2 begins after all scene1 receiver scripts finish."
+        ],
+        "answer": 3,
+        "explanation": "Trace the event and connected blocks in order. Scene2 begins after all scene1 receiver scripts finish."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Avoid forever loops inside receivers used by broadcast and wait.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable."
+        ],
+        "answer": 0,
+        "explanation": "Avoid forever loops inside receivers used by broadcast and wait."
+      },
+      {
+        "question": "Which category contains “switch backdrop to Scene2”?",
+        "choices": [
+          "Events",
+          "Looks",
+          "Motion",
+          "Sound"
+        ],
+        "answer": 1,
+        "explanation": "Looks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Add a delay to a scene1 receiver and check Scene2 still waits.",
+          "Rename the project without running it."
+        ],
+        "answer": 2,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Add a delay to a scene1 receiver and check Scene2 still waits."
+      }
+    ]
+  },
+  {
+    "title": "Loops and Nested Loops",
+    "level": "Intermediate",
+    "position": 12,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for loops and nested loops.",
+      "Create a Scratch project to build a three-part repeated animation with an inner movement loop and explain its total repetitions.",
+      "Debug the project by applying this test: Track a counter inside the inner loop and confirm it reaches twelve."
+    ],
+    "introduction": "Build your computational thinking through repeat, forever, repeat until, nested loops, efficient scripts. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Repeat, forever, repeat until, nested loops, efficient scripts.\n\nA nested loop runs its inner loop for every outer repetition. Repeat until checks a condition and continues while it is false. Choose repeat for a count and repeat until for a goal. Keep loops readable and separate movement from animation if they need independent timing.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Control",
+            "text": "repeat 3 ["
+          },
+          {
+            "category": "Control",
+            "text": "repeat 4 ["
+          },
+          {
+            "category": "Motion",
+            "text": "move 10 steps"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Looks",
+            "text": "next costume"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The move block runs twelve times; the costume changes three times. Explain each block before changing it.",
+    "activity": "Build a three-part repeated animation with an inner movement loop and explain its total repetitions.",
+    "expected_result": "The move block runs twelve times; the costume changes three times.\nSuccess criteria: Build a three-part repeated animation with an inner movement loop and explain its total repetitions.\nTrack a counter inside the inner loop and confirm it reaches twelve.",
+    "important_notes": "Multiplying outer and inner counts gives total iterations, not adding them.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: A nested loop runs its inner loop for every outer repetition. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "How many move blocks execute in repeat 3 containing repeat 4?",
+        "choices": [
+          "Seven",
+          "Four",
+          "Three",
+          "Twelve"
+        ],
+        "answer": 3,
+        "explanation": "A nested loop runs its inner loop for every outer repetition. Repeat until checks a condition and continues while it is false. Choose repeat for a count and repeat until for a goal. Keep loops readable and separate movement from animation if they need independent timing."
+      },
+      {
+        "question": "Predict the sample for Loops and Nested Loops: which description matches its behavior?",
+        "choices": [
+          "The move block runs twelve times; the costume changes three times.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title."
+        ],
+        "answer": 0,
+        "explanation": "Trace the event and connected blocks in order. The move block runs twelve times; the costume changes three times."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "All projects require a cloud variable.",
+          "Multiplying outer and inner counts gives total iterations, not adding them.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name."
+        ],
+        "answer": 1,
+        "explanation": "Multiplying outer and inner counts gives total iterations, not adding them."
+      },
+      {
+        "question": "Which category contains “move 10 steps”?",
+        "choices": [
+          "Sound",
+          "Events",
+          "Motion",
+          "Looks"
+        ],
+        "answer": 2,
+        "explanation": "Motion contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Track a counter inside the inner loop and confirm it reaches twelve."
+        ],
+        "answer": 3,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Track a counter inside the inner loop and confirm it reaches twelve."
+      }
+    ]
+  },
+  {
+    "title": "Complex Conditions",
+    "level": "Intermediate",
+    "position": 13,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for complex conditions.",
+      "Create a Scratch project to allow advancement only when Score is at least ten and the player touches the exit; add an alternative rule with or.",
+      "Debug the project by applying this test: Test all four true/false combinations of score and exit contact."
+    ],
+    "introduction": "Build your computational thinking through and, or, not, nested if, combined sensing/operators. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: And, or, not, nested if, combined sensing/operators.\n\nAnd requires both conditions true; or requires at least one. Not reverses a Boolean value. Nested if blocks can distinguish more detailed cases. Use parentheses-like slots carefully so the intended reporters are inside the correct operator. Combine score thresholds with sensing to build meaningful rules.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Control",
+            "text": "if (Score > 9) and (touching Exit) then ["
+          },
+          {
+            "category": "Events",
+            "text": "broadcast next level"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The next-level message is sent only when score exceeds nine and the player touches Exit. Explain each block before changing it.",
+    "activity": "Allow advancement only when Score is at least ten and the player touches the exit; add an alternative rule with or.",
+    "expected_result": "The next-level message is sent only when score exceeds nine and the player touches Exit.\nSuccess criteria: Allow advancement only when Score is at least ten and the player touches the exit; add an alternative rule with or.\nTest all four true/false combinations of score and exit contact.",
+    "important_notes": "Using or lets the player advance with only one requirement met.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: And requires both conditions true; or requires at least one. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "When is an and condition true?",
+        "choices": [
+          "When both inputs are true",
+          "When either input is false",
+          "Always",
+          "Only when both inputs are false"
+        ],
+        "answer": 0,
+        "explanation": "And requires both conditions true; or requires at least one. Not reverses a Boolean value. Nested if blocks can distinguish more detailed cases. Use parentheses-like slots carefully so the intended reporters are inside the correct operator. Combine score thresholds with sensing to build meaningful rules."
+      },
+      {
+        "question": "Predict the sample for Complex Conditions: which description matches its behavior?",
+        "choices": [
+          "The script only changes the project title.",
+          "The next-level message is sent only when score exceeds nine and the player touches Exit.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online."
+        ],
+        "answer": 1,
+        "explanation": "Trace the event and connected blocks in order. The next-level message is sent only when score exceeds nine and the player touches Exit."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Using or lets the player advance with only one requirement met.",
+          "Scratch requires Python indentation."
+        ],
+        "answer": 2,
+        "explanation": "Using or lets the player advance with only one requirement met."
+      },
+      {
+        "question": "Which category contains “when green flag clicked”?",
+        "choices": [
+          "Motion",
+          "Looks",
+          "Sound",
+          "Events"
+        ],
+        "answer": 3,
+        "explanation": "Events contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Test all four true/false combinations of score and exit contact.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works."
+        ],
+        "answer": 0,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test all four true/false combinations of score and exit contact."
+      }
+    ]
+  },
+  {
+    "title": "Operators",
+    "level": "Intermediate",
+    "position": 14,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for operators.",
+      "Create a Scratch project to create an arithmetic quiz with randomized operands, feedback, and a score. Try text and remainder operators.",
+      "Debug the project by applying this test: Test correct, incorrect, and nonnumeric input; verify random operands stay in range."
+    ],
+    "introduction": "Build your computational thinking through arithmetic, comparisons, random, join, letter of, length, mod, round. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Arithmetic, comparisons, random, join, letter of, length, mod, round.\n\nOperators compute numbers, compare values, and build text. Pick random selects a number within its bounds. Join combines text. Letter of reads a character and length counts characters. Mod gives the remainder after division; round gives the nearest integer. An arithmetic quiz must compare a converted answer with the computed result and give feedback.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Variables",
+            "text": "set a to (pick random 1 to 10)"
+          },
+          {
+            "category": "Variables",
+            "text": "set b to (pick random 1 to 10)"
+          },
+          {
+            "category": "Sensing",
+            "text": "ask (join a (join + b)) and wait"
+          },
+          {
+            "category": "Control",
+            "text": "if answer = (a + b) then ["
+          },
+          {
+            "category": "Looks",
+            "text": "say Correct! for 1 second"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. A correct sum displays Correct!; incorrect input should receive a separate feedback branch. Explain each block before changing it.",
+    "activity": "Create an arithmetic quiz with randomized operands, feedback, and a score. Try text and remainder operators.",
+    "expected_result": "A correct sum displays Correct!; incorrect input should receive a separate feedback branch.\nSuccess criteria: Create an arithmetic quiz with randomized operands, feedback, and a score. Try text and remainder operators.\nTest correct, incorrect, and nonnumeric input; verify random operands stay in range.",
+    "important_notes": "Join creates text; it does not add numbers.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Operators compute numbers, compare values, and build text. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What does 7 mod 3 report?",
+        "choices": [
+          "Twenty-one",
+          "One",
+          "Three",
+          "Seven"
+        ],
+        "answer": 1,
+        "explanation": "Operators compute numbers, compare values, and build text. Pick random selects a number within its bounds. Join combines text. Letter of reads a character and length counts characters. Mod gives the remainder after division; round gives the nearest integer. An arithmetic quiz must compare a converted answer with the computed result and give feedback."
+      },
+      {
+        "question": "Predict the sample for Operators: which description matches its behavior?",
+        "choices": [
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "A correct sum displays Correct!; incorrect input should receive a separate feedback branch.",
+          "Every block runs in a random order."
+        ],
+        "answer": 2,
+        "explanation": "Trace the event and connected blocks in order. A correct sum displays Correct!; incorrect input should receive a separate feedback branch."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Join creates text; it does not add numbers."
+        ],
+        "answer": 3,
+        "explanation": "Join creates text; it does not add numbers."
+      },
+      {
+        "question": "Which category contains “set a to (pick random 1 to 10)”?",
+        "choices": [
+          "Variables",
+          "Motion",
+          "Looks",
+          "Sound"
+        ],
+        "answer": 0,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Assume the first run proves every case works.",
+          "Test correct, incorrect, and nonnumeric input; verify random operands stay in range.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing."
+        ],
+        "answer": 1,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test correct, incorrect, and nonnumeric input; verify random operands stay in range."
+      }
+    ]
+  },
+  {
+    "title": "Lists",
+    "level": "Intermediate",
+    "position": 15,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for lists.",
+      "Create a Scratch project to store player names and scores, display an item, replace it, and remove one player.",
+      "Debug the project by applying this test: Test an empty list, one player, two players, and a deletion."
+    ],
+    "introduction": "Build your computational thinking through create, add/delete/insert/replace/read, length, contains, monitor. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Create, add/delete/insert/replace/read, length, contains, monitor.\n\nA list is an ordered collection with Scratch item numbers starting at 1. Add appends an item; insert shifts later items; replace changes an existing item; delete removes an item. Length reports the item count and contains checks membership. Show/hide changes the monitor only. Keep paired data lists the same length.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Lists",
+            "text": "delete all of Players"
+          },
+          {
+            "category": "Lists",
+            "text": "add Ana to Players"
+          },
+          {
+            "category": "Lists",
+            "text": "add Ben to Players"
+          },
+          {
+            "category": "Looks",
+            "text": "say (item 2 of Players) for 2 seconds"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The displayed second player is Ben. Explain each block before changing it.",
+    "activity": "Store player names and scores, display an item, replace it, and remove one player.",
+    "expected_result": "The displayed second player is Ben.\nSuccess criteria: Store player names and scores, display an item, replace it, and remove one player.\nTest an empty list, one player, two players, and a deletion.",
+    "important_notes": "Deleting an item shifts the numbering of later items.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: A list is an ordered collection with Scratch item numbers starting at 1. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What is the first item number in a Scratch list?",
+        "choices": [
+          "Minus one",
+          "The list length plus one",
+          "One",
+          "Zero"
+        ],
+        "answer": 2,
+        "explanation": "A list is an ordered collection with Scratch item numbers starting at 1. Add appends an item; insert shifts later items; replace changes an existing item; delete removes an item. Length reports the item count and contains checks membership. Show/hide changes the monitor only. Keep paired data lists the same length."
+      },
+      {
+        "question": "Predict the sample for Lists: which description matches its behavior?",
+        "choices": [
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The displayed second player is Ben."
+        ],
+        "answer": 3,
+        "explanation": "Trace the event and connected blocks in order. The displayed second player is Ben."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Deleting an item shifts the numbering of later items.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable."
+        ],
+        "answer": 0,
+        "explanation": "Deleting an item shifts the numbering of later items."
+      },
+      {
+        "question": "Which category contains “delete all of Players”?",
+        "choices": [
+          "Sound",
+          "Lists",
+          "Motion",
+          "Looks"
+        ],
+        "answer": 1,
+        "explanation": "Lists contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Test an empty list, one player, two players, and a deletion.",
+          "Rename the project without running it."
+        ],
+        "answer": 2,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test an empty list, one player, two players, and a deletion."
+      }
+    ]
+  },
+  {
+    "title": "Cloning",
+    "level": "Intermediate",
+    "position": 16,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for cloning.",
+      "Create a Scratch project to replace manually duplicated falling objects with clones, each deleting itself after a catch or miss.",
+      "Debug the project by applying this test: Run several waves and confirm old objects do not remain active."
+    ],
+    "introduction": "Build your computational thinking through create clone, clone start, delete clone, enemies and objects. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Create clone, clone start, delete clone, enemies and objects.\n\nA clone is a temporary copy of a sprite. Each clone runs when I start as a clone. The original can stay hidden as a template and periodically create visible clones. Delete clones when their work finishes to avoid resource exhaustion. Sprite-only variables allow each clone to keep its own state.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Looks",
+            "text": "hide"
+          },
+          {
+            "category": "Control",
+            "text": "repeat 5 ["
+          },
+          {
+            "category": "Control",
+            "text": "create clone of myself"
+          },
+          {
+            "category": "Control",
+            "text": "wait 0.5 seconds"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Control",
+            "text": "when I start as a clone"
+          },
+          {
+            "category": "Looks",
+            "text": "show"
+          },
+          {
+            "category": "Motion",
+            "text": "go to random position"
+          },
+          {
+            "category": "Control",
+            "text": "wait 2 seconds"
+          },
+          {
+            "category": "Control",
+            "text": "delete this clone"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Five temporary clones appear, then each disappears after two seconds. Explain each block before changing it.",
+    "activity": "Replace manually duplicated falling objects with clones, each deleting itself after a catch or miss.",
+    "expected_result": "Five temporary clones appear, then each disappears after two seconds.\nSuccess criteria: Replace manually duplicated falling objects with clones, each deleting itself after a catch or miss.\nRun several waves and confirm old objects do not remain active.",
+    "important_notes": "A hidden original creates hidden copies unless clone scripts explicitly show them.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: A clone is a temporary copy of a sprite. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Which event starts the new clone’s behavior?",
+        "choices": [
+          "When backdrop switches only",
+          "Ask and wait",
+          "Define a list",
+          "When I start as a clone"
+        ],
+        "answer": 3,
+        "explanation": "A clone is a temporary copy of a sprite. Each clone runs when I start as a clone. The original can stay hidden as a template and periodically create visible clones. Delete clones when their work finishes to avoid resource exhaustion. Sprite-only variables allow each clone to keep its own state."
+      },
+      {
+        "question": "Predict the sample for Cloning: which description matches its behavior?",
+        "choices": [
+          "Five temporary clones appear, then each disappears after two seconds.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title."
+        ],
+        "answer": 0,
+        "explanation": "Trace the event and connected blocks in order. Five temporary clones appear, then each disappears after two seconds."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "All projects require a cloud variable.",
+          "A hidden original creates hidden copies unless clone scripts explicitly show them.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name."
+        ],
+        "answer": 1,
+        "explanation": "A hidden original creates hidden copies unless clone scripts explicitly show them."
+      },
+      {
+        "question": "Which category contains “hide”?",
+        "choices": [
+          "Sound",
+          "Events",
+          "Looks",
+          "Motion"
+        ],
+        "answer": 2,
+        "explanation": "Looks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Run several waves and confirm old objects do not remain active."
+        ],
+        "answer": 3,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Run several waves and confirm old objects do not remain active."
+      }
+    ]
+  },
+  {
+    "title": "Custom Blocks",
+    "level": "Intermediate",
+    "position": 17,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for custom blocks.",
+      "Create a Scratch project to create a reusable movement or animation block with one parameter and call it with two different values.",
+      "Debug the project by applying this test: Call the procedure with 1 and 5 and compare the number of costume changes."
+    ],
+    "introduction": "Build your computational thinking through my blocks, parameters, reuse, procedures, script organization. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: My Blocks, parameters, reuse, procedures, script organization.\n\nMy Blocks define a procedure for one sprite. Calling it runs the defined stack. Parameters pass values into that procedure so the same sequence can serve different situations. A custom block does not automatically return a reporter value. Use meaningful names and document what each input represents.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "My Blocks",
+            "text": "animate 3 times"
+          },
+          {
+            "category": "My Blocks",
+            "text": "define animate (count) times"
+          },
+          {
+            "category": "Control",
+            "text": "repeat count ["
+          },
+          {
+            "category": "Looks",
+            "text": "next costume"
+          },
+          {
+            "category": "Control",
+            "text": "wait 0.2 seconds"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Calling animate 3 times changes costume three times. Explain each block before changing it.",
+    "activity": "Create a reusable movement or animation block with one parameter and call it with two different values.",
+    "expected_result": "Calling animate 3 times changes costume three times.\nSuccess criteria: Create a reusable movement or animation block with one parameter and call it with two different values.\nCall the procedure with 1 and 5 and compare the number of costume changes.",
+    "important_notes": "The definition needs a separate call; defining a block does not start it by itself.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: My Blocks define a procedure for one sprite. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What does a custom block parameter provide?",
+        "choices": [
+          "A value supplied by the caller",
+          "A new stage automatically",
+          "Permanent cloud storage",
+          "A new Scratch account"
+        ],
+        "answer": 0,
+        "explanation": "My Blocks define a procedure for one sprite. Calling it runs the defined stack. Parameters pass values into that procedure so the same sequence can serve different situations. A custom block does not automatically return a reporter value. Use meaningful names and document what each input represents."
+      },
+      {
+        "question": "Predict the sample for Custom Blocks: which description matches its behavior?",
+        "choices": [
+          "The script only changes the project title.",
+          "Calling animate 3 times changes costume three times.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online."
+        ],
+        "answer": 1,
+        "explanation": "Trace the event and connected blocks in order. Calling animate 3 times changes costume three times."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "The definition needs a separate call; defining a block does not start it by itself.",
+          "Scratch requires Python indentation."
+        ],
+        "answer": 2,
+        "explanation": "The definition needs a separate call; defining a block does not start it by itself."
+      },
+      {
+        "question": "Which category contains “animate 3 times”?",
+        "choices": [
+          "Motion",
+          "Looks",
+          "Sound",
+          "My Blocks"
+        ],
+        "answer": 3,
+        "explanation": "My Blocks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Call the procedure with 1 and 5 and compare the number of costume changes.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works."
+        ],
+        "answer": 0,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Call the procedure with 1 and 5 and compare the number of costume changes."
+      }
+    ]
+  },
+  {
+    "title": "Game Mechanics",
+    "level": "Intermediate",
+    "position": 18,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for game mechanics.",
+      "Create a Scratch project to improve a game with three lives, a countdown, increasing difficulty, and a restart that resets every state value.",
+      "Debug the project by applying this test: Lose by time, lose by lives, win a level, and restart from each state."
+    ],
+    "introduction": "Build your computational thinking through lives, health, score, levels, timer, difficulty, game over, restart. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Lives, health, score, levels, timer, difficulty, game over, restart.\n\nGame state controls which actions are allowed. Score rewards success; lives or health limit mistakes; a timer creates pressure. Initialize all values on restart. Stop spawning and moving enemies after game over. Change difficulty gradually, for example by increasing speed per level while keeping movement playable.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Variables",
+            "text": "set Lives to 3"
+          },
+          {
+            "category": "Variables",
+            "text": "set TimeLeft to 30"
+          },
+          {
+            "category": "Control",
+            "text": "repeat until TimeLeft = 0 ["
+          },
+          {
+            "category": "Control",
+            "text": "wait 1 second"
+          },
+          {
+            "category": "Variables",
+            "text": "change TimeLeft by -1"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast game over"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The timer reaches zero after thirty one-second ticks and broadcasts game over. Explain each block before changing it.",
+    "activity": "Improve a game with three lives, a countdown, increasing difficulty, and a restart that resets every state value.",
+    "expected_result": "The timer reaches zero after thirty one-second ticks and broadcasts game over.\nSuccess criteria: Improve a game with three lives, a countdown, increasing difficulty, and a restart that resets every state value.\nLose by time, lose by lives, win a level, and restart from each state.",
+    "important_notes": "Allowing old timer scripts to continue after restart can make the countdown run too fast.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Game state controls which actions are allowed. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Why initialize lives and time on restart?",
+        "choices": [
+          "To prevent events from running",
+          "To start a new game with consistent state",
+          "To keep the previous loss state",
+          "To erase all costumes"
+        ],
+        "answer": 1,
+        "explanation": "Game state controls which actions are allowed. Score rewards success; lives or health limit mistakes; a timer creates pressure. Initialize all values on restart. Stop spawning and moving enemies after game over. Change difficulty gradually, for example by increasing speed per level while keeping movement playable."
+      },
+      {
+        "question": "Predict the sample for Game Mechanics: which description matches its behavior?",
+        "choices": [
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The timer reaches zero after thirty one-second ticks and broadcasts game over.",
+          "Every block runs in a random order."
+        ],
+        "answer": 2,
+        "explanation": "Trace the event and connected blocks in order. The timer reaches zero after thirty one-second ticks and broadcasts game over."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Allowing old timer scripts to continue after restart can make the countdown run too fast."
+        ],
+        "answer": 3,
+        "explanation": "Allowing old timer scripts to continue after restart can make the countdown run too fast."
+      },
+      {
+        "question": "Which category contains “set Lives to 3”?",
+        "choices": [
+          "Variables",
+          "Motion",
+          "Looks",
+          "Sound"
+        ],
+        "answer": 0,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Assume the first run proves every case works.",
+          "Lose by time, lose by lives, win a level, and restart from each state.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing."
+        ],
+        "answer": 1,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Lose by time, lose by lives, win a level, and restart from each state."
+      }
+    ]
+  },
+  {
+    "title": "Animation and Storytelling",
+    "level": "Intermediate",
+    "position": 19,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for animation and storytelling.",
+      "Create a Scratch project to create a three-scene story with two characters, dialogue, costume animation, backdrops, and sound.",
+      "Debug the project by applying this test: Replay twice and check each scene begins with the same positions and dialogue timing."
+    ],
+    "introduction": "Build your computational thinking through costumes, scenes, dialogue, timing, character interaction, broadcasts, sound. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Costumes, scenes, dialogue, timing, character interaction, broadcasts, sound.\n\nA storyboard plans scenes before scripts are built. Use broadcasts for scene boundaries and timed dialogue for readable conversation. Costume changes suggest movement; waits make frames visible. Coordinate two characters so dialogue does not overlap unintentionally. Reset actor positions and costumes before replaying the story.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast scene1 and wait"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast scene2 and wait"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast scene3"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The scene messages run in sequence after each previous scene finishes. Explain each block before changing it.",
+    "activity": "Create a three-scene story with two characters, dialogue, costume animation, backdrops, and sound.",
+    "expected_result": "The scene messages run in sequence after each previous scene finishes.\nSuccess criteria: Create a three-scene story with two characters, dialogue, costume animation, backdrops, and sound.\nReplay twice and check each scene begins with the same positions and dialogue timing.",
+    "important_notes": "Use distinct scene messages and avoid receivers that never finish.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: A storyboard plans scenes before scripts are built. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What is the purpose of a storyboard?",
+        "choices": [
+          "To upload passwords",
+          "To calculate sprite size automatically",
+          "To plan scene order and actions",
+          "To replace all sprite scripts"
+        ],
+        "answer": 2,
+        "explanation": "A storyboard plans scenes before scripts are built. Use broadcasts for scene boundaries and timed dialogue for readable conversation. Costume changes suggest movement; waits make frames visible. Coordinate two characters so dialogue does not overlap unintentionally. Reset actor positions and costumes before replaying the story."
+      },
+      {
+        "question": "Predict the sample for Animation and Storytelling: which description matches its behavior?",
+        "choices": [
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The scene messages run in sequence after each previous scene finishes."
+        ],
+        "answer": 3,
+        "explanation": "Trace the event and connected blocks in order. The scene messages run in sequence after each previous scene finishes."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Use distinct scene messages and avoid receivers that never finish.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable."
+        ],
+        "answer": 0,
+        "explanation": "Use distinct scene messages and avoid receivers that never finish."
+      },
+      {
+        "question": "Which category contains “when green flag clicked”?",
+        "choices": [
+          "Sound",
+          "Events",
+          "Motion",
+          "Looks"
+        ],
+        "answer": 1,
+        "explanation": "Events contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Replay twice and check each scene begins with the same positions and dialogue timing.",
+          "Rename the project without running it."
+        ],
+        "answer": 2,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Replay twice and check each scene begins with the same positions and dialogue timing."
+      }
+    ]
+  },
+  {
+    "title": "Intermediate Project — Maze Adventure Game",
+    "level": "Intermediate",
+    "position": 20,
+    "is_project": true,
+    "objectives": [
+      "Identify the blocks and data needed for intermediate project — maze adventure game.",
+      "Create a Scratch project to build the Maze Adventure Game with obstacles, enemies, score, lives, multiple levels, win/lose screens, and restart.",
+      "Debug the project by applying this test: Test every wall direction, enemy contact, final exit, loss, and restart."
+    ],
+    "introduction": "Build your computational thinking through controls, walls, collision, enemies, score, lives, levels, win/lose, restart. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Controls, walls, collision, enemies, score, lives, levels, win/lose, restart.\n\nSketch a maze and define the win condition. Save the player’s old coordinates before each movement; if a wall is touched, restore the old position. Add enemies and collectibles only after movement is reliable. Use level broadcasts to reset positions and difficulty. Define one game-over state so lives cannot fall repeatedly below zero.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Main game actor",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when right arrow key pressed"
+          },
+          {
+            "category": "Variables",
+            "text": "set oldX to (x position)"
+          },
+          {
+            "category": "Motion",
+            "text": "change x by 5"
+          },
+          {
+            "category": "Control",
+            "text": "if touching color wall then ["
+          },
+          {
+            "category": "Motion",
+            "text": "set x to oldX"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. A wall blocks movement by restoring the previous x coordinate. Explain each block before changing it.",
+    "activity": "Build the Maze Adventure Game with obstacles, enemies, score, lives, multiple levels, win/lose screens, and restart.\nPlanning worksheet: write your game goal, player controls, sprite roles, state diagram, variable/list names, broadcasts, and a sketch of each screen.\nMilestones: 1. Plan and sketch. 2. Build and test player controls. 3. Implement the main interaction. 4. Add score, state transitions, and required mechanics. 5. Add scenes/audio and refactor repeated blocks. 6. Run the testing checklist and submit.\nTesting checklist: Test every wall direction, enemy contact, final exit, loss, and restart. Record expected and actual outcomes, fixes, and one remaining improvement.",
+    "expected_result": "A wall blocks movement by restoring the previous x coordinate.\nSuccess criteria: Build the Maze Adventure Game with obstacles, enemies, score, lives, multiple levels, win/lose screens, and restart.\nTest every wall direction, enemy contact, final exit, loss, and restart.",
+    "important_notes": "An enemy collision needs a brief invulnerability period or separation to avoid losing every life in one touch.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Sketch a maze and define the win condition. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": {
+      "Program Functionality": 30,
+      "Correct Use of Scratch Concepts": 25,
+      "Creativity and Design": 15,
+      "Logic and Problem Solving": 15,
+      "Code Organization": 10,
+      "Testing / Debugging": 5
+    },
+    "quiz": [
+      {
+        "question": "How can movement be undone after touching a maze wall?",
+        "choices": [
+          "Increase score",
+          "Delete the player permanently",
+          "Change the project title",
+          "Restore the position saved before moving"
+        ],
+        "answer": 3,
+        "explanation": "Sketch a maze and define the win condition. Save the player’s old coordinates before each movement; if a wall is touched, restore the old position. Add enemies and collectibles only after movement is reliable. Use level broadcasts to reset positions and difficulty. Define one game-over state so lives cannot fall repeatedly below zero."
+      },
+      {
+        "question": "Predict the sample for Intermediate Project — Maze Adventure Game: which description matches its behavior?",
+        "choices": [
+          "A wall blocks movement by restoring the previous x coordinate.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title."
+        ],
+        "answer": 0,
+        "explanation": "Trace the event and connected blocks in order. A wall blocks movement by restoring the previous x coordinate."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "All projects require a cloud variable.",
+          "An enemy collision needs a brief invulnerability period or separation to avoid losing every life in one touch.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name."
+        ],
+        "answer": 1,
+        "explanation": "An enemy collision needs a brief invulnerability period or separation to avoid losing every life in one touch."
+      },
+      {
+        "question": "Which category contains “set oldX to (x position)”?",
+        "choices": [
+          "Looks",
+          "Sound",
+          "Variables",
+          "Motion"
+        ],
+        "answer": 2,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Test every wall direction, enemy contact, final exit, loss, and restart."
+        ],
+        "answer": 3,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test every wall direction, enemy contact, final exit, loss, and restart."
+      }
+    ]
+  },
+  {
+    "title": "Advanced Variables and Lists",
+    "level": "Advanced",
+    "position": 21,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for advanced variables and lists.",
+      "Create a Scratch project to create an inventory with names and quantities; implement adding, using, and removing an item without misaligning records.",
+      "Debug the project by applying this test: Use the final unit of an item and verify both matching entries are removed together."
+    ],
+    "introduction": "Build your computational thinking through multiple records, high scores, statistics, inventory, parallel lists, data structures. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Multiple records, high scores, statistics, inventory, parallel lists, data structures.\n\nParallel lists store matching fields at the same item number, such as ItemNames and Quantities. Add, remove, and reorder them together to preserve alignment. A player record can be represented with several matching lists. Validate a requested item before changing its quantity. Keep high-score values separate from current-round score.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Lists",
+            "text": "delete all of ItemNames"
+          },
+          {
+            "category": "Lists",
+            "text": "delete all of Quantities"
+          },
+          {
+            "category": "Lists",
+            "text": "add Key to ItemNames"
+          },
+          {
+            "category": "Lists",
+            "text": "add 1 to Quantities"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Inventory item 1 is Key with quantity 1. Explain each block before changing it.",
+    "activity": "Create an inventory with names and quantities; implement adding, using, and removing an item without misaligning records.",
+    "expected_result": "Inventory item 1 is Key with quantity 1.\nSuccess criteria: Create an inventory with names and quantities; implement adding, using, and removing an item without misaligning records.\nUse the final unit of an item and verify both matching entries are removed together.",
+    "important_notes": "Deleting a name without deleting its quantity corrupts matching records.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Parallel lists store matching fields at the same item number, such as ItemNames and Quantities. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What must stay aligned in parallel lists?",
+        "choices": [
+          "Related fields at the same item number",
+          "All costumes",
+          "All sprite directions",
+          "Only sound names"
+        ],
+        "answer": 0,
+        "explanation": "Parallel lists store matching fields at the same item number, such as ItemNames and Quantities. Add, remove, and reorder them together to preserve alignment. A player record can be represented with several matching lists. Validate a requested item before changing its quantity. Keep high-score values separate from current-round score."
+      },
+      {
+        "question": "Predict the sample for Advanced Variables and Lists: which description matches its behavior?",
+        "choices": [
+          "The script only changes the project title.",
+          "Inventory item 1 is Key with quantity 1.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online."
+        ],
+        "answer": 1,
+        "explanation": "Trace the event and connected blocks in order. Inventory item 1 is Key with quantity 1."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Deleting a name without deleting its quantity corrupts matching records.",
+          "Scratch requires Python indentation."
+        ],
+        "answer": 2,
+        "explanation": "Deleting a name without deleting its quantity corrupts matching records."
+      },
+      {
+        "question": "Which category contains “delete all of ItemNames”?",
+        "choices": [
+          "Motion",
+          "Looks",
+          "Sound",
+          "Lists"
+        ],
+        "answer": 3,
+        "explanation": "Lists contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Use the final unit of an item and verify both matching entries are removed together.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works."
+        ],
+        "answer": 0,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Use the final unit of an item and verify both matching entries are removed together."
+      }
+    ]
+  },
+  {
+    "title": "Advanced Cloning",
+    "level": "Advanced",
+    "position": 22,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for advanced cloning.",
+      "Create a Scratch project to create projectile clones that start at the player, travel toward a target, detect hits, and delete themselves.",
+      "Debug the project by applying this test: Fire repeatedly and confirm expired projectiles disappear while new ones still work."
+    ],
+    "introduction": "Build your computational thinking through projectiles, enemy/particle generation, position, movement, clone-local variables, cleanup. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Projectiles, enemy/particle generation, position, movement, clone-local variables, cleanup.\n\nUse clone-local variables for independent projectile speed or enemy health. Initialize state when each clone starts. Spawn at the intended source position, then move until contact or an edge. Delete unused clones and avoid uncontrolled creation. Particle effects should have short lifetimes so they cannot accumulate forever.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Control",
+            "text": "when I start as a clone"
+          },
+          {
+            "category": "Looks",
+            "text": "show"
+          },
+          {
+            "category": "Variables",
+            "text": "set speed to 10 (for this sprite only)"
+          },
+          {
+            "category": "Control",
+            "text": "repeat until touching edge ["
+          },
+          {
+            "category": "Motion",
+            "text": "move speed steps"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Control",
+            "text": "delete this clone"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Each projectile moves ten steps per iteration and is deleted at an edge. Explain each block before changing it.",
+    "activity": "Create projectile clones that start at the player, travel toward a target, detect hits, and delete themselves.",
+    "expected_result": "Each projectile moves ten steps per iteration and is deleted at an edge.\nSuccess criteria: Create projectile clones that start at the player, travel toward a target, detect hits, and delete themselves.\nFire repeatedly and confirm expired projectiles disappear while new ones still work.",
+    "important_notes": "A global speed variable can unintentionally change all clones at once.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Use clone-local variables for independent projectile speed or enemy health. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Why use a sprite-only speed variable for clones?",
+        "choices": [
+          "It disables collision",
+          "Each clone can retain its own speed",
+          "It automatically uploads game data",
+          "It changes every backdrop"
+        ],
+        "answer": 1,
+        "explanation": "Use clone-local variables for independent projectile speed or enemy health. Initialize state when each clone starts. Spawn at the intended source position, then move until contact or an edge. Delete unused clones and avoid uncontrolled creation. Particle effects should have short lifetimes so they cannot accumulate forever."
+      },
+      {
+        "question": "Predict the sample for Advanced Cloning: which description matches its behavior?",
+        "choices": [
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "Each projectile moves ten steps per iteration and is deleted at an edge.",
+          "Every block runs in a random order."
+        ],
+        "answer": 2,
+        "explanation": "Trace the event and connected blocks in order. Each projectile moves ten steps per iteration and is deleted at an edge."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "A global speed variable can unintentionally change all clones at once."
+        ],
+        "answer": 3,
+        "explanation": "A global speed variable can unintentionally change all clones at once."
+      },
+      {
+        "question": "Which category contains “show”?",
+        "choices": [
+          "Looks",
+          "Motion",
+          "Sound",
+          "Events"
+        ],
+        "answer": 0,
+        "explanation": "Looks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Assume the first run proves every case works.",
+          "Fire repeatedly and confirm expired projectiles disappear while new ones still work.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing."
+        ],
+        "answer": 1,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Fire repeatedly and confirm expired projectiles disappear while new ones still work."
+      }
+    ]
+  },
+  {
+    "title": "Procedures and Custom Blocks",
+    "level": "Advanced",
+    "position": 23,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for procedures and custom blocks.",
+      "Create a Scratch project to refactor a game into reset, movement, and collision procedures with parameters where useful.",
+      "Debug the project by applying this test: Compare the original and refactored game on identical movement, hit, and restart cases."
+    ],
+    "introduction": "Build your computational thinking through modular design, parameters, reusable algorithms, refactoring, organizing projects. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Modular design, parameters, reusable algorithms, refactoring, organizing projects.\n\nRefactoring changes organization while preserving behavior. Split long scripts into procedures such as reset player, move player, and check collision. Pass inputs instead of copying near-identical stacks. Custom blocks belong to their sprite; use broadcasts to coordinate different sprites. Use run without screen refresh cautiously for short finite calculations, never unbounded animation loops.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "My Blocks",
+            "text": "reset player"
+          },
+          {
+            "category": "My Blocks",
+            "text": "define reset player"
+          },
+          {
+            "category": "Motion",
+            "text": "go to x 0 y -120"
+          },
+          {
+            "category": "Variables",
+            "text": "set Health to 100"
+          },
+          {
+            "category": "Looks",
+            "text": "show"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The reset procedure restores position, health, and visibility. Explain each block before changing it.",
+    "activity": "Refactor a game into reset, movement, and collision procedures with parameters where useful.",
+    "expected_result": "The reset procedure restores position, health, and visibility.\nSuccess criteria: Refactor a game into reset, movement, and collision procedures with parameters where useful.\nCompare the original and refactored game on identical movement, hit, and restart cases.",
+    "important_notes": "Putting a forever loop into a no-refresh custom block can freeze the project.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Refactoring changes organization while preserving behavior. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What should remain the same during a refactor?",
+        "choices": [
+          "Only the project name",
+          "The number of scripts necessarily",
+          "The project’s intended behavior",
+          "Every duplicated block"
+        ],
+        "answer": 2,
+        "explanation": "Refactoring changes organization while preserving behavior. Split long scripts into procedures such as reset player, move player, and check collision. Pass inputs instead of copying near-identical stacks. Custom blocks belong to their sprite; use broadcasts to coordinate different sprites. Use run without screen refresh cautiously for short finite calculations, never unbounded animation loops."
+      },
+      {
+        "question": "Predict the sample for Procedures and Custom Blocks: which description matches its behavior?",
+        "choices": [
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The reset procedure restores position, health, and visibility."
+        ],
+        "answer": 3,
+        "explanation": "Trace the event and connected blocks in order. The reset procedure restores position, health, and visibility."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Putting a forever loop into a no-refresh custom block can freeze the project.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable."
+        ],
+        "answer": 0,
+        "explanation": "Putting a forever loop into a no-refresh custom block can freeze the project."
+      },
+      {
+        "question": "Which category contains “reset player”?",
+        "choices": [
+          "Sound",
+          "My Blocks",
+          "Motion",
+          "Looks"
+        ],
+        "answer": 1,
+        "explanation": "My Blocks contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Compare the original and refactored game on identical movement, hit, and restart cases.",
+          "Rename the project without running it."
+        ],
+        "answer": 2,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Compare the original and refactored game on identical movement, hit, and restart cases."
+      }
+    ]
+  },
+  {
+    "title": "Game Physics",
+    "level": "Advanced",
+    "position": 24,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for game physics.",
+      "Create a Scratch project to create a walking, jumping character with gravity, landing, and ground detection. Add collision correction to the sample.",
+      "Debug the project by applying this test: Jump, walk off a platform, hit the underside, land, and try jumping while airborne."
+    ],
+    "introduction": "Build your computational thinking through gravity, jump, velocity, acceleration, horizontal/vertical motion, collisions, ground. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Gravity, jump, velocity, acceleration, horizontal/vertical motion, collisions, ground.\n\nVelocity describes a change in position per tick. Gravity reduces vertical velocity each tick. A jump gives positive vertical velocity; falling occurs after gravity makes it negative. Detect ground and restore a safe position before setting vertical velocity to zero. Allow jumping only when grounded to avoid unlimited midair jumps.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Variables",
+            "text": "set yVelocity to 0"
+          },
+          {
+            "category": "Control",
+            "text": "forever ["
+          },
+          {
+            "category": "Variables",
+            "text": "change yVelocity by -1"
+          },
+          {
+            "category": "Motion",
+            "text": "change y by yVelocity"
+          },
+          {
+            "category": "Control",
+            "text": "if touching Ground then ["
+          },
+          {
+            "category": "Variables",
+            "text": "set yVelocity to 0"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Vertical velocity becomes more negative while falling; touching Ground resets it. Explain each block before changing it.",
+    "activity": "Create a walking, jumping character with gravity, landing, and ground detection. Add collision correction to the sample.",
+    "expected_result": "Vertical velocity becomes more negative while falling; touching Ground resets it.\nSuccess criteria: Create a walking, jumping character with gravity, landing, and ground detection. Add collision correction to the sample.\nJump, walk off a platform, hit the underside, land, and try jumping while airborne.",
+    "important_notes": "Setting velocity to zero alone does not move a sprite out of the ground; add position correction.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Velocity describes a change in position per tick. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What does gravity change in this model?",
+        "choices": [
+          "The project URL",
+          "The sprite’s name",
+          "The score list length",
+          "Vertical velocity each tick"
+        ],
+        "answer": 3,
+        "explanation": "Velocity describes a change in position per tick. Gravity reduces vertical velocity each tick. A jump gives positive vertical velocity; falling occurs after gravity makes it negative. Detect ground and restore a safe position before setting vertical velocity to zero. Allow jumping only when grounded to avoid unlimited midair jumps."
+      },
+      {
+        "question": "Predict the sample for Game Physics: which description matches its behavior?",
+        "choices": [
+          "Vertical velocity becomes more negative while falling; touching Ground resets it.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title."
+        ],
+        "answer": 0,
+        "explanation": "Trace the event and connected blocks in order. Vertical velocity becomes more negative while falling; touching Ground resets it."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "All projects require a cloud variable.",
+          "Setting velocity to zero alone does not move a sprite out of the ground; add position correction.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name."
+        ],
+        "answer": 1,
+        "explanation": "Setting velocity to zero alone does not move a sprite out of the ground; add position correction."
+      },
+      {
+        "question": "Which category contains “set yVelocity to 0”?",
+        "choices": [
+          "Looks",
+          "Sound",
+          "Variables",
+          "Motion"
+        ],
+        "answer": 2,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Jump, walk off a platform, hit the underside, land, and try jumping while airborne."
+        ],
+        "answer": 3,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Jump, walk off a platform, hit the underside, land, and try jumping while airborne."
+      }
+    ]
+  },
+  {
+    "title": "Scrolling Games",
+    "level": "Advanced",
+    "position": 25,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for scrolling games.",
+      "Create a Scratch project to create a side-scrolling scene with a player-centered camera and at least three world objects.",
+      "Debug the project by applying this test: Move right then left and confirm world objects return to their original relative positions."
+    ],
+    "introduction": "Build your computational thinking through camera, world coordinates, scrolling backgrounds, centered player, moving platforms, large worlds. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Camera, world coordinates, scrolling backgrounds, centered player, moving platforms, large worlds.\n\nStore world coordinates independently of stage coordinates. A camera offset maps world positions onto the stage: screen x = world x - camera x. Moving the camera shifts the visible world without changing each object’s world position. Track moving platforms in world space and use the same conversion for sprites and backdrops.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Control",
+            "text": "forever ["
+          },
+          {
+            "category": "Variables",
+            "text": "set cameraX to playerWorldX"
+          },
+          {
+            "category": "Motion",
+            "text": "set x to (worldX - cameraX)"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. An object appears at its world position relative to the player-centered camera. Explain each block before changing it.",
+    "activity": "Create a side-scrolling scene with a player-centered camera and at least three world objects.",
+    "expected_result": "An object appears at its world position relative to the player-centered camera.\nSuccess criteria: Create a side-scrolling scene with a player-centered camera and at least three world objects.\nMove right then left and confirm world objects return to their original relative positions.",
+    "important_notes": "Mixing screen coordinates with world coordinates causes drifting or incorrect collisions.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Store world coordinates independently of stage coordinates. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "How is screen x calculated in a simple scrolling world?",
+        "choices": [
+          "World x minus camera x",
+          "World x plus Score",
+          "Camera x times Lives",
+          "Only mouse y"
+        ],
+        "answer": 0,
+        "explanation": "Store world coordinates independently of stage coordinates. A camera offset maps world positions onto the stage: screen x = world x - camera x. Moving the camera shifts the visible world without changing each object’s world position. Track moving platforms in world space and use the same conversion for sprites and backdrops."
+      },
+      {
+        "question": "Predict the sample for Scrolling Games: which description matches its behavior?",
+        "choices": [
+          "The script only changes the project title.",
+          "An object appears at its world position relative to the player-centered camera.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online."
+        ],
+        "answer": 1,
+        "explanation": "Trace the event and connected blocks in order. An object appears at its world position relative to the player-centered camera."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Mixing screen coordinates with world coordinates causes drifting or incorrect collisions.",
+          "Scratch requires Python indentation."
+        ],
+        "answer": 2,
+        "explanation": "Mixing screen coordinates with world coordinates causes drifting or incorrect collisions."
+      },
+      {
+        "question": "Which category contains “set cameraX to playerWorldX”?",
+        "choices": [
+          "Motion",
+          "Looks",
+          "Sound",
+          "Variables"
+        ],
+        "answer": 3,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Move right then left and confirm world objects return to their original relative positions.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works."
+        ],
+        "answer": 0,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Move right then left and confirm world objects return to their original relative positions."
+      }
+    ]
+  },
+  {
+    "title": "Artificial Intelligence Basics",
+    "level": "Advanced",
+    "position": 26,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for artificial intelligence basics.",
+      "Create a Scratch project to create an enemy that patrols until the player is nearby, then chases using explicit rules.",
+      "Debug the project by applying this test: Test distance 99, 100, and 101 and inspect which behavior is active."
+    ],
+    "introduction": "Build your computational thinking through rule-based behavior, follow, random/patrol movement, distance checks, states. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Rule-based behavior, follow, random/patrol movement, distance checks, states.\n\nSimple game AI means programmed rules for an enemy, not machine learning. States such as patrol and chase select different actions. Use distance to enter chase near the player and resume patrol when far away. Point toward the player before chasing. Test thresholds and avoid state changes that flicker at a single boundary.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Control",
+            "text": "forever ["
+          },
+          {
+            "category": "Control",
+            "text": "if distance to Player < 100 then ["
+          },
+          {
+            "category": "Motion",
+            "text": "point towards Player"
+          },
+          {
+            "category": "Motion",
+            "text": "move 2 steps"
+          },
+          {
+            "category": "Control",
+            "text": "else ["
+          },
+          {
+            "category": "Motion",
+            "text": "move 1 steps"
+          },
+          {
+            "category": "Motion",
+            "text": "if on edge, bounce"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The enemy chases inside 100 units and patrols outside that distance. Explain each block before changing it.",
+    "activity": "Create an enemy that patrols until the player is nearby, then chases using explicit rules.",
+    "expected_result": "The enemy chases inside 100 units and patrols outside that distance.\nSuccess criteria: Create an enemy that patrols until the player is nearby, then chases using explicit rules.\nTest distance 99, 100, and 101 and inspect which behavior is active.",
+    "important_notes": "Direction must point toward the player before movement; distance alone does not steer.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Simple game AI means programmed rules for an enemy, not machine learning. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What kind of AI is this lesson implementing?",
+        "choices": [
+          "Automatic internet learning",
+          "Rule-based game behavior",
+          "A trained neural network",
+          "A system that reads minds"
+        ],
+        "answer": 1,
+        "explanation": "Simple game AI means programmed rules for an enemy, not machine learning. States such as patrol and chase select different actions. Use distance to enter chase near the player and resume patrol when far away. Point toward the player before chasing. Test thresholds and avoid state changes that flicker at a single boundary."
+      },
+      {
+        "question": "Predict the sample for Artificial Intelligence Basics: which description matches its behavior?",
+        "choices": [
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The enemy chases inside 100 units and patrols outside that distance.",
+          "Every block runs in a random order."
+        ],
+        "answer": 2,
+        "explanation": "Trace the event and connected blocks in order. The enemy chases inside 100 units and patrols outside that distance."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Direction must point toward the player before movement; distance alone does not steer."
+        ],
+        "answer": 3,
+        "explanation": "Direction must point toward the player before movement; distance alone does not steer."
+      },
+      {
+        "question": "Which category contains “point towards Player”?",
+        "choices": [
+          "Motion",
+          "Looks",
+          "Sound",
+          "Events"
+        ],
+        "answer": 0,
+        "explanation": "Motion contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Assume the first run proves every case works.",
+          "Test distance 99, 100, and 101 and inspect which behavior is active.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing."
+        ],
+        "answer": 1,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test distance 99, 100, and 101 and inspect which behavior is active."
+      }
+    ]
+  },
+  {
+    "title": "Advanced Collision Detection",
+    "level": "Advanced",
+    "position": 27,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for advanced collision detection.",
+      "Create a Scratch project to improve wall, platform, enemy, and projectile collision using smaller movement steps and separate axes.",
+      "Debug the project by applying this test: Test narrow walls, corners, platform edges, and fast projectiles."
+    ],
+    "introduction": "Build your computational thinking through sprite/color contact, hitboxes, platforms, enemies, projectiles, accuracy. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Sprite/color contact, hitboxes, platforms, enemies, projectiles, accuracy.\n\nA hitbox is the region used for collision decisions. Costume transparency and shape affect sprite touching. Separate horizontal and vertical movement so wall contact does not block unrelated motion. For fast projectiles, use smaller movement substeps to avoid skipping thin obstacles. Test corner cases and restore positions outside collisions.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when right arrow key pressed"
+          },
+          {
+            "category": "Control",
+            "text": "repeat 5 ["
+          },
+          {
+            "category": "Motion",
+            "text": "change x by 1"
+          },
+          {
+            "category": "Control",
+            "text": "if touching Wall then ["
+          },
+          {
+            "category": "Motion",
+            "text": "change x by -1"
+          },
+          {
+            "category": "Control",
+            "text": "stop this script"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. Movement stops at the first wall contact instead of jumping through a thin wall. Explain each block before changing it.",
+    "activity": "Improve wall, platform, enemy, and projectile collision using smaller movement steps and separate axes.",
+    "expected_result": "Movement stops at the first wall contact instead of jumping through a thin wall.\nSuccess criteria: Improve wall, platform, enemy, and projectile collision using smaller movement steps and separate axes.\nTest narrow walls, corners, platform edges, and fast projectiles.",
+    "important_notes": "Checking only after a large jump can miss an obstacle crossed between positions.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: A hitbox is the region used for collision decisions. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "Why divide fast movement into smaller steps?",
+        "choices": [
+          "To save passwords",
+          "To make every sprite invisible",
+          "To avoid skipping thin obstacles",
+          "To remove all collisions"
+        ],
+        "answer": 2,
+        "explanation": "A hitbox is the region used for collision decisions. Costume transparency and shape affect sprite touching. Separate horizontal and vertical movement so wall contact does not block unrelated motion. For fast projectiles, use smaller movement substeps to avoid skipping thin obstacles. Test corner cases and restore positions outside collisions."
+      },
+      {
+        "question": "Predict the sample for Advanced Collision Detection: which description matches its behavior?",
+        "choices": [
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "Movement stops at the first wall contact instead of jumping through a thin wall."
+        ],
+        "answer": 3,
+        "explanation": "Trace the event and connected blocks in order. Movement stops at the first wall contact instead of jumping through a thin wall."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Checking only after a large jump can miss an obstacle crossed between positions.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable."
+        ],
+        "answer": 0,
+        "explanation": "Checking only after a large jump can miss an obstacle crossed between positions."
+      },
+      {
+        "question": "Which category contains “change x by 1”?",
+        "choices": [
+          "Events",
+          "Motion",
+          "Looks",
+          "Sound"
+        ],
+        "answer": 1,
+        "explanation": "Motion contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Test narrow walls, corners, platform edges, and fast projectiles.",
+          "Rename the project without running it."
+        ],
+        "answer": 2,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test narrow walls, corners, platform edges, and fast projectiles."
+      }
+    ]
+  },
+  {
+    "title": "Saving and Managing Game Data",
+    "level": "Advanced",
+    "position": 28,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for saving and managing game data.",
+      "Create a Scratch project to create a local high-score system, document when it resets, and explain what cloud storage would require.",
+      "Debug the project by applying this test: Finish with scores below, equal to, and above the existing record."
+    ],
+    "introduction": "Build your computational thinking through high scores, statistics, game states, variables/lists, cloud capabilities. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: High scores, statistics, game states, variables/lists, cloud capabilities.\n\nSeparate temporary round state from a best-score record. Update HighScore only when Score is greater. Ordinary variables and lists are not a universal permanent online database: saving a project file captures project data, while reloading or resetting scripts may replace values. Scratch cloud variables depend on account/platform eligibility and store numeric data; do not promise cloud storage in CodeLab. Never store personal information in public cloud data.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when I receive game over"
+          },
+          {
+            "category": "Control",
+            "text": "if Score > HighScore then ["
+          },
+          {
+            "category": "Variables",
+            "text": "set HighScore to Score"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. A new record replaces HighScore; a lower score leaves it unchanged. Explain each block before changing it.",
+    "activity": "Create a local high-score system, document when it resets, and explain what cloud storage would require.",
+    "expected_result": "A new record replaces HighScore; a lower score leaves it unchanged.\nSuccess criteria: Create a local high-score system, document when it resets, and explain what cloud storage would require.\nFinish with scores below, equal to, and above the existing record.",
+    "important_notes": "Resetting HighScore to zero on every green flag discards the session record.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Separate temporary round state from a best-score record. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "When should the best score be replaced?",
+        "choices": [
+          "Every time the player loses a point",
+          "Only when the sprite hides",
+          "Before the game starts with zero",
+          "When the current score exceeds it"
+        ],
+        "answer": 3,
+        "explanation": "Separate temporary round state from a best-score record. Update HighScore only when Score is greater. Ordinary variables and lists are not a universal permanent online database: saving a project file captures project data, while reloading or resetting scripts may replace values. Scratch cloud variables depend on account/platform eligibility and store numeric data; do not promise cloud storage in CodeLab. Never store personal information in public cloud data."
+      },
+      {
+        "question": "Predict the sample for Saving and Managing Game Data: which description matches its behavior?",
+        "choices": [
+          "A new record replaces HighScore; a lower score leaves it unchanged.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online.",
+          "The script only changes the project title."
+        ],
+        "answer": 0,
+        "explanation": "Trace the event and connected blocks in order. A new record replaces HighScore; a lower score leaves it unchanged."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "All projects require a cloud variable.",
+          "Resetting HighScore to zero on every green flag discards the session record.",
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name."
+        ],
+        "answer": 1,
+        "explanation": "Resetting HighScore to zero on every green flag discards the session record."
+      },
+      {
+        "question": "Which category contains “set HighScore to Score”?",
+        "choices": [
+          "Looks",
+          "Sound",
+          "Variables",
+          "Motion"
+        ],
+        "answer": 2,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works.",
+          "Finish with scores below, equal to, and above the existing record."
+        ],
+        "answer": 3,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Finish with scores below, equal to, and above the existing record."
+      }
+    ]
+  },
+  {
+    "title": "Debugging and Optimization",
+    "level": "Advanced",
+    "position": 29,
+    "is_project": false,
+    "objectives": [
+      "Identify the blocks and data needed for debugging and optimization.",
+      "Create a Scratch project to fix a game that scores repeatedly on one catch, keeps invisible clones, and accelerates its timer after restart.",
+      "Debug the project by applying this test: Hold contact, separate, and contact again; expect exactly two points."
+    ],
+    "introduction": "Build your computational thinking through logic errors, tests, monitors, infinite loops, duplicate scripts, performance, names. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Logic errors, tests, monitors, infinite loops, duplicate scripts, performance, names.\n\nReproduce a bug with a small test before changing blocks. Display relevant variables to inspect state. Isolate one script and compare expected with actual behavior. A forever loop that changes score while touching can award many points; move the collectible or wait until no longer touching. Delete old clones, avoid duplicate event stacks, and name variables by their purpose.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Selected sprite",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Control",
+            "text": "forever ["
+          },
+          {
+            "category": "Control",
+            "text": "if touching Collectible then ["
+          },
+          {
+            "category": "Variables",
+            "text": "change Score by 1"
+          },
+          {
+            "category": "Control",
+            "text": "wait until not touching Collectible"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          },
+          {
+            "category": "Control",
+            "text": "end ]"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. One uninterrupted contact awards one point before waiting for separation. Explain each block before changing it.",
+    "activity": "Fix a game that scores repeatedly on one catch, keeps invisible clones, and accelerates its timer after restart.",
+    "expected_result": "One uninterrupted contact awards one point before waiting for separation.\nSuccess criteria: Fix a game that scores repeatedly on one catch, keeps invisible clones, and accelerates its timer after restart.\nHold contact, separate, and contact again; expect exactly two points.",
+    "important_notes": "Changing several unrelated scripts at once makes the cause difficult to identify.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Reproduce a bug with a small test before changing blocks. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": null,
+    "quiz": [
+      {
+        "question": "What is the best first step for a repeatable logic bug?",
+        "choices": [
+          "Reproduce it and compare expected with actual behavior",
+          "Delete every script",
+          "Add random blocks",
+          "Rename the browser"
+        ],
+        "answer": 0,
+        "explanation": "Reproduce a bug with a small test before changing blocks. Display relevant variables to inspect state. Isolate one script and compare expected with actual behavior. A forever loop that changes score while touching can award many points; move the collectible or wait until no longer touching. Delete old clones, avoid duplicate event stacks, and name variables by their purpose."
+      },
+      {
+        "question": "Predict the sample for Debugging and Optimization: which description matches its behavior?",
+        "choices": [
+          "The script only changes the project title.",
+          "One uninterrupted contact awards one point before waiting for separation.",
+          "Every block runs in a random order.",
+          "The project saves all data permanently online."
+        ],
+        "answer": 1,
+        "explanation": "Trace the event and connected blocks in order. One uninterrupted contact awards one point before waiting for separation."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Changing several unrelated scripts at once makes the cause difficult to identify.",
+          "Scratch requires Python indentation."
+        ],
+        "answer": 2,
+        "explanation": "Changing several unrelated scripts at once makes the cause difficult to identify."
+      },
+      {
+        "question": "Which category contains “change Score by 1”?",
+        "choices": [
+          "Motion",
+          "Looks",
+          "Sound",
+          "Variables"
+        ],
+        "answer": 3,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Hold contact, separate, and contact again; expect exactly two points.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing.",
+          "Assume the first run proves every case works."
+        ],
+        "answer": 0,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Hold contact, separate, and contact again; expect exactly two points."
+      }
+    ]
+  },
+  {
+    "title": "Advanced Project — Complete Scratch Game",
+    "level": "Advanced",
+    "position": 30,
+    "is_project": true,
+    "objectives": [
+      "Identify the blocks and data needed for advanced project — complete scratch game.",
+      "Create a Scratch project to build a complete game with menu/start/instructions, controls, multiple levels, lives or health, score, enemies, audio, costume animation, reliable collisions, game-over/win screens, restart, high scores, custom blocks, and cloning.",
+      "Debug the project by applying this test: Test menu controls, every level, enemy hits, win/loss, restart, and repeated play without leftover clones."
+    ],
+    "introduction": "Build your computational thinking through menu, instructions, controls, levels, health, score, enemies, audio, costumes, collision, screens, restart, high scores, custom blocks, clones. You will plan a behavior, assemble visual blocks, predict its result, and test it in Scratch.",
+    "explanation": "Key concepts: Menu, instructions, controls, levels, health, score, enemies, audio, costumes, collision, screens, restart, high scores, custom blocks, clones.\n\nDesign a polished game using a state diagram: menu, playing, won, and game over. Plan the sprites, broadcasts, variables, custom blocks, and clone lifetimes before building. Implement a small playable core, then add levels and polish. Keep controls disabled outside playing state and test restart from both win and loss. Optional scrolling, inventory, bosses, AI, checkpoints, or power-ups should support the core design.",
+    "syntax": "Read the colored block sequence from the event hat downward. Brackets mark the body of a control block. Each script belongs to the selected sprite or stage.",
+    "block_examples": [
+      {
+        "name": "Guided block sequence",
+        "sprite": "Main game actor",
+        "blocks": [
+          {
+            "category": "Events",
+            "text": "when green flag clicked"
+          },
+          {
+            "category": "Variables",
+            "text": "set GameState to menu"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast show menu"
+          },
+          {
+            "category": "Events",
+            "text": "when I receive start game"
+          },
+          {
+            "category": "Variables",
+            "text": "set GameState to playing"
+          },
+          {
+            "category": "My Blocks",
+            "text": "reset game"
+          },
+          {
+            "category": "Events",
+            "text": "broadcast level1"
+          }
+        ]
+      }
+    ],
+    "guided_practice": "Open the official Scratch editor. Choose the correct sprite, create the required variables/assets, then assemble the illustrated sequence. The flag opens the menu; start game resets state and launches level1. Explain each block before changing it.",
+    "activity": "Build a complete game with menu/start/instructions, controls, multiple levels, lives or health, score, enemies, audio, costume animation, reliable collisions, game-over/win screens, restart, high scores, custom blocks, and cloning.\nPlanning worksheet: write your game goal, player controls, sprite roles, state diagram, variable/list names, broadcasts, and a sketch of each screen.\nMilestones: 1. Plan and sketch. 2. Build and test player controls. 3. Implement the main interaction. 4. Add score, state transitions, and required mechanics. 5. Add scenes/audio and refactor repeated blocks. 6. Run the testing checklist and submit.\nTesting checklist: Test menu controls, every level, enemy hits, win/loss, restart, and repeated play without leftover clones. Record expected and actual outcomes, fixes, and one remaining improvement.",
+    "expected_result": "The flag opens the menu; start game resets state and launches level1.\nSuccess criteria: Build a complete game with menu/start/instructions, controls, multiple levels, lives or health, score, enemies, audio, costume animation, reliable collisions, game-over/win screens, restart, high scores, custom blocks, and cloning.\nTest menu controls, every level, enemy hits, win/loss, restart, and repeated play without leftover clones.",
+    "important_notes": "Scripts must check playing state so hidden enemies cannot hurt the player on the menu.\nCodeLab saves your project URL and notes, not the live Scratch workspace. Save your work in Scratch or download it there. No cloud storage is provided by this integration.",
+    "challenge": "Summary: Design a polished game using a state diagram: menu, playing, won, and game over. Extend your project with one related behavior, then test both the original and new behavior.",
+    "completion_requirements": "Save a valid shared Scratch project URL and notes describing your blocks, tests, and results. Submit the project, pass the five-question quiz with at least 4/5, and receive teacher approval.",
+    "rubric": {
+      "Program Functionality": 30,
+      "Correct Use of Scratch Concepts": 25,
+      "Creativity and Design": 15,
+      "Logic and Problem Solving": 15,
+      "Code Organization": 10,
+      "Testing / Debugging": 5
+    },
+    "quiz": [
+      {
+        "question": "Why use an explicit GameState?",
+        "choices": [
+          "To replace every custom block",
+          "To allow only actions appropriate to the current screen",
+          "To guarantee online storage",
+          "To eliminate all testing"
+        ],
+        "answer": 1,
+        "explanation": "Design a polished game using a state diagram: menu, playing, won, and game over. Plan the sprites, broadcasts, variables, custom blocks, and clone lifetimes before building. Implement a small playable core, then add levels and polish. Keep controls disabled outside playing state and test restart from both win and loss. Optional scrolling, inventory, bosses, AI, checkpoints, or power-ups should support the core design."
+      },
+      {
+        "question": "Predict the sample for Advanced Project — Complete Scratch Game: which description matches its behavior?",
+        "choices": [
+          "The project saves all data permanently online.",
+          "The script only changes the project title.",
+          "The flag opens the menu; start game resets state and launches level1.",
+          "Every block runs in a random order."
+        ],
+        "answer": 2,
+        "explanation": "Trace the event and connected blocks in order. The flag opens the menu; start game resets state and launches level1."
+      },
+      {
+        "question": "Which issue should you check when debugging this activity?",
+        "choices": [
+          "Scratch requires Python indentation.",
+          "Every sprite must have the same name.",
+          "All projects require a cloud variable.",
+          "Scripts must check playing state so hidden enemies cannot hurt the player on the menu."
+        ],
+        "answer": 3,
+        "explanation": "Scripts must check playing state so hidden enemies cannot hurt the player on the menu."
+      },
+      {
+        "question": "Which category contains “set GameState to menu”?",
+        "choices": [
+          "Variables",
+          "Motion",
+          "Looks",
+          "Sound"
+        ],
+        "answer": 0,
+        "explanation": "Variables contains this example instruction."
+      },
+      {
+        "question": "Which test best checks this lesson’s required behavior?",
+        "choices": [
+          "Assume the first run proves every case works.",
+          "Test menu controls, every level, enemy hits, win/loss, restart, and repeated play without leftover clones.",
+          "Rename the project without running it.",
+          "Change every backdrop and skip testing."
+        ],
+        "answer": 1,
+        "explanation": "Test expected outcomes, restart behavior, and relevant boundaries. Test menu controls, every level, enemy hits, win/loss, restart, and repeated play without leftover clones."
+      }
+    ]
+  }
+]

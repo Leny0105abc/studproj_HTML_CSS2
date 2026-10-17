@@ -1,0 +1,1858 @@
+[
+  {
+    "title": "Introduction, Variables, and Data Types",
+    "level": "Beginner",
+    "position": 1,
+    "is_project": false,
+    "objectives": [
+      "Explain the purpose of JavaScript.",
+      "Declare variables using let and const.",
+      "Identify common JavaScript data types.",
+      "Use typeof to inspect values."
+    ],
+    "introduction": "Learn JavaScript uses; HTML/CSS/JS; script tags and external files; let/const/var; names and reassignment; strings, numbers, booleans, null, undefined, arrays, objects; typeof and conversion. Practice the example, then write your own activity.",
+    "explanation": "JavaScript adds behavior to web pages: HTML provides structure and CSS provides presentation. In a normal page, use <script src=\"main.js\" defer></script> to load an external script after parsing; this lab loads its JavaScript editor separately in an interpreter. Prefer const for bindings you do not reassign and let when reassignment is needed. var is function-scoped and has older hoisting behavior. Names are case-sensitive identifiers and cannot be reserved words. Arrays store ordered values; objects group named properties. typeof gives type information, with historical exceptions: typeof null is \"object\" and arrays also report \"object\"; use Array.isArray for arrays. Number(text) converts numeric text; validate conversion before calculation.",
+    "syntax": "const studentName=\"Maria\";\nconst course=\"BS Information Technology\";\nlet yearLevel=1;\nlet grade=95.5;\nconsole.log(studentName);\nconsole.log(course);\nconsole.log(yearLevel,grade);\nconsole.log(typeof grade);\ndocument.getElementById(\"output\").textContent=studentName+\" — \"+course;",
+    "example_javascript": "const studentName=\"Maria\";\nconst course=\"BS Information Technology\";\nlet yearLevel=1;\nlet grade=95.5;\nconsole.log(studentName);\nconsole.log(course);\nconsole.log(yearLevel,grade);\nconsole.log(typeof grade);\ndocument.getElementById(\"output\").textContent=studentName+\" — \"+course;",
+    "starter_javascript": "const studentName=\"Maria\";\nconst course=\"BS Information Technology\";\nlet yearLevel=1;\nlet grade=95.5;\nconsole.log(studentName);\nconsole.log(course);\nconsole.log(yearLevel,grade);\nconsole.log(typeof grade);\ndocument.getElementById(\"output\").textContent=studentName+\" — \"+course;",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Declare student name, course, year level, and grade with appropriate let/const bindings. Log each value and its type, demonstrate one legitimate reassignment, and explain how HTML, CSS, and JavaScript cooperate.",
+    "expected_result": "Example console output:\nMaria\nBS Information Technology\n1 95.5\nnumber\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Only document structure; var is always required. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What does JavaScript add to a web page?",
+        "choices": [
+          "Behavior and interaction",
+          "Only document structure",
+          "const",
+          "var is always required"
+        ],
+        "answer": 0,
+        "explanation": "Behavior and interaction. JavaScript adds behavior to web pages: HTML provides structure and CSS provides presentation."
+      },
+      {
+        "question": "Which binding should be preferred without reassignment?",
+        "choices": [
+          "Only document structure",
+          "const",
+          "var is always required",
+          "Behavior and interaction"
+        ],
+        "answer": 1,
+        "explanation": "const. JavaScript adds behavior to web pages: HTML provides structure and CSS provides presentation."
+      },
+      {
+        "question": "Which type does typeof 95.5 report?",
+        "choices": [
+          "Behavior and interaction",
+          "Only document structure",
+          "number",
+          "integer"
+        ],
+        "answer": 2,
+        "explanation": "number. JavaScript adds behavior to web pages: HTML provides structure and CSS provides presentation."
+      },
+      {
+        "question": "How should arrays be identified?",
+        "choices": [
+          "typeof value === \"array\"",
+          "Behavior and interaction",
+          "Only document structure",
+          "Array.isArray(value)"
+        ],
+        "answer": 3,
+        "explanation": "Array.isArray(value). JavaScript adds behavior to web pages: HTML provides structure and CSS provides presentation."
+      },
+      {
+        "question": "Can a const object have a property updated?",
+        "choices": [
+          "Yes; the binding remains fixed",
+          "No; const deeply freezes everything",
+          "Behavior and interaction",
+          "Only document structure"
+        ],
+        "answer": 0,
+        "explanation": "Yes; the binding remains fixed. JavaScript adds behavior to web pages: HTML provides structure and CSS provides presentation."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Maria\nBS Information Technology\n1 95.5\nnumber\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Input, Output, and Operators",
+    "level": "Beginner",
+    "position": 2,
+    "is_project": false,
+    "objectives": [
+      "Explain console.log; alert; prompt; DOM textContent/innerHTML; numeric conversion; arithmetic, assignment, comparisons, logic, increments; precedence; == versus ===.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn console.log; alert; prompt; DOM textContent/innerHTML; numeric conversion; arithmetic, assignment, comparisons, logic, increments; precedence; == versus ===. Practice the example, then write your own activity.",
+    "explanation": "console.log prints values, alert normally displays a dialog, and prompt normally returns a string or null on cancellation. Here prompt consumes the JSON prompts array and alert prints a labeled console message, avoiding browser dialogs. Convert numeric text with Number and reject blank/canceled/non-finite values. + adds numbers but can concatenate strings. %, **, compound assignments, increments, comparisons, and logical operators support calculations and conditions. == can coerce types; === compares without that coercion and is the usual modern preference. Parentheses clarify precedence. Use textContent for untrusted text. innerHTML parses markup and requires careful sanitization in real applications.",
+    "syntax": "const first=prompt(\"First number\");\nconst second=prompt(\"Second number\");\nconst operation=prompt(\"Operation (+, -, *, /)\");\nconst a=Number(first),b=Number(second);\nif(first===null||second===null||!first.trim()||!second.trim()||!Number.isFinite(a)||!Number.isFinite(b)){console.log(\"Invalid numbers\");}\nelse {let result;switch(operation){case \"+\":result=a+b;break;case \"-\":result=a-b;break;case \"*\":result=a*b;break;case \"/\":result=b===0?\"Cannot divide by zero\":a/b;break;default:result=\"Unsupported operation\";}console.log(\"Result:\",result);document.getElementById(\"output\").textContent=\"Result: \"+result;}\nconsole.log(5==\"5\",5===\"5\");",
+    "example_javascript": "const first=prompt(\"First number\");\nconst second=prompt(\"Second number\");\nconst operation=prompt(\"Operation (+, -, *, /)\");\nconst a=Number(first),b=Number(second);\nif(first===null||second===null||!first.trim()||!second.trim()||!Number.isFinite(a)||!Number.isFinite(b)){console.log(\"Invalid numbers\");}\nelse {let result;switch(operation){case \"+\":result=a+b;break;case \"-\":result=a-b;break;case \"*\":result=a*b;break;case \"/\":result=b===0?\"Cannot divide by zero\":a/b;break;default:result=\"Unsupported operation\";}console.log(\"Result:\",result);document.getElementById(\"output\").textContent=\"Result: \"+result;}\nconsole.log(5==\"5\",5===\"5\");",
+    "starter_javascript": "// Input, Output, and Operators\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Build a two-number calculator with a selected operation. Validate canceled/blank/non-numeric inputs and division by zero. Demonstrate strict versus coercing equality and safe text output.",
+    "expected_result": "Example console output:\n[prompt] First number\n[prompt] Second number\n[prompt] Operation (+, -, *, /)\nResult: 3\ntrue false\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Always a number; Appending another string. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What does prompt normally return?",
+        "choices": [
+          "Appending another string",
+          "A string or null",
+          "Always a number",
+          "Number(value)"
+        ],
+        "answer": 1,
+        "explanation": "A string or null. console.log prints values, alert normally displays a dialog, and prompt normally returns a string or null on cancellation."
+      },
+      {
+        "question": "What converts numeric input text?",
+        "choices": [
+          "A string or null",
+          "Always a number",
+          "Number(value)",
+          "Appending another string"
+        ],
+        "answer": 2,
+        "explanation": "Number(value). console.log prints values, alert normally displays a dialog, and prompt normally returns a string or null on cancellation."
+      },
+      {
+        "question": "What does === avoid?",
+        "choices": [
+          "All comparisons",
+          "A string or null",
+          "Always a number",
+          "Type coercion during equality comparison"
+        ],
+        "answer": 3,
+        "explanation": "Type coercion during equality comparison. console.log prints values, alert normally displays a dialog, and prompt normally returns a string or null on cancellation."
+      },
+      {
+        "question": "What is safest for displaying untrusted text?",
+        "choices": [
+          "textContent",
+          "Unsanitized innerHTML",
+          "A string or null",
+          "Always a number"
+        ],
+        "answer": 0,
+        "explanation": "textContent. console.log prints values, alert normally displays a dialog, and prompt normally returns a string or null on cancellation."
+      },
+      {
+        "question": "What should division by zero trigger?",
+        "choices": [
+          "Always a number",
+          "A handled validation message",
+          "A silent successful grade",
+          "A string or null"
+        ],
+        "answer": 1,
+        "explanation": "A handled validation message. console.log prints values, alert normally displays a dialog, and prompt normally returns a string or null on cancellation."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{\n  \"prompts\": [\n    \"12\",\n    \"4\",\n    \"/\"\n  ]\n}",
+        "expected_output": "[prompt] First number\n[prompt] Second number\n[prompt] Operation (+, -, *, /)\nResult: 3\ntrue false\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Conditional Statements",
+    "level": "Beginner",
+    "position": 3,
+    "is_project": false,
+    "objectives": [
+      "Explain if/else if/else; switch; ternary; nested, comparison, and logical conditions; grade validation.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn if/else if/else; switch; ternary; nested, comparison, and logical conditions; grade validation. Practice the example, then write your own activity.",
+    "explanation": "Conditions choose a branch based on a boolean expression. An else-if chain should check grade bands from highest to lowest: 90–100 Excellent, 85 to below 90 Very Good, 80 to below 85 Good, 75 to below 80 Passed, and below 75 Failed. First reject values outside 0–100 and non-finite values; fractional grades belong to continuous ranges. switch is suitable for discrete choices and normally needs break to avoid fall-through. A ternary selects one of two expressions. Nested conditions can be useful, but clear early validation usually improves readability.",
+    "syntax": "const grade=Number(prompt(\"Grade (0–100)\"));\nlet description;\nif(!Number.isFinite(grade)||grade<0||grade>100)description=\"Invalid grade\";\nelse if(grade>=90)description=\"Excellent\";\nelse if(grade>=85)description=\"Very Good\";\nelse if(grade>=80)description=\"Good\";\nelse if(grade>=75)description=\"Passed\";\nelse description=\"Failed\";\nconsole.log(description);\ndocument.getElementById(\"output\").textContent=description;",
+    "example_javascript": "const grade=Number(prompt(\"Grade (0–100)\"));\nlet description;\nif(!Number.isFinite(grade)||grade<0||grade>100)description=\"Invalid grade\";\nelse if(grade>=90)description=\"Excellent\";\nelse if(grade>=85)description=\"Very Good\";\nelse if(grade>=80)description=\"Good\";\nelse if(grade>=75)description=\"Passed\";\nelse description=\"Failed\";\nconsole.log(description);\ndocument.getElementById(\"output\").textContent=description;",
+    "starter_javascript": "// Conditional Statements\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Write a grade evaluator covering all five categories. Reject canceled/blank inputs and out-of-range grades. Test 0, 74.9, 75, 80, 85, 90, 100, -1, 101, and non-numeric input. Compare an if chain with a ternary for pass/fail.",
+    "expected_result": "Example console output:\n[prompt] Grade (0–100)\nVery Good\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Only whether the name is long; Force every branch to run. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What should be checked before grade bands?",
+        "choices": [
+          "Prevent a lower band capturing it",
+          "Force every branch to run",
+          "Validity and the 0–100 range",
+          "Only whether the name is long"
+        ],
+        "answer": 2,
+        "explanation": "Validity and the 0–100 range. Conditions choose a branch based on a boolean expression."
+      },
+      {
+        "question": "Why check the highest band first?",
+        "choices": [
+          "Force every branch to run",
+          "Validity and the 0–100 range",
+          "Only whether the name is long",
+          "Prevent a lower band capturing it"
+        ],
+        "answer": 3,
+        "explanation": "Prevent a lower band capturing it. Conditions choose a branch based on a boolean expression."
+      },
+      {
+        "question": "What usually stops switch fall-through?",
+        "choices": [
+          "break",
+          "continue",
+          "Validity and the 0–100 range",
+          "Only whether the name is long"
+        ],
+        "answer": 0,
+        "explanation": "break. Conditions choose a branch based on a boolean expression."
+      },
+      {
+        "question": "What selects between two expressions?",
+        "choices": [
+          "Only whether the name is long",
+          "A ternary operator",
+          "A CREATE TABLE statement",
+          "Validity and the 0–100 range"
+        ],
+        "answer": 1,
+        "explanation": "A ternary operator. Conditions choose a branch based on a boolean expression."
+      },
+      {
+        "question": "Which category includes 89.5?",
+        "choices": [
+          "Validity and the 0–100 range",
+          "Only whether the name is long",
+          "Very Good",
+          "Excellent"
+        ],
+        "answer": 2,
+        "explanation": "Very Good. Conditions choose a branch based on a boolean expression."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{\n  \"prompts\": [\n    \"89.5\"\n  ]\n}",
+        "expected_output": "[prompt] Grade (0–100)\nVery Good\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Loops and Arrays",
+    "level": "Beginner",
+    "position": 4,
+    "is_project": false,
+    "objectives": [
+      "Explain for; while; do...while; break/continue; nested loops; for...of; arrays, indexing, length, push/pop/shift/unshift; statistics.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn for; while; do...while; break/continue; nested loops; for...of; arrays, indexing, length, push/pop/shift/unshift; statistics. Practice the example, then write your own activity.",
+    "explanation": "Arrays use zero-based indices and length counts their elements. push/pop operate at the end; unshift/shift operate at the beginning. for uses initialization, condition, and update; while checks before each iteration, and do...while runs at least once. for...of reads values directly. break ends a loop and continue skips to its next iteration. Nested loops multiply work, so keep bounds small. Validate an empty grade array before dividing by length. Total, average, minimum, and maximum can all be computed in one pass rather than repeatedly scanning data.",
+    "syntax": "const grades=[88,92,75,95];\ngrades.push(90);\nlet total=0,highest=grades[0],lowest=grades[0];\nfor(const grade of grades){total+=grade;if(grade>highest)highest=grade;if(grade<lowest)lowest=grade;}\nconsole.log(\"Count:\",grades.length);\nconsole.log(\"Total:\",total,\"Average:\",total/grades.length);\nconsole.log(\"Highest:\",highest,\"Lowest:\",lowest);",
+    "example_javascript": "const grades=[88,92,75,95];\ngrades.push(90);\nlet total=0,highest=grades[0],lowest=grades[0];\nfor(const grade of grades){total+=grade;if(grade>highest)highest=grade;if(grade<lowest)lowest=grade;}\nconsole.log(\"Count:\",grades.length);\nconsole.log(\"Total:\",total,\"Average:\",total/grades.length);\nconsole.log(\"Highest:\",highest,\"Lowest:\",lowest);",
+    "starter_javascript": "// Loops and Arrays\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Store at least five valid grades in an array. Calculate total, average, highest, and lowest using a loop. Demonstrate array updates and each end-operation, and handle an empty array safely. Include a small while/do-while comparison and a bounded nested-loop example.",
+    "expected_result": "Example console output:\nCount: 5\nTotal: 440 Average: 88\nHighest: 95 Lowest: 75\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: 1; shift. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "Where does an array begin indexing?",
+        "choices": [
+          "1",
+          "push",
+          "shift",
+          "0"
+        ],
+        "answer": 3,
+        "explanation": "0. Arrays use zero-based indices and length counts their elements."
+      },
+      {
+        "question": "What adds an item at the end?",
+        "choices": [
+          "push",
+          "shift",
+          "0",
+          "1"
+        ],
+        "answer": 0,
+        "explanation": "push. Arrays use zero-based indices and length counts their elements."
+      },
+      {
+        "question": "Which loop runs at least once?",
+        "choices": [
+          "1",
+          "do...while",
+          "while always",
+          "0"
+        ],
+        "answer": 1,
+        "explanation": "do...while. Arrays use zero-based indices and length counts their elements."
+      },
+      {
+        "question": "What skips the current loop iteration?",
+        "choices": [
+          "0",
+          "1",
+          "continue",
+          "return always"
+        ],
+        "answer": 2,
+        "explanation": "continue. Arrays use zero-based indices and length counts their elements."
+      },
+      {
+        "question": "What must be checked before averaging?",
+        "choices": [
+          "The browser color",
+          "0",
+          "1",
+          "The array is nonempty"
+        ],
+        "answer": 3,
+        "explanation": "The array is nonempty. Arrays use zero-based indices and length counts their elements."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Count: 5\nTotal: 440 Average: 88\nHighest: 95 Lowest: 75\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Functions",
+    "level": "Beginner",
+    "position": 5,
+    "is_project": false,
+    "objectives": [
+      "Explain declarations, calls, parameters/arguments, return, expressions, arrow functions, local scope, reuse.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn declarations, calls, parameters/arguments, return, expressions, arrow functions, local scope, reuse. Practice the example, then write your own activity.",
+    "explanation": "Functions package a reusable operation. Parameters are named placeholders in a definition; arguments are values supplied in a call. return sends a result back and stops execution of that function. A function without a return produces undefined. Function expressions can be assigned to a binding, and arrow functions provide concise syntax; their this behavior differs from ordinary functions. Local let/const bindings are limited to their scope. Keep calculation functions separate from formatting and DOM updates so they can be tested independently.",
+    "syntax": "function calculateAverage(total,count){if(count<=0)throw new Error(\"Count must be positive\");return total/count;}\nconst isPassing=average=>average>=75;\nconst formatResult=(name,average)=>`${name}: ${average.toFixed(2)} — ${isPassing(average)?\"Passed\":\"Failed\"}`;\nconst result=formatResult(\"Maria\",calculateAverage(270,3));\nconsole.log(result);\ndocument.getElementById(\"output\").textContent=result;",
+    "example_javascript": "function calculateAverage(total,count){if(count<=0)throw new Error(\"Count must be positive\");return total/count;}\nconst isPassing=average=>average>=75;\nconst formatResult=(name,average)=>`${name}: ${average.toFixed(2)} — ${isPassing(average)?\"Passed\":\"Failed\"}`;\nconst result=formatResult(\"Maria\",calculateAverage(270,3));\nconsole.log(result);\ndocument.getElementById(\"output\").textContent=result;",
+    "starter_javascript": "// Functions\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Write separate reusable functions for averaging, pass/fail classification, and formatted student results. Use parameters and returns, demonstrate a function expression and arrow function, and test zero count and exact passing boundaries.",
+    "expected_result": "Example console output:\nMaria: 90.00 — Passed\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Only the displayed output; The function keyword. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What is a parameter?",
+        "choices": [
+          "A named placeholder in a definition",
+          "Only the displayed output",
+          "A supplied call value",
+          "The function keyword"
+        ],
+        "answer": 0,
+        "explanation": "A named placeholder in a definition. Functions package a reusable operation."
+      },
+      {
+        "question": "What is an argument?",
+        "choices": [
+          "Only the displayed output",
+          "A supplied call value",
+          "The function keyword",
+          "A named placeholder in a definition"
+        ],
+        "answer": 1,
+        "explanation": "A supplied call value. Functions package a reusable operation."
+      },
+      {
+        "question": "What does return provide?",
+        "choices": [
+          "A named placeholder in a definition",
+          "Only the displayed output",
+          "A result to the caller",
+          "A browser notification automatically"
+        ],
+        "answer": 2,
+        "explanation": "A result to the caller. Functions package a reusable operation."
+      },
+      {
+        "question": "What results from no return?",
+        "choices": [
+          "Always zero",
+          "A named placeholder in a definition",
+          "Only the displayed output",
+          "undefined"
+        ],
+        "answer": 3,
+        "explanation": "undefined. Functions package a reusable operation."
+      },
+      {
+        "question": "Why separate calculations from DOM updates?",
+        "choices": [
+          "Independent testing and reuse",
+          "To make functions unavailable",
+          "A named placeholder in a definition",
+          "Only the displayed output"
+        ],
+        "answer": 0,
+        "explanation": "Independent testing and reuse. Functions package a reusable operation."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Maria: 90.00 — Passed\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Beginner Project — Student Grade Calculator",
+    "level": "Beginner",
+    "position": 6,
+    "is_project": true,
+    "objectives": [
+      "Explain name and grade inputs; arrays; total/average/pass-fail/extrema; formatted output; validation and tests.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn name and grade inputs; arrays; total/average/pass-fail/extrema; formatted output; validation and tests. Practice the example, then write your own activity.",
+    "explanation": "Combine the Beginner skills into a small grade calculator. Plan inputs, validation, a reusable statistics function, classification, and output before connecting the form. The sample uses Maria with 90, 95, and 85: total 270, mean 90, highest 95, lowest 85, Passed. Every grade must be finite and in range; empty comma-separated entries are invalid. Teacher review evaluates original work and testing, not merely whether the example prints.",
+    "syntax": "function summarize(grades){if(!grades.length||grades.some(g=>!Number.isFinite(g)||g<0||g>100))throw Error(\"Enter grades from 0 to 100\");let total=0;for(const grade of grades)total+=grade;return {total,average:total/grades.length,highest:Math.max(...grades),lowest:Math.min(...grades)};}\nfunction calculate(){try{const name=document.getElementById(\"student-name\").value.trim();const raw=document.getElementById(\"grades\").value;if(!name||!raw.trim()||raw.split(\",\").some(v=>!v.trim()))throw Error(\"Name and grades are required\");const grades=raw.split(\",\").map(Number);const result=summarize(grades);const text=name+\"\\nTotal: \"+result.total+\"\\nAverage: \"+result.average.toFixed(2)+\"\\nStatus: \"+(result.average>=75?\"Passed\":\"Failed\")+\"\\nHighest: \"+result.highest+\"\\nLowest: \"+result.lowest;document.getElementById(\"output\").textContent=text;console.log(text);}catch(error){document.getElementById(\"output\").textContent=error.message;}}\ndocument.getElementById(\"grade-form\").addEventListener(\"submit\",event=>{event.preventDefault();calculate();});\ncalculate();",
+    "example_javascript": "function summarize(grades){if(!grades.length||grades.some(g=>!Number.isFinite(g)||g<0||g>100))throw Error(\"Enter grades from 0 to 100\");let total=0;for(const grade of grades)total+=grade;return {total,average:total/grades.length,highest:Math.max(...grades),lowest:Math.min(...grades)};}\nfunction calculate(){try{const name=document.getElementById(\"student-name\").value.trim();const raw=document.getElementById(\"grades\").value;if(!name||!raw.trim()||raw.split(\",\").some(v=>!v.trim()))throw Error(\"Name and grades are required\");const grades=raw.split(\",\").map(Number);const result=summarize(grades);const text=name+\"\\nTotal: \"+result.total+\"\\nAverage: \"+result.average.toFixed(2)+\"\\nStatus: \"+(result.average>=75?\"Passed\":\"Failed\")+\"\\nHighest: \"+result.highest+\"\\nLowest: \"+result.lowest;document.getElementById(\"output\").textContent=text;console.log(text);}catch(error){document.getElementById(\"output\").textContent=error.message;}}\ndocument.getElementById(\"grade-form\").addEventListener(\"submit\",event=>{event.preventDefault();calculate();});\ncalculate();",
+    "starter_javascript": "// Beginner Project — Student Grade Calculator\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>Student Grade Calculator</h1><form id=\"grade-form\"><label for=\"student-name\">Student name</label><input id=\"student-name\" value=\"Maria\" required><label for=\"grades\">Grades separated by commas</label><input id=\"grades\" value=\"90,95,85\" required><button type=\"submit\" id=\"calculate\">Calculate</button></form><pre id=\"output\" role=\"status\"></pre></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>Student Grade Calculator</h1><form id=\"grade-form\"><label for=\"student-name\">Student name</label><input id=\"student-name\" value=\"Maria\" required><label for=\"grades\">Grades separated by commas</label><input id=\"grades\" value=\"90,95,85\" required><button type=\"submit\" id=\"calculate\">Calculate</button></form><pre id=\"output\" role=\"status\"></pre></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Build an HTML form for a student name and multiple grades. Store grades in an array; calculate total, average, highest, lowest, and pass/fail with reusable functions and a loop. Display a formatted result safely. Develop in this order: inputs → validation → calculation → formatting → event handler. Test blank name/grades, a single grade, 0/100, negative/over-100/non-numeric values, decimal values, empty entries, and the 75 passing boundary. Save all three files and submit for review.",
+    "expected_result": "Example console output:\nMaria\nTotal: 270\nAverage: 90.00\nStatus: Passed\nHighest: 95\nLowest: 85\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Only one scalar variable; Ignoring invalid entries silently. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add an original feature and document at least five edge-case tests and one limitation.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What stores several grades?",
+        "choices": [
+          "Ignoring invalid entries silently",
+          "An array",
+          "Only one scalar variable",
+          "Finite values within 0–100"
+        ],
+        "answer": 1,
+        "explanation": "An array. Combine the Beginner skills into a small grade calculator."
+      },
+      {
+        "question": "What validates all grades?",
+        "choices": [
+          "An array",
+          "Only one scalar variable",
+          "Finite values within 0–100",
+          "Ignoring invalid entries silently"
+        ],
+        "answer": 2,
+        "explanation": "Finite values within 0–100. Combine the Beginner skills into a small grade calculator."
+      },
+      {
+        "question": "What produces the sample mean?",
+        "choices": [
+          "The highest grade alone",
+          "An array",
+          "Only one scalar variable",
+          "270 divided by 3"
+        ],
+        "answer": 3,
+        "explanation": "270 divided by 3. Combine the Beginner skills into a small grade calculator."
+      },
+      {
+        "question": "What should the calculate function return?",
+        "choices": [
+          "A reusable summary",
+          "An application password",
+          "An array",
+          "Only one scalar variable"
+        ],
+        "answer": 0,
+        "explanation": "A reusable summary. Combine the Beginner skills into a small grade calculator."
+      },
+      {
+        "question": "What completes the project?",
+        "choices": [
+          "Only one scalar variable",
+          "Passed quiz and teacher approval",
+          "Run alone",
+          "An array"
+        ],
+        "answer": 1,
+        "explanation": "Passed quiz and teacher approval. Combine the Beginner skills into a small grade calculator."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Maria\nTotal: 270\nAverage: 90.00\nStatus: Passed\nHighest: 95\nLowest: 85\n"
+      }
+    },
+    "rubric": {
+      "functionality": 30,
+      "javascript_concepts": 25,
+      "input_validation": 15,
+      "interface_and_accessibility": 10,
+      "readability": 10,
+      "testing": 10
+    }
+  },
+  {
+    "title": "Objects, JSON, and Destructuring",
+    "level": "Intermediate",
+    "position": 7,
+    "is_project": false,
+    "objectives": [
+      "Explain properties/methods; dot/bracket access; nested objects; JSON parse/stringify; destructuring; spread; shallow copies.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn properties/methods; dot/bracket access; nested objects; JSON parse/stringify; destructuring; spread; shallow copies. Practice the example, then write your own activity.",
+    "explanation": "Objects group named data and behavior. Access known property names with dot notation and dynamic names with brackets. Destructuring extracts values, while spread makes a shallow copy: nested objects are still shared unless copied separately. JSON is a text interchange format, not executable JavaScript; stringify serializes suitable values and parse reads JSON text, which may be invalid and needs error handling. Functions, undefined properties, and circular structures are not ordinary JSON data. Validate the shape of parsed records before using them.",
+    "syntax": "const student={id:1,name:\"Maria\",course:\"IT\",grades:[90,95,85]};\nconst {name,course}=student;\nconst updated={...student,course:\"Computer Science\"};\nconst restored=JSON.parse(JSON.stringify(updated));\nconsole.log(name,course);\nconsole.log(restored.name,restored.course);",
+    "example_javascript": "const student={id:1,name:\"Maria\",course:\"IT\",grades:[90,95,85]};\nconst {name,course}=student;\nconst updated={...student,course:\"Computer Science\"};\nconst restored=JSON.parse(JSON.stringify(updated));\nconsole.log(name,course);\nconsole.log(restored.name,restored.course);",
+    "starter_javascript": "// Objects, JSON, and Destructuring\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Create and update student objects, destructure fields, serialize/restore a record, and validate malformed JSON. Demonstrate how a shallow copy can still share a nested grades array.",
+    "expected_result": "Example console output:\nMaria IT\nMaria Computer Science\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Only a fixed dot name; A database connection. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "How can a dynamic property be read?",
+        "choices": [
+          "JSON text",
+          "A database connection",
+          "Bracket notation",
+          "Only a fixed dot name"
+        ],
+        "answer": 2,
+        "explanation": "Bracket notation. Objects group named data and behavior."
+      },
+      {
+        "question": "What does JSON.stringify produce?",
+        "choices": [
+          "A database connection",
+          "Bracket notation",
+          "Only a fixed dot name",
+          "JSON text"
+        ],
+        "answer": 3,
+        "explanation": "JSON text. Objects group named data and behavior."
+      },
+      {
+        "question": "What does JSON.parse require?",
+        "choices": [
+          "Valid JSON text",
+          "Any JavaScript statement",
+          "Bracket notation",
+          "Only a fixed dot name"
+        ],
+        "answer": 0,
+        "explanation": "Valid JSON text. Objects group named data and behavior."
+      },
+      {
+        "question": "What kind of copy does object spread make?",
+        "choices": [
+          "Only a fixed dot name",
+          "Shallow",
+          "Automatically deep",
+          "Bracket notation"
+        ],
+        "answer": 1,
+        "explanation": "Shallow. Objects group named data and behavior."
+      },
+      {
+        "question": "What should follow parsing untrusted JSON?",
+        "choices": [
+          "Bracket notation",
+          "Only a fixed dot name",
+          "Shape and value validation",
+          "Executing it with eval"
+        ],
+        "answer": 2,
+        "explanation": "Shape and value validation. Objects group named data and behavior."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Maria IT\nMaria Computer Science\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Array Methods and Callbacks",
+    "level": "Intermediate",
+    "position": 8,
+    "is_project": false,
+    "objectives": [
+      "Explain forEach; map; filter; find; some/every; reduce; sorting; callbacks; mutation.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn forEach; map; filter; find; some/every; reduce; sorting; callbacks; mutation. Practice the example, then write your own activity.",
+    "explanation": "Callbacks let another function invoke your behavior. map creates transformed values, filter keeps matches, find returns the first matching value or undefined, and reduce accumulates a result. some tests any match; every tests all and is true on an empty array. forEach is for side effects, not producing a mapped result. sort mutates its array and defaults to string comparison; copy first and supply (a,b)=>a-b for ascending numbers. Choose operations that express the report clearly and check empty inputs.",
+    "syntax": "const students=[{name:\"Ana\",grade:88},{name:\"Ben\",grade:72},{name:\"Cara\",grade:95}];\nconst passing=students.filter(s=>s.grade>=75).map(s=>s.name);\nconst mean=students.reduce((sum,s)=>sum+s.grade,0)/students.length;\nconst ordered=[...students].sort((a,b)=>b.grade-a.grade);\nconsole.log(passing.join(\", \"));\nconsole.log(\"Average:\",mean.toFixed(2));\nconsole.log(ordered.map(s=>s.name).join(\", \"));",
+    "example_javascript": "const students=[{name:\"Ana\",grade:88},{name:\"Ben\",grade:72},{name:\"Cara\",grade:95}];\nconst passing=students.filter(s=>s.grade>=75).map(s=>s.name);\nconst mean=students.reduce((sum,s)=>sum+s.grade,0)/students.length;\nconst ordered=[...students].sort((a,b)=>b.grade-a.grade);\nconsole.log(passing.join(\", \"));\nconsole.log(\"Average:\",mean.toFixed(2));\nconsole.log(ordered.map(s=>s.name).join(\", \"));",
+    "starter_javascript": "// Array Methods and Callbacks\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Filter passing students, map formatted labels, find a chosen record, check validity with every, calculate an average with reduce, and sort a copied list numerically without changing the original.",
+    "expected_result": "Example console output:\nAna, Cara\nAverage: 85.00\nCara, Ana, Ben\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: forEach returns mapped values; reduce always. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What transforms each item into a new array?",
+        "choices": [
+          "forEach returns mapped values",
+          "filter",
+          "reduce always",
+          "map"
+        ],
+        "answer": 3,
+        "explanation": "map. Callbacks let another function invoke your behavior."
+      },
+      {
+        "question": "What keeps matching elements?",
+        "choices": [
+          "filter",
+          "reduce always",
+          "map",
+          "forEach returns mapped values"
+        ],
+        "answer": 0,
+        "explanation": "filter. Callbacks let another function invoke your behavior."
+      },
+      {
+        "question": "What can find return when unmatched?",
+        "choices": [
+          "forEach returns mapped values",
+          "undefined",
+          "Always an empty array",
+          "map"
+        ],
+        "answer": 1,
+        "explanation": "undefined. Callbacks let another function invoke your behavior."
+      },
+      {
+        "question": "How should numbers be sorted ascending?",
+        "choices": [
+          "map",
+          "forEach returns mapped values",
+          "A numeric comparator",
+          "Default string sorting always"
+        ],
+        "answer": 2,
+        "explanation": "A numeric comparator. Callbacks let another function invoke your behavior."
+      },
+      {
+        "question": "What does sort modify?",
+        "choices": [
+          "Only a separate hidden copy",
+          "map",
+          "forEach returns mapped values",
+          "The array it is called on"
+        ],
+        "answer": 3,
+        "explanation": "The array it is called on. Callbacks let another function invoke your behavior."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Ana, Cara\nAverage: 85.00\nCara, Ana, Ben\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "DOM Selection and Manipulation",
+    "level": "Intermediate",
+    "position": 9,
+    "is_project": false,
+    "objectives": [
+      "Explain document; getElementById/querySelector/querySelectorAll; textContent; innerHTML safety; createElement; append/remove; attributes; classList; style.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn document; getElementById/querySelector/querySelectorAll; textContent; innerHTML safety; createElement; append/remove; attributes; classList; style. Practice the example, then write your own activity.",
+    "explanation": "The DOM represents an HTML document as objects. getElementById selects an ID; querySelector selects the first CSS match; querySelectorAll returns matching nodes. Missing selections return null, so confirm the markup before accessing a property. Create elements and set textContent for safe data insertion. appendChild inserts nodes and remove deletes them; setAttribute, classList, and style update appearance. innerHTML parses markup and should not receive untrusted text without sanitization. This lab uses a practice DOM model and renders its result in an isolated preview; browser layout, canvas, and navigation APIs are not included.",
+    "syntax": "const names=[\"Ana\",\"Ben\",\"Cara\"];\nconst list=document.getElementById(\"students\");\nfor(const name of names){const li=document.createElement(\"li\");li.textContent=name;list.appendChild(li);}\ndocument.querySelector(\"h1\").classList.add(\"highlight\");\nconsole.log(\"Rendered\",document.querySelectorAll(\"li\").length,\"students\");",
+    "example_javascript": "const names=[\"Ana\",\"Ben\",\"Cara\"];\nconst list=document.getElementById(\"students\");\nfor(const name of names){const li=document.createElement(\"li\");li.textContent=name;list.appendChild(li);}\ndocument.querySelector(\"h1\").classList.add(\"highlight\");\nconsole.log(\"Rendered\",document.querySelectorAll(\"li\").length,\"students\");",
+    "starter_javascript": "// DOM Selection and Manipulation\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>Student list</h1><ul id=\"students\"></ul></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>Student list</h1><ul id=\"students\"></ul></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Render student names into a list using createElement and textContent. Update attributes and a class, remove a temporary item, and safely display a name containing HTML-looking text.",
+    "expected_result": "Example console output:\nRendered 3 students\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Every matching element always; Unsanitized innerHTML. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What does querySelector return?",
+        "choices": [
+          "The first match or null",
+          "Every matching element always",
+          "textContent",
+          "Unsanitized innerHTML"
+        ],
+        "answer": 0,
+        "explanation": "The first match or null. The DOM represents an HTML document as objects."
+      },
+      {
+        "question": "What safely inserts a student name?",
+        "choices": [
+          "Every matching element always",
+          "textContent",
+          "Unsanitized innerHTML",
+          "The first match or null"
+        ],
+        "answer": 1,
+        "explanation": "textContent. The DOM represents an HTML document as objects."
+      },
+      {
+        "question": "What creates a new DOM element?",
+        "choices": [
+          "The first match or null",
+          "Every matching element always",
+          "document.createElement",
+          "JSON.stringify"
+        ],
+        "answer": 2,
+        "explanation": "document.createElement. The DOM represents an HTML document as objects."
+      },
+      {
+        "question": "What changes classes conveniently?",
+        "choices": [
+          "An SQL index",
+          "The first match or null",
+          "Every matching element always",
+          "classList"
+        ],
+        "answer": 3,
+        "explanation": "classList. The DOM represents an HTML document as objects."
+      },
+      {
+        "question": "What is outside this practice DOM?",
+        "choices": [
+          "Browser layout measurement",
+          "Common element selection",
+          "The first match or null",
+          "Every matching element always"
+        ],
+        "answer": 0,
+        "explanation": "Browser layout measurement. The DOM represents an HTML document as objects."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Rendered 3 students\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Events, Forms, and Validation",
+    "level": "Intermediate",
+    "position": 10,
+    "is_project": false,
+    "objectives": [
+      "Explain addEventListener; click/input/change/submit; event target; bubbling/delegation; preventDefault; input values; validation; safe output.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn addEventListener; click/input/change/submit; event target; bubbling/delegation; preventDefault; input values; validation; safe output. Practice the example, then write your own activity.",
+    "explanation": "Events connect user interaction with program behavior. addEventListener registers a callback; event.target identifies the source and bubbling lets ancestors observe child events. Delegation uses one ancestor listener for changing lists. submit is the appropriate form event and preventDefault avoids normal navigation. Input values are strings; validate them before conversion. Use accessible labels and clear feedback, and keep validation separate from the DOM handler. Client validation improves usability; real servers must validate again. The preview forwards basic events into the practice DOM.",
+    "syntax": "document.getElementById(\"student-form\").addEventListener(\"submit\",event=>{event.preventDefault();const name=document.getElementById(\"name\").value.trim();const raw=document.getElementById(\"grade\").value;const grade=Number(raw);const valid=name&&raw.trim()&&Number.isFinite(grade)&&grade>=0&&grade<=100;document.getElementById(\"output\").textContent=valid?`${name}: ${grade>=75?\"Passed\":\"Failed\"}`:\"Enter a name and valid grade\";console.log(valid?\"Valid submission\":\"Invalid input\");});\nconsole.log(\"Form ready\");",
+    "example_javascript": "document.getElementById(\"student-form\").addEventListener(\"submit\",event=>{event.preventDefault();const name=document.getElementById(\"name\").value.trim();const raw=document.getElementById(\"grade\").value;const grade=Number(raw);const valid=name&&raw.trim()&&Number.isFinite(grade)&&grade>=0&&grade<=100;document.getElementById(\"output\").textContent=valid?`${name}: ${grade>=75?\"Passed\":\"Failed\"}`:\"Enter a name and valid grade\";console.log(valid?\"Valid submission\":\"Invalid input\");});\nconsole.log(\"Form ready\");",
+    "starter_javascript": "// Events, Forms, and Validation\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>Grade evaluator</h1><form id=\"student-form\"><label for=\"name\">Name</label><input id=\"name\" value=\"Maria\"><label for=\"grade\">Grade</label><input id=\"grade\" value=\"90\"><button id=\"evaluate\" type=\"submit\">Evaluate</button></form><p id=\"output\" role=\"status\"></p></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>Grade evaluator</h1><form id=\"student-form\"><label for=\"name\">Name</label><input id=\"name\" value=\"Maria\"><label for=\"grade\">Grade</label><input id=\"grade\" value=\"90\"><button id=\"evaluate\" type=\"submit\">Evaluate</button></form><p id=\"output\" role=\"status\"></p></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Build a labeled student form with name and grade fields. Handle submit, reject blank/out-of-range input, show a safe result, and demonstrate a delegated click or input handler.",
+    "expected_result": "Example console output:\nForm ready\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: CREATE EVENT; The array length. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What registers an event listener?",
+        "choices": [
+          "The array length",
+          "addEventListener",
+          "CREATE EVENT",
+          "event.target"
+        ],
+        "answer": 1,
+        "explanation": "addEventListener. Events connect user interaction with program behavior."
+      },
+      {
+        "question": "What identifies the original event source?",
+        "choices": [
+          "addEventListener",
+          "CREATE EVENT",
+          "event.target",
+          "The array length"
+        ],
+        "answer": 2,
+        "explanation": "event.target. Events connect user interaction with program behavior."
+      },
+      {
+        "question": "What prevents normal form navigation?",
+        "choices": [
+          "JSON.parse",
+          "addEventListener",
+          "CREATE EVENT",
+          "preventDefault"
+        ],
+        "answer": 3,
+        "explanation": "preventDefault. Events connect user interaction with program behavior."
+      },
+      {
+        "question": "What type is an input value?",
+        "choices": [
+          "String",
+          "Always number",
+          "addEventListener",
+          "CREATE EVENT"
+        ],
+        "answer": 0,
+        "explanation": "String. Events connect user interaction with program behavior."
+      },
+      {
+        "question": "Does client validation replace server validation?",
+        "choices": [
+          "CREATE EVENT",
+          "No",
+          "Yes",
+          "addEventListener"
+        ],
+        "answer": 1,
+        "explanation": "No. Events connect user interaction with program behavior."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Form ready\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Scope, Closures, and Error Handling",
+    "level": "Intermediate",
+    "position": 11,
+    "is_project": false,
+    "objectives": [
+      "Explain block/function scope; lexical scope; closures; callbacks; try/catch/finally; throw; Error; debugging.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn block/function scope; lexical scope; closures; callbacks; try/catch/finally; throw; Error; debugging. Practice the example, then write your own activity.",
+    "explanation": "Lexical scope determines which bindings a function can access based on where it was defined. A closure retains access to its outer bindings after that call finishes, useful for controlled state. let and const are block scoped; var is function scoped. Avoid confusing shadowed names and accidental globals. throw reports invalid operations, try/catch handles expected failures, and finally performs cleanup. Catching every error silently hides defects: present a useful message and preserve debugging context.",
+    "syntax": "function createCounter(){let count=0;return ()=>++count;}\nconst next=createCounter();\nconsole.log(next(),next());\nfunction validateGrade(grade){if(!Number.isFinite(grade)||grade<0||grade>100)throw Error(\"Grade out of range\");return grade;}\ntry{validateGrade(101);}catch(error){console.log(error.message);}finally{console.log(\"Validation finished\");}",
+    "example_javascript": "function createCounter(){let count=0;return ()=>++count;}\nconst next=createCounter();\nconsole.log(next(),next());\nfunction validateGrade(grade){if(!Number.isFinite(grade)||grade<0||grade>100)throw Error(\"Grade out of range\");return grade;}\ntry{validateGrade(101);}catch(error){console.log(error.message);}finally{console.log(\"Validation finished\");}",
+    "starter_javascript": "// Scope, Closures, and Error Handling\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Create a closure maintaining a private count, show block scoping, and write a validating function with try/catch/finally. Explain an error rather than silently suppressing it.",
+    "expected_result": "Example console output:\n1 2\nGrade out of range\nValidation finished\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Only where the browser is opened; A production session cookie. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What determines lexical scope?",
+        "choices": [
+          "Access to outer bindings",
+          "A production session cookie",
+          "Where code is defined",
+          "Only where the browser is opened"
+        ],
+        "answer": 2,
+        "explanation": "Where code is defined. Lexical scope determines which bindings a function can access based on where it was defined."
+      },
+      {
+        "question": "What does a closure retain?",
+        "choices": [
+          "A production session cookie",
+          "Where code is defined",
+          "Only where the browser is opened",
+          "Access to outer bindings"
+        ],
+        "answer": 3,
+        "explanation": "Access to outer bindings. Lexical scope determines which bindings a function can access based on where it was defined."
+      },
+      {
+        "question": "What is the scope of let?",
+        "choices": [
+          "Block scope",
+          "Always global",
+          "Where code is defined",
+          "Only where the browser is opened"
+        ],
+        "answer": 0,
+        "explanation": "Block scope. Lexical scope determines which bindings a function can access based on where it was defined."
+      },
+      {
+        "question": "What deliberately reports an error?",
+        "choices": [
+          "Only where the browser is opened",
+          "throw",
+          "filter",
+          "Where code is defined"
+        ],
+        "answer": 1,
+        "explanation": "throw. Lexical scope determines which bindings a function can access based on where it was defined."
+      },
+      {
+        "question": "What should an expected error handler provide?",
+        "choices": [
+          "Where code is defined",
+          "Only where the browser is opened",
+          "Useful feedback",
+          "Silent success"
+        ],
+        "answer": 2,
+        "explanation": "Useful feedback. Lexical scope determines which bindings a function can access based on where it was defined."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "1 2\nGrade out of range\nValidation finished\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Intermediate Project — Interactive Student Records",
+    "level": "Intermediate",
+    "position": 12,
+    "is_project": true,
+    "objectives": [
+      "Explain objects and arrays; DOM reports; validated forms; search; deletion; grouped state; readable functions; testing.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn objects and arrays; DOM reports; validated forms; search; deletion; grouped state; readable functions; testing. Practice the example, then write your own activity.",
+    "explanation": "Build an interactive record manager using the Intermediate tools. Keep an array of student objects as the state, a render function as the view, and event handlers as the controller. Stable numeric IDs identify records even when names are duplicated or rows are filtered. Re-render after changes and use delegation for dynamic delete buttons. This practice project keeps fictional data in its lab session and does not write to CodeLab records.",
+    "syntax": "const students=[{id:1,name:\"Ana\",grade:88},{id:2,name:\"Ben\",grade:72}];let nextId=3;\nfunction render(){const query=document.getElementById(\"search\").value.toLowerCase();const list=document.getElementById(\"records\");list.textContent=\"\";for(const student of students.filter(s=>s.name.toLowerCase().includes(query))){const li=document.createElement(\"li\");li.textContent=student.name+\": \"+student.grade+\" \";const button=document.createElement(\"button\");button.textContent=\"Delete\";button.setAttribute(\"data-id\",String(student.id));li.appendChild(button);list.appendChild(li);}const mean=students.length?students.reduce((sum,s)=>sum+s.grade,0)/students.length:0;document.getElementById(\"summary\").textContent=students.length+\" students; average \"+mean.toFixed(2);}\ndocument.getElementById(\"record-form\").addEventListener(\"submit\",event=>{event.preventDefault();const name=document.getElementById(\"record-name\").value.trim(),raw=document.getElementById(\"record-grade\").value,grade=Number(raw);if(!name||!raw.trim()||!Number.isFinite(grade)||grade<0||grade>100){document.getElementById(\"output\").textContent=\"Invalid name or grade\";return;}students.push({id:nextId++,name,grade});document.getElementById(\"output\").textContent=\"Student added\";render();});\ndocument.getElementById(\"search\").addEventListener(\"input\",render);\ndocument.getElementById(\"records\").addEventListener(\"click\",event=>{const id=Number(event.target.getAttribute(\"data-id\"));const index=students.findIndex(s=>s.id===id);if(index>=0){students.splice(index,1);render();}});\nrender();console.log(\"Student records ready\");",
+    "example_javascript": "const students=[{id:1,name:\"Ana\",grade:88},{id:2,name:\"Ben\",grade:72}];let nextId=3;\nfunction render(){const query=document.getElementById(\"search\").value.toLowerCase();const list=document.getElementById(\"records\");list.textContent=\"\";for(const student of students.filter(s=>s.name.toLowerCase().includes(query))){const li=document.createElement(\"li\");li.textContent=student.name+\": \"+student.grade+\" \";const button=document.createElement(\"button\");button.textContent=\"Delete\";button.setAttribute(\"data-id\",String(student.id));li.appendChild(button);list.appendChild(li);}const mean=students.length?students.reduce((sum,s)=>sum+s.grade,0)/students.length:0;document.getElementById(\"summary\").textContent=students.length+\" students; average \"+mean.toFixed(2);}\ndocument.getElementById(\"record-form\").addEventListener(\"submit\",event=>{event.preventDefault();const name=document.getElementById(\"record-name\").value.trim(),raw=document.getElementById(\"record-grade\").value,grade=Number(raw);if(!name||!raw.trim()||!Number.isFinite(grade)||grade<0||grade>100){document.getElementById(\"output\").textContent=\"Invalid name or grade\";return;}students.push({id:nextId++,name,grade});document.getElementById(\"output\").textContent=\"Student added\";render();});\ndocument.getElementById(\"search\").addEventListener(\"input\",render);\ndocument.getElementById(\"records\").addEventListener(\"click\",event=>{const id=Number(event.target.getAttribute(\"data-id\"));const index=students.findIndex(s=>s.id===id);if(index>=0){students.splice(index,1);render();}});\nrender();console.log(\"Student records ready\");",
+    "starter_javascript": "// Intermediate Project — Interactive Student Records\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>Student Records</h1><form id=\"record-form\"><label for=\"record-name\">Name</label><input id=\"record-name\"><label for=\"record-grade\">Grade</label><input id=\"record-grade\"><button type=\"submit\" id=\"add-record\">Add student</button></form><label for=\"search\">Search name</label><input id=\"search\"><ul id=\"records\"></ul><p id=\"summary\"></p><p id=\"output\" role=\"status\"></p></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>Student Records</h1><form id=\"record-form\"><label for=\"record-name\">Name</label><input id=\"record-name\"><label for=\"record-grade\">Grade</label><input id=\"record-grade\"><button type=\"submit\" id=\"add-record\">Add student</button></form><label for=\"search\">Search name</label><input id=\"search\"><ul id=\"records\"></ul><p id=\"summary\"></p><p id=\"output\" role=\"status\"></p></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Create labeled add/search controls, a student list or table, validated name/grade input, stable IDs, deletion, pass/fail filtering, sorting, and count/average reports. Divide state, validation, and rendering into functions. Add JSON export/import with validation. Test duplicate names, empty lists, missing matches, invalid grades, HTML-looking names, and deleting a filtered row. Document how each handler updates state and display.",
+    "expected_result": "Example console output:\nStudent records ready\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: The application users table; To sort every record alphabetically. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add an original feature and document at least five edge-case tests and one limitation.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What is the source of record state?",
+        "choices": [
+          "The application users table",
+          "Distinguish records independently of names",
+          "To sort every record alphabetically",
+          "An array of student objects"
+        ],
+        "answer": 3,
+        "explanation": "An array of student objects. Build an interactive record manager using the Intermediate tools."
+      },
+      {
+        "question": "Why use stable IDs?",
+        "choices": [
+          "Distinguish records independently of names",
+          "To sort every record alphabetically",
+          "An array of student objects",
+          "The application users table"
+        ],
+        "answer": 0,
+        "explanation": "Distinguish records independently of names. Build an interactive record manager using the Intermediate tools."
+      },
+      {
+        "question": "What handles dynamic delete buttons conveniently?",
+        "choices": [
+          "The application users table",
+          "Event delegation",
+          "A separate database trigger",
+          "An array of student objects"
+        ],
+        "answer": 1,
+        "explanation": "Event delegation. Build an interactive record manager using the Intermediate tools."
+      },
+      {
+        "question": "What follows a state change?",
+        "choices": [
+          "An array of student objects",
+          "The application users table",
+          "Render updated output",
+          "Assume the old list changes itself"
+        ],
+        "answer": 2,
+        "explanation": "Render updated output. Build an interactive record manager using the Intermediate tools."
+      },
+      {
+        "question": "What should imported JSON receive?",
+        "choices": [
+          "Unrestricted eval",
+          "An array of student objects",
+          "The application users table",
+          "Shape and value validation"
+        ],
+        "answer": 3,
+        "explanation": "Shape and value validation. Build an interactive record manager using the Intermediate tools."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Student records ready\n"
+      }
+    },
+    "rubric": {
+      "functionality": 30,
+      "javascript_concepts": 25,
+      "input_validation": 15,
+      "interface_and_accessibility": 10,
+      "readability": 10,
+      "testing": 10
+    }
+  },
+  {
+    "title": "Modern JavaScript Modules and Classes",
+    "level": "Advanced",
+    "position": 13,
+    "is_project": false,
+    "objectives": [
+      "Explain named/default exports; imports; module scope; classes; constructor; methods; instances; encapsulation; composition.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn named/default exports; imports; module scope; classes; constructor; methods; instances; encapsulation; composition. Practice the example, then write your own activity.",
+    "explanation": "Modules organize code into explicit imports and exports and use strict mode. Named exports use braces in an import; a default export has its own import name. Classes define constructors and shared methods for instances; they do not replace all useful functions. Keep validation near the data and prefer clear composition over unnecessary inheritance. This lab resolves only local .js modules supplied in Lab inputs or lesson fixtures; it never downloads modules from the web. Enter a modules object to experiment with your own ./math.js source.",
+    "syntax": "import {average} from \"./math.js\";\nclass Student{constructor(name,grades){this.name=name;this.grades=[...grades];}report(){return `${this.name}: ${average(this.grades).toFixed(2)}`;}}\nconst student=new Student(\"Maria\",[90,95,85]);\nconsole.log(student.report());",
+    "example_javascript": "import {average} from \"./math.js\";\nclass Student{constructor(name,grades){this.name=name;this.grades=[...grades];}report(){return `${this.name}: ${average(this.grades).toFixed(2)}`;}}\nconst student=new Student(\"Maria\",[90,95,85]);\nconsole.log(student.report());",
+    "starter_javascript": "// Modern JavaScript Modules and Classes\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Create a local module exporting a calculation helper, import it into main.js, and build a Student class with constructor validation and a reporting method. Demonstrate a default export in a separate local module and explain class versus function choices.",
+    "expected_result": "Example console output:\nMaria: 90.00\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: console.log alone; DECLARE. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What exposes a named module binding?",
+        "choices": [
+          "export",
+          "console.log alone",
+          "import",
+          "DECLARE"
+        ],
+        "answer": 0,
+        "explanation": "export. Modules organize code into explicit imports and exports and use strict mode."
+      },
+      {
+        "question": "What references another module?",
+        "choices": [
+          "console.log alone",
+          "import",
+          "DECLARE",
+          "export"
+        ],
+        "answer": 1,
+        "explanation": "import. Modules organize code into explicit imports and exports and use strict mode."
+      },
+      {
+        "question": "What initializes a class instance?",
+        "choices": [
+          "export",
+          "console.log alone",
+          "constructor",
+          "querySelector"
+        ],
+        "answer": 2,
+        "explanation": "constructor. Modules organize code into explicit imports and exports and use strict mode."
+      },
+      {
+        "question": "Where does this lab load modules from?",
+        "choices": [
+          "Unrestricted remote URLs",
+          "export",
+          "console.log alone",
+          "Provided local module text"
+        ],
+        "answer": 3,
+        "explanation": "Provided local module text. Modules organize code into explicit imports and exports and use strict mode."
+      },
+      {
+        "question": "Do classes replace every function?",
+        "choices": [
+          "No",
+          "Yes",
+          "export",
+          "console.log alone"
+        ],
+        "answer": 0,
+        "explanation": "No. Modules organize code into explicit imports and exports and use strict mode."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "module": true,
+        "modules": {
+          "./math.js": "export function average(values){if(!values.length)throw Error(\"No values\");return values.reduce((sum,value)=>sum+value,0)/values.length;}"
+        },
+        "sample_input": "{}",
+        "expected_output": "Maria: 90.00\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Asynchronous JavaScript",
+    "level": "Advanced",
+    "position": 14,
+    "is_project": false,
+    "objectives": [
+      "Explain callbacks; event loop; promises; then/catch/finally; async/await; microtasks; timers; failure handling.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn callbacks; event loop; promises; then/catch/finally; async/await; microtasks; timers; failure handling. Practice the example, then write your own activity.",
+    "explanation": "Asynchronous programming describes operations that complete later without blocking ordinary UI work. Promises represent pending fulfillment or rejection; then/catch attach handlers, and async functions return promises. await waits within an async function; errors should be handled with try/catch or a returned catch chain. Promise jobs are microtasks and normally run before queued timer callbacks. The lab advances bounded timers in virtual time, so timing examples teach ordering rather than real elapsed delay. Avoid unbounded intervals, endless promise chains, and synchronous loops that block event processing.",
+    "syntax": "console.log(\"Start\");\nsetTimeout(()=>console.log(\"Timer\"),100);\nPromise.resolve(\"Promise\").then(value=>console.log(value));\nasync function load(){const value=await Promise.resolve(90);console.log(\"Loaded:\",value);}\nload().catch(error=>console.error(error.message));\nconsole.log(\"End\");",
+    "example_javascript": "console.log(\"Start\");\nsetTimeout(()=>console.log(\"Timer\"),100);\nPromise.resolve(\"Promise\").then(value=>console.log(value));\nasync function load(){const value=await Promise.resolve(90);console.log(\"Loaded:\",value);}\nload().catch(error=>console.error(error.message));\nconsole.log(\"End\");",
+    "starter_javascript": "// Asynchronous JavaScript\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Write a promise chain and an async/await function, handle a rejected promise, and predict console ordering with a timer and synchronous logs. Use a bounded interval that clears itself and explain virtual versus real timing.",
+    "expected_result": "Example console output:\nStart\nEnd\nPromise\nLoaded: 90\nTimer\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Always a plain string; Ignoring it. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What does an async function return?",
+        "choices": [
+          "Ignoring it",
+          "A promise",
+          "Always a plain string",
+          "catch or async try/catch"
+        ],
+        "answer": 1,
+        "explanation": "A promise. Asynchronous programming describes operations that complete later without blocking ordinary UI work."
+      },
+      {
+        "question": "What handles promise rejection?",
+        "choices": [
+          "A promise",
+          "Always a plain string",
+          "catch or async try/catch",
+          "Ignoring it"
+        ],
+        "answer": 2,
+        "explanation": "catch or async try/catch. Asynchronous programming describes operations that complete later without blocking ordinary UI work."
+      },
+      {
+        "question": "Where can await be used here?",
+        "choices": [
+          "Every ordinary function automatically",
+          "A promise",
+          "Always a plain string",
+          "Inside an async function"
+        ],
+        "answer": 3,
+        "explanation": "Inside an async function. Asynchronous programming describes operations that complete later without blocking ordinary UI work."
+      },
+      {
+        "question": "What usually runs before timer tasks?",
+        "choices": [
+          "Promise microtasks",
+          "Every future timer",
+          "A promise",
+          "Always a plain string"
+        ],
+        "answer": 0,
+        "explanation": "Promise microtasks. Asynchronous programming describes operations that complete later without blocking ordinary UI work."
+      },
+      {
+        "question": "What should stop a repeating interval?",
+        "choices": [
+          "Always a plain string",
+          "clearInterval",
+          "An unrelated array sort",
+          "A promise"
+        ],
+        "answer": 1,
+        "explanation": "clearInterval. Asynchronous programming describes operations that complete later without blocking ordinary UI work."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "Start\nEnd\nPromise\nLoaded: 90\nTimer\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Fetch, APIs, and Reliable Data Loading",
+    "level": "Advanced",
+    "position": 15,
+    "is_project": false,
+    "objectives": [
+      "Explain HTTP requests/status; fetch; JSON responses; async/await; loading/error/empty states; schema validation; mock APIs.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn HTTP requests/status; fetch; JSON responses; async/await; loading/error/empty states; schema validation; mock APIs. Practice the example, then write your own activity.",
+    "explanation": "fetch normally requests data from an HTTP endpoint and returns a promise for a response. HTTP errors such as 404 or 500 generally require checking response.ok; network failure rejects the promise. Parse response JSON, validate the expected shape, and provide loading, error, and empty states. Never put application secrets in frontend code. For safe reproducible practice, this lab fetch reads named mock fixtures only; there is no live network. A fixture contains status and data, and can be changed in Lab inputs to test failures without contacting a server.",
+    "syntax": "async function loadStudents(){document.getElementById(\"output\").textContent=\"Loading…\";try{const response=await fetch(\"/api/students\");if(!response.ok)throw Error(\"HTTP \"+response.status);const students=await response.json();if(!Array.isArray(students)||students.some(s=>typeof s.name!==\"string\"))throw Error(\"Invalid student data\");document.getElementById(\"output\").textContent=students.length?students.map(s=>s.name).join(\", \"):\"No students\";console.log(\"Loaded\",students.length,\"students\");}catch(error){document.getElementById(\"output\").textContent=\"Load failed: \"+error.message;console.error(error.message);}}\nloadStudents();",
+    "example_javascript": "async function loadStudents(){document.getElementById(\"output\").textContent=\"Loading…\";try{const response=await fetch(\"/api/students\");if(!response.ok)throw Error(\"HTTP \"+response.status);const students=await response.json();if(!Array.isArray(students)||students.some(s=>typeof s.name!==\"string\"))throw Error(\"Invalid student data\");document.getElementById(\"output\").textContent=students.length?students.map(s=>s.name).join(\", \"):\"No students\";console.log(\"Loaded\",students.length,\"students\");}catch(error){document.getElementById(\"output\").textContent=\"Load failed: \"+error.message;console.error(error.message);}}\nloadStudents();",
+    "starter_javascript": "// Fetch, APIs, and Reliable Data Loading\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Load fictional students with async/await and a named mock API. Test success, HTTP 500, empty data, malformed data, and an unavailable endpoint. Show loading/error/empty messages and explain how real fetch differs from the lab fixture.",
+    "expected_result": "Example console output:\nLoaded 2 students\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Only promise fulfillment; JSON.eval(). Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What must be checked for HTTP failure?",
+        "choices": [
+          "response.json()",
+          "JSON.eval()",
+          "response.ok or status",
+          "Only promise fulfillment"
+        ],
+        "answer": 2,
+        "explanation": "response.ok or status. fetch normally requests data from an HTTP endpoint and returns a promise for a response."
+      },
+      {
+        "question": "What reads JSON response data?",
+        "choices": [
+          "JSON.eval()",
+          "response.ok or status",
+          "Only promise fulfillment",
+          "response.json()"
+        ],
+        "answer": 3,
+        "explanation": "response.json(). fetch normally requests data from an HTTP endpoint and returns a promise for a response."
+      },
+      {
+        "question": "What should parsed API data receive?",
+        "choices": [
+          "Shape validation",
+          "Immediate trusted insertion into innerHTML",
+          "response.ok or status",
+          "Only promise fulfillment"
+        ],
+        "answer": 0,
+        "explanation": "Shape validation. fetch normally requests data from an HTTP endpoint and returns a promise for a response."
+      },
+      {
+        "question": "What does lab fetch contact?",
+        "choices": [
+          "Only promise fulfillment",
+          "Only a provided mock fixture",
+          "CodeLab production APIs",
+          "response.ok or status"
+        ],
+        "answer": 1,
+        "explanation": "Only a provided mock fixture. fetch normally requests data from an HTTP endpoint and returns a promise for a response."
+      },
+      {
+        "question": "What should an empty response display?",
+        "choices": [
+          "response.ok or status",
+          "Only promise fulfillment",
+          "A useful empty state",
+          "A silent error every time"
+        ],
+        "answer": 2,
+        "explanation": "A useful empty state. fetch normally requests data from an HTTP endpoint and returns a promise for a response."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "fixtures": {
+          "/api/students": {
+            "status": 200,
+            "data": [
+              {
+                "id": 1,
+                "name": "Ana"
+              },
+              {
+                "id": 2,
+                "name": "Ben"
+              }
+            ]
+          }
+        },
+        "sample_input": "{}",
+        "expected_output": "Loaded 2 students\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Browser Storage and JavaScript Security",
+    "level": "Advanced",
+    "position": 16,
+    "is_project": false,
+    "objectives": [
+      "Explain localStorage/sessionStorage; JSON storage; privacy; XSS; safe text; secrets; least privilege; lab isolation.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn localStorage/sessionStorage; JSON storage; privacy; XSS; safe text; secrets; least privilege; lab isolation. Practice the example, then write your own activity.",
+    "explanation": "Real localStorage stores origin-scoped strings across browser sessions; sessionStorage has a shorter tab-session lifetime. Store JSON text when suitable, but validate restored values and handle unavailable/quota-limited storage. Neither is secure storage for passwords or tokens against scripts running in the same origin. XSS happens when attacker-controlled text becomes executable markup or script. Prefer textContent and explicit validation. This lab provides temporary virtual storage, reset on Run, with no access to real site cookies or storage; localStorage and sessionStorage use the same practice store here. Production security belongs in the application and server as well as the frontend.",
+    "syntax": "const preferences={sort:\"name\",showPassing:true};\nlocalStorage.setItem(\"preferences\",JSON.stringify(preferences));\nconst restored=JSON.parse(localStorage.getItem(\"preferences\"));\nconsole.log(restored.sort,restored.showPassing);\nconst name=\"<img src=x onerror=alert(1)>\";\ndocument.getElementById(\"output\").textContent=name;\nconsole.log(\"Untrusted name displayed as text\");",
+    "example_javascript": "const preferences={sort:\"name\",showPassing:true};\nlocalStorage.setItem(\"preferences\",JSON.stringify(preferences));\nconst restored=JSON.parse(localStorage.getItem(\"preferences\"));\nconsole.log(restored.sort,restored.showPassing);\nconst name=\"<img src=x onerror=alert(1)>\";\ndocument.getElementById(\"output\").textContent=name;\nconsole.log(\"Untrusted name displayed as text\");",
+    "starter_javascript": "// Browser Storage and JavaScript Security\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Save and restore non-sensitive preferences as JSON in practice storage, validate them, remove a key, and demonstrate safely displaying HTML-looking text. Explain real storage lifetimes and why passwords/tokens do not belong here.",
+    "expected_result": "Example console output:\nname true\nUntrusted name displayed as text\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Arbitrary objects without serialization; Unsanitized innerHTML. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What type does real localStorage store?",
+        "choices": [
+          "Arbitrary objects without serialization",
+          "textContent",
+          "Unsanitized innerHTML",
+          "Strings"
+        ],
+        "answer": 3,
+        "explanation": "Strings. Real localStorage stores origin-scoped strings across browser sessions; sessionStorage has a shorter tab-session lifetime."
+      },
+      {
+        "question": "What safely displays HTML-looking names?",
+        "choices": [
+          "textContent",
+          "Unsanitized innerHTML",
+          "Strings",
+          "Arbitrary objects without serialization"
+        ],
+        "answer": 0,
+        "explanation": "textContent. Real localStorage stores origin-scoped strings across browser sessions; sessionStorage has a shorter tab-session lifetime."
+      },
+      {
+        "question": "What should restored preferences receive?",
+        "choices": [
+          "Arbitrary objects without serialization",
+          "Validation",
+          "Automatic trust",
+          "Strings"
+        ],
+        "answer": 1,
+        "explanation": "Validation. Real localStorage stores origin-scoped strings across browser sessions; sessionStorage has a shorter tab-session lifetime."
+      },
+      {
+        "question": "What should not be stored as a preference?",
+        "choices": [
+          "Strings",
+          "Arbitrary objects without serialization",
+          "A password or secret token",
+          "A non-sensitive sort choice"
+        ],
+        "answer": 2,
+        "explanation": "A password or secret token. Real localStorage stores origin-scoped strings across browser sessions; sessionStorage has a shorter tab-session lifetime."
+      },
+      {
+        "question": "What survives a fresh lab Run?",
+        "choices": [
+          "All virtual storage automatically",
+          "Strings",
+          "Arbitrary objects without serialization",
+          "Saved source, not practice storage"
+        ],
+        "answer": 3,
+        "explanation": "Saved source, not practice storage. Real localStorage stores origin-scoped strings across browser sessions; sessionStorage has a shorter tab-session lifetime."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "name true\nUntrusted name displayed as text\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Testing, Debugging, and Performance",
+    "level": "Advanced",
+    "position": 17,
+    "is_project": false,
+    "objectives": [
+      "Explain test cases; assertions; boundaries; devtools concepts; stack traces; pure functions; refactoring; DOM efficiency; measured performance.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn test cases; assertions; boundaries; devtools concepts; stack traces; pure functions; refactoring; DOM efficiency; measured performance. Practice the example, then write your own activity.",
+    "explanation": "Test functions with known inputs, boundaries, and expected errors. A small assert helper can throw a useful failure instead of printing an unexplained boolean. Separate pure calculations from side effects to make tests easier. Read the first error and stack trace, then check the smallest relevant case. Real browser DevTools offer breakpoints and performance measurements; this interpreter lab provides console/error feedback and does not simulate browser timing or layout. Avoid excessive DOM reconstruction for large interfaces, but measure representative workloads before optimizing.",
+    "syntax": "function average(values){if(!values.length)throw Error(\"Empty grades\");return values.reduce((sum,v)=>sum+v,0)/values.length;}\nfunction assert(condition,message){if(!condition)throw Error(message);}\nassert(average([90,80])===85,\"Average calculation\");\nassert(average([0,100])===50,\"Boundary values\");\nlet rejected=false;try{average([]);}catch{rejected=true;}\nassert(rejected,\"Empty input should be rejected\");\nconsole.log(\"3 tests passed\");",
+    "example_javascript": "function average(values){if(!values.length)throw Error(\"Empty grades\");return values.reduce((sum,v)=>sum+v,0)/values.length;}\nfunction assert(condition,message){if(!condition)throw Error(message);}\nassert(average([90,80])===85,\"Average calculation\");\nassert(average([0,100])===50,\"Boundary values\");\nlet rejected=false;try{average([]);}catch{rejected=true;}\nassert(rejected,\"Empty input should be rejected\");\nconsole.log(\"3 tests passed\");",
+    "starter_javascript": "// Testing, Debugging, and Performance\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>JavaScript practice</h1><div id=\"output\" role=\"status\"></div></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Create assertions for normal, boundary, empty, invalid, and regression cases. Deliberately introduce one bug, interpret its failure, repair it, and document how real DevTools would help. Refactor a repeated calculation without changing results.",
+    "expected_result": "Example console output:\n3 tests passed\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: An unrelated log; Only one happy path. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add a boundary/failure case and explain its expected outcome.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What makes an assertion useful?",
+        "choices": [
+          "A checked condition and failure message",
+          "An unrelated log",
+          "Normal, boundary, and failure cases",
+          "Only one happy path"
+        ],
+        "answer": 0,
+        "explanation": "A checked condition and failure message. Test functions with known inputs, boundaries, and expected errors."
+      },
+      {
+        "question": "What should a test suite include?",
+        "choices": [
+          "An unrelated log",
+          "Normal, boundary, and failure cases",
+          "Only one happy path",
+          "A checked condition and failure message"
+        ],
+        "answer": 1,
+        "explanation": "Normal, boundary, and failure cases. Test functions with known inputs, boundaries, and expected errors."
+      },
+      {
+        "question": "What makes pure functions easier to test?",
+        "choices": [
+          "A checked condition and failure message",
+          "An unrelated log",
+          "Outputs depend on supplied inputs",
+          "Hidden DOM and global changes"
+        ],
+        "answer": 2,
+        "explanation": "Outputs depend on supplied inputs. Test functions with known inputs, boundaries, and expected errors."
+      },
+      {
+        "question": "When should optimization be justified?",
+        "choices": [
+          "Before understanding the result",
+          "A checked condition and failure message",
+          "An unrelated log",
+          "After correctness and representative measurement"
+        ],
+        "answer": 3,
+        "explanation": "After correctness and representative measurement. Test functions with known inputs, boundaries, and expected errors."
+      },
+      {
+        "question": "What does this lab provide for debugging?",
+        "choices": [
+          "Console and interpreter errors",
+          "Full browser DevTools emulation",
+          "A checked condition and failure message",
+          "An unrelated log"
+        ],
+        "answer": 0,
+        "explanation": "Console and interpreter errors. Test functions with known inputs, boundaries, and expected errors."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "sample_input": "{}",
+        "expected_output": "3 tests passed\n"
+      }
+    },
+    "rubric": null
+  },
+  {
+    "title": "Advanced Project — Student Information Frontend",
+    "level": "Advanced",
+    "position": 18,
+    "is_project": true,
+    "objectives": [
+      "Explain modular design; records and classes; validation; events; filtering/sorting; reports; async mock API; storage; safe rendering; tests.",
+      "Write and test an original JavaScript activity.",
+      "Check errors, safety, and the practice-browser limitations."
+    ],
+    "introduction": "Learn modular design; records and classes; validation; events; filtering/sorting; reports; async mock API; storage; safe rendering; tests. Practice the example, then write your own activity.",
+    "explanation": "Develop an integrated student frontend using all three modules. Plan state and stable IDs, validation, rendering, asynchronous data loading, and non-sensitive preferences. Keep school records fictional and local to the sandbox. The example extends the records project with an import button and mock API; your final activity should add original modular structure and tests. Clearly distinguish a practice import from a real authenticated production integration. Document limitations, privacy choices, and test evidence.",
+    "syntax": "const students=[{id:1,name:\"Ana\",grade:88},{id:2,name:\"Ben\",grade:72}];let nextId=3;\nfunction render(){const query=document.getElementById(\"search\").value.toLowerCase();const list=document.getElementById(\"records\");list.textContent=\"\";for(const student of students.filter(s=>s.name.toLowerCase().includes(query))){const li=document.createElement(\"li\");li.textContent=student.name+\": \"+student.grade+\" \";const button=document.createElement(\"button\");button.textContent=\"Delete\";button.setAttribute(\"data-id\",String(student.id));li.appendChild(button);list.appendChild(li);}const mean=students.length?students.reduce((sum,s)=>sum+s.grade,0)/students.length:0;document.getElementById(\"summary\").textContent=students.length+\" students; average \"+mean.toFixed(2);}\ndocument.getElementById(\"record-form\").addEventListener(\"submit\",event=>{event.preventDefault();const name=document.getElementById(\"record-name\").value.trim(),raw=document.getElementById(\"record-grade\").value,grade=Number(raw);if(!name||!raw.trim()||!Number.isFinite(grade)||grade<0||grade>100){document.getElementById(\"output\").textContent=\"Invalid name or grade\";return;}students.push({id:nextId++,name,grade});document.getElementById(\"output\").textContent=\"Student added\";render();});\ndocument.getElementById(\"search\").addEventListener(\"input\",render);\ndocument.getElementById(\"records\").addEventListener(\"click\",event=>{const id=Number(event.target.getAttribute(\"data-id\"));const index=students.findIndex(s=>s.id===id);if(index>=0){students.splice(index,1);render();}});\nrender();console.log(\"Student records ready\");\nasync function importStudents(){try{const response=await fetch(\"/api/students\");if(!response.ok)throw Error(\"HTTP \"+response.status);const incoming=await response.json();if(!Array.isArray(incoming)||incoming.some(s=>typeof s.name!==\"string\"||!Number.isFinite(s.grade)||s.grade<0||s.grade>100))throw Error(\"Invalid API data\");for(const item of incoming)students.push({id:nextId++,name:item.name,grade:item.grade});localStorage.setItem(\"students\",JSON.stringify(students));render();console.log(\"Imported\",incoming.length,\"records\");}catch(error){document.getElementById(\"output\").textContent=error.message;}}\ndocument.getElementById(\"import-students\").addEventListener(\"click\",importStudents);\nconsole.log(\"Final app ready\");",
+    "example_javascript": "const students=[{id:1,name:\"Ana\",grade:88},{id:2,name:\"Ben\",grade:72}];let nextId=3;\nfunction render(){const query=document.getElementById(\"search\").value.toLowerCase();const list=document.getElementById(\"records\");list.textContent=\"\";for(const student of students.filter(s=>s.name.toLowerCase().includes(query))){const li=document.createElement(\"li\");li.textContent=student.name+\": \"+student.grade+\" \";const button=document.createElement(\"button\");button.textContent=\"Delete\";button.setAttribute(\"data-id\",String(student.id));li.appendChild(button);list.appendChild(li);}const mean=students.length?students.reduce((sum,s)=>sum+s.grade,0)/students.length:0;document.getElementById(\"summary\").textContent=students.length+\" students; average \"+mean.toFixed(2);}\ndocument.getElementById(\"record-form\").addEventListener(\"submit\",event=>{event.preventDefault();const name=document.getElementById(\"record-name\").value.trim(),raw=document.getElementById(\"record-grade\").value,grade=Number(raw);if(!name||!raw.trim()||!Number.isFinite(grade)||grade<0||grade>100){document.getElementById(\"output\").textContent=\"Invalid name or grade\";return;}students.push({id:nextId++,name,grade});document.getElementById(\"output\").textContent=\"Student added\";render();});\ndocument.getElementById(\"search\").addEventListener(\"input\",render);\ndocument.getElementById(\"records\").addEventListener(\"click\",event=>{const id=Number(event.target.getAttribute(\"data-id\"));const index=students.findIndex(s=>s.id===id);if(index>=0){students.splice(index,1);render();}});\nrender();console.log(\"Student records ready\");\nasync function importStudents(){try{const response=await fetch(\"/api/students\");if(!response.ok)throw Error(\"HTTP \"+response.status);const incoming=await response.json();if(!Array.isArray(incoming)||incoming.some(s=>typeof s.name!==\"string\"||!Number.isFinite(s.grade)||s.grade<0||s.grade>100))throw Error(\"Invalid API data\");for(const item of incoming)students.push({id:nextId++,name:item.name,grade:item.grade});localStorage.setItem(\"students\",JSON.stringify(students));render();console.log(\"Imported\",incoming.length,\"records\");}catch(error){document.getElementById(\"output\").textContent=error.message;}}\ndocument.getElementById(\"import-students\").addEventListener(\"click\",importStudents);\nconsole.log(\"Final app ready\");",
+    "starter_javascript": "// Advanced Project — Student Information Frontend\n// Write your original solution below.\n",
+    "starter_html": "<main><h1>Student Records</h1><form id=\"record-form\"><label for=\"record-name\">Name</label><input id=\"record-name\"><label for=\"record-grade\">Grade</label><input id=\"record-grade\"><button type=\"submit\" id=\"add-record\">Add student</button></form><button type=\"button\" id=\"import-students\">Import sample students</button><label for=\"search\">Search name</label><input id=\"search\"><ul id=\"records\"></ul><p id=\"summary\"></p><p id=\"output\" role=\"status\"></p></main>",
+    "starter_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "example_html": "<main><h1>Student Records</h1><form id=\"record-form\"><label for=\"record-name\">Name</label><input id=\"record-name\"><label for=\"record-grade\">Grade</label><input id=\"record-grade\"><button type=\"submit\" id=\"add-record\">Add student</button></form><button type=\"button\" id=\"import-students\">Import sample students</button><label for=\"search\">Search name</label><input id=\"search\"><ul id=\"records\"></ul><p id=\"summary\"></p><p id=\"output\" role=\"status\"></p></main>",
+    "example_css": "body{font:16px system-ui;margin:20px;color:#172554} main{max-width:650px;margin:auto} label{display:block;margin-top:12px} input,button,select{font:inherit;padding:8px;margin:6px 0} button{background:#4338ca;color:white;border:0;border-radius:6px;cursor:pointer} table{border-collapse:collapse;width:100%} th,td{padding:8px;border:1px solid #cbd5e1}",
+    "guided_practice": "Load the example into the editor, inspect HTML/CSS and the Lab inputs JSON, run it, and compare the console and preview. Change one value and predict the result. For forms, interact with the preview. Each Run starts fresh.",
+    "activity": "Build a student-record frontend with add/edit/delete, validated grades, search, pass/fail filtering, sorting, count/mean/extrema reports, safe DOM output, a local calculation module, and a class or clearly composed data model. Include async mock API loading with loading/error/empty handling, JSON preference storage, and original assertions. Test all grade boundaries, empty/duplicate-name records, imported malformed data, HTML-looking text, and repeated actions. Submit HTML/CSS/JS plus Lab-input modules/fixtures and a commented design/testing summary. No real school records or credentials.",
+    "expected_result": "Example console output:\nStudent records ready\nFinal app ready\n\nInspect the interactive preview as well. Event-driven examples may produce additional output after interaction.",
+    "important_notes": "Common mistakes: Blind assignment; One unexplained global handler. Check quotes, brackets, selector IDs, conversions, and empty values. Run does not save work or award completion.",
+    "security_note": "Use fictional data, validate inputs, and render untrusted values with textContent. This isolated interpreter has no application session, host files, or live network; DOM, storage, timers, and API fixtures are educational models. Save source and submit for teacher review.",
+    "debugging_tip": "Read the first syntax/runtime error, inspect types and input values, and test one small case. Check HTML IDs before DOM access. Prompt inputs come from JSON; modules and API fixtures must be supplied locally.",
+    "challenge": "Add an original feature and document at least five edge-case tests and one limitation.",
+    "completion_requirements": "Save and submit the current HTML/CSS/JavaScript and Lab inputs. Pass the five-question quiz with at least 4/5 and obtain teacher approval; practice output never grants completion.",
+    "quiz": [
+      {
+        "question": "What separates safe imported data from trusted state?",
+        "choices": [
+          "One unexplained global handler",
+          "Validation of every record",
+          "Blind assignment",
+          "Clear state, validation, rendering, and modules"
+        ],
+        "answer": 1,
+        "explanation": "Validation of every record. Develop an integrated student frontend using all three modules."
+      },
+      {
+        "question": "What should organize the app?",
+        "choices": [
+          "Validation of every record",
+          "Blind assignment",
+          "Clear state, validation, rendering, and modules",
+          "One unexplained global handler"
+        ],
+        "answer": 2,
+        "explanation": "Clear state, validation, rendering, and modules. Develop an integrated student frontend using all three modules."
+      },
+      {
+        "question": "What API environment is used for practice?",
+        "choices": [
+          "Production student records",
+          "Validation of every record",
+          "Blind assignment",
+          "Named fictional mock fixtures"
+        ],
+        "answer": 3,
+        "explanation": "Named fictional mock fixtures. Develop an integrated student frontend using all three modules."
+      },
+      {
+        "question": "What provides regression evidence?",
+        "choices": [
+          "Documented assertions and UI cases",
+          "A screenshot alone",
+          "Validation of every record",
+          "Blind assignment"
+        ],
+        "answer": 0,
+        "explanation": "Documented assertions and UI cases. Develop an integrated student frontend using all three modules."
+      },
+      {
+        "question": "What determines completion?",
+        "choices": [
+          "Blind assignment",
+          "Teacher rubric approval and a passed quiz",
+          "A matching example alone",
+          "Validation of every record"
+        ],
+        "answer": 1,
+        "explanation": "Teacher rubric approval and a passed quiz. Develop an integrated student frontend using all three modules."
+      }
+    ],
+    "guide": {
+      "steps": [
+        "Read explanation and example.",
+        "Run and inspect console/preview.",
+        "Write original activity and tests.",
+        "Save, submit, and pass quiz for review."
+      ]
+    },
+    "validation_rules": {
+      "javascript": {
+        "fixtures": {
+          "/api/students": {
+            "status": 200,
+            "data": [
+              {
+                "name": "Cara",
+                "grade": 95
+              },
+              {
+                "name": "Dan",
+                "grade": 80
+              }
+            ]
+          }
+        },
+        "sample_input": "{}",
+        "expected_output": "Student records ready\nFinal app ready\n"
+      }
+    },
+    "rubric": {
+      "functionality": 30,
+      "javascript_concepts": 25,
+      "input_validation": 15,
+      "interface_and_accessibility": 10,
+      "readability": 10,
+      "testing": 10
+    }
+  }
+]

@@ -11,6 +11,9 @@ class LessonCodeValidator
 {
     public function normalizeLegacyHtml(Lesson $lesson, string $html): string
     {
+        if ($lesson->isPython() || $lesson->isPhp() || $lesson->isCpp() || $lesson->isJava() || $lesson->isSql() || $lesson->isWebWorkspace() || $lesson->isCsharp() || $lesson->isVbnet() || $lesson->isVba() || $lesson->isGoogleAppsScript()) {
+            return $html;
+        }
         if ($lesson->level === 'Advanced') {
             return $html;
         }
@@ -27,6 +30,11 @@ class LessonCodeValidator
 
     public function check(Lesson $lesson, string $html, string $css, array $extraFiles = []): array
     {
+        // Python runs only in the browser. Formal correctness is checked by a teacher,
+        // since browser execution results cannot be trusted for awarding completion.
+        if ($lesson->isPython() || $lesson->isPhp() || $lesson->isCpp() || $lesson->isJava() || $lesson->isSql() || $lesson->isWebWorkspace() || $lesson->isCsharp() || $lesson->isVbnet() || $lesson->isVba() || $lesson->isGoogleAppsScript()) {
+            return trim($html) === '' ? ['Write a solution before submitting for teacher review.'] : [];
+        }
         $rules = $lesson->validation_rules ?? [];
         if (! $rules) {
             return []; // Historical lessons created outside the curriculum keep their existing workflow.

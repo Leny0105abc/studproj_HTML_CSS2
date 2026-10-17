@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ActivityLog;
 use App\Models\CaseStudy;
+use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Submission;
 use Illuminate\Http\Request;
@@ -16,6 +17,8 @@ class CaseStudyLabController extends Controller
 {
     private function ensureUnlocked(Request $request, CaseStudy $caseStudy): void
     {
+        $course = Course::where('slug', 'html-css')->first();
+        abort_unless($request->user()->role === 'teacher' || ($course && $course->accessibleTo($request->user())), 403);
         $lessonCount = Lesson::where('is_published', true)->count();
         abort_unless($request->user()->lessonProgress()->where('status', 'completed')->count() >= $lessonCount, 403, 'Complete all lessons first.');
         $previous = CaseStudy::where('number', '<', $caseStudy->number)->where('is_published', true)->orderByDesc('number')->first();

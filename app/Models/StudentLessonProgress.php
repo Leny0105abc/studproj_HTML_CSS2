@@ -14,10 +14,10 @@ class StudentLessonProgress extends Model
     protected function casts(): array
     {
         return [
-            'version' => 'integer',
+            'programming_workspace' => 'array', 'version' => 'integer',
             'is_manually_unlocked' => 'boolean', 'started_at' => 'datetime', 'last_saved_at' => 'datetime',
             'submitted_at' => 'datetime', 'completed_at' => 'datetime', 'activity_passed_at' => 'datetime',
-            'quiz_passed_at' => 'datetime', 'quiz_answers' => 'array', 'extra_files' => 'array',
+            'quiz_passed_at' => 'datetime', 'quiz_answers' => 'array', 'wordpress_evidence' => 'array', 'extra_files' => 'array',
         ];
     }
 

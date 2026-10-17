@@ -1,0 +1,2717 @@
+[
+  {
+    "title": "Introduction to PHP",
+    "level": "Beginner",
+    "position": 1,
+    "objectives": [
+      "Explain the purpose of PHP.",
+      "Differentiate client-side and server-side scripting.",
+      "Write and execute a basic PHP program."
+    ],
+    "introduction": "Introduction to PHP develops php uses; client-side vs server-side; tags; syntax; embedding html; request lifecycle. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: PHP uses; client-side vs server-side; tags; syntax; embedding HTML; request lifecycle.\n\nPHP runs on a server to generate a response. A browser sends a request, the server executes PHP, and the browser receives the resulting HTML or text rather than PHP source. JavaScript normally runs in the browser. In this lab, an isolated browser runtime simulates the server for practice. Open PHP with <?php, terminate statements with semicolons, and use echo to output text. Close the tag only when returning to literal HTML; omit the closing tag in PHP-only files.",
+    "syntax": "<?php\necho \"Hello, PHP!\";\n",
+    "example_php": "<?php\necho \"Hello, PHP!\";\n",
+    "starter_php": "<?php\n// Introduction to PHP\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Missing a semicolon or the opening <?php tag. Explain why your correction works.",
+    "activity": "Create a student profile showing Student Name, Course, Year Level, and School using PHP output statements and HTML headings.",
+    "expected_result": "Hello, PHP!",
+    "important_notes": "Missing a semicolon or the opening <?php tag.",
+    "security_note": "Only response output should reach users. Do not serve PHP source or configuration secrets.",
+    "challenge": "Summary: PHP runs on a server to generate a response.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Variables and Constants.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ECHO"
+        ],
+        "expected_output": "Hello, PHP!"
+      }
+    },
+    "quiz": [
+      {
+        "question": "What does a browser normally receive after a PHP web request?",
+        "choices": [
+          "The generated response, such as HTML",
+          "The PHP source file",
+          "The server password",
+          "The PHP compiler executable"
+        ],
+        "answer": 0,
+        "explanation": "PHP runs on a server to generate a response. A browser sends a request, the server executes PHP, and the browser receives the resulting HTML or text rather than PHP source. JavaScript normally runs in the browser. In this lab, an isolated browser runtime simulates the server for practice. Open PHP with <?php, terminate statements with semicolons, and use echo to output text. Close the tag only when returning to literal HTML; omit the closing tag in PHP-only files."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Hello, PHP!"
+        ],
+        "answer": 3,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Introduction to PHP?",
+        "choices": [
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Missing a semicolon or the opening <?php tag.",
+          "PHP never needs debugging"
+        ],
+        "answer": 2,
+        "explanation": "Common error: Missing a semicolon or the opening <?php tag."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Execute student code on the CodeLab server",
+          "Only response output should reach users. Do not serve PHP source or configuration secrets.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values"
+        ],
+        "answer": 1,
+        "explanation": "Only response output should reach users. Do not serve PHP source or configuration secrets."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Create a student profile showing Student Name, Course, Year Level, and School using PHP output statements and HTML headings.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress"
+        ],
+        "answer": 0,
+        "explanation": "Apply the lesson’s concepts: PHP uses; client-side vs server-side; tags; syntax; embedding HTML; request lifecycle."
+      }
+    ]
+  },
+  {
+    "title": "Variables and Constants",
+    "level": "Beginner",
+    "position": 2,
+    "objectives": [
+      "Explain how $ variables supports this lesson’s program.",
+      "Create a working solution for Variables and Constants.",
+      "Debug this common error: Using a digit as the first character of a variable name or confusing $name with $Name."
+    ],
+    "introduction": "Variables and Constants develops $ variables; naming; assignment; reassignment; case sensitivity; define(); const. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: $ variables; naming; assignment; reassignment; case sensitivity; define(); const.\n\nVariables begin with $, followed by a letter or underscore and then letters, digits, or underscores. $name and $Name are different variables. Assignment uses = and can replace a value. Constants do not have a $ prefix and cannot be reassigned: define() creates a constant at runtime; const declares a constant using an expression PHP permits in that context.",
+    "syntax": "<?php\n$name = \"Maria\";\n$age = 19;\ndefine(\"SCHOOL\", \"CodeLab College\");\nconst PROGRAM = \"BSIT\";\necho \"$name | $age | \" . SCHOOL . \" | \" . PROGRAM;\n",
+    "example_php": "<?php\n$name = \"Maria\";\n$age = 19;\ndefine(\"SCHOOL\", \"CodeLab College\");\nconst PROGRAM = \"BSIT\";\necho \"$name | $age | \" . SCHOOL . \" | \" . PROGRAM;\n",
+    "starter_php": "<?php\n// Variables and Constants\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Using a digit as the first character of a variable name or confusing $name with $Name. Explain why your correction works.",
+    "activity": "Create and display student name, age, program, and year variables plus a school constant; update the year variable and show the new value.",
+    "expected_result": "Maria | 19 | CodeLab College | BSIT",
+    "important_notes": "Using a digit as the first character of a variable name or confusing $name with $Name.",
+    "security_note": "Keep configuration secrets outside examples and source repositories.",
+    "challenge": "Summary: Variables begin with $, followed by a letter or underscore and then letters, digits, or underscores.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: PHP Data Types.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_CONST"
+        ],
+        "expected_output": "Maria | 19 | CodeLab College | BSIT"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which declaration creates a constant without a dollar prefix?",
+        "choices": [
+          "$SCHOOL = \"CodeLab\";",
+          "constant $SCHOOL;",
+          "var SCHOOL = \"CodeLab\";",
+          "const SCHOOL = \"CodeLab\";"
+        ],
+        "answer": 3,
+        "explanation": "Variables begin with $, followed by a letter or underscore and then letters, digits, or underscores. $name and $Name are different variables. Assignment uses = and can replace a value. Constants do not have a $ prefix and cannot be reassigned: define() creates a constant at runtime; const declares a constant using an expression PHP permits in that context."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Maria | 19 | CodeLab College | BSIT",
+          "The literal PHP source is printed"
+        ],
+        "answer": 2,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Variables and Constants?",
+        "choices": [
+          "Delete the existing course records",
+          "Using a digit as the first character of a variable name or confusing $name with $Name.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs"
+        ],
+        "answer": 1,
+        "explanation": "Common error: Using a digit as the first character of a variable name or confusing $name with $Name."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Keep configuration secrets outside examples and source repositories.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server"
+        ],
+        "answer": 0,
+        "explanation": "Keep configuration secrets outside examples and source repositories."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Create and display student name, age, program, and year variables plus a school constant; update the year variable and show the new value."
+        ],
+        "answer": 3,
+        "explanation": "Apply the lesson’s concepts: $ variables; naming; assignment; reassignment; case sensitivity; define(); const."
+      }
+    ]
+  },
+  {
+    "title": "PHP Data Types",
+    "level": "Beginner",
+    "position": 3,
+    "objectives": [
+      "Explain how string supports this lesson’s program.",
+      "Create a working solution for PHP Data Types.",
+      "Debug this common error: Assuming the text \"false\" is a false boolean; a nonempty string is usually truthy."
+    ],
+    "introduction": "PHP Data Types develops string; integer; float; boolean; array; null; var_dump(); conversion. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: string; integer; float; boolean; array; NULL; var_dump(); conversion.\n\nPHP values have types: strings store text, integers whole numbers, floats decimal numbers, booleans true/false, arrays ordered key-value collections, and null the absence of a value. var_dump() prints both type and value. Explicit casts such as (int) convert values, but converting unvalidated input can hide errors. Objects are introduced in Advanced.",
+    "syntax": "<?php\n$name = \"Maria\";\n$year = 1;\n$average = 88.5;\n$enrolled = true;\n$subjects = [\"PHP\", \"Math\"];\n$middleName = null;\necho gettype($year) . \" | \" . gettype($average) . \" | \" . gettype($enrolled);\n",
+    "example_php": "<?php\n$name = \"Maria\";\n$year = 1;\n$average = 88.5;\n$enrolled = true;\n$subjects = [\"PHP\", \"Math\"];\n$middleName = null;\necho gettype($year) . \" | \" . gettype($average) . \" | \" . gettype($enrolled);\n",
+    "starter_php": "<?php\n// PHP Data Types\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Assuming the text \"false\" is a false boolean; a nonempty string is usually truthy. Explain why your correction works.",
+    "activity": "Declare all six types, use var_dump() to inspect them, and predict the result of converting the string \"19\" to an integer.",
+    "expected_result": "integer | double | boolean",
+    "important_notes": "Assuming the text \"false\" is a false boolean; a nonempty string is usually truthy.",
+    "security_note": "Validate the original input before converting it to a numeric type.",
+    "challenge": "Summary: PHP values have types: strings store text, integers whole numbers, floats decimal numbers, booleans true/false, arrays ordered key-value collections, and null the absence of a value.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Operators.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ARRAY"
+        ],
+        "expected_output": "integer | double | boolean"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which value represents absence rather than an empty string?",
+        "choices": [
+          "\"\"",
+          "0",
+          "null",
+          "\"null\""
+        ],
+        "answer": 2,
+        "explanation": "PHP values have types: strings store text, integers whole numbers, floats decimal numbers, booleans true/false, arrays ordered key-value collections, and null the absence of a value. var_dump() prints both type and value. Explicit casts such as (int) convert values, but converting unvalidated input can hide errors. Objects are introduced in Advanced."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "All student records in CodeLab are deleted",
+          "integer | double | boolean",
+          "The literal PHP source is printed",
+          "No output is possible from PHP"
+        ],
+        "answer": 1,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging PHP Data Types?",
+        "choices": [
+          "Assuming the text \"false\" is a false boolean; a nonempty string is usually truthy.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records"
+        ],
+        "answer": 0,
+        "explanation": "Common error: Assuming the text \"false\" is a false boolean; a nonempty string is usually truthy."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Validate the original input before converting it to a numeric type."
+        ],
+        "answer": 3,
+        "explanation": "Validate the original input before converting it to a numeric type."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Declare all six types, use var_dump() to inspect them, and predict the result of converting the string \"19\" to an integer.",
+          "Only change the CodeLab theme color"
+        ],
+        "answer": 2,
+        "explanation": "Apply the lesson’s concepts: string; integer; float; boolean; array; NULL; var_dump(); conversion."
+      }
+    ]
+  },
+  {
+    "title": "Operators",
+    "level": "Beginner",
+    "position": 4,
+    "objectives": [
+      "Explain how arithmetic + - * / % ** supports this lesson’s program.",
+      "Create a working solution for Operators.",
+      "Debug this common error: Using = for comparison or dividing by zero."
+    ],
+    "introduction": "Operators develops arithmetic + - * / % **; assignment; comparison; logical; ++ --; precedence. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: arithmetic + - * / % **; assignment; comparison; logical; ++ --; precedence.\n\nArithmetic operators calculate values. % is the integer remainder and ** exponentiation. += updates a variable. === compares both type and value, while == performs type juggling. && and || combine boolean conditions. ++ and -- change a number by one. Multiplication normally precedes addition; parentheses make intended grouping explicit.",
+    "syntax": "<?php\n$a = 12; $b = 5;\necho ($a + $b) . \" | \" . ($a - $b) . \" | \" . ($a * $b) . \" | \" . ($a % $b);\n",
+    "example_php": "<?php\n$a = 12; $b = 5;\necho ($a + $b) . \" | \" . ($a - $b) . \" | \" . ($a * $b) . \" | \" . ($a % $b);\n",
+    "starter_php": "<?php\n// Operators\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Using = for comparison or dividing by zero. Explain why your correction works.",
+    "activity": "Create a calculator for +, -, *, /, %, and **. Reject division by zero; demonstrate comparison, logical, and compound assignment operators.",
+    "expected_result": "17 | 7 | 60 | 2",
+    "important_notes": "Using = for comparison or dividing by zero.",
+    "security_note": "Validate operator choices against an allowlist; never evaluate a submitted expression as PHP.",
+    "challenge": "Summary: Arithmetic operators calculate values.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Input and Output.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ECHO"
+        ],
+        "expected_output": "17 | 7 | 60 | 2"
+      }
+    },
+    "quiz": [
+      {
+        "question": "What does === compare?",
+        "choices": [
+          "It assigns a value",
+          "Both type and value",
+          "Only value after conversion",
+          "Only variable names"
+        ],
+        "answer": 1,
+        "explanation": "Arithmetic operators calculate values. % is the integer remainder and ** exponentiation. += updates a variable. === compares both type and value, while == performs type juggling. && and || combine boolean conditions. ++ and -- change a number by one. Multiplication normally precedes addition; parentheses make intended grouping explicit."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "17 | 7 | 60 | 2",
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted"
+        ],
+        "answer": 0,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Operators?",
+        "choices": [
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Using = for comparison or dividing by zero."
+        ],
+        "answer": 3,
+        "explanation": "Common error: Using = for comparison or dividing by zero."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Validate operator choices against an allowlist; never evaluate a submitted expression as PHP.",
+          "Copy production credentials into the editor"
+        ],
+        "answer": 2,
+        "explanation": "Validate operator choices against an allowlist; never evaluate a submitted expression as PHP."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Reset every student’s progress",
+          "Create a calculator for +, -, *, /, %, and **. Reject division by zero; demonstrate comparison, logical, and compound assignment operators.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation"
+        ],
+        "answer": 1,
+        "explanation": "Apply the lesson’s concepts: arithmetic + - * / % **; assignment; comparison; logical; ++ --; precedence."
+      }
+    ]
+  },
+  {
+    "title": "Input and Output",
+    "level": "Beginner",
+    "position": 5,
+    "objectives": [
+      "Explain how echo supports this lesson’s program.",
+      "Create a working solution for Input and Output.",
+      "Debug this common error: Using + instead of . to concatenate strings."
+    ],
+    "introduction": "Input and Output develops echo; print; variables; concatenation; interpolation; dynamic html. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: echo; print; variables; concatenation; interpolation; dynamic HTML.\n\necho outputs one or more expressions; print outputs one expression and returns 1. A dot joins strings. Double-quoted strings interpolate simple variables, while single-quoted strings generally do not. Mixing literal HTML and PHP generates dynamic pages. Request input is introduced in Intermediate; here values are defined in your program.",
+    "syntax": "<?php\n$name = \"Maria\";\necho \"Hello \" . $name . \"\n\";\nprint \"Year: 1\";\n",
+    "example_php": "<?php\n$name = \"Maria\";\necho \"Hello \" . $name . \"\n\";\nprint \"Year: 1\";\n",
+    "starter_php": "<?php\n// Input and Output\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Using + instead of . to concatenate strings. Explain why your correction works.",
+    "activity": "Generate an HTML student profile using variables, echo, print, concatenation, and interpolation. Escape any values supplied by a user.",
+    "expected_result": "Hello Maria\nYear: 1",
+    "important_notes": "Using + instead of . to concatenate strings.",
+    "security_note": "Escape text inserted into HTML with htmlspecialchars($value, ENT_QUOTES, \"UTF-8\").",
+    "challenge": "Summary: echo outputs one or more expressions; print outputs one expression and returns 1.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Conditional Statements.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_PRINT"
+        ],
+        "expected_output": "Hello Maria\nYear: 1"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which operator concatenates PHP strings?",
+        "choices": [
+          ".",
+          "+",
+          "*",
+          "&"
+        ],
+        "answer": 0,
+        "explanation": "echo outputs one or more expressions; print outputs one expression and returns 1. A dot joins strings. Double-quoted strings interpolate simple variables, while single-quoted strings generally do not. Mixing literal HTML and PHP generates dynamic pages. Request input is introduced in Intermediate; here values are defined in your program."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Hello Maria\nYear: 1"
+        ],
+        "answer": 3,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Input and Output?",
+        "choices": [
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Using + instead of . to concatenate strings.",
+          "PHP never needs debugging"
+        ],
+        "answer": 2,
+        "explanation": "Common error: Using + instead of . to concatenate strings."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Execute student code on the CodeLab server",
+          "Escape text inserted into HTML with htmlspecialchars($value, ENT_QUOTES, \"UTF-8\").",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values"
+        ],
+        "answer": 1,
+        "explanation": "Escape text inserted into HTML with htmlspecialchars($value, ENT_QUOTES, \"UTF-8\")."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Generate an HTML student profile using variables, echo, print, concatenation, and interpolation. Escape any values supplied by a user.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress"
+        ],
+        "answer": 0,
+        "explanation": "Apply the lesson’s concepts: echo; print; variables; concatenation; interpolation; dynamic HTML."
+      }
+    ]
+  },
+  {
+    "title": "Conditional Statements",
+    "level": "Beginner",
+    "position": 6,
+    "objectives": [
+      "Explain how if supports this lesson’s program.",
+      "Create a working solution for Conditional Statements.",
+      "Debug this common error: Checking >=75 before >=90 in the same elseif chain."
+    ],
+    "introduction": "Conditional Statements develops if; else; elseif; switch; nested conditions; logical comparisons. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: if; else; elseif; switch; nested conditions; logical comparisons.\n\nConditions select a branch. Check the most restrictive grade range first so 95 is not caught by a lower threshold. elseif belongs to the same decision chain; nested conditions add a decision inside another. switch compares cases and typically needs break to prevent fall-through. Reject grades outside 0–100 before classifying them.",
+    "syntax": "<?php\n$grade = 88;\nif ($grade < 0 || $grade > 100) { echo \"Invalid grade\"; }\nelseif ($grade >= 90) { echo \"Excellent\"; }\nelseif ($grade >= 85) { echo \"Very Good\"; }\nelseif ($grade >= 80) { echo \"Good\"; }\nelseif ($grade >= 75) { echo \"Passed\"; }\nelse { echo \"Failed\"; }\n",
+    "example_php": "<?php\n$grade = 88;\nif ($grade < 0 || $grade > 100) { echo \"Invalid grade\"; }\nelseif ($grade >= 90) { echo \"Excellent\"; }\nelseif ($grade >= 85) { echo \"Very Good\"; }\nelseif ($grade >= 80) { echo \"Good\"; }\nelseif ($grade >= 75) { echo \"Passed\"; }\nelse { echo \"Failed\"; }\n",
+    "starter_php": "<?php\n// Conditional Statements\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Checking >=75 before >=90 in the same elseif chain. Explain why your correction works.",
+    "activity": "Classify 90–100 Excellent, 85–89 Very Good, 80–84 Good, 75–79 Passed, and below 75 Failed. Test -1, 74, 75, 89, 90, and 101; then demonstrate switch with a menu choice.",
+    "expected_result": "Very Good",
+    "important_notes": "Checking >=75 before >=90 in the same elseif chain.",
+    "security_note": "Reject invalid values before processing and display a friendly validation error.",
+    "challenge": "Summary: Conditions select a branch.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Loops.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_IF"
+        ],
+        "expected_output": "Very Good"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Why validate the range before classifying a grade?",
+        "choices": [
+          "Every grade is automatically valid",
+          "It prevents variables being declared",
+          "It makes echo unnecessary",
+          "A value such as 150 must be rejected"
+        ],
+        "answer": 3,
+        "explanation": "Conditions select a branch. Check the most restrictive grade range first so 95 is not caught by a lower threshold. elseif belongs to the same decision chain; nested conditions add a decision inside another. switch compares cases and typically needs break to prevent fall-through. Reject grades outside 0–100 before classifying them."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Very Good",
+          "The literal PHP source is printed"
+        ],
+        "answer": 2,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Conditional Statements?",
+        "choices": [
+          "Delete the existing course records",
+          "Checking >=75 before >=90 in the same elseif chain.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs"
+        ],
+        "answer": 1,
+        "explanation": "Common error: Checking >=75 before >=90 in the same elseif chain."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Reject invalid values before processing and display a friendly validation error.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server"
+        ],
+        "answer": 0,
+        "explanation": "Reject invalid values before processing and display a friendly validation error."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Classify 90–100 Excellent, 85–89 Very Good, 80–84 Good, 75–79 Passed, and below 75 Failed. Test -1, 74, 75, 89, 90, and 101; then demonstrate switch with a menu choice."
+        ],
+        "answer": 3,
+        "explanation": "Apply the lesson’s concepts: if; else; elseif; switch; nested conditions; logical comparisons."
+      }
+    ]
+  },
+  {
+    "title": "Loops",
+    "level": "Beginner",
+    "position": 7,
+    "objectives": [
+      "Explain how for supports this lesson’s program.",
+      "Create a working solution for Loops.",
+      "Debug this common error: Forgetting to update a while counter creates an infinite loop."
+    ],
+    "introduction": "Loops develops for; while; do...while; foreach; break; continue; nested loops. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: for; while; do...while; foreach; break; continue; nested loops.\n\nfor combines initialization, a condition, and an update. while checks before an iteration; do...while checks afterward and runs at least once. foreach visits array entries. break leaves a loop; continue skips the remainder of one iteration. Nested loops are useful for multiplication tables but multiply the work performed.",
+    "syntax": "<?php\nfor ($i = 1; $i <= 3; $i++) {\n    echo $i . ($i < 3 ? \" \" : \"\");\n}\n",
+    "example_php": "<?php\nfor ($i = 1; $i <= 3; $i++) {\n    echo $i . ($i < 3 ? \" \" : \"\");\n}\n",
+    "starter_php": "<?php\n// Loops\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Forgetting to update a while counter creates an infinite loop. Explain why your correction works.",
+    "activity": "Display 1–10, produce a multiplication table with nested loops, and use foreach to show three student names. Demonstrate break and continue.",
+    "expected_result": "1 2 3",
+    "important_notes": "Forgetting to update a while counter creates an infinite loop.",
+    "security_note": "Bound iteration counts when values come from user input.",
+    "challenge": "Summary: for combines initialization, a condition, and an update.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Arrays.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_FOR"
+        ],
+        "expected_output": "1 2 3"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which loop naturally visits each element in an array?",
+        "choices": [
+          "if",
+          "try",
+          "foreach",
+          "switch"
+        ],
+        "answer": 2,
+        "explanation": "for combines initialization, a condition, and an update. while checks before an iteration; do...while checks afterward and runs at least once. foreach visits array entries. break leaves a loop; continue skips the remainder of one iteration. Nested loops are useful for multiplication tables but multiply the work performed."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "All student records in CodeLab are deleted",
+          "1 2 3",
+          "The literal PHP source is printed",
+          "No output is possible from PHP"
+        ],
+        "answer": 1,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Loops?",
+        "choices": [
+          "Forgetting to update a while counter creates an infinite loop.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records"
+        ],
+        "answer": 0,
+        "explanation": "Common error: Forgetting to update a while counter creates an infinite loop."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Bound iteration counts when values come from user input."
+        ],
+        "answer": 3,
+        "explanation": "Bound iteration counts when values come from user input."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Display 1–10, produce a multiplication table with nested loops, and use foreach to show three student names. Demonstrate break and continue.",
+          "Only change the CodeLab theme color"
+        ],
+        "answer": 2,
+        "explanation": "Apply the lesson’s concepts: for; while; do...while; foreach; break; continue; nested loops."
+      }
+    ]
+  },
+  {
+    "title": "Arrays",
+    "level": "Beginner",
+    "position": 8,
+    "objectives": [
+      "Explain how indexed supports this lesson’s program.",
+      "Create a working solution for Arrays.",
+      "Debug this common error: Reading an undefined key without checking it or assuming removed indexes are renumbered."
+    ],
+    "introduction": "Arrays develops indexed; associative; multidimensional; add/remove; access; iteration; count(). Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: indexed; associative; multidimensional; add/remove; access; iteration; count().\n\nPHP arrays map keys to values. Indexed arrays commonly use numeric keys; associative arrays use meaningful names. A multidimensional array contains arrays. Append with [], remove with unset(), and count entries with count(). Removing an indexed element does not automatically renumber remaining keys.",
+    "syntax": "<?php\n$students = [[\"name\" => \"Maria\", \"grade\" => 88], [\"name\" => \"Jose\", \"grade\" => 76]];\nforeach ($students as $student) {\n    echo $student[\"name\"] . \": \" . $student[\"grade\"] . \"\n\";\n}\n",
+    "example_php": "<?php\n$students = [[\"name\" => \"Maria\", \"grade\" => 88], [\"name\" => \"Jose\", \"grade\" => 76]];\nforeach ($students as $student) {\n    echo $student[\"name\"] . \": \" . $student[\"grade\"] . \"\n\";\n}\n",
+    "starter_php": "<?php\n// Arrays\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Reading an undefined key without checking it or assuming removed indexes are renumbered. Explain why your correction works.",
+    "activity": "Build student records in a multidimensional array and display a safely escaped HTML table. Add a student, remove a record, and report the count.",
+    "expected_result": "Maria: 88\nJose: 76",
+    "important_notes": "Reading an undefined key without checking it or assuming removed indexes are renumbered.",
+    "security_note": "Escape student names when outputting them into an HTML table.",
+    "challenge": "Summary: PHP arrays map keys to values.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Functions.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_FOREACH"
+        ],
+        "expected_output": "Maria: 88\nJose: 76"
+      }
+    },
+    "quiz": [
+      {
+        "question": "How do you append a new value to $names?",
+        "choices": [
+          "append $names \"Ana\";",
+          "$names[] = \"Ana\";",
+          "$names =+ \"Ana\";",
+          "$names.append(\"Ana\");"
+        ],
+        "answer": 1,
+        "explanation": "PHP arrays map keys to values. Indexed arrays commonly use numeric keys; associative arrays use meaningful names. A multidimensional array contains arrays. Append with [], remove with unset(), and count entries with count(). Removing an indexed element does not automatically renumber remaining keys."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "Maria: 88\nJose: 76",
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted"
+        ],
+        "answer": 0,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Arrays?",
+        "choices": [
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Reading an undefined key without checking it or assuming removed indexes are renumbered."
+        ],
+        "answer": 3,
+        "explanation": "Common error: Reading an undefined key without checking it or assuming removed indexes are renumbered."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Escape student names when outputting them into an HTML table.",
+          "Copy production credentials into the editor"
+        ],
+        "answer": 2,
+        "explanation": "Escape student names when outputting them into an HTML table."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Reset every student’s progress",
+          "Build student records in a multidimensional array and display a safely escaped HTML table. Add a student, remove a record, and report the count.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation"
+        ],
+        "answer": 1,
+        "explanation": "Apply the lesson’s concepts: indexed; associative; multidimensional; add/remove; access; iteration; count()."
+      }
+    ]
+  },
+  {
+    "title": "Functions",
+    "level": "Beginner",
+    "position": 9,
+    "objectives": [
+      "Explain how declaration supports this lesson’s program.",
+      "Create a working solution for Functions.",
+      "Debug this common error: Using echo in a function that should return a value or dividing an empty array sum by zero."
+    ],
+    "introduction": "Functions develops declaration; calls; parameters; return; defaults; local/global scope. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: declaration; calls; parameters; return; defaults; local/global scope.\n\nFunctions package reusable behavior. Parameters pass values into local scope and return sends a result to the caller. A default argument makes a parameter optional. Local variables are not the same as globals; passing dependencies explicitly makes a function easier to test than using global. A declared return type documents and enforces the contract.",
+    "syntax": "<?php\nfunction average(array $grades): float {\n    if (count($grades) === 0) { throw new InvalidArgumentException(\"At least one grade is required.\"); }\n    return array_sum($grades) / count($grades);\n}\nfunction result(float $grade, float $threshold = 75): string {\n    return $grade >= $threshold ? \"PASSED\" : \"FAILED\";\n}\necho number_format(average([85, 90, 90.5]), 2) . \" | \" . result(88.5);\n",
+    "example_php": "<?php\nfunction average(array $grades): float {\n    if (count($grades) === 0) { throw new InvalidArgumentException(\"At least one grade is required.\"); }\n    return array_sum($grades) / count($grades);\n}\nfunction result(float $grade, float $threshold = 75): string {\n    return $grade >= $threshold ? \"PASSED\" : \"FAILED\";\n}\necho number_format(average([85, 90, 90.5]), 2) . \" | \" . result(88.5);\n",
+    "starter_php": "<?php\n// Functions\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Using echo in a function that should return a value or dividing an empty array sum by zero. Explain why your correction works.",
+    "activity": "Write average(), result(), and formatResult() functions. Test an empty list, one grade, and boundary averages 74.99 and 75.00.",
+    "expected_result": "88.50 | PASSED",
+    "important_notes": "Using echo in a function that should return a value or dividing an empty array sum by zero.",
+    "security_note": "Validate grades before calculating and avoid hidden global dependencies.",
+    "challenge": "Summary: Functions package reusable behavior.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Beginner Project — Student Grade Calculator.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_FUNCTION"
+        ],
+        "expected_output": "88.50 | PASSED",
+        "test_cases": [
+          {
+            "function": "average",
+            "arguments": [
+              [
+                80,
+                90
+              ]
+            ],
+            "expected": 85
+          },
+          {
+            "function": "result",
+            "arguments": [
+              74
+            ],
+            "expected": "FAILED"
+          },
+          {
+            "function": "result",
+            "arguments": [
+              75
+            ],
+            "expected": "PASSED"
+          }
+        ]
+      }
+    },
+    "quiz": [
+      {
+        "question": "What does return do in a function?",
+        "choices": [
+          "Sends a value back and ends that call",
+          "Always prints HTML",
+          "Declares a global variable",
+          "Repeats the function forever"
+        ],
+        "answer": 0,
+        "explanation": "Functions package reusable behavior. Parameters pass values into local scope and return sends a result to the caller. A default argument makes a parameter optional. Local variables are not the same as globals; passing dependencies explicitly makes a function easier to test than using global. A declared return type documents and enforces the contract."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "88.50 | PASSED"
+        ],
+        "answer": 3,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Functions?",
+        "choices": [
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Using echo in a function that should return a value or dividing an empty array sum by zero.",
+          "PHP never needs debugging"
+        ],
+        "answer": 2,
+        "explanation": "Common error: Using echo in a function that should return a value or dividing an empty array sum by zero."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Execute student code on the CodeLab server",
+          "Validate grades before calculating and avoid hidden global dependencies.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values"
+        ],
+        "answer": 1,
+        "explanation": "Validate grades before calculating and avoid hidden global dependencies."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Write average(), result(), and formatResult() functions. Test an empty list, one grade, and boundary averages 74.99 and 75.00.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress"
+        ],
+        "answer": 0,
+        "explanation": "Apply the lesson’s concepts: declaration; calls; parameters; return; defaults; local/global scope."
+      }
+    ]
+  },
+  {
+    "title": "Beginner Project — Student Grade Calculator",
+    "level": "Beginner",
+    "position": 10,
+    "objectives": [
+      "Explain how student form supports this lesson’s program.",
+      "Create a working solution for Student Grade Calculator.",
+      "Debug this common error: Calculating an average before checking every grade and ensuring the list is nonempty."
+    ],
+    "introduction": "Beginner Project — Student Grade Calculator develops student form; averages; pass/fail; arrays; functions; validation; formatting. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: student form; averages; pass/fail; arrays; functions; validation; formatting.\n\nBuild a core PHP grade calculator with a form for student name and three grades. Separate validation, average calculation, pass/fail classification, and output formatting into functions. Model records with arrays and enforce grades from 0 to 100. In the lab, use controlled POST request data; the form itself is a visual preview and does not submit to CodeLab.",
+    "syntax": "<?php\nfunction average(array $grades): float { return array_sum($grades) / count($grades); }\n$grades = [85, 90, 90.5];\n$name = \"Maria Santos\";\n$mean = average($grades);\necho \"Student: $name\nAverage: \" . number_format($mean, 2) . \"\nStatus: \" . ($mean >= 75 ? \"PASSED\" : \"FAILED\");\n",
+    "example_php": "<?php\nfunction average(array $grades): float { return array_sum($grades) / count($grades); }\n$grades = [85, 90, 90.5];\n$name = \"Maria Santos\";\n$mean = average($grades);\necho \"Student: $name\nAverage: \" . number_format($mean, 2) . \"\nStatus: \" . ($mean >= 75 ? \"PASSED\" : \"FAILED\");\n",
+    "starter_php": "<?php\n// Beginner Project — Student Grade Calculator\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Calculating an average before checking every grade and ensuring the list is nonempty. Explain why your correction works.",
+    "activity": "Student Grade Calculator\nRequirements: student name and grade form; validate missing/non-numeric/out-of-range values; calculate average; display pass/fail; use variables, operators, conditions, arrays, and reusable functions.\nSteps: 1. Sketch the form. 2. Validate inputs. 3. Implement calculation functions. 4. Escape and format the result. 5. Test boundaries.\nSample POST input: {\"name\":\"Maria Santos\",\"grades\":[85,90,90.5]}. Sample output: Student: Maria Santos; Average: 88.50; Status: PASSED.\nSubmit your PHP source with form markup and a test matrix in comments. The rubric replaces the 15 database points with calculation accuracy because databases have not yet been introduced.",
+    "expected_result": "Student: Maria Santos\nAverage: 88.50\nStatus: PASSED",
+    "important_notes": "Calculating an average before checking every grade and ensuring the list is nonempty.",
+    "security_note": "Do not trust form values. Escape the displayed name and preserve safe form values after a validation error.",
+    "challenge": "Summary: Build a core PHP grade calculator with a form for student name and three grades.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Working with HTML Forms.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": true,
+    "rubric": {
+      "Program Functionality": 30,
+      "Correct Use of PHP Concepts": 20,
+      "Calculation Accuracy": 15,
+      "Security and Validation": 15,
+      "Code Organization": 10,
+      "User Interface / Usability": 5,
+      "Testing and Documentation": 5
+    },
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_FUNCTION"
+        ]
+      }
+    },
+    "quiz": [
+      {
+        "question": "What must happen before averaging submitted grades?",
+        "choices": [
+          "Cast all missing grades to zero",
+          "Print the password",
+          "Skip boundary tests",
+          "Validate each grade and ensure the list is nonempty"
+        ],
+        "answer": 3,
+        "explanation": "Build a core PHP grade calculator with a form for student name and three grades. Separate validation, average calculation, pass/fail classification, and output formatting into functions. Model records with arrays and enforce grades from 0 to 100. In the lab, use controlled POST request data; the form itself is a visual preview and does not submit to CodeLab."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Student: Maria Santos\nAverage: 88.50\nStatus: PASSED",
+          "The literal PHP source is printed"
+        ],
+        "answer": 2,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Beginner Project — Student Grade Calculator?",
+        "choices": [
+          "Delete the existing course records",
+          "Calculating an average before checking every grade and ensuring the list is nonempty.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs"
+        ],
+        "answer": 1,
+        "explanation": "Common error: Calculating an average before checking every grade and ensuring the list is nonempty."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Do not trust form values. Escape the displayed name and preserve safe form values after a validation error.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server"
+        ],
+        "answer": 0,
+        "explanation": "Do not trust form values. Escape the displayed name and preserve safe form values after a validation error."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Student Grade Calculator"
+        ],
+        "answer": 3,
+        "explanation": "Apply the lesson’s concepts: student form; averages; pass/fail; arrays; functions; validation; formatting."
+      }
+    ]
+  },
+  {
+    "title": "Working with HTML Forms",
+    "level": "Intermediate",
+    "position": 11,
+    "objectives": [
+      "Explain how form action supports this lesson’s program.",
+      "Create a working solution for Working with HTML Forms.",
+      "Debug this common error: Assuming POST is encrypted or reading a missing field without a default."
+    ],
+    "introduction": "Working with HTML Forms develops form action; fields; get vs post; processing; validation; sticky values; escaping. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: form action; fields; GET vs POST; processing; validation; sticky values; escaping.\n\nA form submits named fields to its action using GET or POST. GET places data in the URL and is appropriate for reads/searches. POST sends a body and is appropriate for changes, but does not encrypt data; HTTPS is still required. Check the request method, validate values, and keep escaped submitted values in the form when validation fails. In this lab, enter {\"post\":{\"name\":\"Maria\"}} in Request Data to simulate a form submission.",
+    "syntax": "<?php\n$name = trim($_POST[\"name\"] ?? \"Maria\");\nif ($name === \"\") { echo \"Name is required\"; }\nelse { echo \"Registered: \" . htmlspecialchars($name, ENT_QUOTES, \"UTF-8\"); }\n",
+    "example_php": "<?php\n$name = trim($_POST[\"name\"] ?? \"Maria\");\nif ($name === \"\") { echo \"Name is required\"; }\nelse { echo \"Registered: \" . htmlspecialchars($name, ENT_QUOTES, \"UTF-8\"); }\n",
+    "starter_php": "<?php\n// Working with HTML Forms\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Assuming POST is encrypted or reading a missing field without a default. Explain why your correction works.",
+    "activity": "Create a student registration form processed by PHP with required name, email, course, and year. Display field-specific errors and preserve escaped values. Try missing fields and an invalid email through Request Data.",
+    "expected_result": "Registered: Maria",
+    "important_notes": "Assuming POST is encrypted or reading a missing field without a default.",
+    "security_note": "Use HTTPS, server-side validation, output escaping, and CSRF protection for state changes.",
+    "challenge": "Summary: A form submits named fields to its action using GET or POST.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Superglobals.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_IF"
+        ],
+        "expected_output": "Registered: Maria"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which request method normally puts form fields in the URL query string?",
+        "choices": [
+          "SESSION",
+          "COOKIE",
+          "GET",
+          "POST"
+        ],
+        "answer": 2,
+        "explanation": "A form submits named fields to its action using GET or POST. GET places data in the URL and is appropriate for reads/searches. POST sends a body and is appropriate for changes, but does not encrypt data; HTTPS is still required. Check the request method, validate values, and keep escaped submitted values in the form when validation fails. In this lab, enter {\"post\":{\"name\":\"Maria\"}} in Request Data to simulate a form submission."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "All student records in CodeLab are deleted",
+          "Registered: Maria",
+          "The literal PHP source is printed",
+          "No output is possible from PHP"
+        ],
+        "answer": 1,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Working with HTML Forms?",
+        "choices": [
+          "Assuming POST is encrypted or reading a missing field without a default.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records"
+        ],
+        "answer": 0,
+        "explanation": "Common error: Assuming POST is encrypted or reading a missing field without a default."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Use HTTPS, server-side validation, output escaping, and CSRF protection for state changes."
+        ],
+        "answer": 3,
+        "explanation": "Use HTTPS, server-side validation, output escaping, and CSRF protection for state changes."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Create a student registration form processed by PHP with required name, email, course, and year. Display field-specific errors and preserve escaped values. Try missing fields and an invalid email through Request Data.",
+          "Only change the CodeLab theme color"
+        ],
+        "answer": 2,
+        "explanation": "Apply the lesson’s concepts: form action; fields; GET vs POST; processing; validation; sticky values; escaping."
+      }
+    ]
+  },
+  {
+    "title": "Superglobals",
+    "level": "Intermediate",
+    "position": 12,
+    "objectives": [
+      "Explain how $_GET supports this lesson’s program.",
+      "Create a working solution for Superglobals.",
+      "Debug this common error: Dumping all of $_SERVER or treating a cookie role as authoritative."
+    ],
+    "introduction": "Superglobals develops $_get; $_post; $_server; $_session; $_cookie; $_files. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: $_GET; $_POST; $_SERVER; $_SESSION; $_COOKIE; $_FILES.\n\nSuperglobals are available in every scope. GET and POST contain parsed request fields; SERVER holds request/server metadata; SESSION holds server-maintained state; COOKIE contains user-supplied cookies; FILES describes uploads. All client-originating data is untrusted. Only display selected harmless metadata. The sandbox simulates GET, POST, cookies, and initial session values and never imports your CodeLab cookies.",
+    "syntax": "<?php\n$course = $_GET[\"course\"] ?? \"BSIT\";\necho \"Course: \" . htmlspecialchars($course, ENT_QUOTES, \"UTF-8\") . \"\n\";\necho \"Method: \" . ($_SERVER[\"REQUEST_METHOD\"] ?? \"GET\");\n",
+    "example_php": "<?php\n$course = $_GET[\"course\"] ?? \"BSIT\";\necho \"Course: \" . htmlspecialchars($course, ENT_QUOTES, \"UTF-8\") . \"\n\";\necho \"Method: \" . ($_SERVER[\"REQUEST_METHOD\"] ?? \"GET\");\n",
+    "starter_php": "<?php\n// Superglobals\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Dumping all of $_SERVER or treating a cookie role as authoritative. Explain why your correction works.",
+    "activity": "Display a validated course filter from GET and the request method from SERVER. Add a POST name field. Explain SESSION, COOKIE, and FILES in comments without dumping server configuration.",
+    "expected_result": "Course: BSIT\nMethod: GET",
+    "important_notes": "Dumping all of $_SERVER or treating a cookie role as authoritative.",
+    "security_note": "Never expose credentials, filesystem paths, or a full environment dump; authorize roles on the server.",
+    "challenge": "Summary: Superglobals are available in every scope.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: String Manipulation.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ECHO"
+        ]
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which superglobal describes uploaded files?",
+        "choices": [
+          "$_SERVER",
+          "$_FILES",
+          "$_GET",
+          "$_SESSION"
+        ],
+        "answer": 1,
+        "explanation": "Superglobals are available in every scope. GET and POST contain parsed request fields; SERVER holds request/server metadata; SESSION holds server-maintained state; COOKIE contains user-supplied cookies; FILES describes uploads. All client-originating data is untrusted. Only display selected harmless metadata. The sandbox simulates GET, POST, cookies, and initial session values and never imports your CodeLab cookies."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "Course: BSIT\nMethod: GET",
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted"
+        ],
+        "answer": 0,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Superglobals?",
+        "choices": [
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Dumping all of $_SERVER or treating a cookie role as authoritative."
+        ],
+        "answer": 3,
+        "explanation": "Common error: Dumping all of $_SERVER or treating a cookie role as authoritative."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Never expose credentials, filesystem paths, or a full environment dump; authorize roles on the server.",
+          "Copy production credentials into the editor"
+        ],
+        "answer": 2,
+        "explanation": "Never expose credentials, filesystem paths, or a full environment dump; authorize roles on the server."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Reset every student’s progress",
+          "Display a validated course filter from GET and the request method from SERVER. Add a POST name field. Explain SESSION, COOKIE, and FILES in comments without dumping server configuration.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation"
+        ],
+        "answer": 1,
+        "explanation": "Apply the lesson’s concepts: $_GET; $_POST; $_SERVER; $_SESSION; $_COOKIE; $_FILES."
+      }
+    ]
+  },
+  {
+    "title": "String Manipulation",
+    "level": "Intermediate",
+    "position": 13,
+    "objectives": [
+      "Explain how strlen supports this lesson’s program.",
+      "Create a working solution for String Manipulation.",
+      "Debug this common error: Using if (strpos(...)) fails for a match at position zero."
+    ],
+    "introduction": "String Manipulation develops strlen; strtolower; strtoupper; trim; str_replace; explode; implode; substr; strpos. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: strlen; strtolower; strtoupper; trim; str_replace; explode; implode; substr; strpos.\n\ntrim() removes surrounding whitespace; strtoupper()/strtolower() change case. str_replace() substitutes text. explode() splits and implode() joins. substr() extracts a range. strpos() returns a position or false, so compare with !== false to distinguish a match at position zero. strlen() counts bytes; multilingual character counts may need mb_strlen() and the mbstring extension.",
+    "syntax": "<?php\n$text = trim(\"  hello PHP  \");\necho strtoupper($text) . \" | \" . strlen($text) . \" | \" . str_replace(\"PHP\", \"CodeLab\", $text);\n",
+    "example_php": "<?php\n$text = trim(\"  hello PHP  \");\necho strtoupper($text) . \" | \" . strlen($text) . \" | \" . str_replace(\"PHP\", \"CodeLab\", $text);\n",
+    "starter_php": "<?php\n// String Manipulation\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Using if (strpos(...)) fails for a match at position zero. Explain why your correction works.",
+    "activity": "Build a text utility that trims input, changes case, counts bytes, replaces words, splits into words, and rejoins them. Test a search match at index zero.",
+    "expected_result": "HELLO PHP | 9 | hello CodeLab",
+    "important_notes": "Using if (strpos(...)) fails for a match at position zero.",
+    "security_note": "Text transformations are not HTML escaping; escape the final displayed value.",
+    "challenge": "Summary: trim() removes surrounding whitespace; strtoupper()/strtolower() change case.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Advanced Array Operations.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ECHO"
+        ],
+        "expected_output": "HELLO PHP | 9 | hello CodeLab"
+      }
+    },
+    "quiz": [
+      {
+        "question": "How should you test whether strpos() found a match?",
+        "choices": [
+          "Compare its result with !== false",
+          "Check only if the result is truthy",
+          "Always compare with null",
+          "It never returns false"
+        ],
+        "answer": 0,
+        "explanation": "trim() removes surrounding whitespace; strtoupper()/strtolower() change case. str_replace() substitutes text. explode() splits and implode() joins. substr() extracts a range. strpos() returns a position or false, so compare with !== false to distinguish a match at position zero. strlen() counts bytes; multilingual character counts may need mb_strlen() and the mbstring extension."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "HELLO PHP | 9 | hello CodeLab"
+        ],
+        "answer": 3,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging String Manipulation?",
+        "choices": [
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Using if (strpos(...)) fails for a match at position zero.",
+          "PHP never needs debugging"
+        ],
+        "answer": 2,
+        "explanation": "Common error: Using if (strpos(...)) fails for a match at position zero."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Execute student code on the CodeLab server",
+          "Text transformations are not HTML escaping; escape the final displayed value.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values"
+        ],
+        "answer": 1,
+        "explanation": "Text transformations are not HTML escaping; escape the final displayed value."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Build a text utility that trims input, changes case, counts bytes, replaces words, splits into words, and rejoins them. Test a search match at index zero.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress"
+        ],
+        "answer": 0,
+        "explanation": "Apply the lesson’s concepts: strlen; strtolower; strtoupper; trim; str_replace; explode; implode; substr; strpos."
+      }
+    ]
+  },
+  {
+    "title": "Advanced Array Operations",
+    "level": "Intermediate",
+    "position": 14,
+    "objectives": [
+      "Explain how push/pop supports this lesson’s program.",
+      "Create a working solution for Advanced Array Operations.",
+      "Debug this common error: Using sort() on named grades loses the name-to-grade mapping."
+    ],
+    "introduction": "Advanced Array Operations develops push/pop; merge/search; sort/rsort/asort/ksort; filter; iteration. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: push/pop; merge/search; sort/rsort/asort/ksort; filter; iteration.\n\narray_push()/array_pop() add/remove at the end. array_merge() combines arrays and may renumber numeric keys. sort()/rsort() sort values and reset keys; asort() sorts values while retaining key associations; ksort() sorts keys. array_search() can return zero or false, requiring a strict comparison. array_filter() selects entries and retains their keys.",
+    "syntax": "<?php\n$grades = [\"Maria\" => 88, \"Jose\" => 72, \"Ana\" => 95];\n$passing = array_filter($grades, fn ($grade) => $grade >= 75);\nasort($passing);\nforeach ($passing as $name => $grade) { echo \"$name: $grade\n\"; }\n",
+    "example_php": "<?php\n$grades = [\"Maria\" => 88, \"Jose\" => 72, \"Ana\" => 95];\n$passing = array_filter($grades, fn ($grade) => $grade >= 75);\nasort($passing);\nforeach ($passing as $name => $grade) { echo \"$name: $grade\n\"; }\n",
+    "starter_php": "<?php\n// Advanced Array Operations\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Using sort() on named grades loses the name-to-grade mapping. Explain why your correction works.",
+    "activity": "Sort and filter a named grade list while retaining names. Demonstrate push, pop, merge, search, descending value sort, and key sort on copies.",
+    "expected_result": "Maria: 88\nAna: 95",
+    "important_notes": "Using sort() on named grades loses the name-to-grade mapping.",
+    "security_note": "Validate numeric grade values before comparing and sorting them.",
+    "challenge": "Summary: array_push()/array_pop() add/remove at the end.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: File Handling.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_FOREACH"
+        ],
+        "expected_output": "Maria: 88\nAna: 95"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which function sorts values and preserves their keys?",
+        "choices": [
+          "sort()",
+          "rsort()",
+          "array_pop()",
+          "asort()"
+        ],
+        "answer": 3,
+        "explanation": "array_push()/array_pop() add/remove at the end. array_merge() combines arrays and may renumber numeric keys. sort()/rsort() sort values and reset keys; asort() sorts values while retaining key associations; ksort() sorts keys. array_search() can return zero or false, requiring a strict comparison. array_filter() selects entries and retains their keys."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Maria: 88\nAna: 95",
+          "The literal PHP source is printed"
+        ],
+        "answer": 2,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Advanced Array Operations?",
+        "choices": [
+          "Delete the existing course records",
+          "Using sort() on named grades loses the name-to-grade mapping.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs"
+        ],
+        "answer": 1,
+        "explanation": "Common error: Using sort() on named grades loses the name-to-grade mapping."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Validate numeric grade values before comparing and sorting them.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server"
+        ],
+        "answer": 0,
+        "explanation": "Validate numeric grade values before comparing and sorting them."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Sort and filter a named grade list while retaining names. Demonstrate push, pop, merge, search, descending value sort, and key sort on copies."
+        ],
+        "answer": 3,
+        "explanation": "Apply the lesson’s concepts: push/pop; merge/search; sort/rsort/asort/ksort; filter; iteration."
+      }
+    ]
+  },
+  {
+    "title": "File Handling",
+    "level": "Intermediate",
+    "position": 15,
+    "objectives": [
+      "Explain how fopen/fwrite/fread/fgets/fclose supports this lesson’s program.",
+      "Create a working solution for File Handling.",
+      "Debug this common error: Using w when you intended to append, or ignoring a failed fopen()."
+    ],
+    "introduction": "File Handling develops fopen/fwrite/fread/fgets/fclose; append; permissions; safe paths. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: fopen/fwrite/fread/fgets/fclose; append; permissions; safe paths.\n\nfopen() opens a file in a mode: r reads, w truncates/writes, and a appends. Check the returned handle before using it. fwrite() writes bytes; fread() reads a chosen length; fgets() reads a line; fclose() releases the handle. Permissions determine who may access files. All paths here belong to a temporary virtual filesystem discarded after Run, not the CodeLab server.",
+    "syntax": "<?php\n$file = fopen(\"/workspace/students.txt\", \"w\");\nif ($file === false) { throw new RuntimeException(\"Cannot open file\"); }\nfwrite($file, \"Maria,88\n\");\nfclose($file);\n$file = fopen(\"/workspace/students.txt\", \"r\");\necho fgets($file);\nfclose($file);\n",
+    "example_php": "<?php\n$file = fopen(\"/workspace/students.txt\", \"w\");\nif ($file === false) { throw new RuntimeException(\"Cannot open file\"); }\nfwrite($file, \"Maria,88\n\");\nfclose($file);\n$file = fopen(\"/workspace/students.txt\", \"r\");\necho fgets($file);\nfclose($file);\n",
+    "starter_php": "<?php\n// File Handling\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Using w when you intended to append, or ignoring a failed fopen(). Explain why your correction works.",
+    "activity": "Write two student records to a sandbox-local text file, append a third, then read records back with fgets(). Check failures and close handles. Explain fread() and file permissions.",
+    "expected_result": "Maria,88",
+    "important_notes": "Using w when you intended to append, or ignoring a failed fopen().",
+    "security_note": "Use fixed allowed paths. Never accept arbitrary filenames or expose sensitive records in a public directory.",
+    "challenge": "Summary: fopen() opens a file in a mode: r reads, w truncates/writes, and a appends.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Sessions and Cookies.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_IF"
+        ],
+        "expected_output": "Maria,88"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which fopen() mode appends without truncating existing content?",
+        "choices": [
+          "r",
+          "x",
+          "a",
+          "w"
+        ],
+        "answer": 2,
+        "explanation": "fopen() opens a file in a mode: r reads, w truncates/writes, and a appends. Check the returned handle before using it. fwrite() writes bytes; fread() reads a chosen length; fgets() reads a line; fclose() releases the handle. Permissions determine who may access files. All paths here belong to a temporary virtual filesystem discarded after Run, not the CodeLab server."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "All student records in CodeLab are deleted",
+          "Maria,88",
+          "The literal PHP source is printed",
+          "No output is possible from PHP"
+        ],
+        "answer": 1,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging File Handling?",
+        "choices": [
+          "Using w when you intended to append, or ignoring a failed fopen().",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records"
+        ],
+        "answer": 0,
+        "explanation": "Common error: Using w when you intended to append, or ignoring a failed fopen()."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Use fixed allowed paths. Never accept arbitrary filenames or expose sensitive records in a public directory."
+        ],
+        "answer": 3,
+        "explanation": "Use fixed allowed paths. Never accept arbitrary filenames or expose sensitive records in a public directory."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Write two student records to a sandbox-local text file, append a third, then read records back with fgets(). Check failures and close handles. Explain fread() and file permissions.",
+          "Only change the CodeLab theme color"
+        ],
+        "answer": 2,
+        "explanation": "Apply the lesson’s concepts: fopen/fwrite/fread/fgets/fclose; append; permissions; safe paths."
+      }
+    ]
+  },
+  {
+    "title": "Sessions and Cookies",
+    "level": "Intermediate",
+    "position": 16,
+    "objectives": [
+      "Explain how session_start supports this lesson’s program.",
+      "Create a working solution for Sessions and Cookies.",
+      "Debug this common error: Sending output before session_start()/setcookie() or storing a trusted role in a client cookie."
+    ],
+    "introduction": "Sessions and Cookies develops session_start; read/write/unset/destroy; setcookie; expiration; login state. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: session_start; read/write/unset/destroy; setcookie; expiration; login state.\n\nsession_start() loads a server-side session associated with an identifier. Store values in SESSION, unset one to remove it, and destroy the session when logging out. setcookie() sends a response header; the browser returns the cookie on later requests, not the same request. Cookies are client-controlled; authenticated state belongs in a server-side session. Our runs are fresh: Request Data can supply a simulated session or cookie, and no CodeLab authentication state enters the lab.",
+    "syntax": "<?php\nsession_start();\n$_SESSION[\"name\"] = $_POST[\"name\"] ?? \"Maria\";\necho \"Welcome \" . htmlspecialchars($_SESSION[\"name\"], ENT_QUOTES, \"UTF-8\");\n",
+    "example_php": "<?php\nsession_start();\n$_SESSION[\"name\"] = $_POST[\"name\"] ?? \"Maria\";\necho \"Welcome \" . htmlspecialchars($_SESSION[\"name\"], ENT_QUOTES, \"UTF-8\");\n",
+    "starter_php": "<?php\n// Sessions and Cookies\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Sending output before session_start()/setcookie() or storing a trusted role in a client cookie. Explain why your correction works.",
+    "activity": "Create a remember-name page, a greeting page, and a logout branch in comments or functions. Simulate separate requests with session input; show a non-sensitive preference cookie with expiration and explain why a newly set cookie is not in COOKIE immediately.",
+    "expected_result": "Welcome Maria",
+    "important_notes": "Sending output before session_start()/setcookie() or storing a trusted role in a client cookie.",
+    "security_note": "Use Secure, HttpOnly, SameSite cookies over HTTPS; regenerate the session ID on login and invalidate the old session at logout.",
+    "challenge": "Summary: session_start() loads a server-side session associated with an identifier.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Date and Time.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ECHO"
+        ]
+      }
+    },
+    "quiz": [
+      {
+        "question": "Where should sensitive authenticated state usually be stored?",
+        "choices": [
+          "Public HTML comments",
+          "A server-side session",
+          "A plain client-editable role cookie",
+          "The URL password parameter"
+        ],
+        "answer": 1,
+        "explanation": "session_start() loads a server-side session associated with an identifier. Store values in SESSION, unset one to remove it, and destroy the session when logging out. setcookie() sends a response header; the browser returns the cookie on later requests, not the same request. Cookies are client-controlled; authenticated state belongs in a server-side session. Our runs are fresh: Request Data can supply a simulated session or cookie, and no CodeLab authentication state enters the lab."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "Welcome Maria",
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted"
+        ],
+        "answer": 0,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Sessions and Cookies?",
+        "choices": [
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Sending output before session_start()/setcookie() or storing a trusted role in a client cookie."
+        ],
+        "answer": 3,
+        "explanation": "Common error: Sending output before session_start()/setcookie() or storing a trusted role in a client cookie."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Use Secure, HttpOnly, SameSite cookies over HTTPS; regenerate the session ID on login and invalidate the old session at logout.",
+          "Copy production credentials into the editor"
+        ],
+        "answer": 2,
+        "explanation": "Use Secure, HttpOnly, SameSite cookies over HTTPS; regenerate the session ID on login and invalidate the old session at logout."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Reset every student’s progress",
+          "Create a remember-name page, a greeting page, and a logout branch in comments or functions. Simulate separate requests with session input; show a non-sensitive preference cookie with expiration and explain why a newly set cookie is not in COOKIE immediately.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation"
+        ],
+        "answer": 1,
+        "explanation": "Apply the lesson’s concepts: session_start; read/write/unset/destroy; setcookie; expiration; login state."
+      }
+    ]
+  },
+  {
+    "title": "Date and Time",
+    "level": "Intermediate",
+    "position": 17,
+    "objectives": [
+      "Explain how date supports this lesson’s program.",
+      "Create a working solution for Date and Time.",
+      "Debug this common error: Ignoring the timezone or treating a failed strtotime() as a valid timestamp."
+    ],
+    "introduction": "Date and Time develops date; time; unix timestamps; strtotime; calculations; datetime. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: date; time; Unix timestamps; strtotime; calculations; DateTime.\n\ntime() gives seconds since the Unix epoch. date() formats a timestamp using the configured timezone. strtotime() parses a supported textual date and may return false. DateTimeImmutable represents a date without mutating the original; diff() computes a calendar interval. Timezones and daylight-saving transitions matter, so a day is not always exactly 86400 elapsed seconds.",
+    "syntax": "<?php\ndate_default_timezone_set(\"Asia/Manila\");\n$enrolled = new DateTimeImmutable(\"2026-08-01\");\n$review = new DateTimeImmutable(\"2026-08-11\");\necho $enrolled->format(\"Y-m-d\") . \" | \" . $enrolled->diff($review)->days . \" days\";\n",
+    "example_php": "<?php\ndate_default_timezone_set(\"Asia/Manila\");\n$enrolled = new DateTimeImmutable(\"2026-08-01\");\n$review = new DateTimeImmutable(\"2026-08-11\");\necho $enrolled->format(\"Y-m-d\") . \" | \" . $enrolled->diff($review)->days . \" days\";\n",
+    "starter_php": "<?php\n// Date and Time\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Ignoring the timezone or treating a failed strtotime() as a valid timestamp. Explain why your correction works.",
+    "activity": "Display the current date/time, a fixed enrollment date, and days between two dates. Compare date(), time(), strtotime(), and DateTimeImmutable; test invalid input and state the timezone.",
+    "expected_result": "2026-08-01 | 10 days",
+    "important_notes": "Ignoring the timezone or treating a failed strtotime() as a valid timestamp.",
+    "security_note": "Validate date formats and do not use predictable timestamps as secret tokens.",
+    "challenge": "Summary: time() gives seconds since the Unix epoch.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Error Handling and Validation.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_NEW"
+        ],
+        "expected_output": "2026-08-01 | 10 days"
+      }
+    },
+    "quiz": [
+      {
+        "question": "What does time() return?",
+        "choices": [
+          "A Unix timestamp in seconds",
+          "A formatted HTML date",
+          "The current timezone name",
+          "An array of months"
+        ],
+        "answer": 0,
+        "explanation": "time() gives seconds since the Unix epoch. date() formats a timestamp using the configured timezone. strtotime() parses a supported textual date and may return false. DateTimeImmutable represents a date without mutating the original; diff() computes a calendar interval. Timezones and daylight-saving transitions matter, so a day is not always exactly 86400 elapsed seconds."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "2026-08-01 | 10 days"
+        ],
+        "answer": 3,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Date and Time?",
+        "choices": [
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Ignoring the timezone or treating a failed strtotime() as a valid timestamp.",
+          "PHP never needs debugging"
+        ],
+        "answer": 2,
+        "explanation": "Common error: Ignoring the timezone or treating a failed strtotime() as a valid timestamp."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Execute student code on the CodeLab server",
+          "Validate date formats and do not use predictable timestamps as secret tokens.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values"
+        ],
+        "answer": 1,
+        "explanation": "Validate date formats and do not use predictable timestamps as secret tokens."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Display the current date/time, a fixed enrollment date, and days between two dates. Compare date(), time(), strtotime(), and DateTimeImmutable; test invalid input and state the timezone.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress"
+        ],
+        "answer": 0,
+        "explanation": "Apply the lesson’s concepts: date; time; Unix timestamps; strtotime; calculations; DateTime."
+      }
+    ]
+  },
+  {
+    "title": "Error Handling and Validation",
+    "level": "Intermediate",
+    "position": 18,
+    "objectives": [
+      "Explain how syntax/runtime/logic supports this lesson’s program.",
+      "Create a working solution for Error Handling and Validation.",
+      "Debug this common error: Using empty() to reject a numeric value when zero is valid."
+    ],
+    "introduction": "Error Handling and Validation develops syntax/runtime/logic; isset; empty; filter_input; exceptions; try/catch/finally. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: syntax/runtime/logic; isset; empty; filter_input; exceptions; try/catch/finally.\n\nSyntax errors prevent parsing; runtime errors happen during execution; logical errors produce incorrect results without an exception. isset() rejects null/missing values; empty() also treats \"0\" as empty. filter_input() validates actual SAPI input; filter_var() is useful for already read or simulated values. Throw exceptions for exceptional failures, catch expected types for friendly errors, and use finally for cleanup.",
+    "syntax": "<?php\n$email = $_POST[\"email\"] ?? \"maria@example.test\";\ntry {\n    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) { throw new InvalidArgumentException(\"Invalid email\"); }\n    echo \"Email accepted\";\n} catch (InvalidArgumentException $error) { echo $error->getMessage(); }\n",
+    "example_php": "<?php\n$email = $_POST[\"email\"] ?? \"maria@example.test\";\ntry {\n    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) { throw new InvalidArgumentException(\"Invalid email\"); }\n    echo \"Email accepted\";\n} catch (InvalidArgumentException $error) { echo $error->getMessage(); }\n",
+    "starter_php": "<?php\n// Error Handling and Validation\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Using empty() to reject a numeric value when zero is valid. Explain why your correction works.",
+    "activity": "Validate required name, email, and year fields with field-specific errors. Demonstrate isset(), the \"0\" empty() pitfall, filter_input() in a real request, and try/catch/finally. Use filter_var() for simulated Request Data.",
+    "expected_result": "Email accepted",
+    "important_notes": "Using empty() to reject a numeric value when zero is valid.",
+    "security_note": "Show friendly errors to users; log diagnostic details privately and disable error display in production.",
+    "challenge": "Summary: Syntax errors prevent parsing; runtime errors happen during execution; logical errors produce incorrect results without an exception.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Introduction to MySQL with PHP.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_TRY"
+        ],
+        "expected_output": "Email accepted"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which function validates a value that has already been read into a variable?",
+        "choices": [
+          "echo()",
+          "session_start()",
+          "array_pop()",
+          "filter_var()"
+        ],
+        "answer": 3,
+        "explanation": "Syntax errors prevent parsing; runtime errors happen during execution; logical errors produce incorrect results without an exception. isset() rejects null/missing values; empty() also treats \"0\" as empty. filter_input() validates actual SAPI input; filter_var() is useful for already read or simulated values. Throw exceptions for exceptional failures, catch expected types for friendly errors, and use finally for cleanup."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Email accepted",
+          "The literal PHP source is printed"
+        ],
+        "answer": 2,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Error Handling and Validation?",
+        "choices": [
+          "Delete the existing course records",
+          "Using empty() to reject a numeric value when zero is valid.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs"
+        ],
+        "answer": 1,
+        "explanation": "Common error: Using empty() to reject a numeric value when zero is valid."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Show friendly errors to users; log diagnostic details privately and disable error display in production.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server"
+        ],
+        "answer": 0,
+        "explanation": "Show friendly errors to users; log diagnostic details privately and disable error display in production."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Validate required name, email, and year fields with field-specific errors. Demonstrate isset(), the \"0\" empty() pitfall, filter_input() in a real request, and try/catch/finally. Use filter_var() for simulated Request Data."
+        ],
+        "answer": 3,
+        "explanation": "Apply the lesson’s concepts: syntax/runtime/logic; isset; empty; filter_input; exceptions; try/catch/finally."
+      }
+    ]
+  },
+  {
+    "title": "Introduction to MySQL with PHP",
+    "level": "Intermediate",
+    "position": 19,
+    "objectives": [
+      "Explain how tables/rows/columns/primary keys supports this lesson’s program.",
+      "Create a working solution for Introduction to MySQL with PHP.",
+      "Debug this common error: Putting real production credentials in a lesson or confusing a DSN with an SQL query."
+    ],
+    "introduction": "Introduction to MySQL with PHP develops tables/rows/columns/primary keys; pdo; dsn; select; fetch. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: tables/rows/columns/primary keys; PDO; DSN; SELECT; fetch.\n\nA relational database stores rows in tables, with columns defining fields and a primary key identifying each record. PDO provides a common PHP database API. A MySQL DSN looks like mysql:host=SANDBOX_HOST;dbname=student_lab;charset=utf8mb4; credentials must come from a secure server configuration, never CodeLab production. The browser lab provides a temporary PDO SQLite database to practice portable SQL and result fetching; it is explicitly not a MySQL server.",
+    "syntax": "<?php\n$db = new PDO(\"sqlite:/workspace/student-lab.sqlite\");\n$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n$records = $db->query(\"SELECT student_number, first_name FROM students ORDER BY id\")->fetchAll(PDO::FETCH_ASSOC);\nforeach ($records as $row) { echo $row[\"student_number\"] . \" | \" . $row[\"first_name\"] . \"\n\"; }\n",
+    "example_php": "<?php\n$db = new PDO(\"sqlite:/workspace/student-lab.sqlite\");\n$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n$records = $db->query(\"SELECT student_number, first_name FROM students ORDER BY id\")->fetchAll(PDO::FETCH_ASSOC);\nforeach ($records as $row) { echo $row[\"student_number\"] . \" | \" . $row[\"first_name\"] . \"\n\"; }\n",
+    "starter_php": "<?php\n// Introduction to MySQL with PHP\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Putting real production credentials in a lesson or confusing a DSN with an SQL query. Explain why your correction works.",
+    "activity": "Read student records from the isolated teaching database with PDO and FETCH_ASSOC. Write the equivalent MySQL DSN using placeholder configuration values in a comment. Identify primary key, columns, and rows.",
+    "expected_result": "2026-001 | Maria\n2026-002 | Jose",
+    "important_notes": "Putting real production credentials in a lesson or confusing a DSN with an SQL query.",
+    "security_note": "Use a separate least-privilege teaching database; never connect student code to the application database.",
+    "challenge": "Summary: A relational database stores rows in tables, with columns defining fields and a primary key identifying each record.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Intermediate Project — Student Record Management System.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_NEW"
+        ],
+        "expected_output": "2026-001 | Maria\n2026-002 | Jose"
+      }
+    },
+    "quiz": [
+      {
+        "question": "What is the role of a primary key?",
+        "choices": [
+          "Stores the database password",
+          "Automatically escapes HTML",
+          "Uniquely identifies a row",
+          "Encrypts every column"
+        ],
+        "answer": 2,
+        "explanation": "A relational database stores rows in tables, with columns defining fields and a primary key identifying each record. PDO provides a common PHP database API. A MySQL DSN looks like mysql:host=SANDBOX_HOST;dbname=student_lab;charset=utf8mb4; credentials must come from a secure server configuration, never CodeLab production. The browser lab provides a temporary PDO SQLite database to practice portable SQL and result fetching; it is explicitly not a MySQL server."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "All student records in CodeLab are deleted",
+          "2026-001 | Maria\n2026-002 | Jose",
+          "The literal PHP source is printed",
+          "No output is possible from PHP"
+        ],
+        "answer": 1,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Introduction to MySQL with PHP?",
+        "choices": [
+          "Putting real production credentials in a lesson or confusing a DSN with an SQL query.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records"
+        ],
+        "answer": 0,
+        "explanation": "Common error: Putting real production credentials in a lesson or confusing a DSN with an SQL query."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Use a separate least-privilege teaching database; never connect student code to the application database."
+        ],
+        "answer": 3,
+        "explanation": "Use a separate least-privilege teaching database; never connect student code to the application database."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Read student records from the isolated teaching database with PDO and FETCH_ASSOC. Write the equivalent MySQL DSN using placeholder configuration values in a comment. Identify primary key, columns, and rows.",
+          "Only change the CodeLab theme color"
+        ],
+        "answer": 2,
+        "explanation": "Apply the lesson’s concepts: tables/rows/columns/primary keys; PDO; DSN; SELECT; fetch."
+      }
+    ]
+  },
+  {
+    "title": "Intermediate Project — Student Record Management System",
+    "level": "Intermediate",
+    "position": 20,
+    "objectives": [
+      "Explain how student CRUD/search supports this lesson’s program.",
+      "Create a working solution for Student Record Management System.",
+      "Debug this common error: Concatenating search input into SQL or deleting a record through a GET link."
+    ],
+    "introduction": "Intermediate Project — Student Record Management System develops student crud/search; pdo/prepared statements; forms; session; errors. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: student CRUD/search; PDO/prepared statements; forms; session; errors.\n\nBuild a core PHP Student Record Management System with add, list, search, edit, and delete actions. Keep validation and database queries separate from presentation. Every user value belongs in a prepared-statement parameter, not concatenated SQL. Practice individual operations with the temporary teaching database; develop the complete multi-page MySQL project in a separately provisioned educational environment.",
+    "syntax": "<?php\n$db = new PDO(\"sqlite:/workspace/student-lab.sqlite\");\n$query = $db->prepare(\"SELECT student_number, first_name FROM students WHERE first_name LIKE :name\");\n$query->execute([\"name\" => \"%Maria%\"]);\nforeach ($query->fetchAll(PDO::FETCH_ASSOC) as $student) { echo $student[\"student_number\"] . \" | \" . $student[\"first_name\"]; }\n",
+    "example_php": "<?php\n$db = new PDO(\"sqlite:/workspace/student-lab.sqlite\");\n$query = $db->prepare(\"SELECT student_number, first_name FROM students WHERE first_name LIKE :name\");\n$query->execute([\"name\" => \"%Maria%\"]);\nforeach ($query->fetchAll(PDO::FETCH_ASSOC) as $student) { echo $student[\"student_number\"] . \" | \" . $student[\"first_name\"]; }\n",
+    "starter_php": "<?php\n// Intermediate Project — Student Record Management System\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Concatenating search input into SQL or deleting a record through a GET link. Explain why your correction works.",
+    "activity": "Student Record Management System\nSchema: students(id primary key, student_number unique, first_name, last_name, course, year_level, email).\nMilestones: 1. Design the schema and navigation. 2. Add PDO connection configuration. 3. Create validated add/list forms. 4. Implement search and edit with prepared statements. 5. Add confirmed deletion via POST and CSRF. 6. Add a basic session login if assigned. 7. Test and document.\nSample UI: search bar; student table with number/name/course/year/email; Add, Edit, and Delete controls; friendly errors.\nUse MySQL only in a separate teacher-provisioned environment. Submit the PHP entry script and SQL schema/test evidence in source comments; an optional repository URL can be included in comments. Never include credentials.",
+    "expected_result": "2026-001 | Maria",
+    "important_notes": "Concatenating search input into SQL or deleting a record through a GET link.",
+    "security_note": "Use prepared statements, validate identifiers, escape output, protect writes with CSRF, and keep errors free of credentials.",
+    "challenge": "Summary: Build a core PHP Student Record Management System with add, list, search, edit, and delete actions.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Object-Oriented PHP.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": true,
+    "rubric": {
+      "Program Functionality": 30,
+      "Correct Use of PHP Concepts": 20,
+      "Database Implementation": 15,
+      "Security and Validation": 15,
+      "Code Organization": 10,
+      "User Interface / Usability": 5,
+      "Testing and Documentation": 5
+    },
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_NEW"
+        ]
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which approach safely supplies a search value to SQL?",
+        "choices": [
+          "Put it in the DSN",
+          "Bind it through a prepared statement",
+          "Concatenate it into the SQL",
+          "Trust the form because it uses POST"
+        ],
+        "answer": 1,
+        "explanation": "Build a core PHP Student Record Management System with add, list, search, edit, and delete actions. Keep validation and database queries separate from presentation. Every user value belongs in a prepared-statement parameter, not concatenated SQL. Practice individual operations with the temporary teaching database; develop the complete multi-page MySQL project in a separately provisioned educational environment."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "2026-001 | Maria",
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted"
+        ],
+        "answer": 0,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Intermediate Project — Student Record Management System?",
+        "choices": [
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Concatenating search input into SQL or deleting a record through a GET link."
+        ],
+        "answer": 3,
+        "explanation": "Common error: Concatenating search input into SQL or deleting a record through a GET link."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Use prepared statements, validate identifiers, escape output, protect writes with CSRF, and keep errors free of credentials.",
+          "Copy production credentials into the editor"
+        ],
+        "answer": 2,
+        "explanation": "Use prepared statements, validate identifiers, escape output, protect writes with CSRF, and keep errors free of credentials."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Reset every student’s progress",
+          "Student Record Management System",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation"
+        ],
+        "answer": 1,
+        "explanation": "Apply the lesson’s concepts: student CRUD/search; PDO/prepared statements; forms; session; errors."
+      }
+    ]
+  },
+  {
+    "title": "Object-Oriented PHP",
+    "level": "Advanced",
+    "position": 21,
+    "objectives": [
+      "Explain how classes/objects supports this lesson’s program.",
+      "Create a working solution for Object-Oriented PHP.",
+      "Debug this common error: Forgetting $this-> when accessing an instance property or mixing class and object syntax."
+    ],
+    "introduction": "Object-Oriented PHP develops classes/objects; properties/methods; constructors; $this; state. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: classes/objects; properties/methods; constructors; $this; state.\n\nA class defines properties and methods; an object is an instance with its own state. __construct() initializes that state. $this refers to the current object. Constructor property promotion, supported by PHP 8+, declares and initializes properties concisely. Use typed methods to express behavior, and keep validation near the state it protects.",
+    "syntax": "<?php\nclass Student {\n    public function __construct(public string $name, public float $grade) {}\n    public function summary(): string { return \"$this->name: $this->grade\"; }\n}\n$student = new Student(\"Maria\", 88.5);\necho $student->summary();\n",
+    "example_php": "<?php\nclass Student {\n    public function __construct(public string $name, public float $grade) {}\n    public function summary(): string { return \"$this->name: $this->grade\"; }\n}\n$student = new Student(\"Maria\", 88.5);\necho $student->summary();\n",
+    "starter_php": "<?php\n// Object-Oriented PHP\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Forgetting $this-> when accessing an instance property or mixing class and object syntax. Explain why your correction works.",
+    "activity": "Create a Student class with constructor, name/grade state, summary(), and passed() methods. Instantiate two students and show that their state is independent.",
+    "expected_result": "Maria: 88.5",
+    "important_notes": "Forgetting $this-> when accessing an instance property or mixing class and object syntax.",
+    "security_note": "Validate constructor inputs and avoid public properties for sensitive mutable state.",
+    "challenge": "Summary: A class defines properties and methods; an object is an instance with its own state.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Inheritance and Polymorphism.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_CLASS"
+        ],
+        "expected_output": "Maria: 88.5"
+      }
+    },
+    "quiz": [
+      {
+        "question": "What does $this refer to inside an instance method?",
+        "choices": [
+          "The current object",
+          "Every object in the program",
+          "A global database connection",
+          "The parent HTTP request"
+        ],
+        "answer": 0,
+        "explanation": "A class defines properties and methods; an object is an instance with its own state. __construct() initializes that state. $this refers to the current object. Constructor property promotion, supported by PHP 8+, declares and initializes properties concisely. Use typed methods to express behavior, and keep validation near the state it protects."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Maria: 88.5"
+        ],
+        "answer": 3,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Object-Oriented PHP?",
+        "choices": [
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Forgetting $this-> when accessing an instance property or mixing class and object syntax.",
+          "PHP never needs debugging"
+        ],
+        "answer": 2,
+        "explanation": "Common error: Forgetting $this-> when accessing an instance property or mixing class and object syntax."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Execute student code on the CodeLab server",
+          "Validate constructor inputs and avoid public properties for sensitive mutable state.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values"
+        ],
+        "answer": 1,
+        "explanation": "Validate constructor inputs and avoid public properties for sensitive mutable state."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Create a Student class with constructor, name/grade state, summary(), and passed() methods. Instantiate two students and show that their state is independent.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress"
+        ],
+        "answer": 0,
+        "explanation": "Apply the lesson’s concepts: classes/objects; properties/methods; constructors; $this; state."
+      }
+    ]
+  },
+  {
+    "title": "Inheritance and Polymorphism",
+    "level": "Advanced",
+    "position": 22,
+    "objectives": [
+      "Explain how parent/child supports this lesson’s program.",
+      "Create a working solution for Inheritance and Polymorphism.",
+      "Debug this common error: Changing an overridden method to an incompatible parameter or return type."
+    ],
+    "introduction": "Inheritance and Polymorphism develops parent/child; extends; overriding; parent; reuse; polymorphism. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: parent/child; extends; overriding; parent; reuse; polymorphism.\n\nInheritance lets a child extend a parent class and reuse behavior. A child can override a method with a compatible signature. parent:: calls the parent implementation. Polymorphism lets code call the same method on different subclasses and receive specialized behavior. Favor inheritance for a true is-a relationship rather than merely sharing unrelated code.",
+    "syntax": "<?php\nclass Person { public function role(): string { return \"Person\"; } }\nclass Student extends Person { public function role(): string { return \"Student\"; } }\nclass Teacher extends Person { public function role(): string { return \"Teacher\"; } }\nforeach ([new Student(), new Teacher()] as $person) { echo $person->role() . \"\n\"; }\n",
+    "example_php": "<?php\nclass Person { public function role(): string { return \"Person\"; } }\nclass Student extends Person { public function role(): string { return \"Student\"; } }\nclass Teacher extends Person { public function role(): string { return \"Teacher\"; } }\nforeach ([new Student(), new Teacher()] as $person) { echo $person->role() . \"\n\"; }\n",
+    "starter_php": "<?php\n// Inheritance and Polymorphism\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Changing an overridden method to an incompatible parameter or return type. Explain why your correction works.",
+    "activity": "Create Person, Student, and Teacher classes with shared name state and specialized introduction() methods. Use parent::__construct() and iterate over both child objects through a common method.",
+    "expected_result": "Student\nTeacher",
+    "important_notes": "Changing an overridden method to an incompatible parameter or return type.",
+    "security_note": "A class named Admin is not authorization; enforce permissions using trusted authenticated identity.",
+    "challenge": "Summary: Inheritance lets a child extend a parent class and reuse behavior.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Encapsulation, Interfaces, and Traits.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_EXTENDS"
+        ],
+        "expected_output": "Student\nTeacher"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which keyword declares a child class?",
+        "choices": [
+          "implements-only",
+          "inherits()",
+          "parent()",
+          "extends"
+        ],
+        "answer": 3,
+        "explanation": "Inheritance lets a child extend a parent class and reuse behavior. A child can override a method with a compatible signature. parent:: calls the parent implementation. Polymorphism lets code call the same method on different subclasses and receive specialized behavior. Favor inheritance for a true is-a relationship rather than merely sharing unrelated code."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Student\nTeacher",
+          "The literal PHP source is printed"
+        ],
+        "answer": 2,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Inheritance and Polymorphism?",
+        "choices": [
+          "Delete the existing course records",
+          "Changing an overridden method to an incompatible parameter or return type.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs"
+        ],
+        "answer": 1,
+        "explanation": "Common error: Changing an overridden method to an incompatible parameter or return type."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "A class named Admin is not authorization; enforce permissions using trusted authenticated identity.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server"
+        ],
+        "answer": 0,
+        "explanation": "A class named Admin is not authorization; enforce permissions using trusted authenticated identity."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Create Person, Student, and Teacher classes with shared name state and specialized introduction() methods. Use parent::__construct() and iterate over both child objects through a common method."
+        ],
+        "answer": 3,
+        "explanation": "Apply the lesson’s concepts: parent/child; extends; overriding; parent; reuse; polymorphism."
+      }
+    ]
+  },
+  {
+    "title": "Encapsulation, Interfaces, and Traits",
+    "level": "Advanced",
+    "position": 23,
+    "objectives": [
+      "Explain how public/private/protected supports this lesson’s program.",
+      "Create a working solution for Encapsulation, Interfaces, and Traits.",
+      "Debug this common error: Treating an interface as an instantiable class or modifying a private property from outside."
+    ],
+    "introduction": "Encapsulation, Interfaces, and Traits develops public/private/protected; getters/setters; interfaces; implements; traits/use. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: public/private/protected; getters/setters; interfaces; implements; traits/use.\n\nEncapsulation controls access to state: public is externally accessible; protected is available to the class and descendants; private belongs to its declaring class. A getter reads state and a validated setter changes it. Interfaces define method contracts that implementing classes must fulfill. Traits reuse method implementations without a parent-child relationship.",
+    "syntax": "<?php\ninterface Describable { public function describe(): string; }\ntrait Greeting { public function greet(): string { return \"Hello\"; } }\nclass Student implements Describable {\n    use Greeting;\n    private string $name = \"Maria\";\n    public function describe(): string { return $this->greet() . \" \" . $this->name; }\n}\necho (new Student())->describe();\n",
+    "example_php": "<?php\ninterface Describable { public function describe(): string; }\ntrait Greeting { public function greet(): string { return \"Hello\"; } }\nclass Student implements Describable {\n    use Greeting;\n    private string $name = \"Maria\";\n    public function describe(): string { return $this->greet() . \" \" . $this->name; }\n}\necho (new Student())->describe();\n",
+    "starter_php": "<?php\n// Encapsulation, Interfaces, and Traits\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Treating an interface as an instantiable class or modifying a private property from outside. Explain why your correction works.",
+    "activity": "Implement a shared interface in Student and Teacher, add a greeting trait, and protect a grade property with a setter that rejects values outside 0–100.",
+    "expected_result": "Hello Maria",
+    "important_notes": "Treating an interface as an instantiable class or modifying a private property from outside.",
+    "security_note": "Keep validated state behind methods; visibility alone does not validate user input.",
+    "challenge": "Summary: Encapsulation controls access to state: public is externally accessible; protected is available to the class and descendants; private belongs to its declaring class.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Advanced Database Programming with PDO.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_INTERFACE"
+        ],
+        "expected_output": "Hello Maria"
+      }
+    },
+    "quiz": [
+      {
+        "question": "What does an interface primarily define?",
+        "choices": [
+          "A browser window",
+          "A list of session cookies",
+          "A contract of required methods",
+          "A database table"
+        ],
+        "answer": 2,
+        "explanation": "Encapsulation controls access to state: public is externally accessible; protected is available to the class and descendants; private belongs to its declaring class. A getter reads state and a validated setter changes it. Interfaces define method contracts that implementing classes must fulfill. Traits reuse method implementations without a parent-child relationship."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "All student records in CodeLab are deleted",
+          "Hello Maria",
+          "The literal PHP source is printed",
+          "No output is possible from PHP"
+        ],
+        "answer": 1,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Encapsulation, Interfaces, and Traits?",
+        "choices": [
+          "Treating an interface as an instantiable class or modifying a private property from outside.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records"
+        ],
+        "answer": 0,
+        "explanation": "Common error: Treating an interface as an instantiable class or modifying a private property from outside."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Keep validated state behind methods; visibility alone does not validate user input."
+        ],
+        "answer": 3,
+        "explanation": "Keep validated state behind methods; visibility alone does not validate user input."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Implement a shared interface in Student and Teacher, add a greeting trait, and protect a grade property with a setter that rejects values outside 0–100.",
+          "Only change the CodeLab theme color"
+        ],
+        "answer": 2,
+        "explanation": "Apply the lesson’s concepts: public/private/protected; getters/setters; interfaces; implements; traits/use."
+      }
+    ]
+  },
+  {
+    "title": "Advanced Database Programming with PDO",
+    "level": "Advanced",
+    "position": 24,
+    "objectives": [
+      "Explain how named/positional placeholders supports this lesson’s program.",
+      "Create a working solution for Advanced Database Programming with PDO.",
+      "Debug this common error: Trying to bind a table name or committing after one of the required writes failed."
+    ],
+    "introduction": "Advanced Database Programming with PDO develops named/positional placeholders; bind; transactions; commit/rollback; fetch; errors. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: named/positional placeholders; bind; transactions; commit/rollback; fetch; errors.\n\nprepare() separates SQL structure from values. Bind values using named or positional placeholders; identifiers such as table names require an allowlist rather than value binding. Transactions group related writes: beginTransaction(), commit(), and rollBack(). Catch exceptions, roll back if still in a transaction, and show a friendly error. FETCH_ASSOC returns column-name keys.",
+    "syntax": "<?php\n$db = new PDO(\"sqlite:/workspace/student-lab.sqlite\");\n$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n$db->beginTransaction();\ntry {\n    $query = $db->prepare(\"UPDATE students SET year_level = :year WHERE student_number = :number\");\n    $query->execute([\"year\" => 2, \"number\" => \"2026-001\"]);\n    $db->commit();\n    echo \"Updated: \" . $query->rowCount();\n} catch (PDOException $error) { if ($db->inTransaction()) { $db->rollBack(); } echo \"Update failed\"; }\n",
+    "example_php": "<?php\n$db = new PDO(\"sqlite:/workspace/student-lab.sqlite\");\n$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n$db->beginTransaction();\ntry {\n    $query = $db->prepare(\"UPDATE students SET year_level = :year WHERE student_number = :number\");\n    $query->execute([\"year\" => 2, \"number\" => \"2026-001\"]);\n    $db->commit();\n    echo \"Updated: \" . $query->rowCount();\n} catch (PDOException $error) { if ($db->inTransaction()) { $db->rollBack(); } echo \"Update failed\"; }\n",
+    "starter_php": "<?php\n// Advanced Database Programming with PDO\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Trying to bind a table name or committing after one of the required writes failed. Explain why your correction works.",
+    "activity": "Implement secure create/read/update/delete functions, demonstrate named and positional parameters, and perform a two-write transaction. Deliberately trigger a constraint error to verify rollback leaves records unchanged.",
+    "expected_result": "Updated: 1",
+    "important_notes": "Trying to bind a table name or committing after one of the required writes failed.",
+    "security_note": "Allowlist dynamic identifiers; use bound values, least privilege, and private diagnostic logs.",
+    "challenge": "Summary: prepare() separates SQL structure from values.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Authentication and Authorization.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_TRY"
+        ],
+        "expected_output": "Updated: 1"
+      }
+    },
+    "quiz": [
+      {
+        "question": "What does rollBack() do to an active transaction?",
+        "choices": [
+          "Restarts the browser",
+          "Reverts its uncommitted changes",
+          "Deletes the entire database",
+          "Commits every pending change"
+        ],
+        "answer": 1,
+        "explanation": "prepare() separates SQL structure from values. Bind values using named or positional placeholders; identifiers such as table names require an allowlist rather than value binding. Transactions group related writes: beginTransaction(), commit(), and rollBack(). Catch exceptions, roll back if still in a transaction, and show a friendly error. FETCH_ASSOC returns column-name keys."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "Updated: 1",
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted"
+        ],
+        "answer": 0,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Advanced Database Programming with PDO?",
+        "choices": [
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Trying to bind a table name or committing after one of the required writes failed."
+        ],
+        "answer": 3,
+        "explanation": "Common error: Trying to bind a table name or committing after one of the required writes failed."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Allowlist dynamic identifiers; use bound values, least privilege, and private diagnostic logs.",
+          "Copy production credentials into the editor"
+        ],
+        "answer": 2,
+        "explanation": "Allowlist dynamic identifiers; use bound values, least privilege, and private diagnostic logs."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Reset every student’s progress",
+          "Implement secure create/read/update/delete functions, demonstrate named and positional parameters, and perform a two-write transaction. Deliberately trigger a constraint error to verify rollback leaves records unchanged.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation"
+        ],
+        "answer": 1,
+        "explanation": "Apply the lesson’s concepts: named/positional placeholders; bind; transactions; commit/rollback; fetch; errors."
+      }
+    ]
+  },
+  {
+    "title": "Authentication and Authorization",
+    "level": "Advanced",
+    "position": 25,
+    "objectives": [
+      "Explain how register/login/logout supports this lesson’s program.",
+      "Create a working solution for Authentication and Authorization.",
+      "Debug this common error: Storing plain-text passwords or treating a hidden admin button as authorization."
+    ],
+    "introduction": "Authentication and Authorization develops register/login/logout; password_hash/verify; sessions; regeneration; roles. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: register/login/logout; password_hash/verify; sessions; regeneration; roles.\n\nAuthentication establishes identity; authorization decides what that identity may do. Hash registration passwords with password_hash(..., PASSWORD_DEFAULT) and verify login attempts with password_verify(). Use a password column long enough for evolving hashes, typically VARCHAR(255). On successful login regenerate the session identifier and store only the user ID and trusted role. Enforce Admin/Teacher/Student permissions on each protected action and clear session state on logout.",
+    "syntax": "<?php\n$hash = password_hash(\"practice-only-password\", PASSWORD_DEFAULT);\n$verified = password_verify(\"practice-only-password\", $hash);\necho $verified ? \"Password verified\" : \"Login failed\";\n",
+    "example_php": "<?php\n$hash = password_hash(\"practice-only-password\", PASSWORD_DEFAULT);\n$verified = password_verify(\"practice-only-password\", $hash);\necho $verified ? \"Password verified\" : \"Login failed\";\n",
+    "starter_php": "<?php\n// Authentication and Authorization\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Storing plain-text passwords or treating a hidden admin button as authorization. Explain why your correction works.",
+    "activity": "Write registration, login, and logout functions with hashed passwords and session-ID regeneration. Define Admin, Teacher, and Student permissions and reject an authenticated student who requests an admin action.",
+    "expected_result": "Password verified",
+    "important_notes": "Storing plain-text passwords or treating a hidden admin button as authorization.",
+    "security_note": "Use generic login errors, rate limits, HTTPS, secure cookies, and CSRF protection. Never submit real passwords in lab examples.",
+    "challenge": "Summary: Authentication establishes identity; authorization decides what that identity may do.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: File Uploads.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ECHO"
+        ],
+        "expected_output": "Password verified"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which PHP function verifies a password against its stored hash?",
+        "choices": [
+          "password_verify()",
+          "md5($password) === $password",
+          "strcmp() with plain text",
+          "base64_decode()"
+        ],
+        "answer": 0,
+        "explanation": "Authentication establishes identity; authorization decides what that identity may do. Hash registration passwords with password_hash(..., PASSWORD_DEFAULT) and verify login attempts with password_verify(). Use a password column long enough for evolving hashes, typically VARCHAR(255). On successful login regenerate the session identifier and store only the user ID and trusted role. Enforce Admin/Teacher/Student permissions on each protected action and clear session state on logout."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Password verified"
+        ],
+        "answer": 3,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Authentication and Authorization?",
+        "choices": [
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Storing plain-text passwords or treating a hidden admin button as authorization.",
+          "PHP never needs debugging"
+        ],
+        "answer": 2,
+        "explanation": "Common error: Storing plain-text passwords or treating a hidden admin button as authorization."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Execute student code on the CodeLab server",
+          "Use generic login errors, rate limits, HTTPS, secure cookies, and CSRF protection. Never submit real passwords in lab examples.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values"
+        ],
+        "answer": 1,
+        "explanation": "Use generic login errors, rate limits, HTTPS, secure cookies, and CSRF protection. Never submit real passwords in lab examples."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Write registration, login, and logout functions with hashed passwords and session-ID regeneration. Define Admin, Teacher, and Student permissions and reject an authenticated student who requests an admin action.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress"
+        ],
+        "answer": 0,
+        "explanation": "Apply the lesson’s concepts: register/login/logout; password_hash/verify; sessions; regeneration; roles."
+      }
+    ]
+  },
+  {
+    "title": "File Uploads",
+    "level": "Advanced",
+    "position": 26,
+    "objectives": [
+      "Explain how multipart supports this lesson’s program.",
+      "Create a working solution for File Uploads.",
+      "Debug this common error: Trusting .jpg in the submitted name without checking the actual content."
+    ],
+    "introduction": "File Uploads develops multipart; files; errors/size; mime; random names; nonpublic storage. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: multipart; FILES; errors/size; MIME; random names; nonpublic storage.\n\nUpload forms require multipart/form-data. FILES includes error, size, temporary path, and client name. Check UPLOAD_ERR_OK and an explicit size limit, then inspect content with finfo rather than trusting the extension or client-provided MIME type. Generate a random storage name and store outside an executable web directory. move_uploaded_file() checks a real upload; this lab supplies no real upload endpoint and uses sandbox-local sample bytes to practice MIME validation.",
+    "syntax": "<?php\n$bytes = \"plain-text sample\";\n$file = \"/workspace/upload-sample.txt\";\nfile_put_contents($file, $bytes);\n$mime = (new finfo(FILEINFO_MIME_TYPE))->file($file);\necho in_array($mime, [\"image/jpeg\", \"image/png\"], true) ? \"Image accepted\" : \"Rejected: not an allowed image\";\n",
+    "example_php": "<?php\n$bytes = \"plain-text sample\";\n$file = \"/workspace/upload-sample.txt\";\nfile_put_contents($file, $bytes);\n$mime = (new finfo(FILEINFO_MIME_TYPE))->file($file);\necho in_array($mime, [\"image/jpeg\", \"image/png\"], true) ? \"Image accepted\" : \"Rejected: not an allowed image\";\n",
+    "starter_php": "<?php\n// File Uploads\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Trusting .jpg in the submitted name without checking the actual content. Explain why your correction works.",
+    "activity": "Design a profile-image upload handler with multipart form, upload-error/size checks, MIME allowlist, random filename, and storage outside public execution. Test invalid sample bytes in the lab. Describe how a real teacher-provisioned server would use move_uploaded_file().",
+    "expected_result": "Rejected: not an allowed image",
+    "important_notes": "Trusting .jpg in the submitted name without checking the actual content.",
+    "security_note": "Reject executable files and oversized content. Store outside webroot with least privilege; serve approved images through a controlled response.",
+    "challenge": "Summary: Upload forms require multipart/form-data.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: JSON and APIs.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_NEW"
+        ],
+        "expected_output": "Rejected: not an allowed image"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Why is the submitted file extension insufficient for validation?",
+        "choices": [
+          "Extensions always contain encrypted MIME data",
+          "PHP forbids filenames",
+          "Every .jpg is automatically safe",
+          "An attacker can rename arbitrary content"
+        ],
+        "answer": 3,
+        "explanation": "Upload forms require multipart/form-data. FILES includes error, size, temporary path, and client name. Check UPLOAD_ERR_OK and an explicit size limit, then inspect content with finfo rather than trusting the extension or client-provided MIME type. Generate a random storage name and store outside an executable web directory. move_uploaded_file() checks a real upload; this lab supplies no real upload endpoint and uses sandbox-local sample bytes to practice MIME validation."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Rejected: not an allowed image",
+          "The literal PHP source is printed"
+        ],
+        "answer": 2,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging File Uploads?",
+        "choices": [
+          "Delete the existing course records",
+          "Trusting .jpg in the submitted name without checking the actual content.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs"
+        ],
+        "answer": 1,
+        "explanation": "Common error: Trusting .jpg in the submitted name without checking the actual content."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Reject executable files and oversized content. Store outside webroot with least privilege; serve approved images through a controlled response.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server"
+        ],
+        "answer": 0,
+        "explanation": "Reject executable files and oversized content. Store outside webroot with least privilege; serve approved images through a controlled response."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Design a profile-image upload handler with multipart form, upload-error/size checks, MIME allowlist, random filename, and storage outside public execution. Test invalid sample bytes in the lab. Describe how a real teacher-provisioned server would use move_uploaded_file()."
+        ],
+        "answer": 3,
+        "explanation": "Apply the lesson’s concepts: multipart; FILES; errors/size; MIME; random names; nonpublic storage."
+      }
+    ]
+  },
+  {
+    "title": "JSON and APIs",
+    "level": "Advanced",
+    "position": 27,
+    "objectives": [
+      "Explain how encode/decode supports this lesson’s program.",
+      "Create a working solution for JSON and APIs.",
+      "Debug this common error: Assuming decoding always succeeds or embedding a secret API key in browser code."
+    ],
+    "introduction": "JSON and APIs develops encode/decode; associative arrays; http requests/status; clients; simulated data. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: encode/decode; associative arrays; HTTP requests/status; clients; simulated data.\n\nJSON is a language-independent data format. json_encode() serializes PHP values and json_decode(..., true, ..., JSON_THROW_ON_ERROR) reads objects into associative arrays and reports invalid JSON. An API request specifies method, path, headers, and possibly a body; the response includes a status such as 200 success, 400 bad request, or 401 unauthenticated. cURL or a server-side HTTP client can make real requests, but this lab deliberately disables networking and uses a simulated response.",
+    "syntax": "<?php\n$json = '{\"students\":[{\"name\":\"Maria\",\"year\":1}]}';\n$data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);\necho $data[\"students\"][0][\"name\"] . \" | \" . $data[\"students\"][0][\"year\"];\n",
+    "example_php": "<?php\n$json = '{\"students\":[{\"name\":\"Maria\",\"year\":1}]}';\n$data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);\necho $data[\"students\"][0][\"name\"] . \" | \" . $data[\"students\"][0][\"year\"];\n",
+    "starter_php": "<?php\n// JSON and APIs\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Assuming decoding always succeeds or embedding a secret API key in browser code. Explain why your correction works.",
+    "activity": "Parse a simulated student API response, handle invalid JSON, display safely escaped HTML, and generate a JSON response. Document method/status/content-type choices and where an actual server-side API key would be configured.",
+    "expected_result": "Maria | 1",
+    "important_notes": "Assuming decoding always succeeds or embedding a secret API key in browser code.",
+    "security_note": "Validate API data, set sensible timeouts on real clients, and keep secret keys in server configuration.",
+    "challenge": "Summary: JSON is a language-independent data format.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: MVC and Application Structure.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ECHO"
+        ],
+        "expected_output": "Maria | 1"
+      }
+    },
+    "quiz": [
+      {
+        "question": "What does the true argument in json_decode($json, true) request?",
+        "choices": [
+          "A network connection",
+          "HTML rendering",
+          "Associative arrays for JSON objects",
+          "Automatic encryption"
+        ],
+        "answer": 2,
+        "explanation": "JSON is a language-independent data format. json_encode() serializes PHP values and json_decode(..., true, ..., JSON_THROW_ON_ERROR) reads objects into associative arrays and reports invalid JSON. An API request specifies method, path, headers, and possibly a body; the response includes a status such as 200 success, 400 bad request, or 401 unauthenticated. cURL or a server-side HTTP client can make real requests, but this lab deliberately disables networking and uses a simulated response."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "All student records in CodeLab are deleted",
+          "Maria | 1",
+          "The literal PHP source is printed",
+          "No output is possible from PHP"
+        ],
+        "answer": 1,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging JSON and APIs?",
+        "choices": [
+          "Assuming decoding always succeeds or embedding a secret API key in browser code.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records"
+        ],
+        "answer": 0,
+        "explanation": "Common error: Assuming decoding always succeeds or embedding a secret API key in browser code."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Validate API data, set sensible timeouts on real clients, and keep secret keys in server configuration."
+        ],
+        "answer": 3,
+        "explanation": "Validate API data, set sensible timeouts on real clients, and keep secret keys in server configuration."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "Parse a simulated student API response, handle invalid JSON, display safely escaped HTML, and generate a JSON response. Document method/status/content-type choices and where an actual server-side API key would be configured.",
+          "Only change the CodeLab theme color"
+        ],
+        "answer": 2,
+        "explanation": "Apply the lesson’s concepts: encode/decode; associative arrays; HTTP requests/status; clients; simulated data."
+      }
+    ]
+  },
+  {
+    "title": "MVC and Application Structure",
+    "level": "Advanced",
+    "position": 28,
+    "objectives": [
+      "Explain how Model/View/Controller supports this lesson’s program.",
+      "Create a working solution for MVC and Application Structure.",
+      "Debug this common error: Moving files without actually separating SQL, request handling, and rendering responsibilities."
+    ],
+    "introduction": "MVC and Application Structure develops model/view/controller; routing; lifecycle; configuration; service/database layer. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: Model/View/Controller; routing; lifecycle; configuration; service/database layer.\n\nMVC separates responsibilities: a model/service handles data and rules; a controller handles a request and coordinates work; a view presents output. A router maps an allowed method/path to a controller. Store configuration separately and inject the database connection into services. A request flows router → controller → service/model → view → response. Laravel builds on these core PHP ideas, but this activity uses plain PHP functions and folders.",
+    "syntax": "<?php\nfunction studentModel(): array { return [\"name\" => \"Maria\"]; }\nfunction studentView(array $student): string { return \"Student: \" . htmlspecialchars($student[\"name\"], ENT_QUOTES, \"UTF-8\"); }\nfunction studentController(): string { return studentView(studentModel()); }\necho studentController();\n",
+    "example_php": "<?php\nfunction studentModel(): array { return [\"name\" => \"Maria\"]; }\nfunction studentView(array $student): string { return \"Student: \" . htmlspecialchars($student[\"name\"], ENT_QUOTES, \"UTF-8\"); }\nfunction studentController(): string { return studentView(studentModel()); }\necho studentController();\n",
+    "starter_php": "<?php\n// MVC and Application Structure\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Moving files without actually separating SQL, request handling, and rendering responsibilities. Explain why your correction works.",
+    "activity": "Refactor a small CRUD script into public/index.php, app/controllers, app/models or services, views, and config. Keep SQL out of templates and HTML out of models. Include a folder map and request flow in your source comments.",
+    "expected_result": "Student: Maria",
+    "important_notes": "Moving files without actually separating SQL, request handling, and rendering responsibilities.",
+    "security_note": "Allowlist routes and never include a filesystem path constructed directly from request input.",
+    "challenge": "Summary: MVC separates responsibilities: a model/service handles data and rules; a controller handles a request and coordinates work; a view presents output.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: PHP Security and Best Practices.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_FUNCTION"
+        ],
+        "expected_output": "Student: Maria"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which responsibility belongs primarily in a view?",
+        "choices": [
+          "Accepting arbitrary include paths",
+          "Presenting output to the user",
+          "Storing database credentials in HTML",
+          "Authorizing every route by hiding buttons"
+        ],
+        "answer": 1,
+        "explanation": "MVC separates responsibilities: a model/service handles data and rules; a controller handles a request and coordinates work; a view presents output. A router maps an allowed method/path to a controller. Store configuration separately and inject the database connection into services. A request flows router → controller → service/model → view → response. Laravel builds on these core PHP ideas, but this activity uses plain PHP functions and folders."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "Student: Maria",
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted"
+        ],
+        "answer": 0,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging MVC and Application Structure?",
+        "choices": [
+          "PHP never needs debugging",
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Moving files without actually separating SQL, request handling, and rendering responsibilities."
+        ],
+        "answer": 3,
+        "explanation": "Common error: Moving files without actually separating SQL, request handling, and rendering responsibilities."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server",
+          "Allowlist routes and never include a filesystem path constructed directly from request input.",
+          "Copy production credentials into the editor"
+        ],
+        "answer": 2,
+        "explanation": "Allowlist routes and never include a filesystem path constructed directly from request input."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Reset every student’s progress",
+          "Refactor a small CRUD script into public/index.php, app/controllers, app/models or services, views, and config. Keep SQL out of templates and HTML out of models. Include a folder map and request flow in your source comments.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation"
+        ],
+        "answer": 1,
+        "explanation": "Apply the lesson’s concepts: Model/View/Controller; routing; lifecycle; configuration; service/database layer."
+      }
+    ]
+  },
+  {
+    "title": "PHP Security and Best Practices",
+    "level": "Advanced",
+    "position": 29,
+    "objectives": [
+      "Explain how SQL injection supports this lesson’s program.",
+      "Create a working solution for PHP Security and Best Practices.",
+      "Debug this common error: Treating escaping as SQL protection or trusting validation performed only in JavaScript."
+    ],
+    "introduction": "PHP Security and Best Practices develops sql injection; xss; csrf; validation; hashing; secure sessions; uploads; env; errors; least privilege. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: SQL injection; XSS; CSRF; validation; hashing; secure sessions; uploads; env; errors; least privilege.\n\nPrepared statements prevent values from becoming SQL structure. Context-appropriate escaping prevents untrusted text from becoming HTML; htmlspecialchars() is for HTML text/attributes, not every context. CSRF tokens tie a state-changing request to a session and are verified with hash_equals(). Validate input independently of escaping. Hash passwords, regenerate session IDs, restrict uploads, keep secrets outside public files, disable production error display, and grant database accounts only needed permissions.",
+    "syntax": "<?php\n$untrusted = \"<script>alert(1)</script>\";\necho htmlspecialchars($untrusted, ENT_QUOTES, \"UTF-8\");\n",
+    "example_php": "<?php\n$untrusted = \"<script>alert(1)</script>\";\necho htmlspecialchars($untrusted, ENT_QUOTES, \"UTF-8\");\n",
+    "starter_php": "<?php\n// PHP Security and Best Practices\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Treating escaping as SQL protection or trusting validation performed only in JavaScript. Explain why your correction works.",
+    "activity": "Review a form that concatenates POST input into SQL and echoes the same value without escaping. Replace SQL concatenation with parameters, add server-side validation and a session CSRF token generated by random_bytes(), and escape output. Add secure-session and upload checks; explain least privilege.",
+    "expected_result": "&lt;script&gt;alert(1)&lt;/script&gt;",
+    "important_notes": "Treating escaping as SQL protection or trusting validation performed only in JavaScript.",
+    "security_note": "Protect all writes including logout/delete with CSRF; avoid GET mutations, plain passwords, public secrets, and verbose production errors.",
+    "challenge": "Summary: Prepared statements prevent values from becoming SQL structure.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext lesson: Advanced Project — PHP Web Application.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": false,
+    "rubric": null,
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_ECHO"
+        ],
+        "expected_output": "&lt;script&gt;alert(1)&lt;/script&gt;"
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which defense prevents SQL injection through query values?",
+        "choices": [
+          "PDO prepared statements with bound parameters",
+          "HTML escaping alone",
+          "Hiding the submit button",
+          "Changing POST to GET"
+        ],
+        "answer": 0,
+        "explanation": "Prepared statements prevent values from becoming SQL structure. Context-appropriate escaping prevents untrusted text from becoming HTML; htmlspecialchars() is for HTML text/attributes, not every context. CSRF tokens tie a state-changing request to a session and are verified with hash_equals(). Validate input independently of escaping. Hash passwords, regenerate session IDs, restrict uploads, keep secrets outside public files, disable production error display, and grant database accounts only needed permissions."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "The literal PHP source is printed",
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "&lt;script&gt;alert(1)&lt;/script&gt;"
+        ],
+        "answer": 3,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging PHP Security and Best Practices?",
+        "choices": [
+          "Ignore all invalid inputs",
+          "Delete the existing course records",
+          "Treating escaping as SQL protection or trusting validation performed only in JavaScript.",
+          "PHP never needs debugging"
+        ],
+        "answer": 2,
+        "explanation": "Common error: Treating escaping as SQL protection or trusting validation performed only in JavaScript."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Execute student code on the CodeLab server",
+          "Protect all writes including logout/delete with CSRF; avoid GET mutations, plain passwords, public secrets, and verbose production errors.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values"
+        ],
+        "answer": 1,
+        "explanation": "Protect all writes including logout/delete with CSRF; avoid GET mutations, plain passwords, public secrets, and verbose production errors."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Review a form that concatenates POST input into SQL and echoes the same value without escaping. Replace SQL concatenation with parameters, add server-side validation and a session CSRF token generated by random_bytes(), and escape output. Add secure-session and upload checks; explain least privilege.",
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress"
+        ],
+        "answer": 0,
+        "explanation": "Apply the lesson’s concepts: SQL injection; XSS; CSRF; validation; hashing; secure sessions; uploads; env; errors; least privilege."
+      }
+    ]
+  },
+  {
+    "title": "Advanced Project — PHP Web Application",
+    "level": "Advanced",
+    "position": 30,
+    "objectives": [
+      "Explain how registration/auth supports this lesson’s program.",
+      "Create a working solution for PHP Web Application.",
+      "Debug this common error: Checking roles only in the dashboard and forgetting record ownership checks in edit/delete handlers."
+    ],
+    "introduction": "Advanced Project — PHP Web Application develops registration/auth; dashboard/roles; crud/mysql; search/filter; validation; uploads; csrf; tests. Apply these ideas to student information and core PHP web development.",
+    "explanation": "Key concepts: registration/auth; dashboard/roles; CRUD/MySQL; search/filter; validation; uploads; CSRF; tests.\n\nDevelop a PHP Student Information Web Application using core PHP. Combine registration, login/logout, a role-aware dashboard, student CRUD, MySQL, search/filtering, validated forms, prepared statements, password hashes, secure sessions, controlled profile images, CSRF, and output escaping. Admin manages users and all records; Staff manages allowed student records; Student views only their own profile. Enforce ownership and role permissions in server code for every action.",
+    "syntax": "<?php\n$db = new PDO(\"sqlite:/workspace/student-lab.sqlite\");\n$query = $db->prepare(\"SELECT first_name, course FROM students WHERE student_number = :number\");\n$query->execute([\"number\" => \"2026-001\"]);\n$student = $query->fetch(PDO::FETCH_ASSOC);\necho $student[\"first_name\"] . \" | \" . $student[\"course\"];\n",
+    "example_php": "<?php\n$db = new PDO(\"sqlite:/workspace/student-lab.sqlite\");\n$query = $db->prepare(\"SELECT first_name, course FROM students WHERE student_number = :number\");\n$query->execute([\"number\" => \"2026-001\"]);\n$student = $query->fetch(PDO::FETCH_ASSOC);\necho $student[\"first_name\"] . \" | \" . $student[\"course\"];\n",
+    "starter_php": "<?php\n// Advanced Project — PHP Web Application\n// Complete the activity; use the example as a reference.\n",
+    "guided_practice": "Run the complete example, predict its output, then change one input or value. Compare the result and fix a deliberate error: Checking roles only in the dashboard and forgetting record ownership checks in edit/delete handlers. Explain why your correction works.",
+    "activity": "PHP Student Information Web Application\nFunctional requirements: registration, login/logout, dashboard, Admin/Staff/Student permissions, student CRUD, MySQL, search/filtering, form validation, PDO parameters, password_hash/password_verify, regenerated sessions, profile images, CSRF tokens, escaping, and friendly errors. Optional modules: Courses, Subjects, Users, Reports.\nDatabase design: users(id, email unique, password VARCHAR(255), role); students(id, user_id foreign key, student_number unique, first_name, last_name, course, year_level, email, profile_image). Add courses/subjects and junction tables if needed.\nMilestones: 1. Design schema and role/ownership matrix. 2. Build MVC-style folders/config. 3. Implement registration/login/logout securely. 4. Add validated CRUD/search/filtering. 5. Add controlled images and CSRF. 6. Test every role and ownership boundary. 7. Document installation with placeholder configuration.\nSecurity checklist: prepared SQL; escaped output; CSRF on writes; hashed passwords; regenerated session IDs; HTTPS cookie flags; upload MIME/size limits and non-executable storage; private errors; environment secrets; least privilege.\nTesting checklist: duplicate registration, wrong password, expired session, denied roles, another student ID, SQL/XSS payloads, missing/wrong CSRF, invalid forms, oversized/fake images, search/filtering, rollback, and logout.\nSubmit a PHP entry script plus schema, folder map, milestones, test matrix, and optional educational repository URL in comments. Full multi-page/MySQL execution requires a teacher-provisioned sandbox outside CodeLab; the lab practices isolated components.",
+    "expected_result": "Maria | BSIT",
+    "important_notes": "Checking roles only in the dashboard and forgetting record ownership checks in edit/delete handlers.",
+    "security_note": "Use Admin/Staff/Student role checks plus ownership authorization at every endpoint; keep all project databases separate from CodeLab.",
+    "challenge": "Summary: Develop a PHP Student Information Web Application using core PHP.\nChallenge: test both a valid input and an invalid or boundary case and document what changed.\nNext: complete the Advanced assessment and present your project.",
+    "completion_requirements": "Save and submit your PHP source for teacher review, pass the Quick Check with at least 4/5, and receive teacher approval. Project approval also requires rubric grading.",
+    "is_project": true,
+    "rubric": {
+      "Program Functionality": 30,
+      "Correct Use of PHP Concepts": 20,
+      "Database Implementation": 15,
+      "Security and Validation": 15,
+      "Code Organization": 10,
+      "User Interface / Usability": 5,
+      "Testing and Documentation": 5
+    },
+    "validation_rules": {
+      "php": {
+        "required_constructs": [
+          "T_NEW"
+        ]
+      }
+    },
+    "quiz": [
+      {
+        "question": "Which check is required when a Student opens a profile by ID?",
+        "choices": [
+          "Trust any numeric ID",
+          "Trust a hidden form field",
+          "Check only that login succeeded",
+          "Verify the profile belongs to that authenticated student"
+        ],
+        "answer": 3,
+        "explanation": "Develop a PHP Student Information Web Application using core PHP. Combine registration, login/logout, a role-aware dashboard, student CRUD, MySQL, search/filtering, validated forms, prepared statements, password hashes, secure sessions, controlled profile images, CSRF, and output escaping. Admin manages users and all records; Staff manages allowed student records; Student views only their own profile. Enforce ownership and role permissions in server code for every action."
+      },
+      {
+        "question": "Predict the output of this lesson’s complete example (with default Request Data).",
+        "choices": [
+          "No output is possible from PHP",
+          "All student records in CodeLab are deleted",
+          "Maria | BSIT",
+          "The literal PHP source is printed"
+        ],
+        "answer": 2,
+        "explanation": "Trace the example statements in order. The displayed expected result belongs to the sample inputs, not every possible solution."
+      },
+      {
+        "question": "Which issue should you check when debugging Advanced Project — PHP Web Application?",
+        "choices": [
+          "Delete the existing course records",
+          "Checking roles only in the dashboard and forgetting record ownership checks in edit/delete handlers.",
+          "PHP never needs debugging",
+          "Ignore all invalid inputs"
+        ],
+        "answer": 1,
+        "explanation": "Common error: Checking roles only in the dashboard and forgetting record ownership checks in edit/delete handlers."
+      },
+      {
+        "question": "Which practice best matches this lesson’s security requirements?",
+        "choices": [
+          "Use Admin/Staff/Student role checks plus ownership authorization at every endpoint; keep all project databases separate from CodeLab.",
+          "Copy production credentials into the editor",
+          "Trust all browser-submitted values",
+          "Execute student code on the CodeLab server"
+        ],
+        "answer": 0,
+        "explanation": "Use Admin/Staff/Student role checks plus ownership authorization at every endpoint; keep all project databases separate from CodeLab."
+      },
+      {
+        "question": "Which activity demonstrates the main skill in this lesson?",
+        "choices": [
+          "Only change the CodeLab theme color",
+          "Remove all PHP validation",
+          "Reset every student’s progress",
+          "PHP Student Information Web Application"
+        ],
+        "answer": 3,
+        "explanation": "Apply the lesson’s concepts: registration/auth; dashboard/roles; CRUD/MySQL; search/filter; validation; uploads; CSRF; tests."
+      }
+    ]
+  }
+]

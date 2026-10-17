@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Submission;
 use App\Models\User;
+use App\Services\CourseAccess;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -28,15 +30,22 @@ class DashboardController extends Controller
                 'summary' => [
                     'totalStudents' => User::where('role', 'student')->count(),
                     'activeStudents' => User::where('role', 'student')->where('status', 'active')->count(),
-                    'averageProgress' => round($students->avg(fn ($student) => ($student->lessons_completed_count / $lessonCount) * 100) ?? 0),
+                    'averageProgress' => round($students->avg(function ($student) {
+                        $ids = CourseAccess::lessons($student)->pluck('id');
+
+                        return $student->lessonProgress->filter(fn ($p) => $ids->contains($p->lesson_id) && $p->status === 'completed')->count() / max($ids->count(), 1) * 100;
+                    }) ?? 0),
                     'awaitingReview' => Submission::where('status', 'submitted')->count(),
                     'completedActivities' => Submission::where('status', 'completed')->count(),
                     'needsRevision' => Submission::where('status', 'needs_revision')->count(),
                 ],
                 'students' => $students->map(function ($student) use ($courseLessons, $lessonCount) {
-                    $progress = $student->lessonProgress->keyBy('lesson_id');
+                    $courseLessons = CourseAccess::lessons($student)->with('course')->get(['id', 'number', 'title', 'level', 'position', 'course_id', 'is_project']);
+                    $lessonCount = max($courseLessons->count(), 1);
+                    $progress = $student->lessonProgress->filter(fn ($p) => $courseLessons->contains('id', $p->lesson_id))->keyBy('lesson_id');
+                    $student->lessons_completed_count = $progress->where('status', 'completed')->count();
                     $current = $courseLessons->first(fn ($lesson) => ($progress->get($lesson->id)?->status) !== 'completed');
-                    $scores = $student->lessonProgress->pluck('quiz_score')->filter(fn ($score) => $score !== null);
+                    $scores = $progress->pluck('quiz_score')->filter(fn ($score) => $score !== null);
 
                     return [
                         'id' => $student->id, 'name' => $student->name, 'username' => $student->username,
@@ -49,31 +58,37 @@ class DashboardController extends Controller
                         'levelProgress' => collect(['Basic', 'Moderate', 'Advanced'])->mapWithKeys(fn ($level) => [
                             $level => $courseLessons->where('level', $level)->filter(fn ($lesson) => $progress->get($lesson->id)?->status === 'completed')->count(),
                         ]),
-                        'currentLesson' => $current ? $current->level.' '.((($current->number - 1) % 5) + 1) : 'Course complete',
+                        'moduleProgress' => $courseLessons->groupBy(fn ($lesson) => ($lesson->course?->name ?? 'HTML & CSS').' · '.$lesson->level)->map(fn ($items) => ['total' => $items->count(), 'completed' => $items->filter(fn ($lesson) => $progress->get($lesson->id)?->status === 'completed')->count()]),
+                        'currentLesson' => $current ? $current->level.' '.((($current->position - 1) % ($current->requiresTeacherReview() ? 10 : 5)) + 1) : 'Course complete',
                         'quizAverage' => $scores->count() ? round($scores->avg() * 20) : null,
-                        'finalProjectStatus' => $progress->get($courseLessons->firstWhere('number', 15)?->id)?->status ?? 'not_started',
+                        'finalProjectStatus' => $progress->get(($courseLessons->where('is_project', true)->last() ?? $courseLessons->firstWhere('number', 15))?->id)?->status ?? 'not_started',
                     ];
                 }),
             ]);
         }
 
-        $lessons = Lesson::where('is_published', true)->orderBy('position')->get();
+        $lessons = CourseAccess::lessons($user)->get();
         $progress = $user->lessonProgress()->get()->keyBy('lesson_id');
-        $completed = $progress->where('status', 'completed')->count();
+        $completed = $progress->filter(fn ($p) => $lessons->contains('id', $p->lesson_id))->where('status', 'completed')->count();
         $nextLesson = $lessons->first(fn ($lesson) => ($progress[$lesson->id]->status ?? 'not_started') !== 'completed');
         $caseCompleted = \DB::table('case_study_progress')->where('user_id', $user->id)->where('status', 'completed')->count();
 
         return Inertia::render('dashboard', [
             'mode' => 'student',
+            'courses' => Course::with('educationLevel')->inLearningOrder($user)->get()->filter(fn ($c) => $c->accessibleTo($user))->values()->map(function ($c) use ($progress) {
+                $items = $c->lessons()->where('is_published', true)->get();
+
+                return ['id' => $c->id, 'name' => $c->name, 'slug' => $c->slug, 'education' => $c->audience_label, 'total' => $items->count(), 'completed' => $items->filter(fn ($l) => $progress->get($l->id)?->status === 'completed')->count(), 'modules' => $c->modules->pluck('name')->mapWithKeys(fn ($level) => [$level => ['total' => $items->where('level', $level)->count(), 'completed' => $items->where('level', $level)->filter(fn ($l) => $progress->get($l->id)?->status === 'completed')->count()]])];
+            }),
             'summary' => [
                 'progress' => $lessons->count() ? round(($completed / $lessons->count()) * 100) : 0,
                 'completed' => $completed,
                 'remaining' => max($lessons->count() - $completed, 0),
                 'caseStudies' => $caseCompleted,
-                'level' => $nextLesson?->level ?? 'Course complete',
+                'level' => $user->hasAssignedEducationLevel() ? ($nextLesson?->level ?? 'Course complete') : 'Education Level Not Assigned',
                 'lastActivity' => optional($user->activityLogs()->latest('occurred_at')->first()?->occurred_at)->diffForHumans() ?? 'Ready to begin',
             ],
-            'nextLesson' => $nextLesson ? ['id' => $nextLesson->id, 'number' => $nextLesson->number, 'title' => $nextLesson->title, 'level' => $nextLesson->level] : null,
+            'nextLesson' => $nextLesson ? ['id' => $nextLesson->id, 'number' => $nextLesson->requiresTeacherReview() ? (($nextLesson->position - 1) % 10) + 1 : $nextLesson->number, 'title' => $nextLesson->title, 'level' => $nextLesson->level] : null,
             'recentActivity' => $user->activityLogs()->latest('occurred_at')->take(5)->get(['event', 'metadata', 'occurred_at']),
             'teacherReviews' => Submission::where('user_id', $user->id)->whereNotNull('lesson_id')
                 ->whereNotNull('reviewed_at')->with(['lesson:id,number,title', 'feedback.teacher:id,name'])

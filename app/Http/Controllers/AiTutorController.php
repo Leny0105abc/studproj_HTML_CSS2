@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
+use App\Services\CourseAccess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -14,6 +15,8 @@ class AiTutorController extends Controller
         if (! config('services.openai.key')) {
             return response()->json(['message' => 'AI tutoring is not configured yet. Ask your teacher to add an AI API key.'], 503);
         }
+
+        abort_unless($request->user() && CourseAccess::unlocked($request->user(), $lesson), 403);
 
         $response = Http::withToken(config('services.openai.key'))->timeout(30)->post('https://api.openai.com/v1/responses', [
             'model' => config('services.openai.model', 'gpt-4.1-mini'),

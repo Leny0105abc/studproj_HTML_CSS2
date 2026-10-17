@@ -6,6 +6,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,6 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail, PasskeyUser
     protected function casts(): array
     {
         return [
+            'education_level_id' => 'integer',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
@@ -54,6 +56,21 @@ class User extends Authenticatable implements MustVerifyEmail, PasskeyUser
     public function lessonProgress(): HasMany
     {
         return $this->hasMany(StudentLessonProgress::class);
+    }
+
+    public function educationLevel(): BelongsTo
+    {
+        return $this->belongsTo(EducationLevel::class);
+    }
+
+    public function hasAssignedEducationLevel(): bool
+    {
+        return $this->educationLevel && in_array($this->educationLevel->slug, ['high-school', 'college'], true);
+    }
+
+    public function educationLevelName(): string
+    {
+        return $this->hasAssignedEducationLevel() ? $this->educationLevel->name : 'Education Level Not Assigned';
     }
 
     public function submissions(): HasMany

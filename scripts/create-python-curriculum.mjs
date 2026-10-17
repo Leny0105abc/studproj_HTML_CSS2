@@ -1,0 +1,696 @@
+import fs from 'node:fs';
+
+// Authored curriculum source. This writes data only; it never runs student code.
+/** @type {Array<[string, string, string, string, string, string[]]>} */
+const lessons = [
+    [
+        'Introduction to Python',
+        'What Python is; uses and characteristics; syntax; print(); comments; running code',
+        'Python is a readable, general-purpose programming language used for automation, data analysis, web services, and applications. Statements normally occupy separate lines. Indentation groups statements. Text literals need quotation marks; # starts a comment. Run code in this browser lab and read output or error messages.',
+        '# My first program\nprint("Hello World")\nprint("Python is useful for automation")',
+        'Display your name, course, year level, and school on separate labelled lines.',
+        [
+            'Which function displays text?|print|input|type|len',
+            'What begins a single-line comment?|#|//|<!--|/*',
+            'What is printed by print("Hello World")?|Hello World|"Hello World"|print|Nothing',
+            'What groups statements in Python?|Indentation|Braces|Semicolons|HTML tags',
+            'Which is a common Python use?|Automation|Only page styling|Only images|Only hardware assembly',
+        ],
+    ],
+    [
+        'Variables',
+        'Creating variables; naming rules; assignment and reassignment; multiple assignment; constants',
+        'A variable is a name bound to a value. Use = to assign, and assign again to change the binding. Names start with a letter or underscore, contain letters, digits, or underscores, and cannot be reserved keywords. Names are case-sensitive. Multiple assignment binds several names at once. UPPER_CASE names signal constants by convention; Python does not enforce immutability.',
+        'name = "Maria"\nage = 18\nscore = 95\nscore = 96\nyear, section = 1, "A"\nSCHOOL = "CodeLab College"\nprint(name, age, score)',
+        'Create and display variables for a student. Reassign a grade, use multiple assignment, and include a school constant.',
+        [
+            'Which assigns 18 to age?|age = 18|age == 18|18 = age|let age:18',
+            'Which variable name is valid?|student_name|2student|student-name|class',
+            'What is score after score = 95 then score = 96?|96|95|191|None',
+            'What does SCHOOL conventionally represent?|A constant|A keyword|A function|A compulsory immutable value',
+            'What does x, y = 1, 2 assign to y?|2|1|3|A tuple of both',
+        ],
+    ],
+    [
+        'Data Types',
+        'str; int; float; bool; type(); type conversion',
+        'A type describes how a value behaves. str stores text, int whole numbers, float decimal numbers, and bool True or False. type(value) reports the type. int(), float(), and str() convert suitable values; converting nonnumeric text to a number raises ValueError. True and False use capital initials.',
+        'name = "Juan"\nage = 19\nheight = 1.67\nis_student = True\nprint(type(name), type(age), type(height), type(is_student))\nprint(int("20") + 1)',
+        'Create one example of each of the four types. Display their types and convert a numeric string into a number.',
+        [
+            'What is the type of "19"?|str|int|float|bool',
+            'What is the type of 1.67?|float|str|int|bool',
+            'Which checks a value type?|type(value)|kind(value)|value.type|check(value)',
+            'What is int("20") + 1?|21|201|20|An empty string',
+            'Which is a Boolean literal?|True|true|"True"|1.5',
+        ],
+    ],
+    [
+        'Input and Output',
+        'input(); print(); storing input; f-strings; numeric conversion',
+        'input(prompt) displays a prompt and returns text. Store its result in a variable. Convert numeric input with int() or float() before arithmetic. An f-string starts with f before its quote and evaluates expressions in braces. Supply one line per input call in Program Input; running out of lines raises EOFError.',
+        'name = input("Enter your name: ")\nage = int(input("Enter your age: "))\nprint(f"Welcome, {name}!")\nprint(f"Next year you will be {age + 1}.")',
+        'Ask for a student name, age, course, and year level. Display a formatted student-information summary.',
+        [
+            'What does input() return?|A string|Always an integer|A Boolean|A file',
+            'Which converts input to an integer?|int(input())|input(int)|str(input())|input() + 0',
+            'What prefix creates an f-string?|f|s|i|p',
+            'How many lines are needed for two input calls?|Two|Zero|Always one|Ten',
+            'What does f"Hi {name}" do?|Inserts the value of name|Prints literal braces|Deletes name|Reads a file',
+        ],
+    ],
+    [
+        'Operators',
+        '+; -; *; /; %; **; //; assignment; comparisons; logical operators; precedence',
+        'Arithmetic operators calculate values. / produces true division, // floor division, % a remainder, and ** a power. += updates a variable using its old value. == compares values while = assigns. Comparisons produce Booleans; and, or, and not combine or negate conditions. Parentheses make precedence explicit.',
+        'a, b = 7, 2\nprint(a + b, a - b, a * b, a / b)\nprint(a // b, a % b, a ** b)\na += 1\nprint(a > b and b != 0)\nprint((2 + 3) * 4)',
+        'Read two numbers and display a calculator report with addition, subtraction, multiplication, division, floor division, remainder, and powers. Reject a zero divisor.',
+        [
+            'What is 7 // 2?|3|3.5|1|14',
+            'What is 7 % 2?|1|3|3.5|14',
+            'What is 2 ** 3?|8|6|5|9',
+            'Which compares equality?|==|=|+=|:= only',
+            'What is (2 + 3) * 4?|20|14|9|24',
+        ],
+    ],
+    [
+        'Conditional Statements',
+        'if; else; elif; comparisons; logical conditions; nested conditions',
+        'An if block runs when its condition is true. elif checks another condition only when earlier ones were false; else handles the remaining cases. Put a colon after each header and indent its body consistently. Test the highest grade boundary first. Validate the range before classifying a grade. Nested conditions place one decision inside another.',
+        'grade = 85\nif grade < 0 or grade > 100:\n    print("Invalid grade")\nelif grade >= 90:\n    print("Excellent")\nelif grade >= 80:\n    print("Very Good")\nelif grade >= 75:\n    print("Passed")\nelse:\n    print("Failed")',
+        'Create a grading program: 90–100 Excellent, 80–89 Very Good, 75–79 Passed, below 75 Failed. Reject grades outside 0–100.',
+        [
+            'Which handles an alternative condition?|elif|repeat|switch|elseif',
+            'Which grade is Passed in this lesson?|75|74|90|101',
+            'What ends an if header?|A colon|A period|A comma|A quote',
+            'When does else run?|When earlier conditions are false|Always first|Only when true|Never',
+            'What does grade < 0 or grade > 100 detect?|An invalid grade|A passing grade|An integer type|A student name',
+        ],
+    ],
+    [
+        'Loops',
+        'for; while; range(); break; continue; nested loops',
+        'for visits items in an iterable; range(start, stop) generates integers excluding stop. while repeats while a condition is true and needs a change that allows termination. break exits the nearest loop; continue skips the rest of the current iteration. A nested loop completes its inner repetitions for each outer value.',
+        'total = 0\nfor number in range(1, 11):\n    total += number\nprint(total)\ncount = 1\nwhile count <= 3:\n    print(count)\n    count += 1\nfor row in range(1, 3):\n    for col in range(1, 4):\n        if col == 2:\n            continue\n        print(row * col)',
+        'Display 1–10, generate a multiplication table, and calculate a sum. Add a while loop with a terminating condition and demonstrate break or continue.',
+        [
+            'Does range(1, 6) include 6?|No|Yes|Only in while|Only when printed',
+            'Which exits the nearest loop?|break|continue|pass|elif',
+            'Which skips the rest of an iteration?|continue|break|stop|return only',
+            'What helps prevent an infinite while loop?|Updating its condition state|Removing indentation|Adding comments|Printing a string',
+            'How many inner iterations do 2 outer and 3 inner iterations produce?|6|5|2|3',
+        ],
+    ],
+    [
+        'Lists',
+        'Creating lists; indexing; modifying; adding and removing; len(); iteration; methods',
+        'A list is an ordered, mutable collection. Indexing starts at 0; negative indices count from the end. append adds to the end, insert adds at an index, remove deletes a matching value, and pop removes and returns an indexed item (the last by default). sort changes the list in place. len counts items. Avoid indexing beyond the list length.',
+        'grades = [88, 75, 92]\ngrades[0] = 89\ngrades.append(81)\ngrades.insert(1, 90)\ngrades.remove(75)\nlast = grades.pop()\ngrades.sort()\nfor grade in grades:\n    print(grade)\nprint("Average:", sum(grades) / len(grades))',
+        'Maintain a student-grade list using the five list methods. Show count, lowest, highest, and average; handle an empty list.',
+        [
+            'What is the first list index?|0|1|-2|The length',
+            'Which adds at the end?|append()|remove()|pop()|sort()',
+            'Which removes by value?|remove()|insert()|append()|len()',
+            'What does pop() return?|The removed item|Always None|The length|A sorted list',
+            'Does sort() modify the original list?|Yes|No|Only tuples|Only strings',
+        ],
+    ],
+    [
+        'Functions',
+        'def; calls; parameters; arguments; return; defaults; local scope',
+        'A function names a reusable block. def declares it; a call runs it. Parameters are names in the definition, and arguments are supplied values. return sends a result to the caller; print merely displays text. Default arguments provide a value when omitted. Variables assigned inside a function are normally local to that call.',
+        'def greet(name="Student"):\n    return f"Hello, {name}"\n\ndef calculate_average(grades):\n    if not grades:\n        return 0\n    return sum(grades) / len(grades)\n\nprint(greet("Maria"))\nprint(calculate_average([80, 90]))',
+        'Build reusable add, subtract, multiply, and divide functions for a calculator. Return results and handle division by zero.',
+        [
+            'Which declares a function?|def|function|fn|class',
+            'Which sends a result to the caller?|return|print only|input|continue',
+            'What is name in def greet(name)?|A parameter|An argument value|A module|A keyword',
+            'What does greet() use when name="Student" is the default?|Student|None|An empty list|An error always',
+            'Where is a variable assigned inside a function normally available?|Inside that function|Every module|Every class|Only HTML',
+        ],
+    ],
+    [
+        'Basic Project',
+        'Student Grade Calculator; input; lists; functions; grading; validation',
+        'Develop a student grade calculator in milestones: collect a name and three grades; validate grades; calculate an average in calculate_average; determine academic status; format the report. Keep calculation separate from input and output. Test a passing student, a failing student, boundary 75, and invalid input. Review your code before submitting it for teacher assessment.',
+        'def calculate_average(grades):\n    return sum(grades) / len(grades) if grades else 0\n\nprint(f"Example average: {calculate_average([80, 90]):.1f}")',
+        'Student Grade Calculator: accept a name and several grades, validate 0–100, store grades in a list, calculate their average using a function, determine pass/fail at 75, and display a labelled report. Submit your source using Submit activity, then complete the quiz. Milestones: input → validation → calculation → report → tests.',
+        [
+            'Which collection fits several grades?|A list|A single Boolean|A comment|A constant name alone',
+            'Which average formula is correct for nonempty grades?|sum(grades) / len(grades)|sum(grades) * len(grades)|max(grades)|len(grades) / sum(grades)',
+            'What must be checked before dividing by len(grades)?|The list is nonempty|The name has capitals|The output is blue|The file is HTML',
+            'What status should average 75 receive?|PASSED|FAILED|Excellent only|Invalid',
+            'Why separate calculation into a function?|To reuse and test it|To hide the result|To prevent input|To remove variables',
+        ],
+    ],
+    [
+        'Dictionaries',
+        'Keys and values; creation; access; add/update; removal; iteration; nesting',
+        'A dictionary maps unique, hashable keys to values. Bracket access requires a present key; get can return a default. Assigning an existing key updates its value; a new key adds it. pop removes a key and returns its value. items yields key/value pairs for iteration. Values may be nested dictionaries or lists.',
+        'student = {"name": "Maria", "age": 18}\nstudent["grade"] = 90\nstudent["age"] = 19\nprint(student.get("course", "Unassigned"))\nfor key, value in student.items():\n    print(key, value)\nstudent["subjects"] = {"Python": 90}\nprint(student["subjects"]["Python"])\nstudent.pop("age")',
+        'Create, update, display, and remove fields in a student-record dictionary. Include a nested subject record and safe missing-key access.',
+        [
+            'What does a dictionary associate?|Keys with values|Only indices with characters|Only numbers|Only functions',
+            'Which accesses a missing key safely with a default?|record.get("name", "Unknown")|record["missing"]|record.pop()|record.append()',
+            'What does items() produce?|Key/value pairs|Only keys|Only values|A sorted string',
+            'What does record["age"] = 20 do when age exists?|Updates it|Duplicates the key|Deletes all data|Raises a syntax error',
+            'Can a dictionary value be a list?|Yes|No|Only an empty list|Only a tuple',
+        ],
+    ],
+    [
+        'Tuples',
+        'Creation; indexing; immutability; unpacking; fixed records',
+        'A tuple is an ordered sequence whose item bindings cannot be changed. Use parentheses and commas; a one-item tuple needs a trailing comma. Indexing works like lists. Unpacking assigns items to matching names. Tuples suit fixed records or coordinates, but mutable objects inside a tuple can still change.',
+        'student_info = ("Juan", "BSCS", 1)\nname, course, year = student_info\nprint(student_info[0])\nprint(name, course, year)\none_item = ("Juan",)\nprint(type(one_item))',
+        'Store a fixed student name, course, and year in a tuple. Access by index and unpack it into separate variables.',
+        [
+            'Which creates a one-item tuple?|(1,)|(1)|[1]|{1}',
+            'Can you assign a new value to tuple[0]?|No|Yes|Only numbers|Only strings',
+            'What does a, b = (1, 2) assign to b?|2|1|A list|None',
+            'Are tuples ordered?|Yes|No|Only after sorting|Only if numeric',
+            'When is a tuple suitable?|A fixed coordinate pair|A frequently edited shopping list|A key/value map|An unordered unique collection',
+        ],
+    ],
+    [
+        'Sets',
+        'Unique values; creation; add/remove; union; intersection; difference; membership',
+        'A set stores unique, hashable values without a dependable display order. Use set() for an empty set; {} creates a dictionary. add inserts, remove raises KeyError if absent, and discard safely ignores absent items. Union | combines values, intersection & finds shared values, and difference - finds values only in the left set. Use in for membership.',
+        'python_class = {"Ana", "Juan", "Ana"}\nmath_class = {"Juan", "Maria"}\npython_class.add("Luis")\npython_class.discard("Absent")\nprint(sorted(python_class | math_class))\nprint(sorted(python_class & math_class))\nprint(sorted(python_class - math_class))\nprint("Juan" in python_class)',
+        'Compare enrollment in two classes. Show students in either class, both classes, and Python only; sort the displayed results.',
+        [
+            'Which creates an empty set?|set()|{}|[]|()',
+            'Which operator finds shared values?|&|Union|+|/',
+            'Does a set keep duplicates?|No|Yes|Only strings|Only integers',
+            'Which removal avoids an error for absent values?|discard()|remove()|pop(0)|delete()',
+            'What does A - B contain?|Values in A but not B|Every value in B|All shared values|A numeric count',
+        ],
+    ],
+    [
+        'File Handling',
+        'open(); r/w/a modes; read/write; closing; with; text files',
+        'open connects to a file in a chosen mode: r reads an existing file, w creates or truncates, and a appends. Use with open(...) so closing happens even on exceptions. read returns text; write stores text and does not add a newline automatically. The lab uses a temporary browser virtual filesystem, never the Laravel server filesystem; files disappear when the run ends.',
+        'with open("students.txt", "w", encoding="utf-8") as file:\n    file.write("Maria,90\\n")\nwith open("students.txt", "a", encoding="utf-8") as file:\n    file.write("Juan,85\\n")\nwith open("students.txt", "r", encoding="utf-8") as file:\n    print(file.read())',
+        'Write a student record to students.txt, append another, and read the contents in the same run. Explain why w can erase existing contents.',
+        [
+            'Which mode appends?|a|w|r|x only',
+            'What does w do to existing contents?|Truncates them|Preserves them|Reads them|Sorts them',
+            'Why use with open()?|It closes the file automatically|It creates a production database|It always appends|It removes errors',
+            'What does read() return for a text file?|A string|A dictionary always|A Boolean|An HTML page always',
+            'Where does this lab store exercise files?|Browser virtual filesystem|Laravel server files|Production SQL tables|The teacher account',
+        ],
+    ],
+    [
+        'Error Handling',
+        'Syntax/runtime/logical errors; try/except/else/finally; invalid input',
+        'A syntax error prevents parsing, a runtime exception interrupts execution, and a logical error gives an unintended result. try holds operations that may fail; except handles a specified exception. else runs after a successful try; finally runs whether success or failure. Catch expected exceptions rather than silently ignoring all problems.',
+        'try:\n    number = float(input("Number: "))\n    result = 10 / number\nexcept ValueError:\n    print("Enter a number")\nexcept ZeroDivisionError:\n    print("Number must not be zero")\nelse:\n    print(result)\nfinally:\n    print("Attempt finished")',
+        'Improve a calculator to handle invalid numeric input and division by zero. Test both failures and a valid calculation.',
+        [
+            'Which handles a thrown exception?|except|else only|iferror|return only',
+            'Which always runs after try handling?|finally|else|elif|break',
+            'Which exception can float("abc") raise?|ValueError|KeyError|IndexError|ZeroDivisionError',
+            'When does the try else block run?|When try succeeds|Whenever except runs|Before try|Only after syntax errors',
+            'What is a logical error?|A wrong result from valid code|Only missing punctuation|Only a file error|Always a stopped program',
+        ],
+    ],
+    [
+        'String Manipulation',
+        'Indexing; slicing; methods; search; replace; split; join; formatting',
+        'Strings are immutable sequences. Indexing selects a character; slicing selects a range with an exclusive stop. Methods return transformed strings, leaving the original unchanged. strip removes surrounding whitespace, upper/lower change case, replace substitutes text, split makes a list, and separator.join combines strings. find returns the first index or -1 when absent.',
+        'text = "  Python makes coding fun  "\nclean = text.strip()\nprint(clean.upper(), clean.lower())\nprint(clean[:6])\nprint(clean.replace("fun", "practical"))\nwords = clean.split()\nprint("-".join(words))\nprint(clean.find("coding"))',
+        'Build a text analyzer reporting character count, word count, uppercase/lowercase text, a replaced phrase, and search results.',
+        [
+            'What does strip() remove?|Surrounding whitespace|Every space|Every vowel|All characters',
+            'What does split() usually return?|A list of strings|An integer|A set always|None',
+            'What does find() return when absent?|-1|0|None always|True',
+            'What does "Python"[:2] return?|Py|Pyt|th|on',
+            'Do string methods modify the original string?|No|Yes|Only upper()|Only strip()',
+        ],
+    ],
+    [
+        'List Comprehensions',
+        'Transforming; filtering; conditions; readable comprehensions',
+        'A comprehension builds a new list from an iterable. [expression for item in iterable] transforms each item; a trailing if filters items first. Keep complex logic in named functions so code stays readable. A conditional expression before for chooses between values rather than filtering.',
+        'squares = [n ** 2 for n in range(1, 6)]\nevens = [n for n in range(1, 11) if n % 2 == 0]\ngrades = [70, 80, 95]\npassing = [g for g in grades if g >= 75]\nlabels = ["Pass" if g >= 75 else "Fail" for g in grades]\nprint(squares, evens, passing, labels)',
+        'Use comprehensions to generate even numbers, squares, passing grades, and pass/fail labels.',
+        [
+            'What is [n*n for n in [1, 2]]?|[1, 4]|[1, 2]|[2, 4]|[1, 2, 4]',
+            'Where does a filter condition go?|After the for clause|Only before the list|Inside a comment|In a separate class',
+            'Does a comprehension create a new list?|Yes|No|Only with strings|Only when sorted',
+            'Which expression checks even numbers?|n % 2 == 0|n / 2 == 0|n + 2 == 0|n ** 2 == 0',
+            'Which grade survives g >= 75 from [70, 80]?|80|70|Both|Neither',
+        ],
+    ],
+    [
+        'Nested Data Structures',
+        'Lists in dictionaries; dictionaries in lists; nested access',
+        'Combine lists and dictionaries to represent related records. A list of student dictionaries preserves record order; each student can have a list of grades. Follow each level of indexing separately and verify keys exist. Use descriptive names and helper functions rather than deeply nested expressions everywhere.',
+        'students = [{"name": "Maria", "grades": [90, 80]}, {"name": "Juan", "grades": [75, 85]}]\nprint(students[0]["grades"][1])\nfor student in students:\n    average = sum(student["grades"]) / len(student["grades"])\n    print(student["name"], average)',
+        'Create several student records containing subjects and grades. Display each student and subject average with safe handling of empty grade lists.',
+        [
+            'What does students[0] select?|The first record|The first key|Every grade|The last subject',
+            'How do you select a record name?|record["name"]|record.name always|record(0)|record.append("name")',
+            'Can a dictionary contain a list of grades?|Yes|No|Only one grade|Only text keys as values',
+            'What follows students[0]["grades"] to select its first grade?|[0]|[1]|.first|()',
+            'What improves readability of nested processing?|Helper functions and clear names|One enormous expression|Removing all keys|Avoiding loops entirely',
+        ],
+    ],
+    [
+        'Introduction to Algorithms',
+        'Sequence; selection; iteration; search; sorting; decomposition; pseudocode',
+        'An algorithm is a finite sequence of steps to solve a problem. Sequence orders actions, selection chooses a path, and iteration repeats work. Linear search examines items in order. Sorting arranges items by a criterion. Decompose large problems into smaller steps. Write pseudocode before implementation and test edge cases such as an empty list.',
+        'grades = [80, 95, 75]\nhighest = None\nfor grade in grades:\n    if highest is None or grade > highest:\n        highest = grade\nprint("Highest:", highest)\ntarget = 95\nfound = False\nfor grade in grades:\n    if grade == target:\n        found = True\n        break\nprint("Found:", found)\nprint(sorted(grades))',
+        'Write pseudocode and a loop-based algorithm for finding the highest grade. Add linear search and show a sorted copy; test an empty list.',
+        [
+            'What is an algorithm?|Ordered steps solving a problem|Only Python code|A database table|A syntax error',
+            'What does linear search do?|Examines items in order|Always checks only one item|Sorts every list|Deletes matches',
+            'What does selection mean?|Choosing a path by a condition|Repeating forever|Printing only|Importing a module',
+            'What does sorted(grades) return?|A sorted copy|Always None|An updated tuple|Only the largest grade',
+            'Why test an empty list?|To handle a boundary case|To guarantee 100 grades|To skip validation|To create a syntax error',
+        ],
+    ],
+    [
+        'Moderate Project',
+        'Student Record Management System; CRUD; grades; text persistence; errors',
+        'Build a menu-driven record manager. Start with records as dictionaries inside a list. Write small functions for add, view, search, update, delete, and average. Validate identifiers and grade ranges. Serialize records safely to a browser-local text file and read them back during the same run. Use a loop with an Exit option and catch expected input and file errors.',
+        'records = []\ndef find_student(student_id):\n    return next((record for record in records if record["id"] == student_id), None)\n\nrecords.append({"id": "S001", "name": "Maria", "grades": [90, 80]})\nprint(find_student("S001"))',
+        'Student Record Management System: add, view, search, update, delete students, store grades, calculate averages, save/load records using a text file, and handle invalid input. Milestones: data model → CRUD functions → menu → safe file persistence → tests. Submit source with a brief test report in comments. Use Program Input to provide menu selections, ending with Exit.',
+        [
+            'Which operation changes an existing record?|Update|Create only|Read only|Delete only',
+            'What should a unique student ID prevent?|Duplicate records|Every dictionary|Any search|Input conversion',
+            'What should the menu provide to terminate?|Exit option|Only Add|A permanent while True without exit|No input',
+            'Why catch numeric conversion errors?|To report invalid input safely|To award grades|To remove all records|To bypass the menu',
+            'What should a missing search return?|A clear not-found result|A random student|A production query|A duplicate record',
+        ],
+    ],
+    [
+        'Introduction to Object-Oriented Programming',
+        'Procedural vs OOP; classes; objects; attributes; methods; advantages',
+        'Procedural code organizes actions into functions. Object-oriented programming groups state and related behavior in objects. A class defines a kind of object; an object is an instance. Attributes hold state and methods define behavior. OOP can help organize larger programs, but simple functions remain useful and often sufficient.',
+        'class Course:\n    name = "Python Programming"\n    def describe(self):\n        return f"Course: {self.name}"\n\ncourse = Course()\nprint(course.describe())',
+        'Describe a student object with three attributes and two behaviors. Create a small class and compare it with a function-based version.',
+        [
+            'What is a class?|A definition for a kind of object|Only a variable value|A loop|A text file',
+            'What is an object?|An instance of a class|Only a keyword|A comment|A SQL table always',
+            'What holds object state?|Attributes|Imports only|Exceptions only|Indentation only',
+            'What is a method?|A function associated with a class|A list item|A constant always|A file mode',
+            'What can OOP help with?|Grouping related state and behavior|Eliminating all functions|Automatically fixing every bug|Avoiding validation',
+        ],
+    ],
+    [
+        'Classes and Objects',
+        'class; object creation; __init__(); self; instance attributes and methods',
+        'Define a class with class Name:. Calling Name(...) creates an instance and invokes __init__ to initialize it. self refers to the current instance and is the first parameter of ordinary instance methods. self.name assigns an instance attribute. Each instance keeps its own attributes; methods use them to calculate results.',
+        'class Student:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade\n    def status(self):\n        return "PASSED" if self.grade >= 75 else "FAILED"\n\nstudent = Student("Maria", 90)\nprint(student.name, student.status())',
+        'Create a Student class storing a name and a grade list. Add average() and status() methods and demonstrate two independent instances.',
+        [
+            'Which initializes a new instance?|__init__|__main__|start|new only',
+            'What does self refer to?|The current instance|Always the class name|The teacher|A module',
+            'Which creates a Student instance?|Student("Maria", 90)|class Student|Student = class|new Student only',
+            'Where does self.name store data?|On the instance|Only in a global variable|In the server database|In a comment',
+            'How do you call an instance method?|student.status()|student.status only|status.student|self = status',
+        ],
+    ],
+    [
+        'Inheritance',
+        'Parent/child classes; reuse; overriding; super()',
+        'Inheritance derives a child class from a parent. The child can reuse methods and add specialized state. A method with the same name overrides inherited behavior. super() calls a parent implementation using Python method resolution. Use inheritance when the child is a specialized kind of the parent, rather than only to avoid typing.',
+        'class Person:\n    def __init__(self, name):\n        self.name = name\n    def describe(self):\n        return self.name\n\nclass Student(Person):\n    def __init__(self, name, course):\n        super().__init__(name)\n        self.course = course\n    def describe(self):\n        return f"{self.name}: {self.course}"\n\nprint(Student("Juan", "BSCS").describe())',
+        'Create Person, Student, and Teacher classes. Reuse parent initialization with super() and override a description method in each child.',
+        [
+            'Which declares Student inheriting Person?|class Student(Person):|class Person(Student):|Student extends Person|inherit Student',
+            'What does super() support?|Calling a parent implementation|Deleting an object|Sorting grades|Creating SQL tables',
+            'What is method overriding?|Replacing inherited behavior with a child method|Changing indentation|Renaming every class|Removing parameters',
+            'Which relationship suits inheritance?|Student is a Person|Student has a grade list|A filename is a grade|A loop contains an if',
+            'Can a child add attributes?|Yes|No|Only globals|Only tuples',
+        ],
+    ],
+    [
+        'Encapsulation and Polymorphism',
+        'Public/internal attributes; properties; validation; overriding; common interfaces',
+        'Encapsulation keeps state and its management together. An underscore marks internal-use attributes by convention, not as a security boundary. Properties provide attribute-style access with validation. Polymorphism lets different objects respond to the same method name; callers focus on behavior rather than exact type. Avoid treating naming conventions as access protection.',
+        'class Student:\n    def __init__(self, grade):\n        self.grade = grade\n    @property\n    def grade(self):\n        return self._grade\n    @grade.setter\n    def grade(self, value):\n        if not 0 <= value <= 100:\n            raise ValueError("Grade must be 0–100")\n        self._grade = value\n\nprint(Student(90).grade)',
+        'Validate a grade through a property. Create two record types with describe() and call that method through the same loop.',
+        [
+            'What does a leading underscore signal?|Internal use by convention|Guaranteed private security|A required database field|A syntax error',
+            'What can a property setter do?|Validate assignment|Prevent all reads|Run SQL automatically|Convert every object to a tuple',
+            'What is polymorphism?|Different objects supporting a common behavior|Only multiple inheritance|Only private attributes|Always identical classes',
+            'Which decorator makes a getter property?|@property|@private|@class|@input',
+            'What should an invalid grade assignment do?|Reject it clearly|Silently store 200|Delete all students|Ignore every exception',
+        ],
+    ],
+    [
+        'Modules and Packages',
+        'import; from import; custom modules; standard library; packages',
+        'A module is Python code in a file; a package organizes modules. import math binds the module, while from math import sqrt binds a selected name. The standard library supplies many utilities, including math, random, and datetime. Create a utility module as a virtual file in this single-editor lab, then import it. Do not put passwords or API keys into modules.',
+        'import math\nimport random\nfrom datetime import date\nprint(math.sqrt(81))\nprint(random.randint(1, 6))\nprint(date(2026, 1, 1))\nwith open("student_utils.py", "w") as file:\n    file.write("def average(grades):\\n    return sum(grades) / len(grades) if grades else 0\\n")\nfrom student_utils import average\nprint(average([80, 90]))',
+        'Create a student_utils.py virtual module containing an average function and import it. Demonstrate math and datetime; explain what a package organizes.',
+        [
+            'What does import math bind?|The math module|Only sqrt|Every random function|A student instance',
+            'Which imports sqrt directly?|from math import sqrt|import sqrt from math|using math.sqrt|module sqrt',
+            'What is a module normally stored as?|A Python file|Only a database row|An HTML tag|A Boolean',
+            'What does a package organize?|Modules|Only grades|Only images|Only constants',
+            'What does random.randint(1, 6) return?|An integer from 1 through 6|Always 6|Always a float|An integer excluding 6',
+        ],
+    ],
+    [
+        'Working with JSON',
+        'JSON format; dictionaries; loads(); dumps(); reading/writing',
+        'JSON is a text format for objects, arrays, strings, numbers, Booleans, and null. Python dictionaries and lists can often be serialized with json.dumps; json.loads parses JSON text. JSON uses double-quoted strings, true/false, and null, unlike Python literals. json.dump/load work with file objects. Never use eval to parse data.',
+        'import json\nstudent = {"name": "Maria", "grades": [80, 90]}\ntext = json.dumps(student, indent=2)\nprint(text)\nrestored = json.loads(text)\nwith open("students.json", "w") as file:\n    json.dump([restored], file)\nwith open("students.json") as file:\n    print(json.load(file)[0]["name"])',
+        'Serialize student data to JSON, write it to a virtual file, read it back, and verify the restored grades.',
+        [
+            'Which parses JSON text?|json.loads()|json.dumps()|eval() recommended|str()',
+            'Which produces JSON text?|json.dumps()|json.loads()|json.read()|input only',
+            'Which is JSON null in Python after parsing?|None|False always|"null"|0 always',
+            'Which quotation marks does JSON require for strings?|Double quotes|Single quotes only|Backticks|No quotes',
+            'Which reads JSON from a file object?|json.load(file)|json.loads(file)|json.dumps(file)|file.parse()',
+        ],
+    ],
+    [
+        'Introduction to APIs',
+        'Request/response; HTTP; GET; JSON API results; simulated responses',
+        'An API defines how programs request information or actions. HTTP requests include a method and resource URL; responses include a status and body. GET commonly retrieves data. JSON is a common response format, but clients must check status and validate fields. This lab uses a simulated public response so no keys, network permissions, or production services are needed.',
+        'import json\nstatus_code = 200\nresponse_body = \'{"students": [{"id": 1, "name": "Maria"}]}\'\nif status_code == 200:\n    data = json.loads(response_body)\n    for student in data.get("students", []):\n        print(student["name"])\nelse:\n    print("Request failed:", status_code)',
+        'Process a simulated GET response containing student records. Handle status 404, missing fields, and invalid JSON gracefully.',
+        [
+            'Which HTTP method commonly retrieves data?|GET|DELETE|POST only|DROP',
+            'What does a response status communicate?|Request outcome|The Python variable type|The student password|The CSS color',
+            'What does HTTP 404 usually mean?|Resource not found|Success|Always invalid JSON|A new database',
+            'Why check response fields?|Responses may omit expected data|Every response is trusted|JSON always has grades|To reveal API keys',
+            'Where should API keys appear in this exercise?|Nowhere; use simulated public data|Inside submitted source|In the course card|In printed output',
+        ],
+    ],
+    [
+        'Database Programming with Python',
+        'SQLite; connections; tables; parameterized CRUD; commit; local storage',
+        'A database stores structured records in tables. SQLite uses a local database connection; :memory: creates a temporary database. SQL CREATE TABLE defines structure, INSERT adds, SELECT reads, UPDATE changes, and DELETE removes rows. Use ? placeholders with separate parameters for user values, never string concatenation. Commit changes and close the connection.',
+        'import sqlite3\nconnection = sqlite3.connect(":memory:")\nconnection.execute("CREATE TABLE students (id INTEGER PRIMARY KEY, name TEXT, grade REAL)")\nconnection.execute("INSERT INTO students (name, grade) VALUES (?, ?)", ("Maria", 90))\nconnection.execute("UPDATE students SET grade = ? WHERE id = ?", (95, 1))\nprint(connection.execute("SELECT name, grade FROM students").fetchall())\nconnection.execute("DELETE FROM students WHERE id = ?", (1,))\nconnection.commit()\nconnection.close()',
+        'Create an educational SQLite student database and demonstrate all four CRUD operations using parameters. Use only an in-memory or browser virtual file database.',
+        [
+            'Which SQL reads rows?|SELECT|INSERT|UPDATE|DELETE',
+            'Which placeholders safely bind user values in sqlite3?|? with separate parameters|String concatenation|f-strings with raw input|HTML escaping only',
+            'What does :memory: create?|A temporary local database|A production Laravel connection|A remote API|A text editor',
+            'Which operation saves a transaction?|commit()|print()|input()|fetchone() only',
+            'Why use WHERE in UPDATE or DELETE?|To target intended rows|To select the database driver|To encrypt data|To import a class',
+        ],
+    ],
+    [
+        'Advanced Functions',
+        'lambda; map(); filter(); recursion; base cases; *args; **kwargs',
+        'lambda creates a small anonymous function with one expression. map transforms each input and filter keeps inputs where a predicate is true; both return iterators. Recursion solves a problem by calling the function on a smaller case and requires a stopping base case. *args collects positional arguments into a tuple, and **kwargs collects named arguments into a dictionary.',
+        'double = lambda n: n * 2\nprint(list(map(double, [1, 2, 3])))\nprint(list(filter(lambda g: g >= 75, [70, 80, 90])))\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\ndef total(*args, **kwargs):\n    return sum(args) + kwargs.get("bonus", 0)\nprint(factorial(4))\nprint(total(2, 3, bonus=1))',
+        'Transform and filter grades with map/filter, write a recursive factorial with input validation, and create a function using *args and **kwargs.',
+        [
+            'What does lambda contain?|One expression|Any number of statements|Only a class|An import block',
+            'What does map() do?|Transforms items|Only removes items|Sorts in place|Writes files',
+            'What must recursion include?|A terminating base case|An API key|An infinite loop|A global list',
+            'What type holds *args?|Tuple|Dictionary|String|Boolean',
+            'What type holds **kwargs?|Dictionary|Tuple|Set|Float',
+        ],
+    ],
+    [
+        'Advanced Project',
+        'Python Student Information System; OOP; SQLite; CRUD; validation; modules',
+        'Develop a student information system with Student objects and a repository responsible for SQLite operations. Milestones: define the model and schema; implement parameterized CRUD; add grade calculation and status; validate input and catch expected exceptions; organize helpers into modules; run scenario tests. The browser database is temporary; demonstrate save/read within a run and submit source for review.',
+        'import sqlite3\nclass Student:\n    def __init__(self, name, grades):\n        self.name = name\n        self.grades = grades\n    def average(self):\n        return sum(self.grades) / len(self.grades) if self.grades else 0\n\nstudent = Student("Maria", [85, 94])\nprint(student.name, student.average())\n# Add your repository, menu, validation, and tests.',
+        'Python Student Information System: implement registration, add/edit/delete/search/list students, store grades, calculate average and academic status, and save/retrieve records in educational SQLite. Apply classes, functions/modules, validation, and exceptions. Submit source and a commented test report for teacher review. Milestones: model → schema → CRUD → grades → validation → menu → tests.',
+        [
+            'Which component should handle database operations?|A repository or dedicated helper|Every print statement|An HTML iframe|Only a comment',
+            'Which storage is safe for this lab?|Browser-local SQLite|Production Laravel credentials|Unrestricted server shell|A shared production database',
+            'Which protects SQL from raw input injection?|Parameterized queries|f-string SQL|Concatenating a name|Removing comments',
+            'What should the test report cover?|CRUD, grades, invalid input, and persistence|Only a welcome print|Only source length|Only variable colors',
+            'How should a large program be organized?|Related classes, functions, and modules|One unstructured statement|Only global variables|Repeated code everywhere',
+        ],
+    ],
+];
+
+const projects = new Set([9, 19, 29]);
+const objectives = [
+    [
+        'Identify common uses and syntax characteristics of Python.',
+        'Create a first program using print() and comments.',
+    ],
+    [
+        'Create, assign, and reassign Python variables.',
+        'Apply valid naming rules, multiple assignment, and constant conventions.',
+    ],
+    [
+        'Differentiate strings, integers, floats, and Booleans.',
+        'Inspect and convert values using type(), int(), float(), and str().',
+    ],
+    [
+        'Collect user input and convert numeric values.',
+        'Display student information with print() and f-strings.',
+    ],
+    [
+        'Apply arithmetic, comparison, assignment, and logical operators.',
+        'Calculate results using precedence and parentheses.',
+    ],
+    [
+        'Create decisions using if, elif, else, and nested conditions.',
+        'Validate and classify grades using comparison and logical conditions.',
+    ],
+    [
+        'Create for and while loops with correct stopping conditions.',
+        'Apply range(), break, continue, and nested iteration.',
+    ],
+    [
+        'Create and modify lists using indices and list methods.',
+        'Calculate grade count, extremes, and averages safely.',
+    ],
+    [
+        'Define and call functions with parameters and default arguments.',
+        'Return reusable calculation results and explain local scope.',
+    ],
+    [
+        'Develop a validated student grade calculator.',
+        'Integrate input/output, lists, functions, and pass/fail decisions.',
+    ],
+    [
+        'Create, access, update, and remove dictionary entries.',
+        'Iterate key/value pairs and access nested student records.',
+    ],
+    [
+        'Differentiate immutable tuple bindings from mutable lists.',
+        'Create, index, and unpack fixed student-information tuples.',
+    ],
+    [
+        'Create sets containing unique values.',
+        'Compare class enrollment using union, intersection, and difference.',
+    ],
+    [
+        'Read, write, and append text using with open().',
+        'Demonstrate file handling in the browser virtual filesystem.',
+    ],
+    [
+        'Differentiate syntax, runtime, and logical errors.',
+        'Handle invalid input using try, except, else, and finally.',
+    ],
+    [
+        'Apply string indexing, slicing, and transformation methods.',
+        'Develop a text analyzer using search, split, and join.',
+    ],
+    [
+        'Create list comprehensions that transform and filter values.',
+        'Differentiate filtering conditions from conditional expressions.',
+    ],
+    [
+        'Represent students with nested lists and dictionaries.',
+        'Access and summarize subject and grade records safely.',
+    ],
+    [
+        'Explain sequence, selection, and iteration in an algorithm.',
+        'Develop pseudocode and Python solutions for search and highest-grade problems.',
+    ],
+    [
+        'Develop menu-driven student record CRUD functions.',
+        'Apply grade calculations, file storage, validation, and exception handling.',
+    ],
+    [
+        'Differentiate procedural and object-oriented organization.',
+        'Identify classes, objects, attributes, and methods in a program.',
+    ],
+    [
+        'Create independent Student instances using __init__() and self.',
+        'Develop instance methods for averages and academic status.',
+    ],
+    [
+        'Create parent and child classes with inherited behavior.',
+        'Apply super() and method overriding in student and teacher classes.',
+    ],
+    [
+        'Apply properties to validate internal object state.',
+        'Demonstrate polymorphism through a shared method interface.',
+    ],
+    [
+        'Import standard-library modules and selected functions.',
+        'Create and import a custom utility module and explain package organization.',
+    ],
+    [
+        'Serialize and parse student records using JSON.',
+        'Read and write JSON safely in browser-local files.',
+    ],
+    [
+        'Explain HTTP requests, responses, status codes, and GET.',
+        'Process a simulated JSON API response and handle missing or invalid data.',
+    ],
+    [
+        'Create a safe educational SQLite database.',
+        'Apply parameterized INSERT, SELECT, UPDATE, and DELETE operations.',
+    ],
+    [
+        'Apply lambda, map(), filter(), *args, and **kwargs.',
+        'Create recursive functions with validated inputs and terminating base cases.',
+    ],
+    [
+        'Develop a student information system using classes and SQLite.',
+        'Integrate parameterized CRUD, grade reporting, modules, validation, and exceptions.',
+    ],
+];
+const starters = [
+    'print("Student:")\n# Add course, year level, and school.',
+    'name = ""\nage = 0\nscore = 0\n# Assign your student details and display them.',
+    'name = "Juan"\n# Add int, float, and bool examples, then print their types.',
+    'name = input("Name: ")\n# Read age, course, and year. Display a formatted report.',
+    'a = float(input("First number: "))\nb = float(input("Second number: "))\n# Calculate results and guard against a zero divisor.',
+    'grade = float(input("Grade: "))\n# Validate the grade and classify it with if/elif/else.',
+    'total = 0\n# Loop over 1–10, display values, and accumulate total.',
+    'grades = [88, 75, 92]\n# Update the list using its methods and calculate results.',
+    'def add(a, b):\n    # Return the sum.\n    pass\n# Add subtract, multiply, and divide functions.',
+    'def calculate_average(grades):\n    # Return the average and handle an empty list.\n    pass\n# Collect a name and grades; validate and report status.',
+    'student = {"name": "", "grades": []}\n# Add, update, read, and remove record fields.',
+    'student_info = ("Juan", "BSCS", 1)\n# Unpack the tuple and display each fixed value.',
+    'python_class = {"Ana", "Juan"}\nmath_class = {"Juan", "Maria"}\n# Display union, intersection, and difference.',
+    'filename = "students.txt"\n# Write a record, append another, and read them in one run.',
+    'try:\n    number = float(input("Number: "))\n    # Add the calculation.\nexcept ValueError:\n    print("Enter a valid number")\n# Handle zero division and add else/finally.',
+    'text = input("Text: ")\n# Analyze the text using string methods and slicing.',
+    'numbers = list(range(1, 11))\ngrades = [70, 80, 95]\n# Build comprehensions for squares, evens, and passing grades.',
+    'students = []\n# Add dictionaries containing student subjects and grades.',
+    'grades = [80, 95, 75]\nhighest = None\n# Find the highest grade with a loop; write pseudocode in comments.',
+    'records = []\ndef find_student(student_id):\n    # Search records by ID.\n    pass\n# Add CRUD, grading, menu, validation, and file functions.',
+    'class Course:\n    # Add attributes and behavior.\n    pass\n# Create an instance and call a method.',
+    'class Student:\n    def __init__(self, name, grades):\n        self.name = name\n        self.grades = grades\n    # Add average() and status().',
+    'class Person:\n    def __init__(self, name):\n        self.name = name\n# Derive Student and Teacher using super().',
+    'class Student:\n    # Add a validating grade property.\n    pass\n# Demonstrate a common describe() method on two record types.',
+    '# Create student_utils.py with open(...), then import its average function.\nimport math\nprint(math.sqrt(81))',
+    'import json\nstudent = {"name": "Maria", "grades": [80, 90]}\n# Serialize, write, read, and verify this record.',
+    'import json\nstatus_code = 200\nresponse_body = \'{"students": [{"id": 1, "name": "Maria"}]}\'\n# Check status, parse safely, and display student results.',
+    'import sqlite3\nconnection = sqlite3.connect(":memory:")\n# Create a table and implement parameterized CRUD.',
+    'grades = [70, 80, 90]\n# Transform and filter; add a recursive factorial and flexible total.',
+    'import sqlite3\nclass Student:\n    # Add initialization, average, and academic status.\n    pass\n# Add a repository, parameterized CRUD, menu, and tests.',
+];
+const commonErrors = [
+    'Missing quotes around text or misspelling print causes errors; # comments are not program output.',
+    'Using == instead of = compares rather than assigns. A name starting with a digit is invalid.',
+    '"19" is text, not an integer. int("nineteen") raises ValueError; True is case-sensitive.',
+    'Adding text input to a number raises TypeError. Convert it first and provide enough input lines.',
+    'Division by zero raises ZeroDivisionError. // floors negative results; it does not simply discard decimals.',
+    'Check grade range before thresholds. Testing grade >= 75 before >= 90 misclassifies excellent grades.',
+    'range excludes its stop value. Forgetting to update a while condition can cause an infinite loop.',
+    'An out-of-range index raises IndexError; remove of an absent value raises ValueError; sort returns None.',
+    'Printing a result does not return it. Calling a function before its definition executes can fail.',
+    'An empty grade list cannot be averaged by division. Test exactly 75 and reject grades above 100.',
+    'Bracket access on a missing key raises KeyError. Iterating a dictionary directly yields keys.',
+    'A one-item tuple requires a comma. Unpacking into the wrong number of names raises ValueError.',
+    '{} creates a dictionary. Set output order is not stable; sort results before comparing displayed output.',
+    'w truncates an existing file. Reading a nonexistent file raises FileNotFoundError; write needs text.',
+    'except cannot repair code that fails to parse. Avoid a bare except that hides unexpected bugs.',
+    'String methods return a new string. find may return -1, and slice stops are exclusive.',
+    'A trailing if filters; an if/else expression before for transforms. Keep comprehensions readable.',
+    'Confusing a list index with a dictionary key causes errors. Validate empty grade lists at each record.',
+    'Initializing highest to 0 gives wrong results for all-negative data. Handle an empty input explicitly.',
+    'Reject duplicate IDs and report missing records. End the menu with an Exit option and sufficient input lines.',
+    'A class definition is not an instance. Call methods with parentheses and keep state with related behavior.',
+    'Missing self or misspelling __init__ breaks instance methods. Use self.name to store an instance attribute.',
+    'Forgetting super().__init__ can leave parent attributes absent. Use inheritance for an is-a relationship.',
+    '_grade is a convention, not enforced privacy. A setter assigning self.grade recursively calls itself.',
+    'Do not name a custom file math.py or json.py. This shadows standard modules and confuses imports.',
+    'Python single quotes and None are not JSON syntax. Parse untrusted JSON with json.loads, never eval.',
+    'A successful HTTP status does not guarantee expected fields. Handle malformed JSON and missing records.',
+    'Concatenating raw input into SQL risks injection. Include WHERE when targeting an update or deletion.',
+    'Recursion needs a base case and validated input. map/filter return iterators, not ready-made lists.',
+    'Separate database work from menu logic. Validate duplicate IDs, missing records, grade ranges, and empty grades.',
+];
+const outputs = {
+    9: 'Student: Maria\nAverage: 89.5\nStatus: PASSED',
+    19: 'Added S001: Maria\nSearch S001: Maria | Average: 85.0\nSaved 1 record\nGoodbye',
+    29: 'Registered S001: Maria\nAverage: 89.5 | Status: PASSED\nSaved to SQLite\nSearch: S001 Maria',
+};
+const data = lessons.map(
+    ([title, topics, explanation, example, activity, checks], index) => {
+        const quiz = checks.map((line, questionIndex) => {
+            const [question, correct, ...wrong] = line.split('|');
+            const answer = (index + questionIndex) % 4;
+            const choices = [...wrong];
+            choices.splice(answer, 0, correct);
+            return {
+                question,
+                choices,
+                answer,
+                explanation: `Correct: ${correct}. Review the key concepts and example in ${title}.`,
+            };
+        });
+        return {
+            title,
+            level: ['Basic', 'Moderate', 'Advanced'][Math.floor(index / 10)],
+            position: index + 1,
+            objectives: [
+                ...objectives[index],
+                'Debug and test a solution to the lesson activity.',
+            ],
+            introduction: `Explore ${title} through practical student-information examples and exercises.`,
+            explanation: `Key concepts: ${topics}.\n\n${explanation}`,
+            syntax: example.split('\n').slice(0, 5).join('\n'),
+            example_python: example,
+            starter_python: starters[index] + '\n',
+            guided_practice: `Run the example, explain each line, then change one value and predict the result. ${index === 3 ? 'Provide Juan and 18 on separate input lines.' : index === 14 ? 'Try input lines 2, 0, and abc in separate runs.' : 'Test at least two cases and one boundary or invalid case.'}`,
+            activity,
+            expected_result:
+                outputs[index] ||
+                `A labelled report demonstrating ${title.toLowerCase()} and meeting each activity requirement. Compare results for normal and boundary inputs.`,
+            important_notes: `${commonErrors[index]} Read the traceback from its last line. Browser files and databases are temporary and reset after each run.`,
+            challenge: `Summary: ${explanation.split('. ')[0]}. Extend your activity with another realistic test case and explain the result in comments.`,
+            completion_requirements:
+                'Save and submit your source, score at least 4/5 on the quiz, and obtain teacher approval. Projects use the displayed assessment rubric.',
+            is_project: projects.has(index),
+            rubric: projects.has(index)
+                ? {
+                      'Program Functionality': 40,
+                      'Correct Use of Python Concepts': 25,
+                      'Code Organization': 15,
+                      'Error Handling': 10,
+                      'Readability / Documentation': 10,
+                  }
+                : null,
+            quiz,
+            validation_rules: {
+                python: {
+                    syntax: true,
+                    required_functions:
+                        index === 9 ? ['calculate_average'] : [],
+                    test_cases:
+                        index === 9
+                            ? [
+                                  {
+                                      function: 'calculate_average',
+                                      arguments: [[80, 90]],
+                                      expected: 85,
+                                  },
+                                  {
+                                      function: 'calculate_average',
+                                      arguments: [[75, 75]],
+                                      expected: 75,
+                                  },
+                              ]
+                            : [],
+                },
+            },
+        };
+    },
+);
+fs.mkdirSync('database/data', { recursive: true });
+fs.writeFileSync(
+    'database/data/python-course.json',
+    JSON.stringify(data, null, 2) + '\n',
+);

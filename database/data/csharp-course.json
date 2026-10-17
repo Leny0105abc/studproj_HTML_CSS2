@@ -1,0 +1,1693 @@
+[
+  {
+    "title": "Introduction to C# and .NET",
+    "level": "Beginner",
+    "position": 1,
+    "objectives": [
+      "Explain the purpose of C# and its relationship to .NET.",
+      "Identify using, class, Main, statements and code blocks.",
+      "Write and run a simple C# console program in an authorized development environment."
+    ],
+    "introduction": "Learn C# uses; .NET runtime; console applications; namespace; class; Main; statements; semicolons; blocks; comments through fictional student data and C# practice.",
+    "explanation": "C# is a statically typed language for console, web, desktop and other application development. A .NET SDK builds the program; the runtime executes compiled managed code. using imports namespace names rather than pasting a library into the program. Program is a class, Main is the entry point, braces delimit blocks and semicolons terminate many statements. This course uses an explicit Program/Main structure so beginners can see the entry point; modern top-level statements are an alternative, not required. Console.WriteLine prints a line.\nTopics and syntax to practice: C# uses; .NET runtime; console applications; namespace; class; Main; statements; semicolons; blocks; comments",
+    "syntax": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Hello, C#!\");\n        Console.WriteLine(\"Student: Maria Santos\");\n        Console.WriteLine(\"Course: BS Information Technology\");\n        Console.WriteLine(\"Year: 1\");\n        Console.WriteLine(\"School: CodeLab Practice School\");\n    }\n\n}\n",
+    "example_csharp": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Hello, C#!\");\n        Console.WriteLine(\"Student: Maria Santos\");\n        Console.WriteLine(\"Course: BS Information Technology\");\n        Console.WriteLine(\"Year: 1\");\n        Console.WriteLine(\"School: CodeLab Practice School\");\n    }\n\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Create a console program that displays a fictional Student Name, Course, Year Level and School. Add a meaningful comment and explain namespace, class, Main and the SDK/runtime relationship.",
+    "expected_result": "Hello, C#!\nStudent: Maria Santos\nCourse: BS Information Technology\nYear: 1\nSchool: CodeLab Practice School\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: C# is a statically typed language for console, web, desktop and other application development.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What builds a C# project?",
+        "choices": [
+          ".NET SDK",
+          "A text file alone",
+          "Console.ReadLine",
+          "The browser textarea"
+        ],
+        "answer": 0,
+        "explanation": ".NET SDK. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What is the explicit entry method?",
+        "choices": [
+          "WriteLine",
+          "using",
+          "Namespace",
+          "Main"
+        ],
+        "answer": 3,
+        "explanation": "Main. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does WriteLine append?",
+        "choices": [
+          "A password hash",
+          "A class declaration",
+          "A newline",
+          "A SQL row"
+        ],
+        "answer": 2,
+        "explanation": "A newline. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What delimits a code block?",
+        "choices": [
+          "A database connection",
+          "Braces",
+          "Only indentation",
+          "Quotes"
+        ],
+        "answer": 1,
+        "explanation": "Braces. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Where can student code run safely online?",
+        "choices": [
+          "A verified isolated service",
+          "The unrestricted Laravel host",
+          "Inside a stored text column",
+          "The production database"
+        ],
+        "answer": 0,
+        "explanation": "A verified isolated service. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "",
+            "expected": "Hello, C#!\nStudent: Maria Santos\nCourse: BS Information Technology\nYear: 1\nSchool: CodeLab Practice School\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Variables, Constants, and Data Types",
+    "level": "Beginner",
+    "position": 2,
+    "objectives": [
+      "Explain declaration using the example.",
+      "Implement Variables, Constants, and Data Types in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn declaration; assignment/reassignment; var; const; naming; int/long/double/decimal/char/bool/string; casts; Convert; Parse; TryParse through fictional student data and C# practice.",
+    "explanation": "Variables store typed values and can be reassigned; const values are fixed at compile time. var infers a compile-time local type from an initializer and is not dynamically typed. Use meaningful camelCase locals and PascalCase type/method names. int and long represent whole numbers; double uses binary floating point; decimal uses decimal arithmetic and needs the m suffix. char is one UTF-16 code unit, bool is true/false, and string is text. Explicit casts can narrow a value and lose information; Convert and Parse may throw on invalid or overflowing input. TryParse reports failure without using exceptions for ordinary invalid numeric input. Always validate the range after parsing.\nTopics and syntax to practice: declaration; assignment/reassignment; var; const; naming; int/long/double/decimal/char/bool/string; casts; Convert; Parse; TryParse",
+    "syntax": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        string studentName = \"Maria\";\n        int age = 19;\n        long studentId = 20260001L;\n        double grade = 95.5;\n        decimal fee = 1250.50m;\n        char initial = 'M';\n        bool enrolled = true;\n        var course = \"IT\";\n        const decimal PassingGrade = 75m;\n        age += 1;\n        Console.WriteLine($\"{studentName}: age {age}; grade {grade}; fee {fee:F2}\");\n        Console.WriteLine($\"{studentId}; {initial}; {enrolled}; {course}; pass {PassingGrade}\");\n    }\n\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        string studentName = \"Maria\";\n        int age = 19;\n        long studentId = 20260001L;\n        double grade = 95.5;\n        decimal fee = 1250.50m;\n        char initial = 'M';\n        bool enrolled = true;\n        var course = \"IT\";\n        const decimal PassingGrade = 75m;\n        age += 1;\n        Console.WriteLine($\"{studentName}: age {age}; grade {grade}; fee {fee:F2}\");\n        Console.WriteLine($\"{studentId}; {initial}; {enrolled}; {course}; pass {PassingGrade}\");\n    }\n\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Store and display fictional student information using every listed type. Demonstrate reassignment, const, inferred/explicit types, a deliberate narrowing cast and TryParse on malformed input; explain when Convert/Parse can fail.",
+    "expected_result": "The program and documented tests meet the independent activity requirements; compare actual output with the example. No output is fabricated by saving source.",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Variables store typed values and can be reassigned; const values are fixed at compile time.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What does var mean?",
+        "choices": [
+          "Compile-time type inference",
+          "Any runtime type",
+          "An untyped global",
+          "A constant"
+        ],
+        "answer": 0,
+        "explanation": "Compile-time type inference. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Which literal is decimal?",
+        "choices": [
+          "1250.50 only",
+          "\"1250.50\"",
+          "true",
+          "1250.50m"
+        ],
+        "answer": 3,
+        "explanation": "1250.50m. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What handles invalid numeric text without ordinary parsing exceptions?",
+        "choices": [
+          "A cast of any string",
+          "ToUpper",
+          "TryParse",
+          "Unchecked Parse"
+        ],
+        "answer": 2,
+        "explanation": "TryParse. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What is const?",
+        "choices": [
+          "A loop counter keyword",
+          "A compile-time fixed value",
+          "A mutable collection",
+          "A database user"
+        ],
+        "answer": 1,
+        "explanation": "A compile-time fixed value. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What can a narrowing cast do?",
+        "choices": [
+          "Lose information",
+          "Always preserve every decimal place",
+          "Grant authorization",
+          "Read stdin automatically"
+        ],
+        "answer": 0,
+        "explanation": "Lose information. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": []
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Input, Output, and Operators",
+    "level": "Beginner",
+    "position": 3,
+    "objectives": [
+      "Explain write/writeline/readline using the example.",
+      "Implement Input, Output, and Operators in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn Write/WriteLine/ReadLine; null handling; concatenation/interpolation; arithmetic; comparisons; &&/||/!; assignment; ++/--; precedence through fictional student data and C# practice.",
+    "explanation": "ReadLine returns text or null at end of stdin. Write does not add a newline; WriteLine does. Prefer TryParse with an explicit culture and validate the domain. Decimal arithmetic is useful for this calculator; integer division otherwise truncates toward zero. % is remainder. == compares equality while = assigns. && and || short-circuit, which lets the right side be skipped safely. Parentheses make precedence explicit. Compound assignment and increment/decrement update values; avoid overly clever expressions that hide those side effects.\nTopics and syntax to practice: Write/WriteLine/ReadLine; null handling; concatenation/interpolation; arithmetic; comparisons; &&/||/!; assignment; ++/--; precedence",
+    "syntax": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        Console.WriteLine(\"Enter first number, second number, operation (+ - * /):\");\n        if (!decimal.TryParse(Console.ReadLine(), NumberStyles.Number, CultureInfo.InvariantCulture, out decimal a) ||\n            !decimal.TryParse(Console.ReadLine(), NumberStyles.Number, CultureInfo.InvariantCulture, out decimal b))\n        { Console.WriteLine(\"Invalid numeric input\"); return; }\n        string operation = Console.ReadLine() ?? \"\";\n        if (operation == \"/\" && b == 0) { Console.WriteLine(\"Cannot divide by zero\"); return; }\n        try\n        {\n            decimal result = operation switch { \"+\" => a + b, \"-\" => a - b, \"*\" => a * b, \"/\" => a / b, _ => throw new ArgumentException(\"Unknown operation\") };\n            Console.WriteLine($\"Result: {result:F2}\");\n        }\n        catch (ArgumentException ex) { Console.WriteLine(ex.Message); }\n        catch (OverflowException) { Console.WriteLine(\"Result outside decimal range\"); }\n    }\n\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        Console.WriteLine(\"Enter first number, second number, operation (+ - * /):\");\n        if (!decimal.TryParse(Console.ReadLine(), NumberStyles.Number, CultureInfo.InvariantCulture, out decimal a) ||\n            !decimal.TryParse(Console.ReadLine(), NumberStyles.Number, CultureInfo.InvariantCulture, out decimal b))\n        { Console.WriteLine(\"Invalid numeric input\"); return; }\n        string operation = Console.ReadLine() ?? \"\";\n        if (operation == \"/\" && b == 0) { Console.WriteLine(\"Cannot divide by zero\"); return; }\n        try\n        {\n            decimal result = operation switch { \"+\" => a + b, \"-\" => a - b, \"*\" => a * b, \"/\" => a / b, _ => throw new ArgumentException(\"Unknown operation\") };\n            Console.WriteLine($\"Result: {result:F2}\");\n        }\n        catch (ArgumentException ex) { Console.WriteLine(ex.Message); }\n        catch (OverflowException) { Console.WriteLine(\"Result outside decimal range\"); }\n    }\n\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Build a two-number calculator that asks for an operation, uses TryParse and rejects invalid input, zero division, unknown operations and overflow. Add small comparison, remainder and compound-assignment examples.",
+    "expected_result": "Enter first number, second number, operation (+ - * /):\nResult: 2.40\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: ReadLine returns text or null at end of stdin.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What can ReadLine return at end of input?",
+        "choices": [
+          "null",
+          "Always zero",
+          "A Task only",
+          "A SQL row"
+        ],
+        "answer": 0,
+        "explanation": "null. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What operator compares equality?",
+        "choices": [
+          "=",
+          "+=",
+          "++",
+          "=="
+        ],
+        "answer": 3,
+        "explanation": "==. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What happens for integer 5 / 2?",
+        "choices": [
+          "3",
+          "A string",
+          "2",
+          "2.5"
+        ],
+        "answer": 2,
+        "explanation": "2. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What should happen before dividing?",
+        "choices": [
+          "Concatenate SQL",
+          "Validate the divisor",
+          "Ignore invalid input",
+          "Reset all credentials"
+        ],
+        "answer": 1,
+        "explanation": "Validate the divisor. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does && do?",
+        "choices": [
+          "Short-circuit logical AND",
+          "Add integers",
+          "Compare strings with culture",
+          "Declare a constant"
+        ],
+        "answer": 0,
+        "explanation": "Short-circuit logical AND. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "12\n5\n/\n",
+            "expected": "Enter first number, second number, operation (+ - * /):\nResult: 2.40\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null,
+    "guide": [
+      {
+        "title": "Sample Program Input",
+        "instruction": "12\n5\n/\n"
+      }
+    ]
+  },
+  {
+    "title": "Conditional Statements and Loops",
+    "level": "Beginner",
+    "position": 4,
+    "objectives": [
+      "Explain if/else/else if using the example.",
+      "Implement Conditional Statements and Loops in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn if/else/else if; nested conditions; switch/expression; ternary; for/while/do/foreach; break/continue; nested loops; counters/accumulators through fictional student data and C# practice.",
+    "explanation": "Conditions select behavior and loops repeat bounded work. Classify continuous ranges, including decimal grades: 90–100 Excellent, 85 to below 90 Very Good, 80 to below 85 Good, 75 to below 80 Passed, otherwise Failed. Validate 0–100 first. foreach visits elements, for is useful for indices, while checks before a body and do checks after it. break ends a loop and continue skips the rest of the current iteration. Counters count records and accumulators total values. Nested loops multiply work; keep limits small and make progress toward termination.\nTopics and syntax to practice: if/else/else if; nested conditions; switch/expression; ternary; for/while/do/foreach; break/continue; nested loops; counters/accumulators",
+    "syntax": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        decimal[] grades = {95m, 87.5m, 82m, 75m, 60m, 101m};\n        int count = 0; decimal total = 0;\n        foreach (decimal grade in grades)\n        {\n            if (grade < 0 || grade > 100) { Console.WriteLine(\"Invalid grade\"); continue; }\n            string band = grade >= 90 ? \"Excellent\" : grade >= 85 ? \"Very Good\" : grade >= 80 ? \"Good\" : grade >= 75 ? \"Passed\" : \"Failed\";\n            Console.WriteLine(band); count++; total += grade;\n        }\n        Console.WriteLine($\"Valid grades: {count}; total: {total:F2}\");\n    }\n\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        decimal[] grades = {95m, 87.5m, 82m, 75m, 60m, 101m};\n        int count = 0; decimal total = 0;\n        foreach (decimal grade in grades)\n        {\n            if (grade < 0 || grade > 100) { Console.WriteLine(\"Invalid grade\"); continue; }\n            string band = grade >= 90 ? \"Excellent\" : grade >= 85 ? \"Very Good\" : grade >= 80 ? \"Good\" : grade >= 75 ? \"Passed\" : \"Failed\";\n            Console.WriteLine(band); count++; total += grade;\n        }\n        Console.WriteLine($\"Valid grades: {count}; total: {total:F2}\");\n    }\n\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Use a loop to process multiple grades and all five bands. Test 0, 74.9, 75, 80, 85, 89.5, 90, 100 and 101. Demonstrate for, while, do, foreach, switch, break/continue and a small bounded nested loop.",
+    "expected_result": "Excellent\nVery Good\nGood\nPassed\nFailed\nInvalid grade\nValid grades: 5; total: 399.50\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Conditions select behavior and loops repeat bounded work.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "Which band includes 89.5?",
+        "choices": [
+          "Very Good",
+          "Excellent",
+          "Failed",
+          "Invalid"
+        ],
+        "answer": 0,
+        "explanation": "Very Good. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Which loop executes its body before testing?",
+        "choices": [
+          "while",
+          "foreach over empty data",
+          "for with a false condition",
+          "do...while"
+        ],
+        "answer": 3,
+        "explanation": "do...while. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does continue do?",
+        "choices": [
+          "Repeat forever",
+          "Create a new thread",
+          "Skip the rest of this iteration",
+          "Always end the program"
+        ],
+        "answer": 2,
+        "explanation": "Skip the rest of this iteration. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What should precede classification?",
+        "choices": [
+          "Rounding everything upward",
+          "Range validation",
+          "Deleting low grades",
+          "Disabling limits"
+        ],
+        "answer": 1,
+        "explanation": "Range validation. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What counts records?",
+        "choices": [
+          "A counter",
+          "A namespace",
+          "A connection string",
+          "A password"
+        ],
+        "answer": 0,
+        "explanation": "A counter. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "",
+            "expected": "Excellent\nVery Good\nGood\nPassed\nFailed\nInvalid grade\nValid grades: 5; total: 399.50\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Arrays and Methods",
+    "level": "Beginner",
+    "position": 5,
+    "objectives": [
+      "Explain declaration/initialization using the example.",
+      "Implement Arrays and Methods in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn declaration/initialization; zero-based indices; updates; Length; foreach; multidimensional arrays; parameters/arguments; returns; void; overloading; scope through fictional student data and C# practice.",
+    "explanation": "Arrays have fixed length and zero-based indices. new decimal[3] has valid indices 0, 1 and 2. A rectangular array uses a comma between indices and GetLength for each dimension; a jagged array contains arrays. Methods group behavior; parameters declare inputs while arguments supply values. void returns no value; a return statement supplies a result to the caller. Overloading uses different parameter lists, not return type alone. Local scope limits visibility. Validate empty arrays before averages/minimum/maximum. The example uses LINQ for brevity; implement loops yourself to practice accumulators and extrema.\nTopics and syntax to practice: declaration/initialization; zero-based indices; updates; Length; foreach; multidimensional arrays; parameters/arguments; returns; void; overloading; scope",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        decimal[] grades = {90m, 80m, 100m};\n        grades[1] = 85m;\n        Display(\"Maria\", grades);\n        int[,] seats = {{1, 2}, {3, 4}};\n        Console.WriteLine($\"Rows: {seats.GetLength(0)}\");\n    }\n    static decimal Average(decimal[] grades) { if (grades.Length == 0) throw new ArgumentException(\"At least one grade required\"); return grades.Sum() / grades.Length; }\n    static bool Passed(decimal average) => average >= 75m;\n    static void Display(string name, decimal[] grades)\n    {\n        decimal average = Average(grades);\n        Console.WriteLine($\"Student: {name}\"); Console.WriteLine($\"Total: {grades.Sum():F2}\");\n        Console.WriteLine($\"Average: {average:F2}\"); Console.WriteLine($\"Highest: {grades.Max():F2}; Lowest: {grades.Min():F2}\");\n        Console.WriteLine($\"Status: {(Passed(average) ? \"PASSED\" : \"FAILED\")}\");\n    }\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        decimal[] grades = {90m, 80m, 100m};\n        grades[1] = 85m;\n        Display(\"Maria\", grades);\n        int[,] seats = {{1, 2}, {3, 4}};\n        Console.WriteLine($\"Rows: {seats.GetLength(0)}\");\n    }\n    static decimal Average(decimal[] grades) { if (grades.Length == 0) throw new ArgumentException(\"At least one grade required\"); return grades.Sum() / grades.Length; }\n    static bool Passed(decimal average) => average >= 75m;\n    static void Display(string name, decimal[] grades)\n    {\n        decimal average = Average(grades);\n        Console.WriteLine($\"Student: {name}\"); Console.WriteLine($\"Total: {grades.Sum():F2}\");\n        Console.WriteLine($\"Average: {average:F2}\"); Console.WriteLine($\"Highest: {grades.Max():F2}; Lowest: {grades.Min():F2}\");\n        Console.WriteLine($\"Status: {(Passed(average) ? \"PASSED\" : \"FAILED\")}\");\n    }\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Create original methods for average, highest, lowest, pass/fail and displaying results using loops. Add a void method, an overload and a small two-dimensional array. Handle empty arrays and invalid grades before calculations.",
+    "expected_result": "The program and documented tests meet the independent activity requirements; compare actual output with the example. No output is fabricated by saving source.",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Arrays have fixed length and zero-based indices.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What is the last valid index of a length-3 array?",
+        "choices": [
+          "2",
+          "3",
+          "4",
+          "-1"
+        ],
+        "answer": 0,
+        "explanation": "2. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does void indicate?",
+        "choices": [
+          "An empty class only",
+          "A decimal number",
+          "No parameters allowed",
+          "No returned value"
+        ],
+        "answer": 3,
+        "explanation": "No returned value. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What distinguishes method overloads?",
+        "choices": [
+          "Comments",
+          "Indentation",
+          "Parameter lists",
+          "Return type alone"
+        ],
+        "answer": 2,
+        "explanation": "Parameter lists. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What must averaging guard against?",
+        "choices": [
+          "All integers",
+          "Empty arrays",
+          "Every using directive",
+          "Any return statement"
+        ],
+        "answer": 1,
+        "explanation": "Empty arrays. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What gives rectangular-array rows?",
+        "choices": [
+          "GetLength(0)",
+          "GetLength(1) always",
+          "Count of namespaces",
+          "Console.ReadLine"
+        ],
+        "answer": 0,
+        "explanation": "GetLength(0). Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": []
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Beginner Project — Student Grade Calculator",
+    "level": "Beginner",
+    "position": 6,
+    "objectives": [
+      "Explain input using the example.",
+      "Implement Student Grade Calculator in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn input; types; operators; conditions; loops; arrays; methods; testing through fictional student data and C# practice.",
+    "explanation": "Develop an original grade calculator that reads a name, grade count and one grade per line; stores an array; validates values; computes total, average, pass/fail, highest and lowest; and displays formatted results. Use decimal grades in 0–100 and 1–20 grades as application limits. Reference source demonstrates one valid design, not a required exact solution. Required concepts include arrays and reusable methods; Beginner object-oriented-design rubric credit assesses the focused Program/method structure rather than requiring advanced inheritance.\nTopics and syntax to practice: input; types; operators; conditions; loops; arrays; methods; testing",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        string name = (Console.ReadLine() ?? \"\").Trim();\n        if (name.Length == 0 || name.Length > 100) { Console.WriteLine(\"Name required (1–100 characters)\"); return; }\n        if (!int.TryParse(Console.ReadLine(), out int count) || count < 1 || count > 20) { Console.WriteLine(\"Enter 1 to 20 grades\"); return; }\n        decimal[] grades = new decimal[count];\n        for (int i = 0; i < count; i++)\n        {\n            if (!decimal.TryParse(Console.ReadLine(), NumberStyles.Number, CultureInfo.InvariantCulture, out grades[i]) || grades[i] < 0 || grades[i] > 100)\n            { Console.WriteLine(\"Invalid grade\"); return; }\n        }\n        Display(name, grades);\n    }\n    static decimal Average(decimal[] grades) { if (grades.Length == 0) throw new ArgumentException(\"At least one grade required\"); return grades.Sum() / grades.Length; }\n    static bool Passed(decimal average) => average >= 75m;\n    static void Display(string name, decimal[] grades)\n    {\n        decimal average = Average(grades);\n        Console.WriteLine($\"Student: {name}\"); Console.WriteLine($\"Total: {grades.Sum():F2}\");\n        Console.WriteLine($\"Average: {average:F2}\"); Console.WriteLine($\"Highest: {grades.Max():F2}; Lowest: {grades.Min():F2}\");\n        Console.WriteLine($\"Status: {(Passed(average) ? \"PASSED\" : \"FAILED\")}\");\n    }\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        string name = (Console.ReadLine() ?? \"\").Trim();\n        if (name.Length == 0 || name.Length > 100) { Console.WriteLine(\"Name required (1–100 characters)\"); return; }\n        if (!int.TryParse(Console.ReadLine(), out int count) || count < 1 || count > 20) { Console.WriteLine(\"Enter 1 to 20 grades\"); return; }\n        decimal[] grades = new decimal[count];\n        for (int i = 0; i < count; i++)\n        {\n            if (!decimal.TryParse(Console.ReadLine(), NumberStyles.Number, CultureInfo.InvariantCulture, out grades[i]) || grades[i] < 0 || grades[i] > 100)\n            { Console.WriteLine(\"Invalid grade\"); return; }\n        }\n        Display(name, grades);\n    }\n    static decimal Average(decimal[] grades) { if (grades.Length == 0) throw new ArgumentException(\"At least one grade required\"); return grades.Sum() / grades.Length; }\n    static bool Passed(decimal average) => average >= 75m;\n    static void Display(string name, decimal[] grades)\n    {\n        decimal average = Average(grades);\n        Console.WriteLine($\"Student: {name}\"); Console.WriteLine($\"Total: {grades.Sum():F2}\");\n        Console.WriteLine($\"Average: {average:F2}\"); Console.WriteLine($\"Highest: {grades.Max():F2}; Lowest: {grades.Min():F2}\");\n        Console.WriteLine($\"Status: {(Passed(average) ? \"PASSED\" : \"FAILED\")}\");\n    }\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Milestones: define the input contract → validate name/count → collect an array → implement calculation methods → format results → test boundaries → submit original source/input/build output/screenshots or restricted repository links. Checklist: normal case, 0/100, 74.9/75, fractional grades, empty/invalid count, malformed grade, negative/>100, end-of-input and longest allowed name. Sample input: Maria Santos, 3, 95, 89, 91 (one per line).",
+    "expected_result": "Student: Maria Santos\nTotal: 275.00\nAverage: 91.67\nHighest: 95.00; Lowest: 89.00\nStatus: PASSED\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Develop an original grade calculator that reads a name, grade count and one grade per line; stores an array; validates values; computes total, average, pass/fail, highest and lowest; and displays formatted results.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "Where are multiple grades stored?",
+        "choices": [
+          "An array",
+          "A password field",
+          "The production users table",
+          "A namespace"
+        ],
+        "answer": 0,
+        "explanation": "An array. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What validates numeric text?",
+        "choices": [
+          "A string cast",
+          "Trusting all input",
+          "Rounding every value",
+          "TryParse plus domain checks"
+        ],
+        "answer": 3,
+        "explanation": "TryParse plus domain checks. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What is 275 / 3 to two decimals?",
+        "choices": [
+          "75.00",
+          "89.00",
+          "91.67",
+          "275.00"
+        ],
+        "answer": 2,
+        "explanation": "91.67. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What grade passes?",
+        "choices": [
+          "101",
+          "75",
+          "74.9",
+          "-1"
+        ],
+        "answer": 1,
+        "explanation": "75. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What evidence supports completion?",
+        "choices": [
+          "Original source and documented actual tests",
+          "A fabricated output panel",
+          "Only naming a class",
+          "Plaintext credentials"
+        ],
+        "answer": 0,
+        "explanation": "Original source and documented actual tests. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "Maria Santos\n3\n95\n89\n91\n",
+            "expected": "Student: Maria Santos\nTotal: 275.00\nAverage: 91.67\nHighest: 95.00; Lowest: 89.00\nStatus: PASSED\n"
+          }
+        ]
+      }
+    },
+    "is_project": true,
+    "rubric": {
+      "program_functionality": 25,
+      "correct_csharp": 20,
+      "object_oriented_design": 15,
+      "data_database_handling": 10,
+      "validation_error_handling": 10,
+      "code_organization_architecture": 10,
+      "security": 5,
+      "testing_documentation": 5
+    },
+    "guide": [
+      {
+        "title": "Sample Program Input",
+        "instruction": "Maria Santos\n3\n95\n89\n91\n"
+      }
+    ]
+  },
+  {
+    "title": "Strings and Collections",
+    "level": "Intermediate",
+    "position": 7,
+    "objectives": [
+      "Explain length using the example.",
+      "Implement Strings and Collections in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn Length; ToUpper/ToLower; Trim; Substring; Contains/StartsWith/EndsWith; Replace/Split; interpolation; List<T>; Add/AddRange/Remove/RemoveAt/Count/indexing/foreach through fictional student data and C# practice.",
+    "explanation": "Strings are immutable: transformations return new strings. Trim removes outer whitespace, not internal spaces. Check length before Substring; use ordinal comparisons for identifiers and choose cultural comparisons deliberately for display/search. Split is useful for simple delimited practice text but is not a complete quoted-CSV parser. List<T> is a mutable generic collection; Count gives its current size. Remove removes a matching value and returns whether it existed; RemoveAt takes an index and needs bounds checks. Do not mutate a List while enumerating it with foreach.\nTopics and syntax to practice: Length; ToUpper/ToLower; Trim; Substring; Contains/StartsWith/EndsWith; Replace/Split; interpolation; List<T>; Add/AddRange/Remove/RemoveAt/Count/indexing/foreach",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Collections.Generic;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var students = new List<string> {\" Maria \", \"Joel\"};\n        students = students.Select(name => name.Trim()).ToList();\n        students.Add(\"Ana\"); students.AddRange(new[] {\"Rico\", \"Liza\"});\n        students.Remove(\"Rico\");\n        foreach (string name in students.Where(n => n.Contains(\"a\", StringComparison.OrdinalIgnoreCase))) Console.WriteLine(name);\n        Console.WriteLine($\"Count: {students.Count}\");\n    }\n\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Collections.Generic;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var students = new List<string> {\" Maria \", \"Joel\"};\n        students = students.Select(name => name.Trim()).ToList();\n        students.Add(\"Ana\"); students.AddRange(new[] {\"Rico\", \"Liza\"});\n        students.Remove(\"Rico\");\n        foreach (string name in students.Where(n => n.Contains(\"a\", StringComparison.OrdinalIgnoreCase))) Console.WriteLine(name);\n        Console.WriteLine($\"Count: {students.Count}\");\n    }\n\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Create a menu to add, remove, search, display and count List<string> or List<Student> entries. Trim input, reject blanks/duplicates according to your stated rule, validate indices, and demonstrate the listed string methods.",
+    "expected_result": "The program and documented tests meet the independent activity requirements; compare actual output with the example. No output is fabricated by saving source.",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Strings are immutable: transformations return new strings.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What does Trim return?",
+        "choices": [
+          "A new string with outer whitespace removed",
+          "A changed original string buffer",
+          "A sorted List",
+          "A database"
+        ],
+        "answer": 0,
+        "explanation": "A new string with outer whitespace removed. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Which property counts a List?",
+        "choices": [
+          "Length only",
+          "Capacity always",
+          "Rows",
+          "Count"
+        ],
+        "answer": 3,
+        "explanation": "Count. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does RemoveAt accept?",
+        "choices": [
+          "A SQL query",
+          "A comparison delegate",
+          "An index",
+          "Only an object ID string"
+        ],
+        "answer": 2,
+        "explanation": "An index. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What should precede Substring?",
+        "choices": [
+          "Deleting the list",
+          "Bounds validation",
+          "Network access",
+          "Password storage"
+        ],
+        "answer": 1,
+        "explanation": "Bounds validation. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What is unsafe during foreach over List<T>?",
+        "choices": [
+          "Changing its collection structure",
+          "Reading a property",
+          "Comparing names",
+          "Displaying an element"
+        ],
+        "answer": 0,
+        "explanation": "Changing its collection structure. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": []
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Classes, Objects, and Constructors",
+    "level": "Intermediate",
+    "position": 8,
+    "objectives": [
+      "Explain classes using the example.",
+      "Implement Classes, Objects, and Constructors in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn classes; objects; fields/properties/methods; constructors; this; instances; initialization; auto-properties through fictional student data and C# practice.",
+    "explanation": "A class describes state and behavior and an object is an instance. Prefer properties for a public contract; private fields store internal state. Constructors initialize valid instances and this refers to the current instance. An auto-property lets the compiler generate backing storage; validation may require a custom setter or method. The example constructor validates ID/name and initializes non-null strings. Its grade collection is pedagogical: the next lesson encapsulates mutation so invalid grades cannot be inserted through an exposed list.\nTopics and syntax to practice: classes; objects; fields/properties/methods; constructors; this; instances; initialization; auto-properties",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Linq;\nusing System.Collections.Generic;\nusing System.Linq;\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var maria = new Student(1, \"Maria\", \"IT\");\n        maria.Grades.AddRange(new[] {95m, 89m, 91m});\n        var joel = new Student(2, \"Joel\", \"CS\");\n        foreach (var student in new[] {maria, joel}) Console.WriteLine($\"{student.StudentId}: {student.Name}; {student.Course}; average {student.Average:F2}\");\n    }\n\n}\nclass Student\n{\n    public int StudentId { get; }\n    public string Name { get; set; }\n    public string Course { get; set; }\n    public List<decimal> Grades { get; } = new();\n    public decimal Average => Grades.Count == 0 ? 0m : Grades.Average();\n    public Student(int studentId, string name, string course) { if (studentId <= 0 || string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Valid ID/name required\"); StudentId = studentId; Name = name.Trim(); Course = course.Trim(); }\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Linq;\nusing System.Collections.Generic;\nusing System.Linq;\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var maria = new Student(1, \"Maria\", \"IT\");\n        maria.Grades.AddRange(new[] {95m, 89m, 91m});\n        var joel = new Student(2, \"Joel\", \"CS\");\n        foreach (var student in new[] {maria, joel}) Console.WriteLine($\"{student.StudentId}: {student.Name}; {student.Course}; average {student.Average:F2}\");\n    }\n\n}\nclass Student\n{\n    public int StudentId { get; }\n    public string Name { get; set; }\n    public string Course { get; set; }\n    public List<decimal> Grades { get; } = new();\n    public decimal Average => Grades.Count == 0 ? 0m : Grades.Average();\n    public Student(int studentId, string name, string course) { if (studentId <= 0 || string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Valid ID/name required\"); StudentId = studentId; Name = name.Trim(); Course = course.Trim(); }\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Create Student with ID, Name, Course, Grades and Average. Construct several objects and display their information. Demonstrate this, object initialization for suitable settable properties, and explain fields versus properties and no-grade handling.",
+    "expected_result": "The program and documented tests meet the independent activity requirements; compare actual output with the example. No output is fabricated by saving source.",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: A class describes state and behavior and an object is an instance.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What creates an instance?",
+        "choices": [
+          "new",
+          "using alone",
+          "return alone",
+          "public alone"
+        ],
+        "answer": 0,
+        "explanation": "new. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What initializes valid object state?",
+        "choices": [
+          "A namespace",
+          "A quiz",
+          "A CSV separator",
+          "A constructor"
+        ],
+        "answer": 3,
+        "explanation": "A constructor. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does this refer to?",
+        "choices": [
+          "The production database",
+          "Only the parent class",
+          "The current instance",
+          "Every class at once"
+        ],
+        "answer": 2,
+        "explanation": "The current instance. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What is an auto-property?",
+        "choices": [
+          "A trigger",
+          "A property with compiler-generated backing storage",
+          "An automatically authorized user",
+          "A global variable"
+        ],
+        "answer": 1,
+        "explanation": "A property with compiler-generated backing storage. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Why encapsulate grade mutation?",
+        "choices": [
+          "Prevent invalid state",
+          "Make all values strings",
+          "Remove validation",
+          "Avoid constructors"
+        ],
+        "answer": 0,
+        "explanation": "Prevent invalid state. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": []
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Encapsulation and Inheritance",
+    "level": "Intermediate",
+    "position": 9,
+    "objectives": [
+      "Explain public/private/protected/internal using the example.",
+      "Implement Encapsulation and Inheritance in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn public/private/protected/internal; fields; validated properties; getters/setters; base/derived classes; colon syntax; base; protected members; overriding through fictional student data and C# practice.",
+    "explanation": "Encapsulation protects invariants by controlling state changes. public exposes the contract, private limits a member to its declaring type, protected allows access from derived types, and internal limits access to the assembly. Inheritance models an is-a relationship and C# allows one direct base class. : names the base, base calls its constructor or accesses its member, and virtual/override permit runtime specialization. Prefer composition when reuse does not describe an is-a relationship. Expose read-only views and validated operations rather than mutable internals.\nTopics and syntax to practice: public/private/protected/internal; fields; validated properties; getters/setters; base/derived classes; colon syntax; base; protected members; overriding",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Collections.Generic;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var student = new EnrolledStudent(\"Maria\");\n        student.AddGrade(91.5m);\n        Console.WriteLine($\"{student.Name}: {student.Average:F2}\");\n    }\n    class Person { public string Name { get; } public Person(string name) { if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required\"); Name = name.Trim(); } }\n    class EnrolledStudent : Person { private readonly List<decimal> grades = new(); public EnrolledStudent(string name) : base(name) {} public decimal Average => grades.Count == 0 ? 0 : grades.Average(); public void AddGrade(decimal value) { if (value < 0 || value > 100) throw new ArgumentOutOfRangeException(nameof(value)); grades.Add(value); } }\n    class Teacher : Person { public Teacher(string name) : base(name) {} }\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Collections.Generic;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var student = new EnrolledStudent(\"Maria\");\n        student.AddGrade(91.5m);\n        Console.WriteLine($\"{student.Name}: {student.Average:F2}\");\n    }\n    class Person { public string Name { get; } public Person(string name) { if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required\"); Name = name.Trim(); } }\n    class EnrolledStudent : Person { private readonly List<decimal> grades = new(); public EnrolledStudent(string name) : base(name) {} public decimal Average => grades.Count == 0 ? 0 : grades.Average(); public void AddGrade(decimal value) { if (value < 0 || value > 100) throw new ArgumentOutOfRangeException(nameof(value)); grades.Add(value); } }\n    class Teacher : Person { public Teacher(string name) : base(name) {} }\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Create Person, Student and Teacher classes. Use validated constructors/properties, private grade storage and AddGrade; show base and a protected helper. Reject blank names and invalid grades and explain when inheritance versus composition is appropriate.",
+    "expected_result": "The program and documented tests meet the independent activity requirements; compare actual output with the example. No output is fabricated by saving source.",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Encapsulation protects invariants by controlling state changes.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What protects a member within its type?",
+        "choices": [
+          "private",
+          "public",
+          "using",
+          "override"
+        ],
+        "answer": 0,
+        "explanation": "private. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What can a derived type access?",
+        "choices": [
+          "Every private field directly",
+          "Every production secret",
+          "Only static Main",
+          "Appropriate protected members"
+        ],
+        "answer": 3,
+        "explanation": "Appropriate protected members. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "How is a base class named?",
+        "choices": [
+          "With extends in C#",
+          "With a string literal",
+          "After :",
+          "After SQL WHERE"
+        ],
+        "answer": 2,
+        "explanation": "After :. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What initializes the parent?",
+        "choices": [
+          "foreach",
+          "base(...)",
+          "this always disables it",
+          "new on every property"
+        ],
+        "answer": 1,
+        "explanation": "base(...). Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What should a state-changing API enforce?",
+        "choices": [
+          "Its invariants",
+          "No validation",
+          "Public mutable fields only",
+          "Plaintext authentication"
+        ],
+        "answer": 0,
+        "explanation": "Its invariants. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": []
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Polymorphism, Abstract Classes, and Interfaces",
+    "level": "Intermediate",
+    "position": 10,
+    "objectives": [
+      "Explain virtual/override using the example.",
+      "Implement Polymorphism, Abstract Classes, and Interfaces in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn virtual/override; runtime dispatch; abstract types/methods; interface contracts; multiple interfaces through fictional student data and C# practice.",
+    "explanation": "Polymorphism lets a base/interface reference invoke the concrete implementation. A virtual base member can be overridden; abstract members require implementation in non-abstract derived classes. An abstract class can share state and behavior but cannot be instantiated directly. Interfaces express contracts and a class can implement several interfaces. Prefer focused contracts such as IPrintable. Method hiding with new is different from override and is not used for runtime polymorphism here.\nTopics and syntax to practice: virtual/override; runtime dispatch; abstract types/methods; interface contracts; multiple interfaces",
+    "syntax": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        Person[] people = {new StudentPerson(\"Maria\"), new TeacherPerson(\"Joel\")};\n        foreach (Person person in people) { Console.WriteLine(person.Describe()); ((IPrintable)person).Print(); }\n    }\n    interface IPrintable { void Print(); }\n    abstract class Person { protected string Name { get; } protected Person(string name) { Name = name; } public abstract string Describe(); }\n    class StudentPerson : Person, IPrintable { public StudentPerson(string name) : base(name) {} public override string Describe() => $\"Student: {Name}\"; public void Print() => Console.WriteLine(\"Student record\"); }\n    class TeacherPerson : Person, IPrintable { public TeacherPerson(string name) : base(name) {} public override string Describe() => $\"Teacher: {Name}\"; public void Print() => Console.WriteLine(\"Teacher record\"); }\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        Person[] people = {new StudentPerson(\"Maria\"), new TeacherPerson(\"Joel\")};\n        foreach (Person person in people) { Console.WriteLine(person.Describe()); ((IPrintable)person).Print(); }\n    }\n    interface IPrintable { void Print(); }\n    abstract class Person { protected string Name { get; } protected Person(string name) { Name = name; } public abstract string Describe(); }\n    class StudentPerson : Person, IPrintable { public StudentPerson(string name) : base(name) {} public override string Describe() => $\"Student: {Name}\"; public void Print() => Console.WriteLine(\"Student record\"); }\n    class TeacherPerson : Person, IPrintable { public TeacherPerson(string name) : base(name) {} public override string Describe() => $\"Teacher: {Name}\"; public void Print() => Console.WriteLine(\"Teacher record\"); }\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Create abstract Person, Student : Person and Teacher : Person plus IPrintable and a second focused interface. Process them through base/interface references; contrast virtual/override and abstract requirements.",
+    "expected_result": "The program and documented tests meet the independent activity requirements; compare actual output with the example. No output is fabricated by saving source.",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Polymorphism lets a base/interface reference invoke the concrete implementation.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What selects an override through a base reference?",
+        "choices": [
+          "Runtime polymorphism",
+          "Only variable spelling",
+          "SQL ordering",
+          "A password"
+        ],
+        "answer": 0,
+        "explanation": "Runtime polymorphism. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Can an abstract class be instantiated directly?",
+        "choices": [
+          "Always",
+          "Only in a textarea",
+          "Only with a public field",
+          "No"
+        ],
+        "answer": 3,
+        "explanation": "No. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What expresses a contract?",
+        "choices": [
+          "A CSV header",
+          "A loop counter",
+          "An interface",
+          "A raw secret"
+        ],
+        "answer": 2,
+        "explanation": "An interface. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Can a class implement multiple interfaces?",
+        "choices": [
+          "Only if all methods are static",
+          "Yes",
+          "No",
+          "Only two base classes instead"
+        ],
+        "answer": 1,
+        "explanation": "Yes. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What is needed for an overridden base method?",
+        "choices": [
+          "virtual or abstract (or an inherited override)",
+          "A matching comment",
+          "A public field only",
+          "A SELECT query"
+        ],
+        "answer": 0,
+        "explanation": "virtual or abstract (or an inherited override). Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": []
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Exception and File Handling",
+    "level": "Intermediate",
+    "position": 11,
+    "objectives": [
+      "Explain try/catch/finally/throw using the example.",
+      "Implement Exception and File Handling in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn try/catch/finally/throw; specific exceptions; validation; System.IO; File ReadAllText/WriteAllText/AppendAllText; StreamReader/Writer; using; persistence through fictional student data and C# practice.",
+    "explanation": "Validate expected input errors with TryParse/domain checks; use exceptions for failures that cannot be handled at the normal input boundary. Catch specific exceptions you can handle meaningfully. finally runs during ordinary exception unwinding and using disposes resources; forced process termination can bypass both, so the sandbox must clean externally. Read/write/append operations can fail with missing files, permission errors and I/O errors. Limit bytes before reading a file and never trust imported record content. Use a disposable working directory. Fixed relative file names are application choices, not an OS security boundary. A verified online runner must restrict filesystem access at OS/container level, cap file size, and destroy the entire workspace. Do not upload production files or use user-supplied paths. Real CSV supports quoting and delimiters; the simple line/JSON formats here are not a general CSV parser.\nTopics and syntax to practice: try/catch/finally/throw; specific exceptions; validation; System.IO; File ReadAllText/WriteAllText/AppendAllText; StreamReader/Writer; using; persistence",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.IO;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        const string path = \"practice-students.txt\";\n        try\n        {\n            File.WriteAllText(path, \"P001|Maria|IT\\n\");\n            File.AppendAllText(path, \"P002|Joel|CS\\n\");\n            if (new FileInfo(path).Length > 65536) throw new InvalidDataException(\"Practice file too large\");\n            using var reader = new StreamReader(path);\n            while (reader.ReadLine() is string line) Console.WriteLine(line);\n        }\n        catch (UnauthorizedAccessException) { Console.WriteLine(\"Practice file permission denied\"); }\n        catch (IOException) { Console.WriteLine(\"Practice file could not be processed\"); }\n        finally { Console.WriteLine(\"Practice file test finished\"); }\n    }\n\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.IO;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        const string path = \"practice-students.txt\";\n        try\n        {\n            File.WriteAllText(path, \"P001|Maria|IT\\n\");\n            File.AppendAllText(path, \"P002|Joel|CS\\n\");\n            if (new FileInfo(path).Length > 65536) throw new InvalidDataException(\"Practice file too large\");\n            using var reader = new StreamReader(path);\n            while (reader.ReadLine() is string line) Console.WriteLine(line);\n        }\n        catch (UnauthorizedAccessException) { Console.WriteLine(\"Practice file permission denied\"); }\n        catch (IOException) { Console.WriteLine(\"Practice file could not be processed\"); }\n        finally { Console.WriteLine(\"Practice file test finished\"); }\n    }\n\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use a disposable working directory. Fixed relative file names are application choices, not an OS security boundary. A verified online runner must restrict filesystem access at OS/container level, cap file size, and destroy the entire workspace. Do not upload production files or use user-supplied paths. Real CSV supports quoting and delimiters; the simple line/JSON formats here are not a general CSV parser.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Save fictional student records to a text/CSV-like practice file and reload them at startup. Demonstrate each listed File method, StreamReader/StreamWriter, using and a specific exception. Validate imported records; test missing, malformed and oversized files and document workspace isolation.",
+    "expected_result": "P001|Maria|IT\nP002|Joel|CS\nPractice file test finished\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Validate expected input errors with TryParse/domain checks; use exceptions for failures that cannot be handled at the normal input boundary.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What is appropriate for ordinary invalid numeric input?",
+        "choices": [
+          "TryParse and validation",
+          "Catch every failure silently",
+          "A plaintext password",
+          "Executing a shell"
+        ],
+        "answer": 0,
+        "explanation": "TryParse and validation. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What disposes a StreamReader?",
+        "choices": [
+          "Only printing it",
+          "A namespace",
+          "SELECT",
+          "using"
+        ],
+        "answer": 3,
+        "explanation": "using. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What can WriteAllText do to an existing file?",
+        "choices": [
+          "Only read it",
+          "Hash its path",
+          "Replace its content",
+          "Always append"
+        ],
+        "answer": 2,
+        "explanation": "Replace its content. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Is a relative path a secure sandbox boundary?",
+        "choices": [
+          "Only if named student",
+          "No, OS isolation is required",
+          "Yes against all code",
+          "Only on Mondays"
+        ],
+        "answer": 1,
+        "explanation": "No, OS isolation is required. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Who cleans after a forced timeout?",
+        "choices": [
+          "The sandbox supervisor",
+          "finally is always guaranteed",
+          "The student browser only",
+          "The production database"
+        ],
+        "answer": 0,
+        "explanation": "The sandbox supervisor. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "",
+            "expected": "P001|Maria|IT\nP002|Joel|CS\nPractice file test finished\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Intermediate Project — Student Record Management System",
+    "level": "Intermediate",
+    "position": 12,
+    "objectives": [
+      "Explain student objects using the example.",
+      "Implement Student Record Management System in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn Student objects; List<Student>; menu CRUD; validation; save/load; exceptions; delete confirmation through fictional student data and C# practice.",
+    "explanation": "Build a console student-record application with Add, View, Search, Edit, Delete and Exit. Use Student objects in a List, unique positive IDs, names limited to 100 characters and a documented course list. Load a bounded practice file and validate each record before use; save after successful changes and confirm deletion with YES. JSON is a safer structured alternative to a simplistic CSV split. The reference bounds capacity/menu iterations and refuses corrupt imported records; extend save-failure recovery and atomic replacement in your own design.\nTopics and syntax to practice: Student objects; List<Student>; menu CRUD; validation; save/load; exceptions; delete confirmation",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.IO;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        const string path = \"practice-records.json\";\n        var students = new List<Record>();\n        try { if (File.Exists(path)) { if (new FileInfo(path).Length > 65536) throw new InvalidDataException(\"File too large\"); students = System.Text.Json.JsonSerializer.Deserialize<List<Record>>(File.ReadAllText(path)) ?? new(); } }\n        catch (Exception ex) when (ex is IOException || ex is System.Text.Json.JsonException) { Console.WriteLine(\"Invalid practice file; inspect it before continuing\"); return; }\n        if (students.Any(s => s is null || !Valid(s)) || students.Select(s => s.Id).Distinct().Count() != students.Count) { Console.WriteLine(\"Invalid or duplicate saved records\"); return; }\n        for (int step = 0; step < 100; step++)\n        {\n            Console.WriteLine(\"1 Add | 2 View | 3 Search | 4 Edit | 5 Delete | 0 Exit\");\n            string choice = Console.ReadLine() ?? \"0\"; if (choice == \"0\") break;\n            if (choice == \"2\") { foreach (var s in students) Console.WriteLine($\"{s.Id}: {s.Name} ({s.Course})\"); continue; }\n            if (!int.TryParse(Console.ReadLine(), out int id) || id <= 0) { Console.WriteLine(\"Invalid ID\"); continue; }\n            var existing = students.FirstOrDefault(s => s.Id == id);\n            if (choice == \"3\") { Console.WriteLine(existing is null ? \"Not found\" : existing.Name); continue; }\n            if (choice == \"5\") { if (existing is not null && Console.ReadLine() == \"YES\") students.Remove(existing); else Console.WriteLine(\"Deletion not confirmed\"); }\n            else if (choice == \"1\" || choice == \"4\")\n            {\n                if ((choice == \"1\" && existing is not null) || (choice == \"4\" && existing is null)) { Console.WriteLine(\"Duplicate ID or record not found\"); continue; }\n                var record = new Record {Id=id, Name=(Console.ReadLine() ?? \"\").Trim(), Course=(Console.ReadLine() ?? \"\").Trim()};\n                if (!Valid(record) || students.Count >= 100 && choice == \"1\") { Console.WriteLine(\"Invalid record or capacity reached\"); continue; }\n                if (existing is not null) students.Remove(existing); students.Add(record);\n            }\n            else { Console.WriteLine(\"Unknown option\"); continue; }\n            try { File.WriteAllText(path, System.Text.Json.JsonSerializer.Serialize(students)); } catch (IOException) { Console.WriteLine(\"Save failed; retry before exiting\"); }\n        }\n    }\n    public class Record { public int Id {get;set;} public string Name {get;set;} = \"\"; public string Course {get;set;} = \"\"; }\n    static bool Valid(Record s) => s.Id > 0 && !string.IsNullOrWhiteSpace(s.Name) && s.Name.Length <= 100 && (s.Course == \"IT\" || s.Course == \"CS\");\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.IO;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        const string path = \"practice-records.json\";\n        var students = new List<Record>();\n        try { if (File.Exists(path)) { if (new FileInfo(path).Length > 65536) throw new InvalidDataException(\"File too large\"); students = System.Text.Json.JsonSerializer.Deserialize<List<Record>>(File.ReadAllText(path)) ?? new(); } }\n        catch (Exception ex) when (ex is IOException || ex is System.Text.Json.JsonException) { Console.WriteLine(\"Invalid practice file; inspect it before continuing\"); return; }\n        if (students.Any(s => s is null || !Valid(s)) || students.Select(s => s.Id).Distinct().Count() != students.Count) { Console.WriteLine(\"Invalid or duplicate saved records\"); return; }\n        for (int step = 0; step < 100; step++)\n        {\n            Console.WriteLine(\"1 Add | 2 View | 3 Search | 4 Edit | 5 Delete | 0 Exit\");\n            string choice = Console.ReadLine() ?? \"0\"; if (choice == \"0\") break;\n            if (choice == \"2\") { foreach (var s in students) Console.WriteLine($\"{s.Id}: {s.Name} ({s.Course})\"); continue; }\n            if (!int.TryParse(Console.ReadLine(), out int id) || id <= 0) { Console.WriteLine(\"Invalid ID\"); continue; }\n            var existing = students.FirstOrDefault(s => s.Id == id);\n            if (choice == \"3\") { Console.WriteLine(existing is null ? \"Not found\" : existing.Name); continue; }\n            if (choice == \"5\") { if (existing is not null && Console.ReadLine() == \"YES\") students.Remove(existing); else Console.WriteLine(\"Deletion not confirmed\"); }\n            else if (choice == \"1\" || choice == \"4\")\n            {\n                if ((choice == \"1\" && existing is not null) || (choice == \"4\" && existing is null)) { Console.WriteLine(\"Duplicate ID or record not found\"); continue; }\n                var record = new Record {Id=id, Name=(Console.ReadLine() ?? \"\").Trim(), Course=(Console.ReadLine() ?? \"\").Trim()};\n                if (!Valid(record) || students.Count >= 100 && choice == \"1\") { Console.WriteLine(\"Invalid record or capacity reached\"); continue; }\n                if (existing is not null) students.Remove(existing); students.Add(record);\n            }\n            else { Console.WriteLine(\"Unknown option\"); continue; }\n            try { File.WriteAllText(path, System.Text.Json.JsonSerializer.Serialize(students)); } catch (IOException) { Console.WriteLine(\"Save failed; retry before exiting\"); }\n        }\n    }\n    public class Record { public int Id {get;set;} public string Name {get;set;} = \"\"; public string Course {get;set;} = \"\"; }\n    static bool Valid(Record s) => s.Id > 0 && !string.IsNullOrWhiteSpace(s.Name) && s.Name.Length <= 100 && (s.Course == \"IT\" || s.Course == \"CS\");\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use a disposable working directory. Fixed relative file names are application choices, not an OS security boundary. A verified online runner must restrict filesystem access at OS/container level, cap file size, and destroy the entire workspace. Do not upload production files or use user-supplied paths. Real CSV supports quoting and delimiters; the simple line/JSON formats here are not a general CSV parser.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Define the class and input contract, implement one CRUD action at a time, then add persistence and validate records on load.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Milestones: define Student and menu → collection CRUD → unique-ID validation → file load/save → confirmation and exception handling → documentation. Tests: add/search/edit/delete, duplicate ID, blanks, invalid course, canceled deletion, missing/corrupt/oversized files, restart persistence and failed save. Submit original source plus practice-file schema, build instructions and actual test evidence; never submit real student data.",
+    "expected_result": "The program and documented tests meet the independent activity requirements; compare actual output with the example. No output is fabricated by saving source.",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Build a console student-record application with Add, View, Search, Edit, Delete and Exit.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What ensures an edit targets the correct student?",
+        "choices": [
+          "A validated unique ID",
+          "Only array position forever",
+          "An untrusted filename",
+          "A password"
+        ],
+        "answer": 0,
+        "explanation": "A validated unique ID. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "When should deletion occur?",
+        "choices": [
+          "On any search",
+          "Whenever input is blank",
+          "Before validation",
+          "After explicit confirmation"
+        ],
+        "answer": 3,
+        "explanation": "After explicit confirmation. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What must imported records receive?",
+        "choices": [
+          "Production privileges",
+          "Only string concatenation",
+          "The same domain validation",
+          "Unrestricted trust"
+        ],
+        "answer": 2,
+        "explanation": "The same domain validation. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What handles multiple student objects?",
+        "choices": [
+          "A namespace alias",
+          "List<Student>",
+          "One fixed bool",
+          "An environment secret"
+        ],
+        "answer": 1,
+        "explanation": "List<Student>. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What proves persistence?",
+        "choices": [
+          "Restarting and checking saved valid records",
+          "Only displaying a menu",
+          "Only a quiz pass",
+          "A fabricated console panel"
+        ],
+        "answer": 0,
+        "explanation": "Restarting and checking saved valid records. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": []
+      }
+    },
+    "is_project": true,
+    "rubric": {
+      "program_functionality": 25,
+      "correct_csharp": 20,
+      "object_oriented_design": 15,
+      "data_database_handling": 10,
+      "validation_error_handling": 10,
+      "code_organization_architecture": 10,
+      "security": 5,
+      "testing_documentation": 5
+    }
+  },
+  {
+    "title": "Advanced Collections and LINQ",
+    "level": "Advanced",
+    "position": 13,
+    "objectives": [
+      "Explain list using the example.",
+      "Implement Advanced Collections and LINQ in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn List; Dictionary; HashSet; Queue; Stack; Where/Select/OrderBy/OrderByDescending/GroupBy/Any/All/Count/Sum/Average/FirstOrDefault/SingleOrDefault through fictional student data and C# practice.",
+    "explanation": "Choose collections by behavior: Dictionary maps keys, HashSet models uniqueness, Queue is FIFO and Stack is LIFO. LINQ transforms sequences through filtering, sorting, projection, grouping and aggregation. Most sequence pipelines defer enumeration; ToList snapshots results. Guard empty sequences before Average or use an explicit no-data result. FirstOrDefault selects at most the first match while SingleOrDefault asserts at most one and throws for duplicates. All on an empty sequence is true. Enumerable LINQ runs in memory; EF queries may translate to database SQL and have different execution costs.\nTopics and syntax to practice: List; Dictionary; HashSet; Queue; Stack; Where/Select/OrderBy/OrderByDescending/GroupBy/Any/All/Count/Sum/Average/FirstOrDefault/SingleOrDefault",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var students = new[] {new Grade(\"Maria\", \"IT\", 91m), new Grade(\"Joel\", \"CS\", 72m), new Grade(\"Ana\", \"IT\", 85m)};\n        foreach (var s in students.Where(s => s.Average >= 75).OrderByDescending(s => s.Average)) Console.WriteLine($\"{s.Name}: {s.Average:F2}\");\n        foreach (var group in students.GroupBy(s => s.Course)) Console.WriteLine($\"{group.Key}: {group.Count()}\");\n        Console.WriteLine($\"Class average: {students.Average(s => s.Average):F2}\");\n    }\n    record Grade(string Name, string Course, decimal Average);\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Linq;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var students = new[] {new Grade(\"Maria\", \"IT\", 91m), new Grade(\"Joel\", \"CS\", 72m), new Grade(\"Ana\", \"IT\", 85m)};\n        foreach (var s in students.Where(s => s.Average >= 75).OrderByDescending(s => s.Average)) Console.WriteLine($\"{s.Name}: {s.Average:F2}\");\n        foreach (var group in students.GroupBy(s => s.Course)) Console.WriteLine($\"{group.Key}: {group.Count()}\");\n        Console.WriteLine($\"Class average: {students.Average(s => s.Average):F2}\");\n    }\n    record Grade(string Name, string Course, decimal Average);\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Filter passing students, search names, sort grades, project report rows, group by course and calculate a guarded class average. Demonstrate a Dictionary, HashSet, Queue and Stack and test empty, missing and duplicate-match cases.",
+    "expected_result": "Maria: 91.00\nAna: 85.00\nIT: 2\nCS: 1\nClass average: 82.67\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Choose collections by behavior: Dictionary maps keys, HashSet models uniqueness, Queue is FIFO and Stack is LIFO.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "Which collection is FIFO?",
+        "choices": [
+          "Queue<T>",
+          "Stack<T>",
+          "HashSet<T>",
+          "Dictionary only"
+        ],
+        "answer": 0,
+        "explanation": "Queue<T>. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What projects values?",
+        "choices": [
+          "Where only",
+          "Dispose",
+          "throw",
+          "Select"
+        ],
+        "answer": 3,
+        "explanation": "Select. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does SingleOrDefault do with two matches?",
+        "choices": [
+          "Always returns null",
+          "Deletes duplicates",
+          "Throws",
+          "Returns both silently"
+        ],
+        "answer": 2,
+        "explanation": "Throws. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does ToList do?",
+        "choices": [
+          "Disable evaluation",
+          "Materialize a sequence",
+          "Create a SQL permission",
+          "Hash a password"
+        ],
+        "answer": 1,
+        "explanation": "Materialize a sequence. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What needs an empty-sequence guard?",
+        "choices": [
+          "Average",
+          "ToList always",
+          "Any",
+          "Count"
+        ],
+        "answer": 0,
+        "explanation": "Average. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "",
+            "expected": "Maria: 91.00\nAna: 85.00\nIT: 2\nCS: 1\nClass average: 82.67\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Generics, Delegates, and Events",
+    "level": "Advanced",
+    "position": 14,
+    "objectives": [
+      "Explain generic classes/methods using the example.",
+      "Implement Generics, Delegates, and Events in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn generic classes/methods; type parameters/constraints; Action/Func/Predicate; event/EventArgs; publisher/subscriber through fictional student data and C# practice.",
+    "explanation": "Generics provide reusable compile-time type-safe components. Constraints state required type capabilities. Action returns void, Func returns a value and Predicate returns bool. A delegate represents compatible callable behavior. Events expose controlled subscription; only the publisher normally raises its declared event. EventArgs carries event data and EventHandler<T> is a conventional pattern. Unsubscribe long-lived handlers to avoid retaining objects. Subscriber exceptions can propagate; define your event failure policy rather than swallowing every error.\nTopics and syntax to practice: generic classes/methods; type parameters/constraints; Action/Func/Predicate; event/EventArgs; publisher/subscriber",
+    "syntax": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var service = new StudentService();\n        service.StudentAdded += (_, e) => Console.WriteLine($\"Added: {e.Name}\");\n        Action<string> print = Console.WriteLine;\n        Func<decimal, bool> passes = grade => grade >= 75m;\n        print($\"Pass: {passes(90m)}\");\n        service.Add(\"Maria\");\n        var box = new Box<int>(42); Console.WriteLine(box.Value);\n    }\n    class Box<T> { public T Value {get;} public Box(T value) {Value=value;} }\n    class StudentEventArgs : EventArgs { public string Name {get;} public StudentEventArgs(string name) {Name=name;} }\n    class StudentService { public event EventHandler<StudentEventArgs>? StudentAdded; public void Add(string name) { if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required\"); StudentAdded?.Invoke(this, new StudentEventArgs(name.Trim())); } }\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        var service = new StudentService();\n        service.StudentAdded += (_, e) => Console.WriteLine($\"Added: {e.Name}\");\n        Action<string> print = Console.WriteLine;\n        Func<decimal, bool> passes = grade => grade >= 75m;\n        print($\"Pass: {passes(90m)}\");\n        service.Add(\"Maria\");\n        var box = new Box<int>(42); Console.WriteLine(box.Value);\n    }\n    class Box<T> { public T Value {get;} public Box(T value) {Value=value;} }\n    class StudentEventArgs : EventArgs { public string Name {get;} public StudentEventArgs(string name) {Name=name;} }\n    class StudentService { public event EventHandler<StudentEventArgs>? StudentAdded; public void Add(string name) { if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException(\"Name required\"); StudentAdded?.Invoke(this, new StudentEventArgs(name.Trim())); } }\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Create a generic helper with an appropriate constraint and a student service that raises StudentAdded and GradeUpdated events. Use Action, Func and Predicate for small operations, subscribe/unsubscribe handlers and document subscriber error behavior.",
+    "expected_result": "Pass: True\nAdded: Maria\n42\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Generics provide reusable compile-time type-safe components.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "Which delegate returns a value?",
+        "choices": [
+          "Func",
+          "Action only",
+          "void",
+          "namespace"
+        ],
+        "answer": 0,
+        "explanation": "Func. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does Action return?",
+        "choices": [
+          "Always bool",
+          "Always int",
+          "A database connection",
+          "void"
+        ],
+        "answer": 3,
+        "explanation": "void. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Who normally raises a declared event?",
+        "choices": [
+          "The browser source textarea",
+          "The SQL parser",
+          "Its publisher",
+          "Any subscriber freely"
+        ],
+        "answer": 2,
+        "explanation": "Its publisher. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What can event data inherit?",
+        "choices": [
+          "A dictionary key",
+          "EventArgs",
+          "Only Program",
+          "A plaintext password"
+        ],
+        "answer": 1,
+        "explanation": "EventArgs. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What do generic constraints state?",
+        "choices": [
+          "Required type capabilities",
+          "Runtime secrets",
+          "Output formatting only",
+          "Every possible type is identical"
+        ],
+        "answer": 0,
+        "explanation": "Required type capabilities. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "",
+            "expected": "Pass: True\nAdded: Maria\n42\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Asynchronous Programming",
+    "level": "Advanced",
+    "position": 15,
+    "objectives": [
+      "Explain sync/async using the example.",
+      "Implement Asynchronous Programming in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn sync/async; Task/Task<T>; async/await; exceptions; CancellationToken/Source; I/O vs CPU; avoid Result/Wait through fictional student data and C# practice.",
+    "explanation": "async methods can suspend at await without blocking their calling thread during a genuinely asynchronous operation; async is not automatically a new thread. Task<T> represents a future result. Use async Task for operations and await exceptions in try/catch; reserve async void for framework event handlers. Cancellation is cooperative: pass the token and honor it. Avoid .Result/.Wait where blocking can deadlock or waste threads. File.ReadAllTextAsync is suitable I/O practice; Task.Delay is a simulation, not a claim of database I/O. CPU-bound work has different scheduling needs; do not wrap every I/O method in Task.Run.\nTopics and syntax to practice: sync/async; Task/Task<T>; async/await; exceptions; CancellationToken/Source; I/O vs CPU; avoid Result/Wait",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Threading;\nusing System.Threading.Tasks;\n\nclass Program\n{\n    static async Task Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        using var cancellation = new CancellationTokenSource();\n        Console.WriteLine(\"Loading fictional records...\");\n        try { string[] names = await LoadAsync(cancellation.Token); foreach (string name in names) Console.WriteLine(name); }\n        catch (OperationCanceledException) { Console.WriteLine(\"Loading canceled\"); }\n    }\n    static async Task<string[]> LoadAsync(CancellationToken token) { await Task.Delay(25, token); token.ThrowIfCancellationRequested(); return new[] {\"Maria\", \"Joel\"}; }\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Threading;\nusing System.Threading.Tasks;\n\nclass Program\n{\n    static async Task Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        using var cancellation = new CancellationTokenSource();\n        Console.WriteLine(\"Loading fictional records...\");\n        try { string[] names = await LoadAsync(cancellation.Token); foreach (string name in names) Console.WriteLine(name); }\n        catch (OperationCanceledException) { Console.WriteLine(\"Loading canceled\"); }\n    }\n    static async Task<string[]> LoadAsync(CancellationToken token) { await Task.Delay(25, token); token.ThrowIfCancellationRequested(); return new[] {\"Maria\", \"Joel\"}; }\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Implement safe async loading with status messages, a cancellation token and exception handling. First use the deterministic simulation, then ReadAllTextAsync on a bounded practice file. Test cancellation before and during loading and explain I/O versus CPU work.",
+    "expected_result": "Loading fictional records...\nMaria\nJoel\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: async methods can suspend at await without blocking their calling thread during a genuinely asynchronous operation; async is not automatically a new thread.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "Does async automatically create a new thread?",
+        "choices": [
+          "No",
+          "Always",
+          "Only for string methods",
+          "Only with public"
+        ],
+        "answer": 0,
+        "explanation": "No. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What represents an asynchronous result?",
+        "choices": [
+          "A plaintext file path",
+          "A namespace",
+          "A bool constant",
+          "Task<T>"
+        ],
+        "answer": 3,
+        "explanation": "Task<T>. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What handles task exceptions normally?",
+        "choices": [
+          "Empty catch everywhere",
+          "Only a comment",
+          "await inside try/catch",
+          "Never observing the task"
+        ],
+        "answer": 2,
+        "explanation": "await inside try/catch. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What makes cancellation work?",
+        "choices": [
+          "Blocking forever",
+          "Operations honoring the token",
+          "Only naming a variable cancel",
+          "Deleting the database"
+        ],
+        "answer": 1,
+        "explanation": "Operations honoring the token. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What is preferable for suitable I/O?",
+        "choices": [
+          "await the async API",
+          "Always call Result",
+          "Always call Wait",
+          "Spin in an infinite loop"
+        ],
+        "answer": 0,
+        "explanation": "await the async API. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "",
+            "expected": "Loading fictional records...\nMaria\nJoel\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Database Programming with ADO.NET / EF Core Concepts",
+    "level": "Advanced",
+    "position": 16,
+    "objectives": [
+      "Explain connections using the example.",
+      "Implement Database Programming with ADO.NET / EF Core Concepts in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn connections; commands/parameters; DataReader; CRUD; transactions; using/await using; ORM; DbContext/entities/DbSet; SaveChanges/Async through fictional student data and C# practice.",
+    "explanation": "ADO.NET separates connection, command, parameters and readers. Dispose all owned resources and use a transaction for operations that must succeed together. Parameterize values; dynamic table/column identifiers require a fixed allowlist rather than a value parameter. This example uses Microsoft.Data.Sqlite and an in-memory practice database on one open connection; it never uses CodeLab storage. Add the compatible supported NuGet package in your own practice project. EF Core maps entity types through DbContext/DbSet and tracks changes for SaveChanges or SaveChangesAsync. EF parameterization does not authorize an action: check roles and record access separately. SQLite has no native asynchronous I/O: Microsoft.Data.Sqlite async methods execute synchronously, so do not claim they make queries nonblocking. Explain EF concepts and implement ADO.NET CRUD as the baseline.\nTopics and syntax to practice: connections; commands/parameters; DataReader; CRUD; transactions; using/await using; ORM; DbContext/entities/DbSet; SaveChanges/Async",
+    "syntax": "using System;\nusing System.Globalization;\nusing Microsoft.Data.Sqlite;\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        using var connection = new SqliteConnection(\"Data Source=:memory:\");\n        connection.Open();\n        using (var schema = connection.CreateCommand()) { schema.CommandText = \"CREATE TABLE Students(StudentId INTEGER PRIMARY KEY, Name TEXT NOT NULL, Average REAL CHECK(Average BETWEEN 0 AND 100))\"; schema.ExecuteNonQuery(); }\n        using (var insert = connection.CreateCommand())\n        {\n            insert.CommandText = \"INSERT INTO Students(StudentId,Name,Average) VALUES(@StudentId,@Name,@Average)\";\n            insert.Parameters.AddWithValue(\"@StudentId\", 1); insert.Parameters.AddWithValue(\"@Name\", \"Maria\"); insert.Parameters.AddWithValue(\"@Average\", 91.67);\n            insert.ExecuteNonQuery();\n        }\n        using var query = connection.CreateCommand();\n        query.CommandText = \"SELECT StudentId,Name,Average FROM Students WHERE StudentId=@StudentId\";\n        query.Parameters.AddWithValue(\"@StudentId\", 1);\n        using var reader = query.ExecuteReader();\n        while (reader.Read()) Console.WriteLine($\"{reader.GetInt32(0)}: {reader.GetString(1)}; {reader.GetDouble(2):F2}\");\n    }\n\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing Microsoft.Data.Sqlite;\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        using var connection = new SqliteConnection(\"Data Source=:memory:\");\n        connection.Open();\n        using (var schema = connection.CreateCommand()) { schema.CommandText = \"CREATE TABLE Students(StudentId INTEGER PRIMARY KEY, Name TEXT NOT NULL, Average REAL CHECK(Average BETWEEN 0 AND 100))\"; schema.ExecuteNonQuery(); }\n        using (var insert = connection.CreateCommand())\n        {\n            insert.CommandText = \"INSERT INTO Students(StudentId,Name,Average) VALUES(@StudentId,@Name,@Average)\";\n            insert.Parameters.AddWithValue(\"@StudentId\", 1); insert.Parameters.AddWithValue(\"@Name\", \"Maria\"); insert.Parameters.AddWithValue(\"@Average\", 91.67);\n            insert.ExecuteNonQuery();\n        }\n        using var query = connection.CreateCommand();\n        query.CommandText = \"SELECT StudentId,Name,Average FROM Students WHERE StudentId=@StudentId\";\n        query.Parameters.AddWithValue(\"@StudentId\", 1);\n        using var reader = query.ExecuteReader();\n        while (reader.Read()) Console.WriteLine($\"{reader.GetInt32(0)}: {reader.GetString(1)}; {reader.GetDouble(2):F2}\");\n    }\n\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "DEPENDENCY AND ISOLATION: Create a separate C# console project with a supported .NET SDK and add Microsoft.Data.Sqlite via NuGet. Use Data Source=:memory: for this lesson. Keep the connection open while using it. Online execution requires the package already provisioned inside the isolated image; do not grant package-restore network to student runs. No production database credentials or Laravel paths are involved.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Implement insert/select/update/delete with parameters in an isolated SQLite database, validate input and check affected row counts. Demonstrate a transaction rollback and missing/duplicate ID handling. Sketch Student entity, DbContext, DbSet and SaveChangesAsync as an EF Core extension; list required packages/migrations and explain provider limitations.",
+    "expected_result": "1: Maria; 91.67\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: ADO.NET separates connection, command, parameters and readers.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What protects SQL values from injection?",
+        "choices": [
+          "Parameters",
+          "String concatenation",
+          "Escaping only spaces",
+          "Plaintext passwords"
+        ],
+        "answer": 0,
+        "explanation": "Parameters. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Where may a C# lab database live?",
+        "choices": [
+          "CodeLab production MySQL",
+          "Another student’s directory",
+          "Laravel .env",
+          "A separate disposable practice database"
+        ],
+        "answer": 3,
+        "explanation": "A separate disposable practice database. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What groups atomic changes?",
+        "choices": [
+          "A public field",
+          "A comment",
+          "A transaction",
+          "A namespace"
+        ],
+        "answer": 2,
+        "explanation": "A transaction. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What represents an EF unit of work?",
+        "choices": [
+          "StreamWriter",
+          "DbContext",
+          "Console.WriteLine",
+          "EventArgs"
+        ],
+        "answer": 1,
+        "explanation": "DbContext. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Are Microsoft.Data.Sqlite async query methods truly asynchronous I/O?",
+        "choices": [
+          "No, they execute synchronously",
+          "Always yes",
+          "Only with a long password",
+          "Only in CodeLab"
+        ],
+        "answer": 0,
+        "explanation": "No, they execute synchronously. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "",
+            "expected": "1: Maria; 91.67\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Application Architecture, Security, and Best Practices",
+    "level": "Advanced",
+    "position": 17,
+    "objectives": [
+      "Explain separation of concerns using the example.",
+      "Implement Application Architecture, Security, and Best Practices in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn separation of concerns; UI/services/data/models; repository; MVC; DI; interfaces; configuration; validation; SQL injection; secrets; password hashing; roles; least privilege; logging; disposal; cancellation; nullable references through fictional student data and C# practice.",
+    "explanation": "Separate UI input/output, service rules and data access; a repository is one possible boundary, not mandatory for every small application. MVC separates model, view and controller responsibilities; dependency injection supplies dependencies rather than hiding them in globals. Nullable reference annotations help catch null risks at build time but are not runtime authorization. Validate at service boundaries, parameterize SQL and enforce roles for every protected operation. Use a supported password-hashing mechanism with individual salts; never plaintext or fast unsalted hashes. Keep secrets out of source, logs and submissions and use a suitable configuration/secret provider; environment variables are not automatically a secure vault. Log sanitized events and dispose/cancel resources reliably.\nTopics and syntax to practice: separation of concerns; UI/services/data/models; repository; MVC; DI; interfaces; configuration; validation; SQL injection; secrets; password hashing; roles; least privilege; logging; disposal; cancellation; nullable references",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Collections.Generic;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        IStudentRepository repository = new MemoryRepository();\n        var service = new StudentService(repository);\n        service.Register(\"Maria\");\n        foreach (string name in repository.List()) Console.WriteLine(name);\n    }\n    interface IStudentRepository { void Add(string name); IReadOnlyList<string> List(); }\n    class MemoryRepository : IStudentRepository { private readonly List<string> names = new(); public void Add(string name) => names.Add(name); public IReadOnlyList<string> List() => names.AsReadOnly(); }\n    class StudentService { private readonly IStudentRepository repository; public StudentService(IStudentRepository repository) {this.repository=repository;} public void Register(string name) {name=name.Trim(); if (name.Length == 0 || name.Length > 100) throw new ArgumentException(\"Valid name required\"); repository.Add(name);} }\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Collections.Generic;\n\nclass Program\n{\n    static void Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        IStudentRepository repository = new MemoryRepository();\n        var service = new StudentService(repository);\n        service.Register(\"Maria\");\n        foreach (string name in repository.List()) Console.WriteLine(name);\n    }\n    interface IStudentRepository { void Add(string name); IReadOnlyList<string> List(); }\n    class MemoryRepository : IStudentRepository { private readonly List<string> names = new(); public void Add(string name) => names.Add(name); public IReadOnlyList<string> List() => names.AsReadOnly(); }\n    class StudentService { private readonly IStudentRepository repository; public StudentService(IStudentRepository repository) {this.repository=repository;} public void Register(string name) {name=name.Trim(); if (name.Length == 0 || name.Length > 100) throw new ArgumentException(\"Valid name required\"); repository.Add(name);} }\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "console",
+    "csharp_project_guide": "Use your own supported .NET SDK console project (prefer .NET 10 LTS). Check dotnet --list-sdks; create a C# console project, replace Program.cs, and build/run it in your authorized development environment. CodeLab only contacts a separately verified isolated provider when configured; no compiler is currently connected. Ordinary console examples use only the base class library. Database examples additionally require Microsoft.Data.Sqlite in the practice project. Keep files and database inside a dedicated disposable directory; never use CodeLab resources or credentials.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Refactor the record application into UI, Services, Data and Models. Inject an interface, validate at the service boundary, parameterize database values, dispose resources and sanitize logs. Document password hashing, server-side roles, configuration and least privilege rather than building pretend authentication.",
+    "expected_result": "Maria\n",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Separate UI input/output, service rules and data access; a repository is one possible boundary, not mandatory for every small application.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "What should a service enforce?",
+        "choices": [
+          "Business rules and protected-operation authorization",
+          "Only button visibility",
+          "No validation",
+          "Trusting client role strings"
+        ],
+        "answer": 0,
+        "explanation": "Business rules and protected-operation authorization. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What supplies explicit dependencies?",
+        "choices": [
+          "A plaintext password",
+          "An infinite loop",
+          "A SQL column",
+          "Dependency injection"
+        ],
+        "answer": 3,
+        "explanation": "Dependency injection. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What is safe password storage?",
+        "choices": [
+          "Unsalted SHA256 alone",
+          "Base64 only",
+          "A supported salted password-hashing mechanism",
+          "Plaintext"
+        ],
+        "answer": 2,
+        "explanation": "A supported salted password-hashing mechanism. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Are environment variables automatically a secret vault?",
+        "choices": [
+          "Only in a classroom",
+          "No",
+          "Always",
+          "Only when uppercase"
+        ],
+        "answer": 1,
+        "explanation": "No. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What should logs exclude?",
+        "choices": [
+          "Credentials and private records",
+          "All event names",
+          "All sanitized error categories",
+          "All timestamps"
+        ],
+        "answer": 0,
+        "explanation": "Credentials and private records. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": [
+          {
+            "input": "",
+            "expected": "Maria\n"
+          }
+        ]
+      }
+    },
+    "is_project": false,
+    "rubric": null
+  },
+  {
+    "title": "Advanced Project — C# Student Information System",
+    "level": "Advanced",
+    "position": 18,
+    "objectives": [
+      "Explain authentication/logout/roles using the example.",
+      "Implement C# Student Information System in an appropriate practice environment.",
+      "Validate normal and boundary inputs and document results."
+    ],
+    "introduction": "Learn authentication/logout/roles; dashboard; student CRUD; reports; OOP/interfaces; LINQ; async; isolated SQLite; architecture; security through fictional student data and C# practice.",
+    "explanation": "Build a learner-owned console application as the baseline; desktop or ASP.NET Core is an optional external mode. The reference is a deliberately small console foundation with hashed practice-admin provisioning, login/logout, role checks, summary, listing/filtering/sorting, validated CRUD, delete confirmation and parameterized SQLite. It is not production identity software. Environment configuration is private and must never be included in CodeLab source/stdin/evidence. The fixed PBKDF2 parameters demonstrate salted slow hashing; a real deployment should use a supported identity/password hasher with versioned parameters, rate limits across sessions and a reviewed current policy. The reference login attempts bound a single process, not a production distributed rate limit. Students must refactor it into focused Models/UI/Services/Data, add a viewer provisioning workflow under admin authorization, extend course/recent-student reports, LINQ in service reports and appropriate async file/report loading with cancellation. Microsoft.Data.Sqlite queries remain synchronous. Password input here is for private local practice; do not save credential-bearing stdin in CodeLab. For a web option use ASP.NET Core Identity/authorization and HTTPS, not this console login as a web auth system.\nTopics and syntax to practice: authentication/logout/roles; dashboard; student CRUD; reports; OOP/interfaces; LINQ; async; isolated SQLite; architecture; security",
+    "syntax": "using System;\nusing System.Globalization;\nusing System.Threading.Tasks;\nusing Microsoft.Data.Sqlite;\nusing System.Security.Cryptography;\nclass Program\n{\n    static async Task Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        const string database = \"practice-sis.sqlite\";\n        using var connection = new SqliteConnection($\"Data Source={database}\"); connection.Open();\n        using (var schema = connection.CreateCommand()) { schema.CommandText = \"CREATE TABLE IF NOT EXISTS Users(Name TEXT PRIMARY KEY, Salt TEXT NOT NULL, Hash TEXT NOT NULL, Role TEXT CHECK(Role IN ('admin','viewer'))); CREATE TABLE IF NOT EXISTS Students(Id INTEGER PRIMARY KEY, Name TEXT NOT NULL, Course TEXT NOT NULL, Average REAL CHECK(Average BETWEEN 0 AND 100), CreatedUtc TEXT NOT NULL)\"; schema.ExecuteNonQuery(); }\n        // Provision a practice administrator only if the users table is empty. Supply the secret outside source.\n        using (var count = connection.CreateCommand())\n        {\n            count.CommandText = \"SELECT COUNT(*) FROM Users\";\n            if (Convert.ToInt64(count.ExecuteScalar()) == 0)\n            {\n                string? user = Environment.GetEnvironmentVariable(\"PRACTICE_ADMIN_NAME\");\n                string? secret = Environment.GetEnvironmentVariable(\"PRACTICE_ADMIN_PASSWORD\");\n                if (string.IsNullOrWhiteSpace(user) || string.IsNullOrEmpty(secret) || secret.Length < 14) { Console.WriteLine(\"Provision a fictional practice admin through private configuration first\"); return; }\n                byte[] salt = RandomNumberGenerator.GetBytes(16); byte[] hash = Rfc2898DeriveBytes.Pbkdf2(secret, salt, 310000, HashAlgorithmName.SHA256, 32);\n                using var provision = connection.CreateCommand(); provision.CommandText = \"INSERT INTO Users(Name,Salt,Hash,Role) VALUES(@Name,@Salt,@Hash,'admin')\";\n                provision.Parameters.AddWithValue(\"@Name\", user.Trim()); provision.Parameters.AddWithValue(\"@Salt\", Convert.ToBase64String(salt)); provision.Parameters.AddWithValue(\"@Hash\", Convert.ToBase64String(hash)); provision.ExecuteNonQuery();\n            }\n        }\n        string? role = null;\n        for (int attempt = 0; attempt < 3 && role is null; attempt++)\n        {\n            Console.WriteLine(\"Practice login: username then password (private stdin only)\");\n            string username = Console.ReadLine() ?? \"\"; string password = Console.ReadLine() ?? \"\";\n            using var login = connection.CreateCommand(); login.CommandText = \"SELECT Salt,Hash,Role FROM Users WHERE Name=@Name\"; login.Parameters.AddWithValue(\"@Name\", username);\n            using var user = login.ExecuteReader();\n            if (user.Read()) { byte[] actual = Rfc2898DeriveBytes.Pbkdf2(password, Convert.FromBase64String(user.GetString(0)), 310000, HashAlgorithmName.SHA256, 32); if (CryptographicOperations.FixedTimeEquals(actual, Convert.FromBase64String(user.GetString(1)))) role = user.GetString(2); }\n            if (role is null) Console.WriteLine(\"Invalid credentials\");\n        }\n        if (role is null) return;\n        for (int action = 0; action < 100; action++)\n        {\n            Console.WriteLine(\"1 Dashboard | 2 List/report | 3 Search | 4 Add | 5 Edit | 6 Delete | 0 Logout\");\n            string choice = Console.ReadLine() ?? \"0\"; if (choice == \"0\") { role = null; Console.WriteLine(\"Logged out\"); break; }\n            if (choice == \"1\")\n            {\n                using var summary = connection.CreateCommand(); summary.CommandText = \"SELECT COUNT(*),COALESCE(SUM(CASE WHEN Average>=75 THEN 1 ELSE 0 END),0) FROM Students\";\n                using var rows = summary.ExecuteReader(); if (rows.Read()) Console.WriteLine($\"Total: {rows.GetInt32(0)}; passing: {rows.GetInt32(1)}; failing: {rows.GetInt32(0)-rows.GetInt32(1)}\"); continue;\n            }\n            if (choice == \"2\" || choice == \"3\")\n            {\n                using var report = connection.CreateCommand();\n                report.CommandText = choice == \"2\" ? \"SELECT Id,Name,Course,Average FROM Students ORDER BY Average DESC,Id LIMIT 100\" : \"SELECT Id,Name,Course,Average FROM Students WHERE instr(lower(Name),lower(@Search))>0 ORDER BY Id LIMIT 100\";\n                if (choice == \"3\") report.Parameters.AddWithValue(\"@Search\", (Console.ReadLine() ?? \"\").Trim());\n                using var rows = report.ExecuteReader(); while (rows.Read()) Console.WriteLine($\"{rows.GetInt32(0)}: {rows.GetString(1)} ({rows.GetString(2)}) {rows.GetDouble(3):F2}\"); continue;\n            }\n            if (role != \"admin\") { Console.WriteLine(\"Admin role required\"); continue; }\n            if (choice != \"4\" && choice != \"5\" && choice != \"6\") { Console.WriteLine(\"Unknown option\"); continue; }\n            if (!int.TryParse(Console.ReadLine(), out int id) || id <= 0) { Console.WriteLine(\"Invalid ID\"); continue; }\n            using var command = connection.CreateCommand(); command.Parameters.AddWithValue(\"@Id\", id);\n            if (choice == \"6\") { if (Console.ReadLine() != \"YES\") { Console.WriteLine(\"Deletion canceled\"); continue; } command.CommandText = \"DELETE FROM Students WHERE Id=@Id\"; }\n            else\n            {\n                string name = (Console.ReadLine() ?? \"\").Trim(); string course = (Console.ReadLine() ?? \"\").Trim();\n                if (name.Length == 0 || name.Length > 100 || (course != \"IT\" && course != \"CS\") || !double.TryParse(Console.ReadLine(), NumberStyles.Float, CultureInfo.InvariantCulture, out double average) || !double.IsFinite(average) || average < 0 || average > 100) { Console.WriteLine(\"Invalid student record\"); continue; }\n                command.Parameters.AddWithValue(\"@Name\", name); command.Parameters.AddWithValue(\"@Course\", course); command.Parameters.AddWithValue(\"@Average\", average);\n                command.CommandText = choice == \"4\" ? \"INSERT INTO Students(Id,Name,Course,Average,CreatedUtc) VALUES(@Id,@Name,@Course,@Average,@Created)\" : \"UPDATE Students SET Name=@Name,Course=@Course,Average=@Average WHERE Id=@Id\";\n                if (choice == \"4\") command.Parameters.AddWithValue(\"@Created\", DateTime.UtcNow.ToString(\"O\"));\n            }\n            try { Console.WriteLine($\"Affected: {command.ExecuteNonQuery()}\"); } catch (SqliteException) { Console.WriteLine(\"Database change failed; check ID and practice constraints\"); }\n        }\n        await Task.CompletedTask;\n    }\n\n}\n",
+    "example_csharp": "using System;\nusing System.Globalization;\nusing System.Threading.Tasks;\nusing Microsoft.Data.Sqlite;\nusing System.Security.Cryptography;\nclass Program\n{\n    static async Task Main()\n    {\n        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;\n        const string database = \"practice-sis.sqlite\";\n        using var connection = new SqliteConnection($\"Data Source={database}\"); connection.Open();\n        using (var schema = connection.CreateCommand()) { schema.CommandText = \"CREATE TABLE IF NOT EXISTS Users(Name TEXT PRIMARY KEY, Salt TEXT NOT NULL, Hash TEXT NOT NULL, Role TEXT CHECK(Role IN ('admin','viewer'))); CREATE TABLE IF NOT EXISTS Students(Id INTEGER PRIMARY KEY, Name TEXT NOT NULL, Course TEXT NOT NULL, Average REAL CHECK(Average BETWEEN 0 AND 100), CreatedUtc TEXT NOT NULL)\"; schema.ExecuteNonQuery(); }\n        // Provision a practice administrator only if the users table is empty. Supply the secret outside source.\n        using (var count = connection.CreateCommand())\n        {\n            count.CommandText = \"SELECT COUNT(*) FROM Users\";\n            if (Convert.ToInt64(count.ExecuteScalar()) == 0)\n            {\n                string? user = Environment.GetEnvironmentVariable(\"PRACTICE_ADMIN_NAME\");\n                string? secret = Environment.GetEnvironmentVariable(\"PRACTICE_ADMIN_PASSWORD\");\n                if (string.IsNullOrWhiteSpace(user) || string.IsNullOrEmpty(secret) || secret.Length < 14) { Console.WriteLine(\"Provision a fictional practice admin through private configuration first\"); return; }\n                byte[] salt = RandomNumberGenerator.GetBytes(16); byte[] hash = Rfc2898DeriveBytes.Pbkdf2(secret, salt, 310000, HashAlgorithmName.SHA256, 32);\n                using var provision = connection.CreateCommand(); provision.CommandText = \"INSERT INTO Users(Name,Salt,Hash,Role) VALUES(@Name,@Salt,@Hash,'admin')\";\n                provision.Parameters.AddWithValue(\"@Name\", user.Trim()); provision.Parameters.AddWithValue(\"@Salt\", Convert.ToBase64String(salt)); provision.Parameters.AddWithValue(\"@Hash\", Convert.ToBase64String(hash)); provision.ExecuteNonQuery();\n            }\n        }\n        string? role = null;\n        for (int attempt = 0; attempt < 3 && role is null; attempt++)\n        {\n            Console.WriteLine(\"Practice login: username then password (private stdin only)\");\n            string username = Console.ReadLine() ?? \"\"; string password = Console.ReadLine() ?? \"\";\n            using var login = connection.CreateCommand(); login.CommandText = \"SELECT Salt,Hash,Role FROM Users WHERE Name=@Name\"; login.Parameters.AddWithValue(\"@Name\", username);\n            using var user = login.ExecuteReader();\n            if (user.Read()) { byte[] actual = Rfc2898DeriveBytes.Pbkdf2(password, Convert.FromBase64String(user.GetString(0)), 310000, HashAlgorithmName.SHA256, 32); if (CryptographicOperations.FixedTimeEquals(actual, Convert.FromBase64String(user.GetString(1)))) role = user.GetString(2); }\n            if (role is null) Console.WriteLine(\"Invalid credentials\");\n        }\n        if (role is null) return;\n        for (int action = 0; action < 100; action++)\n        {\n            Console.WriteLine(\"1 Dashboard | 2 List/report | 3 Search | 4 Add | 5 Edit | 6 Delete | 0 Logout\");\n            string choice = Console.ReadLine() ?? \"0\"; if (choice == \"0\") { role = null; Console.WriteLine(\"Logged out\"); break; }\n            if (choice == \"1\")\n            {\n                using var summary = connection.CreateCommand(); summary.CommandText = \"SELECT COUNT(*),COALESCE(SUM(CASE WHEN Average>=75 THEN 1 ELSE 0 END),0) FROM Students\";\n                using var rows = summary.ExecuteReader(); if (rows.Read()) Console.WriteLine($\"Total: {rows.GetInt32(0)}; passing: {rows.GetInt32(1)}; failing: {rows.GetInt32(0)-rows.GetInt32(1)}\"); continue;\n            }\n            if (choice == \"2\" || choice == \"3\")\n            {\n                using var report = connection.CreateCommand();\n                report.CommandText = choice == \"2\" ? \"SELECT Id,Name,Course,Average FROM Students ORDER BY Average DESC,Id LIMIT 100\" : \"SELECT Id,Name,Course,Average FROM Students WHERE instr(lower(Name),lower(@Search))>0 ORDER BY Id LIMIT 100\";\n                if (choice == \"3\") report.Parameters.AddWithValue(\"@Search\", (Console.ReadLine() ?? \"\").Trim());\n                using var rows = report.ExecuteReader(); while (rows.Read()) Console.WriteLine($\"{rows.GetInt32(0)}: {rows.GetString(1)} ({rows.GetString(2)}) {rows.GetDouble(3):F2}\"); continue;\n            }\n            if (role != \"admin\") { Console.WriteLine(\"Admin role required\"); continue; }\n            if (choice != \"4\" && choice != \"5\" && choice != \"6\") { Console.WriteLine(\"Unknown option\"); continue; }\n            if (!int.TryParse(Console.ReadLine(), out int id) || id <= 0) { Console.WriteLine(\"Invalid ID\"); continue; }\n            using var command = connection.CreateCommand(); command.Parameters.AddWithValue(\"@Id\", id);\n            if (choice == \"6\") { if (Console.ReadLine() != \"YES\") { Console.WriteLine(\"Deletion canceled\"); continue; } command.CommandText = \"DELETE FROM Students WHERE Id=@Id\"; }\n            else\n            {\n                string name = (Console.ReadLine() ?? \"\").Trim(); string course = (Console.ReadLine() ?? \"\").Trim();\n                if (name.Length == 0 || name.Length > 100 || (course != \"IT\" && course != \"CS\") || !double.TryParse(Console.ReadLine(), NumberStyles.Float, CultureInfo.InvariantCulture, out double average) || !double.IsFinite(average) || average < 0 || average > 100) { Console.WriteLine(\"Invalid student record\"); continue; }\n                command.Parameters.AddWithValue(\"@Name\", name); command.Parameters.AddWithValue(\"@Course\", course); command.Parameters.AddWithValue(\"@Average\", average);\n                command.CommandText = choice == \"4\" ? \"INSERT INTO Students(Id,Name,Course,Average,CreatedUtc) VALUES(@Id,@Name,@Course,@Average,@Created)\" : \"UPDATE Students SET Name=@Name,Course=@Course,Average=@Average WHERE Id=@Id\";\n                if (choice == \"4\") command.Parameters.AddWithValue(\"@Created\", DateTime.UtcNow.ToString(\"O\"));\n            }\n            try { Console.WriteLine($\"Affected: {command.ExecuteNonQuery()}\"); } catch (SqliteException) { Console.WriteLine(\"Database change failed; check ID and practice constraints\"); }\n        }\n        await Task.CompletedTask;\n    }\n\n}\n",
+    "starter_csharp": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your original solution.\n    }\n}\n",
+    "csharp_mode": "external",
+    "csharp_project_guide": "EXTERNAL COMPLETE PROJECT: Build in your own controlled .NET SDK console project and add Microsoft.Data.Sqlite via NuGet. Use a dedicated practice folder and practice-sis.sqlite; never the CodeLab database. Provision fictional admin credentials privately through PRACTICE_ADMIN_NAME and PRACTICE_ADMIN_PASSWORD outside source. Do not save passwords in the CodeLab Program Input field. Online one-shot runs do not model durable login sessions or persistent databases. Desktop mode requires Windows/Visual Studio; ASP.NET Core requires its own controlled web host and supported Identity configuration. CodeLab stores source/project links and teacher-reviewed evidence only.",
+    "guided_practice": "1. Create a dedicated practice project; inspect the example and its expected effects.\n2. Trace the statements and identify data types, control flow, and output before running.\n3. Use the documented sample input (stdin one value per line). Compile in your own authorized SDK environment or the verified isolated service when available.\n4. Test normal, empty, malformed and boundary inputs; record actual compiler/runtime messages.\n5. Complete the independent activity with original source; save it and restricted project/evidence links.",
+    "activity": "Required milestones: choose console/desktop/ASP.NET mode → define Student/User models and interfaces → isolate practice database → parameterized repository CRUD → validated services → supported salted password hashing and authorized role provisioning → login/logout → dashboard totals/course counts/passing/failing/recent records → reports/filter/sort → async I/O where appropriate → sanitized errors/logs → tests/documentation. Suggested schema: Students(Id,Name,Course,Average,CreatedUtc), Users(Name,Salt,Hash,Role), with unique IDs and role/grade constraints; do not use production data. Checklist: duplicate/missing IDs, invalid grades/names/course, canceled deletion, viewer CRUD denied at service layer, wrong password, logout protection, injection-like names, database failure, cancellation, empty reports and restart persistence. Submit original complete project source via restricted repository link, schema/build steps and sanitized screenshots/tests, excluding credentials/database with user hashes/private records.",
+    "expected_result": "Actual learner environment demonstrates login/logout and enforced roles, summary reports, validated student CRUD, isolated persistence, organized service/repository classes, LINQ reports and appropriate cancelable async I/O. The reference is a foundation; required extensions and security tests must be demonstrated in the submitted project.",
+    "important_notes": "Check spelling and case, semicolons, braces, scope, null/empty values, array bounds and type conversions. Use the first compiler error to avoid cascading diagnostics. Keep loops bounded and handle invalid input separately from unexpected failures.",
+    "debugging_tip": "Build first; inspect the first compiler diagnostic and line number. Use breakpoints or small sanitized logs, step into methods, inspect values, and reduce a failing case. Compilation errors, handled validation, runtime exceptions and sandbox timeouts mean different things. A source save or quiz pass is not proof of successful execution.",
+    "security_note": "Use fictional data and a separate disposable practice workspace. Student code must never execute on the unrestricted Laravel/Hostinger host. A connected provider must restrict processes, CPU, memory, time, output, files and network and remove its workspace afterward. Use parameterized SQL, validated inputs and resource disposal; never include CodeLab credentials or plaintext passwords in source/submissions. Desktop/web projects need their own controlled development environment.",
+    "challenge": "Summary: Build a learner-owned console application as the baseline; desktop or ASP.NET Core is an optional external mode.\nChallenge: Add one useful original improvement and a boundary/failure test; explain the relevant validation or security decision.",
+    "completion_requirements": "Save and submit original source, program input, optional repository/project URL, and build/test evidence. Pass the five-question quiz with at least 4/5 and receive teacher approval of the current submission; projects also require rubric grading. Running alone does not complete a lesson.",
+    "quiz": [
+      {
+        "question": "Where should authorization be enforced?",
+        "choices": [
+          "Each protected service operation",
+          "Only hiding menu choices",
+          "Only trusting role input",
+          "Only in CSS"
+        ],
+        "answer": 0,
+        "explanation": "Each protected service operation. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What may project evidence contain?",
+        "choices": [
+          "Private passwords",
+          "Production database credentials",
+          "Another student’s records",
+          "Sanitized build and test results"
+        ],
+        "answer": 3,
+        "explanation": "Sanitized build and test results. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What must the learner add beyond the foundation?",
+        "choices": [
+          "Unrestricted host access",
+          "Plaintext passwords",
+          "Focused architecture and documented required extensions",
+          "A fake Run output"
+        ],
+        "answer": 2,
+        "explanation": "Focused architecture and documented required extensions. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "Which database is appropriate?",
+        "choices": [
+          "Laravel users directly",
+          "An isolated practice SQLite database",
+          "CodeLab production database",
+          "A shared admin database without limits"
+        ],
+        "answer": 1,
+        "explanation": "An isolated practice SQLite database. Review this lesson’s example and explanation."
+      },
+      {
+        "question": "What does logout do?",
+        "choices": [
+          "Remove the active session authorization",
+          "Delete every student",
+          "Expose the hash",
+          "Grant admin access"
+        ],
+        "answer": 0,
+        "explanation": "Remove the active session authorization. Review this lesson’s example and explanation."
+      }
+    ],
+    "validation_rules": {
+      "csharp": {
+        "test_cases": []
+      }
+    },
+    "is_project": true,
+    "rubric": {
+      "program_functionality": 25,
+      "correct_csharp": 20,
+      "object_oriented_design": 15,
+      "data_database_handling": 10,
+      "validation_error_handling": 10,
+      "code_organization_architecture": 10,
+      "security": 5,
+      "testing_documentation": 5
+    }
+  }
+]

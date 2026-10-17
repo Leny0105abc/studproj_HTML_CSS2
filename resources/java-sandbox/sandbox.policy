@@ -1,0 +1,18 @@
+grant codeBase "file:${user.dir}/guard.jar" {
+    permission java.security.AllPermission;
+};
+grant codeBase "file:${user.dir}/gson.jar" {
+    permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+};
+grant codeBase "file:${user.dir}/h2.jar" {
+    permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+};
+grant {
+    permission java.io.FilePermission "${user.dir}/-", "read,write,delete";
+    permission java.io.FilePermission "/usr/local/jdk17/-", "read";
+    permission java.util.PropertyPermission "*", "read";
+    permission java.lang.RuntimePermission "getClassLoader";
+    permission java.lang.RuntimePermission "accessDeclaredMembers";
+    permission java.lang.RuntimePermission "modifyThread";
+    permission java.lang.RuntimePermission "modifyThreadGroup";
+};
