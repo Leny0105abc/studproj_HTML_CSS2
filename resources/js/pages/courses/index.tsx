@@ -26,12 +26,18 @@ export default function Courses({
     isTeacher: boolean;
     isCollegeStudent?: boolean;
 }) {
+    const sections = isCollegeStudent
+        ? ['College']
+        : isTeacher
+          ? ['Shared courses', 'High School', 'College']
+          : ['High School', 'College', 'Shared courses'];
+
     return (
         <>
             <Head title="Courses" />
             <main className="soft-grid space-y-6 p-6">
                 <h1 className="text-3xl font-bold">CodeLab Courses</h1>
-                {(isCollegeStudent ? ['College'] : ['High School', 'College', 'Shared courses']).map((level) => (
+                {sections.map((level) => (
                     <section key={level} className="space-y-4">
                         <h2 className="text-xl font-bold">
                             {level.toUpperCase()}

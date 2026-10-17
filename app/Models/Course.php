@@ -16,7 +16,7 @@ class Course extends Model
 
     public function scopeInLearningOrder(Builder $query, User $user): Builder
     {
-        if ($user->role === 'student' && $user->educationLevel?->slug === 'college') {
+        if ($user->role === 'teacher' || ($user->role === 'student' && $user->educationLevel?->slug === 'college')) {
             $query->orderByRaw('CASE WHEN slug = ? OR name = ? THEN 0 ELSE 1 END', ['introduction-to-programming', 'Introduction to Programming']);
         }
 
