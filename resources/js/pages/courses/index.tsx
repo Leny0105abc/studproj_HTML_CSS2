@@ -29,7 +29,7 @@ export default function Courses({
     const sections = isCollegeStudent
         ? ['College']
         : isTeacher
-          ? ['Shared courses', 'High School', 'College']
+          ? ['College', 'High School', 'Shared courses']
           : ['High School', 'College', 'Shared courses'];
 
     return (

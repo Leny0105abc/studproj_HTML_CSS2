@@ -4,7 +4,9 @@ This course extends the existing Laravel/Inertia CodeLab application. It uses th
 
 ## Course and learning flow
 
-The course is **Introduction to Programming**, normally at `/courses/introduction-to-programming`. An existing course with that exact name or slug is reused, retaining its identity. Both High School and College learners can access the published course. Teachers can also assign it through existing course management.
+The course is **Introduction to Programming**, normally at `/courses/introduction-to-programming`. An existing course with that exact name or slug is reused, retaining its identity. Only College students can access the published course; it appears first on their dashboard and course list. Teachers retain management access and may assign it only to compatible College students. The teacher catalogue places the College section first with this course at the top.
+
+Migration `2026_10_17_000002_limit_introduction_programming_to_college.php` changes the course audience to College and removes additional audience associations. Existing enrollments, lesson progress, submissions and feedback are retained, but historical High School enrollments cannot bypass the access restriction. The course seeder maintains the same College-only audience on reruns.
 
 There are 30 lessons: Beginner 1–10, Intermediate 11–20, Advanced 21–30. Each contains objectives, prerequisites, duration, discussions, an IPO analysis, a numbered plan, pseudocode, a structured visual flowchart, complete Python/C++17/Java17 source, a code explanation, two specified output tests, three guided activities, three independent activities, two debugging activities, two conversion activities, and ten explained quiz questions. Projects occupy lessons 10, 20, and 30. The final project's worked console scope is two in-memory student records, with search, updates, validation, reports, and an exit menu; learners extend the capacity in practice.
 

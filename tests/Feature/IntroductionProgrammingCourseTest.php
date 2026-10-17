@@ -135,12 +135,14 @@ test('incomplete submissions are rejected but unfinished graphs can be saved', f
     expect(Submission::count())->toBe(0);
 });
 
-test('the course is available to both target education groups and project approval requires rubric and documentation', function () {
+test('the course is college only and project approval requires rubric and documentation', function () {
     $school = User::factory()->create(['role' => 'student', 'education_level_id' => EducationLevel::where('slug', 'high-school')->value('id')]);
     $course = Course::where('editor_type', 'programming')->first();
-    $this->actingAs($school)->get('/courses/'.$course->slug)->assertOk();
+    $this->actingAs($school)->get('/courses/'.$course->slug)->assertForbidden();
+    $college = programmingStudent();
+    $this->actingAs($college)->get('/courses/'.$course->slug)->assertOk();
     $lesson = $course->lessons()->where('position', 30)->first();
-    StudentLessonProgress::create(['user_id' => $school->id, 'lesson_id' => $lesson->id, 'status' => 'in_progress', 'is_manually_unlocked' => true]);
+    StudentLessonProgress::create(['user_id' => $college->id, 'lesson_id' => $lesson->id, 'status' => 'in_progress', 'is_manually_unlocked' => true]);
     $this->get('/code-lab/'.$lesson->id)->assertOk();
     $work = programmingWork($lesson);
     $url = '/code-lab/'.$lesson->id;

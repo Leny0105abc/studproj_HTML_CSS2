@@ -23,9 +23,8 @@ class IntroductionProgrammingCourseSeeder extends Seeder
             if (! $course) {
                 $course = Course::create(['slug' => 'introduction-to-programming', 'name' => 'Introduction to Programming', 'education_level_id' => $college->id, 'description' => 'Learn programming logic through problems, algorithms, pseudocode, and flowcharts. Implement one solution in Python, C++17, and Java 17 across 30 lessons and three levels.', 'difficulty' => 'Beginner to Advanced', 'language' => 'Python / C++ / Java', 'editor_type' => 'programming', 'execution_provider' => 'existing-language-sandboxes', 'is_published' => true, 'sequential_gating' => true]);
             }
-            $course->update(['editor_type' => 'programming', 'execution_provider' => 'existing-language-sandboxes', 'language' => 'Python / C++ / Java']);
-            EducationLevel::firstOrCreate(['slug' => 'high-school'], ['name' => 'High School']);
-            $course->educationLevels()->syncWithoutDetaching(EducationLevel::whereIn('slug', ['high-school', 'college'])->pluck('id'));
+            $course->update(['education_level_id' => $college->id, 'editor_type' => 'programming', 'execution_provider' => 'existing-language-sandboxes', 'language' => 'Python / C++ / Java']);
+            $course->educationLevels()->sync([$college->id]);
             $items = json_decode(file_get_contents(database_path('data/programming-course.json')), true, flags: JSON_THROW_ON_ERROR);
             $flowchart = new ProgrammingFlowchart;
             foreach (['Beginner', 'Intermediate', 'Advanced'] as $index => $name) {
