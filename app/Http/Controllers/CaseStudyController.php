@@ -14,11 +14,13 @@ class CaseStudyController extends Controller
 {
     public function index(Request $request): Response
     {
-        $allowed = $request->user()->role === 'teacher' || Course::where('slug', 'html-css')->first()?->accessibleTo($request->user());
-        $lessonsComplete = $allowed && ($request->user()->role === 'teacher' || $request->user()->lessonProgress()->where('status', 'completed')->count() >= Lesson::where('is_published', true)->count());
+        $htmlCourse = Course::where('slug', 'html-css')->first();
+        $allowed = $request->user()->role === 'teacher' || $htmlCourse?->accessibleTo($request->user());
+        $htmlLessons = Lesson::where('is_published', true)->where(fn ($q) => $q->where('course_id', $htmlCourse?->id)->orWhereNull('course_id'))->pluck('id');
+        $lessonsComplete = $allowed && ($request->user()->role === 'teacher' || $request->user()->lessonProgress()->whereIn('lesson_id', $htmlLessons)->where('status', 'completed')->count() >= $htmlLessons->count());
         $progress = DB::table('case_study_progress')->where('user_id', $request->user()->id)->get()->keyBy('case_study_id');
         $previousComplete = $lessonsComplete;
-        $items = CaseStudy::where('is_published', true)->when(! $allowed, fn ($q) => $q->whereRaw('1 = 0'))->orderBy('number')->get()->map(function ($case) use ($request, $progress, &$previousComplete) {
+        $items = CaseStudy::whereNull('course_id')->where('is_published', true)->when(! $allowed, fn ($q) => $q->whereRaw('1 = 0'))->orderBy('number')->get()->map(function ($case) use ($request, $progress, &$previousComplete) {
             $p = $progress->get($case->id);
             $unlocked = $request->user()->role === 'teacher' || $previousComplete;
             $status = $p->status ?? ($unlocked ? 'not_started' : 'locked');
@@ -29,6 +31,8 @@ class CaseStudyController extends Controller
             return ['id' => $case->id, 'number' => $case->number, 'title' => $case->title, 'scenario' => $case->scenario, 'objectives' => $case->objectives, 'status' => $status, 'unlocked' => $unlocked];
         });
 
-        return Inertia::render('case-studies/index', ['caseStudies' => $items, 'lessonsComplete' => $lessonsComplete]);
+        $applicationCases = CaseStudy::with('course')->whereNotNull('application_content')->where('is_published', true)->orderBy('number')->get()->filter(fn ($c) => $c->course?->accessibleTo($request->user()))->map(fn ($c) => ['id' => $c->id, 'number' => $c->number, 'title' => $c->title, 'scenario' => $c->scenario, 'objectives' => $c->objectives, 'unlocked' => ApplicationWorkspaceController::caseUnlocked($request->user(), $c), 'status' => $progress->get($c->id)?->status ?? 'not_started', 'href' => '/application-case-studies/'.$c->id]);
+
+        return Inertia::render('case-studies/index', ['caseStudies' => $items->concat($applicationCases)->values(), 'lessonsComplete' => $lessonsComplete]);
     }
 }

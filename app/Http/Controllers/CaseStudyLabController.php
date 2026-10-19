@@ -19,9 +19,9 @@ class CaseStudyLabController extends Controller
     {
         $course = Course::where('slug', 'html-css')->first();
         abort_unless($request->user()->role === 'teacher' || ($course && $course->accessibleTo($request->user())), 403);
-        $lessonCount = Lesson::where('is_published', true)->count();
-        abort_unless($request->user()->lessonProgress()->where('status', 'completed')->count() >= $lessonCount, 403, 'Complete all lessons first.');
-        $previous = CaseStudy::where('number', '<', $caseStudy->number)->where('is_published', true)->orderByDesc('number')->first();
+        $htmlLessons = Lesson::where('is_published', true)->where(fn ($q) => $q->where('course_id', $course?->id)->orWhereNull('course_id'))->pluck('id');
+        abort_unless($request->user()->lessonProgress()->whereIn('lesson_id', $htmlLessons)->where('status', 'completed')->count() >= $htmlLessons->count(), 403, 'Complete all HTML/CSS lessons first.');
+        $previous = CaseStudy::whereNull('course_id')->where('number', '<', $caseStudy->number)->where('is_published', true)->orderByDesc('number')->first();
         if ($previous) {
             abort_unless(DB::table('case_study_progress')->where('user_id', $request->user()->id)->where('case_study_id', $previous->id)->where('status', 'completed')->exists(), 403, 'Complete the previous case study first.');
         }
@@ -29,6 +29,9 @@ class CaseStudyLabController extends Controller
 
     public function show(Request $request, CaseStudy $caseStudy): Response
     {
+        if ($caseStudy->isApplication()) {
+            return app(ApplicationWorkspaceController::class)->caseStudy($request, $caseStudy);
+        }
         $this->ensureUnlocked($request, $caseStudy);
         $progress = DB::table('case_study_progress')->where(['user_id' => $request->user()->id, 'case_study_id' => $caseStudy->id])->first();
         if (! $progress) {
@@ -49,6 +52,7 @@ class CaseStudyLabController extends Controller
 
     public function save(Request $request, CaseStudy $caseStudy)
     {
+        abort_if($caseStudy->isApplication(), 422, 'Use the document submission workspace.');
         $this->ensureUnlocked($request, $caseStudy);
         $data = $request->validate(['html_code' => 'required|string|max:200000', 'css_code' => 'nullable|string|max:200000', 'version' => 'required|integer|min:1']);
         $progress = DB::transaction(function () use ($request, $caseStudy, $data) {
@@ -68,6 +72,7 @@ class CaseStudyLabController extends Controller
 
     public function submit(Request $request, CaseStudy $caseStudy)
     {
+        abort_if($caseStudy->isApplication(), 422, 'Use the document submission workspace.');
         $this->ensureUnlocked($request, $caseStudy);
         $data = $request->validate(['html_code' => 'required|string|max:200000', 'css_code' => 'nullable|string|max:200000', 'version' => 'required|integer|min:1']);
         $submission = DB::transaction(function () use ($request, $caseStudy, $data) {

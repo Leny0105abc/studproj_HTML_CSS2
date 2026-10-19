@@ -51,7 +51,7 @@ class StudentController extends Controller
         $totalLessons = max(Lesson::where('is_published', true)->count(), 1);
 
         return Inertia::render('students/index', [
-            'students' => $query->orderBy('last_name')->paginate(20)->through(fn ($student) => [
+            'students' => $query->orderBy('last_name')->orderBy('id')->paginate(20)->withQueryString()->through(fn ($student) => [
                 'id' => $student->id, 'name' => $student->name, 'username' => $student->username,
                 'educationLevel' => $student->educationLevelName(), 'program' => $student->program,
                 'grade' => $student->grade_level, 'section' => $student->section, 'status' => $student->status,

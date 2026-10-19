@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Course;
+use App\Services\JavaSandbox;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
@@ -8,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $app->make(Kernel::class)->bootstrap();
-$label = in_array($argv[1] ?? '', ['scratch', 'php', 'cpp', 'java', 'sql', 'javascript', 'vbnet', 'vba', 'apps-script', 'csharp', 'bootstrap', 'wordpress', 'tailwind', 'programming', 'education'], true) ? $argv[1] : 'python';
+$label = in_array($argv[1] ?? '', ['scratch', 'php', 'cpp', 'java', 'sql', 'javascript', 'vbnet', 'vba', 'apps-script', 'csharp', 'bootstrap', 'wordpress', 'tailwind', 'programming', 'education', 'word', 'excel'], true) ? $argv[1] : 'python';
 $files = glob(storage_path('app/private/course-backups/before-'.$label.'-*.encrypted'));
 sort($files);
 $path = end($files);
@@ -29,7 +30,7 @@ echo 'Python: '.$course->modules()->count().' modules, '.$course->lessons()->cou
 if ($scratch = Course::where('slug', 'scratch-programming')->first()) {
     echo 'Scratch: '.$scratch->modules()->count().' modules, '.$scratch->lessons()->count().' lessons'.PHP_EOL;
 }
-foreach (['php-programming', 'cpp-programming', 'java-programming', 'sql-programming', 'javascript-programming', 'visual-basic-dotnet', 'excel-vba-application', 'google-apps-script', 'csharp-programming', 'bootstrap', 'wordpress', 'tailwind-css'] as $slug) {
+foreach (['php-programming', 'cpp-programming', 'java-programming', 'sql-programming', 'javascript-programming', 'visual-basic-dotnet', 'excel-vba-application', 'google-apps-script', 'csharp-programming', 'bootstrap', 'wordpress', 'tailwind-css', 'microsoft-word-application', 'microsoft-excel-application'] as $slug) {
     if ($course = Course::where('slug', $slug)->first()) {
         echo $course->name.': course '.$course->id.', '.$course->modules()->count().' modules, '.$course->lessons()->count().' lessons'.PHP_EOL;
     }
@@ -37,5 +38,5 @@ foreach (['php-programming', 'cpp-programming', 'java-programming', 'sql-program
 if ($label === 'programming') {
     $course = Course::where('editor_type', 'programming')->firstOrFail();
     echo $course->name.': '.$course->modules()->count().' modules, '.$course->lessons()->count().' lessons'.PHP_EOL;
-    echo 'Java execution service: '.(\App\Services\JavaSandbox::available() ? 'available' : 'unavailable; source generation remains available').PHP_EOL;
+    echo 'Java execution service: '.(JavaSandbox::available() ? 'available' : 'unavailable; source generation remains available').PHP_EOL;
 }

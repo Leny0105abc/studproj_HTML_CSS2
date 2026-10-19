@@ -10,9 +10,19 @@ class Lesson extends Model
 {
     protected $guarded = [];
 
+    public function isApplication(): bool
+    {
+        return in_array($this->course?->editor_type, ['office-word', 'office-excel'], true);
+    }
+
+    public function demonstrations(): HasMany
+    {
+        return $this->hasMany(LessonDemonstration::class)->orderBy('display_order')->orderBy('id');
+    }
+
     protected function casts(): array
     {
-        return ['programming_content' => 'array', 'objectives' => 'array', 'guide' => 'array', 'quiz' => 'array', 'block_examples' => 'array', 'validation_rules' => 'array', 'rubric' => 'array', 'is_project' => 'boolean', 'auto_complete' => 'boolean', 'is_published' => 'boolean'];
+        return ['application_content' => 'array', 'programming_content' => 'array', 'objectives' => 'array', 'guide' => 'array', 'quiz' => 'array', 'block_examples' => 'array', 'validation_rules' => 'array', 'rubric' => 'array', 'is_project' => 'boolean', 'auto_complete' => 'boolean', 'is_published' => 'boolean'];
     }
 
     public function progress(): HasMany

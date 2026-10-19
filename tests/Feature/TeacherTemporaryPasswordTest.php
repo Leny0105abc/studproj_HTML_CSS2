@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Inertia\Testing\AssertableInertia as Assert;
 
 beforeEach(function () {
@@ -17,7 +17,7 @@ test('teacher can issue a temporary student password without changing progress',
         ->post('/students/'.$student->id.'/reset-password');
     $response->assertRedirect('/students/'.$student->id)->assertSessionHas('credentials');
     $password = session('credentials.password');
-    expect($password)->toMatch('/^[a-zA-Z0-9]{12}$/');
+    expect($password)->toMatch('/^[abcdefghjkmnpqrstuvwxyz23456789]{6}$/');
     expect(Hash::check($password, $student->fresh()->password))->toBeTrue();
     expect($student->fresh()->password)->not->toBe($oldPassword);
     expect($student->fresh()->must_change_password)->toBeTrue();
@@ -50,9 +50,11 @@ test('temporary password users must change password before accessing lessons', f
     $this->get('/lessons')->assertRedirect('/change-temporary-password');
     $this->get('/change-temporary-password')->assertOk();
     $this->put('/settings/password', ['current_password' => 'Temporary123', 'password' => 'Temporary123', 'password_confirmation' => 'Temporary123'])->assertSessionHasErrors('password');
+    $this->put('/settings/password', ['current_password' => 'Temporary123', 'password' => 'short', 'password_confirmation' => 'short'])->assertSessionHasErrors('password');
+    $this->put('/settings/password', ['current_password' => 'Temporary123', 'password' => 'flower', 'password_confirmation' => 'other6'])->assertSessionHasErrors('password');
     $this->put('/settings/password', ['current_password' => 'wrong', 'password' => 'Personal456', 'password_confirmation' => 'Personal456'])->assertSessionHasErrors('current_password');
-    $this->put('/settings/password', ['current_password' => 'Temporary123', 'password' => 'Personal456', 'password_confirmation' => 'Personal456'])->assertRedirect('/dashboard');
+    $this->put('/settings/password', ['current_password' => 'Temporary123', 'password' => 'flower', 'password_confirmation' => 'flower'])->assertRedirect('/dashboard');
     expect($student->fresh()->must_change_password)->toBeFalse();
-    expect(Hash::check('Personal456', $student->fresh()->password))->toBeTrue();
+    expect(Hash::check('flower', $student->fresh()->password))->toBeTrue();
     $this->get('/dashboard')->assertOk();
 });

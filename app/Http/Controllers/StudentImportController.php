@@ -154,7 +154,7 @@ class StudentImportController extends Controller
                 'Username: letters a-z, digits, dots, underscores or hyphens. Normalized to lowercase; no spaces.',
                 'Optional: middle_name, email, password, status. Blank passwords generate secure temporary passwords.',
                 'Optional student identifier column: lrn. Format identifiers as text to preserve leading zeroes. Duplicate LRNs are skipped.',
-                'Provided passwords: 8–128 characters. Students must change their password after first login.',
+                'Provided passwords: 6–128 characters. Blank passwords generate six-character lowercase/digit passwords. Students must change their password after first login.',
                 'Statuses: active (default), disabled, archived. All accounts are students.',
                 'Each row must specify High School (high-school) or College. No level is inferred or defaulted.',
                 'High School grades: 7–12 or Grade 7–Grade 12. College years: 1st Year–6th Year or Year 1–Year 6. College program is optional.',

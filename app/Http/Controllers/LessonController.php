@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CaseStudy;
 use App\Models\Course;
 use App\Models\CourseEnrollment;
 use App\Models\EducationLevel;
 use App\Models\Lesson;
 use App\Models\User;
 use App\Services\CourseAccess;
+use App\Services\ProgrammingFlowchart;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -19,6 +22,9 @@ class LessonController extends Controller
 {
     public function preview(Request $request, Lesson $lesson): Response
     {
+        if ($lesson->isApplication() && $request->user()->role === 'teacher') {
+            return app(ApplicationWorkspaceController::class)->lesson($request, $lesson);
+        }
         abort_unless(CourseAccess::lessons($request->user())->where('id', $lesson->id)->exists(), 403);
 
         return Inertia::render('lessons/preview', [
@@ -67,6 +73,8 @@ class LessonController extends Controller
                 'level' => $lesson->level, 'status' => $status, 'unlocked' => $unlocked,
                 'autoComplete' => $lesson->auto_complete, 'published' => $lesson->is_published,
                 'position' => $lesson->position, 'isProject' => $lesson->is_project,
+                'exerciseTitle' => $lesson->isApplication() ? ($lesson->application_content['exercise']['title'] ?? null) : null,
+                'exerciseStatus' => $lesson->isApplication() ? ($itemProgress?->activity_passed_at ? 'Submitted' : 'Not Submitted') : null,
             ];
         });
 
@@ -79,6 +87,8 @@ class LessonController extends Controller
         ]);
 
         return Inertia::render('lessons/index', [
+            'applicationStats' => in_array($course?->editor_type, ['office-word', 'office-excel'], true) ? ['exercisesCompleted' => $request->user()->lessonProgress()->whereHas('lesson', fn ($q) => $q->where('course_id', $course->id))->whereNotNull('activity_passed_at')->count(), 'caseStudiesCompleted' => \DB::table('case_study_progress')->where('user_id', $request->user()->id)->where('status', 'completed')->whereIn('case_study_id', CaseStudy::where('course_id', $course->id)->pluck('id'))->count()] : null,
+            'applicationCases' => in_array($course?->editor_type, ['office-word', 'office-excel'], true) ? CaseStudy::where('course_id', $course->id)->where('is_published', true)->orderBy('number')->get()->map(fn ($c) => ['id' => $c->id, 'title' => $c->title, 'level' => $c->module?->name, 'unlocked' => ApplicationWorkspaceController::caseUnlocked($request->user(), $c), 'status' => \DB::table('case_study_progress')->where('case_study_id', $c->id)->where('user_id', $request->user()->id)->value('status') ?? 'not_started']) : [],
             'lessons' => $lessons, 'levelProgress' => $levelProgress,
             'isTeacher' => $request->user()->role === 'teacher',
             'course' => $course?->load('educationLevel'),
@@ -157,9 +167,12 @@ class LessonController extends Controller
     {
         if ($lesson->isProgramming() && $request->isJson()) {
             $raw = json_decode($request->getContent(), true);
-            if (is_array($raw) && is_array($raw['programming_content'] ?? null)) $request->merge(['programming_content' => $raw['programming_content']]);
+            if (is_array($raw) && is_array($raw['programming_content'] ?? null)) {
+                $request->merge(['programming_content' => $raw['programming_content']]);
+            }
         }
         $data = $request->validate([
+            'application_content' => $lesson->isApplication() ? 'sometimes|required|array|max:30' : 'sometimes|nullable|array|max:30',
             'title' => 'required|string|max:150', 'level' => ['required', Rule::in($lesson->course?->modules()->pluck('name')->all() ?? ['Basic', 'Moderate', 'Advanced'])], 'position' => 'required|integer|min:1|max:65000',
             'is_published' => 'required|boolean', 'is_project' => 'required|boolean', 'objectives' => 'required|array|min:2|max:4', 'objectives.*' => 'required|string|max:300',
             'introduction' => 'required|string', 'explanation' => 'required|string', 'syntax' => 'nullable|string', 'guided_practice' => 'required|string', 'activity' => 'required|string', 'expected_result' => 'required|string', 'important_notes' => 'nullable|string', 'challenge' => 'nullable|string',
@@ -198,20 +211,26 @@ class LessonController extends Controller
                 'programming_content.exercises.*.*' => 'required|string',
             ])['programming_content'];
             try {
-                $converter = app(\App\Services\ProgrammingFlowchart::class);
+                $converter = app(ProgrammingFlowchart::class);
                 $programs = $converter->generate($content['graph']);
                 $content['plan'] = $converter->plan($content['graph']);
             } catch (\InvalidArgumentException|\TypeError $error) {
-                throw \Illuminate\Validation\ValidationException::withMessages(['programming_content' => $error instanceof \TypeError ? 'Malformed graph.' : $error->getMessage()]);
+                throw ValidationException::withMessages(['programming_content' => $error instanceof \TypeError ? 'Malformed graph.' : $error->getMessage()]);
             }
-            if ($content['discussion'] !== ($lesson->programming_content['discussion'] ?? null)) $data['explanation'] = $content['discussion'];
-            else $content['discussion'] = $data['explanation'];
+            if ($content['discussion'] !== ($lesson->programming_content['discussion'] ?? null)) {
+                $data['explanation'] = $content['discussion'];
+            } else {
+                $content['discussion'] = $data['explanation'];
+            }
             if ($content['graph'] !== ($lesson->programming_content['graph'] ?? null)) {
                 foreach (['python', 'cpp', 'java'] as $language) {
                     $data['starter_'.$language] = $data['example_'.$language] = $programs[$language]['code'];
                 }
             }
             $data['programming_content'] = $content;
+        }
+        if ($lesson->isApplication() && array_key_exists('application_content', $data)) {
+            $request->validate(['application_content.allowed_uploads' => 'required|array|min:1|max:5', 'application_content.allowed_uploads.*' => 'required|in:docx,dotx,docm,pdf,xlsx,xlsm', 'application_content.exercise' => 'required|array', 'application_content.exercise.title' => 'required|string|max:200', 'application_content.exercise.filename' => 'required|string|max:200', 'application_content.exercise.sample' => 'required|string|max:20000', 'application_content.exercise.tasks' => 'required|array|min:1|max:20', 'application_content.exercise.tasks.*' => 'required|string|max:2000', 'application_content.mastery' => 'required|array|size:4', 'application_content.mastery.*' => 'required|string|max:300', 'application_content.steps' => 'required|array|min:2|max:30', 'application_content.steps.*' => 'required|string|max:3000', 'application_content.sources' => 'nullable|array|max:10', 'application_content.sources.*.url' => 'required|url:https|max:2048', 'application_content.sources.*.title' => 'required|string|max:200']);
         }
         $lesson->update($data);
 

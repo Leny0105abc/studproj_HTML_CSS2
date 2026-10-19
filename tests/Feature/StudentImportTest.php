@@ -116,6 +116,21 @@ test('valid csv rows import with hashed passwords class mapping and no fabricate
     $this->get('/students?search=alex.example')->assertInertia(fn (Assert $page) => $page->component('students/index')->has('students.data', 1)->where('students.data.0.username', 'alex.example')->where('students.data.0.progress', 0));
 });
 
+test('imports accept six character passwords generate six when blank and reject shorter passwords', function () {
+    $this->actingAs($this->teacher);
+    $url = importPreview($this, "name,username,grade_level,section,password\nSimple Student,simple.six,10,A,flower\nGenerated Student,generated.six,10,A,\nShort Student,short.five,10,A,short\n");
+    $this->get($url)->assertInertia(fn (Assert $page) => $page->where('summary.ready', 2)->where('summary.invalid', 1));
+    $this->post($url)->assertSessionHasNoErrors();
+    expect(Hash::check('flower', User::where('username', 'simple.six')->firstOrFail()->password))->toBeTrue();
+    $this->assertDatabaseMissing('users', ['username' => 'short.five']);
+    $this->get($url)->assertInertia(fn (Assert $page) => $page->where('credentials', function ($credentials) {
+        $generated = collect($credentials)->firstWhere('username', 'generated.six');
+
+        return preg_match('/^[abcdefghjkmnpqrstuvwxyz23456789]{6}$/', $generated['password']) === 1
+            && Hash::check($generated['password'], User::where('username', 'generated.six')->firstOrFail()->password);
+    }));
+});
+
 test('duplicates including case and generated email collisions are skipped and existing records stay unchanged', function () {
     $existing = User::factory()->create(['username' => 'existing', 'email' => 'taken@example.test']);
     $snapshot = $existing->fresh()->getRawOriginal();

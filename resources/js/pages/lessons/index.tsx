@@ -38,6 +38,8 @@ type Lesson = {
     autoComplete: boolean;
     published: boolean;
     position: number;
+    exerciseTitle?: string | null;
+    exerciseStatus?: string | null;
 };
 type LevelProgress = Record<string, { completed: number; total: number }>;
 const stateIcon = (lesson: Lesson) =>
@@ -50,6 +52,8 @@ const stateIcon = (lesson: Lesson) =>
     );
 
 export default function Lessons({
+    applicationCases = [],
+    applicationStats,
     lessons,
     levelProgress,
     isTeacher,
@@ -60,6 +64,17 @@ export default function Lessons({
     educationLevels = [],
     levels = ['Basic', 'Moderate', 'Advanced'],
 }: {
+    applicationCases?: {
+        id: number;
+        title: string;
+        level: string;
+        unlocked: boolean;
+        status: string;
+    }[];
+    applicationStats?: {
+        exercisesCompleted: number;
+        caseStudiesCompleted: number;
+    } | null;
     lessons: Lesson[];
     levelProgress: LevelProgress;
     isTeacher: boolean;
@@ -203,12 +218,62 @@ export default function Lessons({
                             )}
                         </>
                     )}
+                    {applicationStats && (
+                        <section className="space-y-4 rounded-2xl border bg-card p-5 text-card-foreground">
+                            <h2 className="text-xl font-bold">
+                                {course?.name} practical learning
+                            </h2>
+                            <p>
+                                15 Lessons · 15 Practical Exercises · 3 Major
+                                Case Studies · Interactive Demonstrations
+                            </p>
+                            <p>
+                                Exercises submitted:{' '}
+                                {applicationStats.exercisesCompleted}/15 · Case
+                                studies graded complete:{' '}
+                                {applicationStats.caseStudiesCompleted}/3
+                            </p>
+                            <div className="grid gap-4 sm:grid-cols-3">
+                                {applicationCases.map((item) => (
+                                    <article
+                                        className="space-y-2 rounded border p-3"
+                                        key={item.id}
+                                    >
+                                        <h3 className="font-bold">
+                                            {item.level}
+                                        </h3>
+                                        <p>
+                                            5 Lessons · 5 Exercises · 1 Case
+                                            Study
+                                        </p>
+                                        <p>{item.title}</p>
+                                        <p>
+                                            {item.status.replaceAll('_', ' ')}
+                                        </p>
+                                        {item.unlocked ? (
+                                            <Link
+                                                className="font-semibold underline"
+                                                href={`/application-case-studies/${item.id}`}
+                                            >
+                                                Open case study
+                                            </Link>
+                                        ) : (
+                                            <p>
+                                                🔒 Complete this module’s five
+                                                lessons.
+                                            </p>
+                                        )}
+                                    </article>
+                                ))}
+                            </div>
+                        </section>
+                    )}
                     {!isTeacher && (
                         <section className="grid gap-3 sm:grid-cols-3">
                             {levels.map((level) => (
                                 <div
                                     key={level}
-                                    className="rounded-2xl border bg-white p-4 shadow-sm"
+                                    className="rounded-2xl border bg-card p-4 text-card-foreground shadow-sm"
                                 >
                                     <div className="flex justify-between text-sm">
                                         <strong>{level}</strong>
@@ -218,7 +283,7 @@ export default function Lessons({
                                             /{levelProgress[level]?.total ?? 5}
                                         </span>
                                     </div>
-                                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-100">
+                                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-muted">
                                         <div
                                             className="h-full rounded-full bg-indigo-600"
                                             style={{
@@ -276,10 +341,10 @@ export default function Lessons({
                                     .map((lesson) => (
                                         <Card
                                             key={lesson.id}
-                                            className={`border-0 shadow-sm ring-1 ${lesson.unlocked ? 'bg-white ring-slate-200' : 'bg-slate-50 ring-slate-200/60'}`}
+                                            className={`border-0 shadow-sm ring-1 ${lesson.unlocked ? 'bg-card ring-border' : 'bg-muted ring-border'}`}
                                         >
                                             <CardContent className="flex items-center gap-4 p-4">
-                                                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-slate-100">
+                                                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-muted">
                                                     {stateIcon(lesson)}
                                                 </span>
                                                 <div className="min-w-0 flex-1">
@@ -326,6 +391,18 @@ export default function Lessons({
                                                             {lesson.title}
                                                         </Link>
                                                     </h3>
+                                                    {lesson.exerciseTitle && (
+                                                        <p className="mt-1 text-sm">
+                                                            Exercise:{' '}
+                                                            {
+                                                                lesson.exerciseTitle
+                                                            }{' '}
+                                                            ·{' '}
+                                                            {
+                                                                lesson.exerciseStatus
+                                                            }
+                                                        </p>
+                                                    )}
                                                 </div>
                                                 {!isTeacher &&
                                                 lesson.unlocked ? (

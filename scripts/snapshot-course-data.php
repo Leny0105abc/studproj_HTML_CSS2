@@ -27,7 +27,7 @@ $directory = storage_path('app/private/course-backups');
 if (! is_dir($directory)) {
     mkdir($directory, 0700, true);
 }
-$label = in_array($argv[1] ?? '', ['scratch', 'php', 'cpp', 'java', 'sql', 'javascript', 'vbnet', 'vba', 'apps-script', 'csharp', 'bootstrap', 'wordpress', 'tailwind', 'programming', 'education'], true) ? $argv[1] : 'python';
+$label = in_array($argv[1] ?? '', ['scratch', 'php', 'cpp', 'java', 'sql', 'javascript', 'vbnet', 'vba', 'apps-script', 'csharp', 'bootstrap', 'wordpress', 'tailwind', 'programming', 'education', 'word', 'excel'], true) ? $argv[1] : 'python';
 $path = $directory.'/before-'.$label.'-'.date('Ymd-His').'.encrypted';
 file_put_contents($path, Crypt::encryptString(json_encode($snapshot, JSON_THROW_ON_ERROR)));
 echo 'Encrypted snapshot: '.$path.PHP_EOL;

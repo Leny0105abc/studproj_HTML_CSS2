@@ -49,6 +49,13 @@ class StudentAccountService
 
     public function temporaryPassword(): string
     {
-        return Str::password(12, symbols: false);
+        // Avoid look-alike characters when learners read or type a temporary password.
+        $alphabet = 'abcdefghjkmnpqrstuvwxyz23456789';
+        $password = '';
+        for ($i = 0; $i < 6; $i++) {
+            $password .= $alphabet[random_int(0, strlen($alphabet) - 1)];
+        }
+
+        return $password;
     }
 }

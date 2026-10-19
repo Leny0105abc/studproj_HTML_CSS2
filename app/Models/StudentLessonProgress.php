@@ -13,7 +13,7 @@ class StudentLessonProgress extends Model
 
     protected function casts(): array
     {
-        return [
+        return ['application_workspace' => 'array',
             'programming_workspace' => 'array', 'version' => 'integer',
             'is_manually_unlocked' => 'boolean', 'started_at' => 'datetime', 'last_saved_at' => 'datetime',
             'submitted_at' => 'datetime', 'completed_at' => 'datetime', 'activity_passed_at' => 'datetime',

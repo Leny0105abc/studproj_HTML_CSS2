@@ -5,7 +5,7 @@ CodeLab Academy is a responsive HTML and CSS learning platform for teachers and 
 ## Features
 
 - Username-based authentication with rate limiting, secure password hashing, disabled-account checks, and role authorization
-- Teacher-generated student usernames and 12-character temporary passwords, including teacher-assisted recovery and required password change before lessons
+- Teacher-generated student usernames and 6-character temporary passwords, including teacher-assisted recovery and required password change before lessons
 - 15 seeded lessons: five HTML-only Basic lessons, five HTML-only Moderate lessons, and five Advanced HTML/CSS lessons
 - Five-question quiz per lesson; a score of at least 4/5 plus a passing coding check unlocks the next lesson
 - Lesson-specific, non-exact-match HTML/CSS checks with actionable feedback
@@ -41,10 +41,13 @@ Open the configured `APP_URL`. In Laravel Herd, this project is available at `ht
 
 ## Computer-lab LAN access
 
-For a computer lab without internet, see [LAN setup](docs/LAN.md). On Windows,
-after building assets, run `powershell -ExecutionPolicy Bypass -File .\scripts\start-lan.ps1`
-and open the printed server address from student PCs. Use Apache/Nginx for regular
-whole-class sessions.
+On the Windows server, double-click **START_CODELAB_LAN.cmd**. It detects the
+network address and opens the app. Student PCs on the same network open the
+client URL printed in the server window and use their existing accounts.
+Windows may request administrator approval once for the local-subnet firewall
+rule. Press Enter in the server window, or use **STOP_CODELAB_LAN.cmd**, to stop.
+See [LAN setup](docs/LAN.md) for preparation, alternate ports, school firewall
+troubleshooting and Apache/Nginx hosting for a busy classroom.
 
 ## Database
 

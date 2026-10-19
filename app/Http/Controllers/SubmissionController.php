@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ActivityLog;
+use App\Models\CaseStudy;
 use App\Models\Lesson;
 use App\Models\StudentLessonProgress;
 use App\Models\Submission;
@@ -33,6 +34,9 @@ class SubmissionController extends Controller
 
     public function show(Submission $submission): Response
     {
+        if ($submission->application_workspace !== null) {
+            return Inertia::render('submissions/application', ['submission' => $submission->load(['user', 'lesson.course', 'caseStudy', 'feedback'])]);
+        }
         $progress = $submission->lesson_id ? StudentLessonProgress::where('user_id', $submission->user_id)
             ->where('lesson_id', $submission->lesson_id)->first() : null;
         $quizRequired = count($submission->lesson?->quiz ?? []) >= 5;
@@ -59,7 +63,25 @@ class SubmissionController extends Controller
             'comment' => 'required_if:status,needs_revision|nullable|string|max:5000',
             'rubric_scores' => 'nullable|array',
             'rubric_scores.*' => 'required|numeric|min:0|max:100',
+            'exercise_score' => 'nullable|numeric|min:0|max:100',
         ]);
+        if ($submission->application_workspace !== null) {
+            $key = $submission->lesson_id ? 'lesson_id' : 'case_study_id';
+            $latest = Submission::where('user_id', $submission->user_id)->where($key, $submission->$key)->latest('version')->first();
+            abort_unless($latest?->id === $submission->id && $submission->status !== 'superseded', 422, 'Review the latest document submission.');
+            if ($submission->case_study_id && $data['status'] === 'completed') {
+                $rubric = $submission->caseStudy->rubric ?? [];
+                $scores = $data['rubric_scores'] ?? [];
+                if (array_diff(array_keys($rubric), array_keys($scores)) || array_diff(array_keys($scores), array_keys($rubric))) {
+                    throw ValidationException::withMessages(['rubric_scores' => 'Grade every case study rubric category.']);
+                }
+                foreach ($rubric as $name => $max) {
+                    if ($scores[$name] > $max) {
+                        throw ValidationException::withMessages(['rubric_scores' => "$name must not exceed $max."]);
+                    }
+                }
+            }
+        }
         if (($submission->lesson?->isProgramming() || $submission->lesson?->isWordpress() || $submission->lesson?->isScratch() || $submission->lesson?->isPhp() || $submission->lesson?->isCpp() || $submission->lesson?->isJava() || $submission->lesson?->isSql() || $submission->lesson?->isWebWorkspace() || $submission->lesson?->isCsharp() || $submission->lesson?->isVbnet() || $submission->lesson?->isVba() || $submission->lesson?->isGoogleAppsScript()) && $submission->lesson->is_project && $data['status'] === 'completed') {
             $scores = $data['rubric_scores'] ?? [];
             $rubric = $submission->lesson->rubric ?? [];
@@ -80,6 +102,25 @@ class SubmissionController extends Controller
             }
         }
         DB::transaction(function () use ($request, $submission, $data) {
+            if ($submission->application_workspace !== null) {
+                $key = $submission->lesson_id ? 'lesson_id' : 'case_study_id';
+                $table = $submission->lesson_id ? 'student_lesson_progress' : 'case_study_progress';
+                $draft = DB::table($table)->where('user_id', $submission->user_id)->where($key, $submission->$key)->lockForUpdate()->first();
+                $latest = Submission::where('user_id', $submission->user_id)->where($key, $submission->$key)->latest('version')->first();
+                if ($latest?->id !== $submission->id || $submission->fresh()->status === 'superseded' || json_decode($draft->application_workspace ?? 'null', true) !== $submission->application_workspace) {
+                    throw ValidationException::withMessages(['status' => 'Review the latest submitted document; the student has saved newer work.']);
+                }
+            }
+            if ($submission->application_workspace !== null && $submission->case_study_id && $data['status'] === 'completed') {
+                $submission->update(['rubric_scores' => array_map('floatval', $data['rubric_scores'])]);
+                ActivityLog::create(['user_id' => $submission->user_id, 'event' => 'case_study_graded', 'subject_type' => CaseStudy::class, 'subject_id' => $submission->case_study_id, 'metadata' => ['score' => array_sum($data['rubric_scores'])], 'occurred_at' => now()]);
+            }
+            if ($submission->application_workspace !== null && $submission->lesson_id) {
+                if (isset($data['exercise_score'])) {
+                    $submission->update(['rubric_scores' => ['Practical Exercise' => (float) $data['exercise_score']]]);
+                }
+                ActivityLog::create(['user_id' => $submission->user_id, 'event' => 'exercise_graded', 'subject_type' => Submission::class, 'subject_id' => $submission->id, 'metadata' => ['score' => $data['exercise_score'] ?? null], 'occurred_at' => now()]);
+            }
             if ($submission->lesson_id) {
                 $progress = StudentLessonProgress::where('user_id', $submission->user_id)->where('lesson_id', $submission->lesson_id)
                     ->lockForUpdate()->first();

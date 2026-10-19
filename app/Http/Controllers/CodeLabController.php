@@ -42,6 +42,9 @@ class CodeLabController extends Controller
 
     public function show(Request $request, Lesson $lesson, LessonCodeValidator $validator): Response
     {
+        if ($lesson->isApplication()) {
+            return app(ApplicationWorkspaceController::class)->lesson($request, $lesson);
+        }
         if ($lesson->isProgramming()) {
             return app(ProgrammingWorkspaceController::class)->show($request, $lesson);
         }
@@ -168,6 +171,7 @@ class CodeLabController extends Controller
 
     public function save(Request $request, Lesson $lesson, LessonCodeValidator $validator)
     {
+        abort_if($lesson->isApplication(), 422, 'Use the document submission workspace.');
         abort_if($lesson->isProgramming(), 422, 'Use the structured programming workspace endpoint.');
         abort_if($lesson->isScratch() || $lesson->isWordpress(), 422, 'Use the Scratch project workspace to save this lesson.');
         $this->ensureUnlocked($request, $lesson);
@@ -223,6 +227,7 @@ class CodeLabController extends Controller
 
     public function check(Request $request, Lesson $lesson, LessonCodeValidator $validator)
     {
+        abort_if($lesson->isApplication(), 422, 'Use the document mastery check.');
         abort_if($lesson->isProgramming(), 422, 'Use the structured programming workspace endpoint.');
         abort_if($lesson->isScratch() || $lesson->isWordpress(), 422, 'Scratch projects require teacher review.');
         $this->ensureUnlocked($request, $lesson);
@@ -236,6 +241,7 @@ class CodeLabController extends Controller
 
     public function submit(Request $request, Lesson $lesson, LessonCodeValidator $validator)
     {
+        abort_if($lesson->isApplication(), 422, 'Use the document submission workspace.');
         abort_if($lesson->isProgramming(), 422, 'Use the structured programming workspace endpoint.');
         abort_if($lesson->isScratch() || $lesson->isWordpress(), 422, 'Use the Scratch project workspace to submit this lesson.');
         $this->ensureUnlocked($request, $lesson);
@@ -321,6 +327,9 @@ class CodeLabController extends Controller
 
     public function quiz(Request $request, Lesson $lesson)
     {
+        if ($lesson->isApplication()) {
+            return app(ApplicationWorkspaceController::class)->quiz($request, $lesson);
+        }
         $this->ensureUnlocked($request, $lesson);
         $this->ensureEditable($request, $lesson);
         $questions = $lesson->quiz ?? [];
@@ -333,6 +342,7 @@ class CodeLabController extends Controller
             $questions = array_map(function ($entry) use ($questions) {
                 $q = $questions[$entry['question']];
                 $q['answer'] = array_search($q['answer'], $entry['choices'], true);
+
                 return $q;
             }, $quizOrder);
         }

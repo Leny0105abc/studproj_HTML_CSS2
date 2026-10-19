@@ -88,7 +88,7 @@ class DashboardController extends Controller
                 'level' => $user->hasAssignedEducationLevel() ? ($nextLesson?->level ?? 'Course complete') : 'Education Level Not Assigned',
                 'lastActivity' => optional($user->activityLogs()->latest('occurred_at')->first()?->occurred_at)->diffForHumans() ?? 'Ready to begin',
             ],
-            'nextLesson' => $nextLesson ? ['id' => $nextLesson->id, 'number' => $nextLesson->requiresTeacherReview() ? (($nextLesson->position - 1) % 10) + 1 : $nextLesson->number, 'title' => $nextLesson->title, 'level' => $nextLesson->level] : null,
+            'nextLesson' => $nextLesson ? ['id' => $nextLesson->id, 'number' => $nextLesson->isApplication() ? (($nextLesson->position - 1) % 5) + 1 : ($nextLesson->requiresTeacherReview() ? (($nextLesson->position - 1) % 10) + 1 : $nextLesson->number), 'title' => $nextLesson->title, 'level' => $nextLesson->level] : null,
             'recentActivity' => $user->activityLogs()->latest('occurred_at')->take(5)->get(['event', 'metadata', 'occurred_at']),
             'teacherReviews' => Submission::where('user_id', $user->id)->whereNotNull('lesson_id')
                 ->whereNotNull('reviewed_at')->with(['lesson:id,number,title', 'feedback.teacher:id,name'])

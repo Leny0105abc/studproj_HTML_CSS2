@@ -2,6 +2,7 @@ import { Head, Link } from '@inertiajs/react';
 import { BookOpen, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 type Course = {
+    editor_type?: string;
     id: number;
     is_shared: boolean;
     audience_label: string;
@@ -46,12 +47,16 @@ export default function Courses({
                             {courses
                                 .filter(
                                     (course) =>
-                                        isCollegeStudent || (course.is_shared ? "Shared courses" : course.education_level.name) === level,
+                                        isCollegeStudent ||
+                                        (course.is_shared
+                                            ? 'Shared courses'
+                                            : course.education_level.name) ===
+                                            level,
                                 )
                                 .map((course) => (
                                     <article
                                         key={course.id}
-                                        className="space-y-4 rounded-2xl border bg-white p-6 shadow-sm"
+                                        className="space-y-4 rounded-2xl border bg-card p-6 text-card-foreground shadow-sm"
                                     >
                                         {course.language === 'Python' ? (
                                             <Terminal aria-hidden="true" />
@@ -90,6 +95,18 @@ export default function Courses({
                                             )}
                                             %
                                         </p>
+                                        {[
+                                            'office-word',
+                                            'office-excel',
+                                        ].includes(
+                                            course.editor_type ?? '',
+                                        ) && (
+                                            <p>
+                                                15 Practical Exercises · 3 Major
+                                                Case Studies · Interactive
+                                                Demonstrations
+                                            </p>
+                                        )}
                                         <progress
                                             aria-label={`${course.name} progress`}
                                             value={course.completed}

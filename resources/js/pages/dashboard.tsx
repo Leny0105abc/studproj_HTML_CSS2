@@ -84,7 +84,7 @@ type Props = {
     teacherReviews?: Review[];
 };
 
-const statClass = 'border-0 bg-white shadow-sm ring-1 ring-slate-200/70';
+const statClass = 'border-0 bg-card shadow-sm ring-1 ring-border';
 
 export default function Dashboard({
     courses = [],
@@ -365,8 +365,8 @@ export default function Dashboard({
                                 Welcome back, {auth.user.name.split(' ')[0]}!
                             </h1>
                             <p className="mt-3 max-w-xl text-slate-300">
-                                Pick up where you left off. Every experiment
-                                builds your programming skills.
+                                Pick up where you left off. Every activity
+                                builds your skills.
                             </p>
                             {nextLesson && (
                                 <Button
@@ -503,10 +503,10 @@ export default function Dashboard({
                                                 {nextLesson.title}
                                             </h2>
                                             <p className="mt-2 text-sm text-muted-foreground">
-                                                Read the lesson, run and submit
-                                                your code, then pass the
-                                                lesson quiz to unlock the
-                                                next lesson.
+                                                Read the lesson, complete and
+                                                submit the activity, then pass
+                                                its quiz to unlock the next
+                                                lesson.
                                             </p>
                                         </div>
                                         <span className="hidden size-16 place-items-center rounded-2xl bg-indigo-600 text-2xl font-bold text-white sm:grid">

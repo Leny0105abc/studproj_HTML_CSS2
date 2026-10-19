@@ -90,7 +90,7 @@ class StudentImportService
                 'last_name' => ($data['_split_name'] ? 'required' : 'nullable').'|string|max:80',
                 'username' => ['required', 'string', 'max:100', 'regex:/^[a-z0-9][a-z0-9._-]*$/'],
                 'grade_level' => 'required|string|max:30', 'section' => 'required|string|max:50',
-                'email' => 'nullable|email:rfc|max:255', 'password' => 'nullable|string|min:8|max:128',
+                'email' => 'nullable|email:rfc|max:255', 'password' => 'nullable|string|min:6|max:128',
                 'status' => 'required|in:active,disabled,archived',
                 'education_level' => 'required|string',
                 'education_level_id' => 'nullable|exists:education_levels,id',

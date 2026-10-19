@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AiTutorController;
+use App\Http\Controllers\ApplicationWorkspaceController;
 use App\Http\Controllers\CaseStudyController;
 use App\Http\Controllers\CaseStudyLabController;
 use App\Http\Controllers\CodeLabController;
@@ -9,10 +10,13 @@ use App\Http\Controllers\CsharpRunController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JavaRunController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\LessonDemonstrationController;
+use App\Http\Controllers\ProgrammingWorkspaceController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ScratchWorkspaceController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentImportController;
+use App\Http\Controllers\StudentPasswordBatchController;
 use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\VbnetRunController;
 use App\Http\Controllers\WordpressWorkspaceController;
@@ -78,6 +82,10 @@ Route::get('tailwind-runtime-assets/{file}', function (string $file) {
 Route::inertia('/', 'welcome')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('application-evidence/{evidence}', [ApplicationWorkspaceController::class, 'download'])->whereUuid('evidence');
+    Route::get('demonstrations/{demonstration}/media', [LessonDemonstrationController::class, 'media']);
+    Route::get('application-lessons/{lesson}', [ApplicationWorkspaceController::class, 'lesson']);
+    Route::get('application-case-studies/{caseStudy}', [ApplicationWorkspaceController::class, 'caseStudy']);
     Route::get('wordpress-evidence/{evidence}', [WordpressWorkspaceController::class, 'download'])->whereUuid('evidence')->name('wordpress.evidence');
     Route::get('dashboard', DashboardController::class)->name('dashboard');
     Route::get('lessons', [LessonController::class, 'index'])->name('lessons.index');
@@ -87,10 +95,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('case-studies', [CaseStudyController::class, 'index'])->name('case-studies.index');
 
     Route::middleware('role:student')->group(function () {
+        Route::post('application-lessons/{lesson}/save', [ApplicationWorkspaceController::class, 'saveLesson'])->middleware('throttle:20,1');
+        Route::post('application-lessons/{lesson}/viewed', [ApplicationWorkspaceController::class, 'viewed'])->middleware('throttle:60,1');
+        Route::post('application-case-studies/{caseStudy}/save', [ApplicationWorkspaceController::class, 'saveCase'])->middleware('throttle:20,1');
+        Route::post('application-case-studies/{caseStudy}/viewed', [ApplicationWorkspaceController::class, 'caseViewed']);
         Route::post('courses/{course:slug}/modules/{module}/assessment', [CourseController::class, 'assessment'])->name('courses.assessment');
-        Route::post('code-lab/{lesson}/programming/generate', [\App\Http\Controllers\ProgrammingWorkspaceController::class, 'generate'])->middleware('throttle:60,1')->name('programming.generate');
-        Route::put('code-lab/{lesson}/programming/save', [\App\Http\Controllers\ProgrammingWorkspaceController::class, 'save'])->name('programming.save');
-        Route::post('code-lab/{lesson}/programming/submit', [\App\Http\Controllers\ProgrammingWorkspaceController::class, 'submit'])->name('programming.submit');
+        Route::post('code-lab/{lesson}/programming/generate', [ProgrammingWorkspaceController::class, 'generate'])->middleware('throttle:60,1')->name('programming.generate');
+        Route::put('code-lab/{lesson}/programming/save', [ProgrammingWorkspaceController::class, 'save'])->name('programming.save');
+        Route::post('code-lab/{lesson}/programming/submit', [ProgrammingWorkspaceController::class, 'submit'])->name('programming.submit');
         Route::get('code-lab/{lesson}', [CodeLabController::class, 'show'])->name('code-lab.show');
         Route::post('code-lab/{lesson}/java/run', JavaRunController::class)->middleware('throttle:6,1')->name('java.run');
         Route::post('code-lab/{lesson}/csharp/run', CsharpRunController::class)->middleware('throttle:6,1')->name('csharp.run');
@@ -110,6 +122,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::middleware('role:teacher')->group(function () {
+        Route::post('application-lessons/{lesson}/demonstrations/{demonstration?}', [LessonDemonstrationController::class, 'store']);
+        Route::put('application-case-studies/{caseStudy}', [LessonDemonstrationController::class, 'updateCase']);
         Route::put('courses/{course:slug}', [CourseController::class, 'update'])->name('courses.update');
         Route::post('courses/{course:slug}/assign', [CourseController::class, 'assign'])->name('courses.assign');
         Route::put('courses/{course:slug}/modules/{module}', [CourseController::class, 'module'])->name('courses.modules.update');
@@ -125,6 +139,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('students/import/{token}', [StudentImportController::class, 'show'])->name('students.import.show');
         Route::post('students/import/{token}', [StudentImportController::class, 'store'])->middleware('throttle:10,1')->name('students.import.store');
         Route::get('students/import/{token}/errors', [StudentImportController::class, 'errors'])->name('students.import.errors');
+        Route::post('students/password-batches', [StudentPasswordBatchController::class, 'store'])->middleware('throttle:10,1')->name('students.password-batches.store');
+        Route::get('students/password-batches/{token}/pdf', [StudentPasswordBatchController::class, 'download'])->whereUuid('token')->middleware('throttle:20,1')->name('students.password-batches.download');
         Route::resource('students', StudentController::class)->only(['index', 'store', 'show', 'update', 'destroy']);
         Route::post('students/{student}/reset-password', [StudentController::class, 'resetPassword'])->middleware('throttle:10,1')->name('students.reset-password');
         Route::post('students/{student}/unlock/{lesson}', [StudentController::class, 'unlock'])->name('students.unlock');

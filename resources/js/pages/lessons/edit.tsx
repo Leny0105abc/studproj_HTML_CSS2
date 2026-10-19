@@ -85,7 +85,16 @@ export default function EditLesson({
     const [data, setData] = useState(lesson);
     const [objectives, setObjectives] = useState(lesson.objectives.join('\n'));
     const [json, setJson] = useState({
-        programming_content: JSON.stringify(lesson.programming_content ?? null, null, 2),
+        application_content: JSON.stringify(
+            lesson.application_content ?? null,
+            null,
+            2,
+        ),
+        programming_content: JSON.stringify(
+            lesson.programming_content ?? null,
+            null,
+            2,
+        ),
         quiz: JSON.stringify(lesson.quiz ?? [], null, 2),
         rubric: JSON.stringify(lesson.rubric ?? null, null, 2),
         validation_rules: JSON.stringify(
@@ -107,6 +116,7 @@ export default function EditLesson({
                 is_project: data.is_project,
                 prerequisite_id: data.prerequisite_id,
                 objectives: objectives.split('\n').filter(Boolean),
+                application_content: JSON.parse(json.application_content),
                 programming_content: JSON.parse(json.programming_content),
                 quiz: JSON.parse(json.quiz),
                 rubric: JSON.parse(json.rubric),

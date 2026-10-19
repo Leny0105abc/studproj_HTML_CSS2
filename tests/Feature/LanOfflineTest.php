@@ -31,7 +31,7 @@ test('offline configuration disables AI even when a key is present', function ()
     }
 });
 
-test('offline production passwords keep complexity checks without an internet lookup', function () {
+test('offline production passwords accept six simple characters without an internet lookup', function () {
     $previousEnvironment = $this->app['env'];
 
     try {
@@ -41,7 +41,8 @@ test('offline production passwords keep complexity checks without an internet lo
 
         expect(Validator::make(['password' => 'LabPassword!2026'], ['password' => Password::defaults()])->passes())->toBeTrue();
         expect(Validator::make(['password' => 'short'], ['password' => Password::defaults()])->fails())->toBeTrue();
-        expect(Validator::make(['password' => 'alllowercaseletters'], ['password' => Password::defaults()])->fails())->toBeTrue();
+        expect(Validator::make(['password' => 'flower'], ['password' => Password::defaults()])->passes())->toBeTrue();
+        expect(Validator::make(['password' => '123456'], ['password' => Password::defaults()])->passes())->toBeTrue();
         Http::assertNothingSent();
     } finally {
         $this->app['env'] = $previousEnvironment;
